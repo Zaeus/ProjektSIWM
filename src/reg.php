@@ -1,10 +1,11 @@
-<?
+﻿<?
 	session_start();
 ?>
 <?
 	include("naglowek.php");	
 	include("polaczenieSQL.php");
 ?>
+	<h4>Rejestracja nowego pacjenta/lekarza</h4>
 	<div id="RegForm">
 		<form action="reg.php" method="post">
 			<label for="Imię"></label><input type="text" name="ImieReg" placeholder="Imię" id="ImieReg"/><br>
