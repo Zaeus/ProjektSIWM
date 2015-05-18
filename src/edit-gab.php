@@ -9,7 +9,7 @@
 // Edycja gabinetów dla admina
 <?
 	if(isset($_SESSION['login']) && ($_SESSION['haslo'] == $hasloSql)){
-		if($_SESSION['uprawnienia'] == 2) {
+		if($_SESSION['uprawnienia'] == "admin") {
 			echo "Posiadasz uprawnienia admina";
 			// Edycja gabinetów dla admina
 		}
