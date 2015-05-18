@@ -11,7 +11,25 @@
 <?
 	if(isset($_SESSION['login']) && ($_SESSION['haslo'] == $hasloSql)){
 		if($_SESSION['uprawnienia'] == "lekarz" || $_SESSION['uprawnienia'] == "admin") {
-			echo "Posiadasz uprawnienia lekarza<br>"; // To do późniejszego wywalenia
+			echo "Posiadasz uprawnienia lekarza<br>";
+            if(isset($_POST['Wstecz'])){
+                date_modify($_SESSION['data'], '-1 week');;
+                unset($_POST['Wstecz']);
+             }else if(isset($_POST['Dalej'])) {
+                date_modify($_SESSION['data'], '+1 week');;
+                unset($_POST['Dalej']);
+            }else {
+                $_SESSION['data'] = new DateTime();
+            }
+            echo date_format($_SESSION['data'], 'Y-m-d');
+?>
+            <form action="gabinet.php" method="POST">
+			    <input type="submit" value="Wstecz" name="Wstecz" />
+                <input type="submit" value="Dalej" name="Dalej" />
+            </form>
+
+<?
+			 // To do późniejszego wywalenia
 			// TODO Dorobić wyświetlenie aktualnej daty (zakresu dat dla tygodnia)
 			// TODO Dorobić przyciski tydzień w przód/tył
 			// TODO Dorobić zapisy/modyfikację zajmowania gabinetów

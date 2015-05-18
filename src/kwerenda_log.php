@@ -1,8 +1,8 @@
 	<?
-	// Kwerenda wykorzystywana do otrzymania z bazy danych zakodowanego has³a w celu poprawnej identyfikacji osoby loguj¹cej siê
+	// Kwerenda wykorzystywana do otrzymania z bazy danych zakodowanego hasï¿½a w celu poprawnej identyfikacji osoby logujï¿½cej siï¿½
 	
 	$kwerenda = "SELECT email, haslo, nazwisko FROM nazwiska WHERE email = \"" . $_SESSION['login'] . "\"";
-	$logowanie = mysql_query($kwerenda)	or die('B³¹d logowania');
+	$logowanie = mysql_query($kwerenda)	or die('BÅ‚Ä…d logowania');
 	if($logowanie){
 		$wiersz = mysql_fetch_assoc($logowanie);
 		$hasloSql = $wiersz['haslo'];
