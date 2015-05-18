@@ -18,12 +18,12 @@
 			?>
 			<br><table cellpadding="5" border="1">
 			<tr bgcolor>
-			<td><center>Godzina</center></td>
-			<td><center>Poniedziałek</center></td>
-			<td><center>Wtorek</center></td>
-			<td><center>Środa</center></td>
-			<td><center>Czwartek</center></td>
-			<td><center>Piątek</center></td>
+			<td style="text-align: center;">Godzina</td>
+			<td style="text-align: center;">Poniedziałek</td>
+			<td style="text-align: center;">Wtorek</td>
+			<td style="text-align: center;">Środa</td>
+			<td style="text-align: center;">Czwartek</td>
+			<td style="text-align: center;">Piątek</td>
 			</tr>
 			<?
 			$Godzina = 8;
@@ -36,16 +36,16 @@
 				// TODO Kolorowanie(?) wolnych/zajętych miejsc - z wypisaniem nazwiska lekarza zajmującego gabinet
 				?>
 				<tr bgcolor=white>
-				<td width="100"><center> 
+				<td width="100" style="text-align: center;">
 				<?
 				echo $daty;
 				?>
-				</center></td>
-				<td width="100"><center>A</center></td>
-				<td width="100"><center>B</center></td>
-				<td width="100"><center>C</center></td>
-				<td width="100"><center>D</center></td>
-				<td width="100"><center>E</center></td>
+				</td>
+				<td width="100" style="text-align: center;">A</td>
+				<td width="100" style="text-align: center;">B</td>
+				<td width="100" style="text-align: center;">C</td>
+				<td width="100" style="text-align: center;">D</td>
+				<td width="100" style="text-align: center;">E</td>
 				</tr>
 				<?
 				$Godzina = $Godzina + 1;
