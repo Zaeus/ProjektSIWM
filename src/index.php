@@ -21,8 +21,8 @@
 	$forma .= "</form><br/>";	
 	echo $forma;
 ?>
-	<center><img src="usecase.png" alt="Use Case Projektu" /><br>
-	Rys. 1 - Zamysł projektu</center><br>
+	<div style="text-align: center;"><img src="usecase.png" alt="Use Case Projektu" /><br>
+	Rys. 1 - Zamysł projektu</div><br>
 <?
 	include("stopka.php");
 ?>
