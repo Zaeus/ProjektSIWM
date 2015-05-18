@@ -1,4 +1,4 @@
-﻿<?
+<?
 	session_start();
 ?>
 <?
@@ -14,7 +14,6 @@
 			echo "Posiadasz uprawnienia lekarza<br>"; // To do późniejszego wywalenia
 			// TODO Dorobić wyświetlenie aktualnej daty (zakresu dat dla tygodnia)
 			// TODO Dorobić przyciski tydzień w przód/tył
-			// TODO Dorobić zapisy/modyfikację zajmowania gabinetów
 			?>
 			<br><table cellpadding="5" border="1">
 			<tr bgcolor>
