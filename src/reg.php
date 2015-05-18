@@ -12,8 +12,8 @@
 			<label for="Nazwisko"></label><input type="text" name="NazwiskoReg" placeholder="Nazwisko" id="NazwiskoReg"/><br>
 			<label for="Email"></label><input type="email" name="EmailReg" placeholder="Email" id="EmailReg"/><br>
 			<label for="Hasło"></label><input type="text" name="HasloReg" placeholder="Hasło" id="HasloReg"/><br>
-			<input type="radio" name="Radio" id="Lekarz" value="1"/><label for="Lekarz">Lekarz</label><br>	
-			<input type="radio" name="Radio" id="Pacjent" value="0"/><label for="Pacjent">Pacjent</label><br>
+			<input type="radio" name="Radio" id="Lekarz" value="lekarz"/><label for="Lekarz">Lekarz</label><br>
+			<input type="radio" name="Radio" id="Pacjent" value="pacjent"/><label for="Pacjent">Pacjent</label><br>
 			<input type="submit" value="Zarejestruj" /><br><br>
 		</form>
 	</div>

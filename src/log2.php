@@ -35,7 +35,7 @@
 			<input type="submit" value="Edytuj swoje zapisy" /><br>
 		</form>
 		<?
-		if($uprawnieniaSql >= 1) {
+		if($uprawnieniaSql == "lekarz" || $uprawnieniaSql == "admin") {
 			echo "<br>Posiadasz dostęp do opcji lekarza: <br>";
 			// TODO Zajmij gabinet, zwolnij gabinet
 			// TODO Uzupełnij/popraw kontrakt
@@ -48,7 +48,7 @@
 				<input type="submit" value="Zapisy" /> Przejdź do strony przeglądania i edytowania zapisów do Twoich gabinetów
 			</form>			
 			<?
-			if($uprawnieniaSql == 2) {
+			if($uprawnieniaSql == "admin") {
 				echo "<br>Posiadasz dostęp do opcji administratora: <br>";
 				// TODO Dodaj gabinet, edytuj gabinet, usuń gabinet
 				// TODO Dodaj budynek, edytuj budynek, usuń budynek
