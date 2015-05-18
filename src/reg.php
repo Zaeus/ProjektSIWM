@@ -46,6 +46,7 @@
 			else {
 				echo "Dodano nowy rekord o podanych parametrach <br>";
 			}
+            // TODO Dokończenie rejestracji poprzez wybór specjalności w przypadku lekarza
 		}
 		else {
 			echo "Błąd rejestracji - wprowadź raz jeszcze dane";

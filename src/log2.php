@@ -15,7 +15,6 @@
 	if($logowanie){
 		$wiersz = mysql_fetch_assoc($logowanie);
 		$hasloSql = $wiersz['haslo'];
-		$uprawnieniaSql = $wiersz['uprawnienia'];
 		$_SESSION['uprawnienia'] = $wiersz['uprawnienia'];
 	}
 	
@@ -35,7 +34,7 @@
 			<input type="submit" value="Edytuj swoje zapisy" /><br>
 		</form>
 		<?
-		if($uprawnieniaSql == "lekarz" || $uprawnieniaSql == "admin") {
+		if(($_SESSION['uprawnienia'] == "lekarz") || ($_SESSION['uprawnienia'] == "admin")) {
 			echo "<br>Posiadasz dostęp do opcji lekarza: <br>";
 			// TODO Zajmij gabinet, zwolnij gabinet
 			// TODO Uzupełnij/popraw kontrakt

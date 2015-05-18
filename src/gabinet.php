@@ -10,7 +10,7 @@
 
 <?
 	if(isset($_SESSION['login']) && ($_SESSION['haslo'] == $hasloSql)){
-		if($_SESSION['uprawnienia'] == "lekarz" || $_SESSION['uprawnienia'] == "admin") {
+		if(($_SESSION['uprawnienia'] == "lekarz") || ($_SESSION['uprawnienia'] == "admin")) {
 			echo "Posiadasz uprawnienia lekarza<br>"; // To do późniejszego wywalenia
 			// TODO Dorobić wyświetlenie aktualnej daty (zakresu dat dla tygodnia)
 			// TODO Dorobić przyciski tydzień w przód/tył

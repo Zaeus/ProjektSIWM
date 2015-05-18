@@ -6,11 +6,12 @@
 	include("polaczenieSQL.php");
 	include("kwerenda_log.php");
 ?>
+
 //Przeglądanie zapisów
 
 <?
 	if(isset($_SESSION['login']) && ($_SESSION['haslo'] == $hasloSql)){
-		if($_SESSION['uprawnienia'] >= 1) {
+		if(($_SESSION['uprawnienia'] == "lekarz") || ($_SESSION['uprawnienia'] == "admin")) {
 			echo "Posiadasz uprawnienia lekarza";
 			//Przeglądanie zapisów
 		}
