@@ -1,4 +1,4 @@
-ï»¿<?
+<?
 	session_start();
 ?>
 <?
@@ -6,7 +6,7 @@
 	include("polaczenieSQL.php");
 	include("kwerenda_log.php");
 ?>
-//Edycja gabinetÃ³w<br>
+//Edycja gabinetów<br>
 
 <?
 	if(isset($_SESSION['login']) && ($_SESSION['haslo'] == $hasloSql)){
@@ -26,7 +26,7 @@
             }
             $dataKoniec = clone $_SESSION['data'];
             date_modify($dataKoniec, '+4 day');
-            echo "PoczÄ…tek tygodnia:".date_format($_SESSION['data'], 'Y-m-d')."<br>Koniec tygodnia:".date_format($dataKoniec, 'Y-m-d')."<br>";
+            echo "Pocz±tek tygodnia:".date_format($_SESSION['data'], 'Y-m-d')."<br>Koniec tygodnia:".date_format($dataKoniec, 'Y-m-d')."<br>";
 ?>
             <form action="gabinet.php" method="POST">
 			    <input type="submit" value="Wstecz" name="Wstecz" />
@@ -98,41 +98,41 @@
                     <option>20:30</option>
                     <option>21:00</option>
                 </select><br>
-                <select name="DzieÅ„">
-                    <option value="Monday">PoniedziaÅ‚ek</option>
+                <select name="Dzieñ">
+                    <option value="Monday">Poniedzia³ek</option>
                     <option value="Tuesday">Wtorek</option>
-                    <option value="Wednesday">Åšroda</option>
+                    <option value="Wednesday">¦roda</option>
                     <option value="Thursday">Czwartek</option>
-                    <option value="Friday">PiÄ…tek</option>
+                    <option value="Friday">Pi±tek</option>
                 </select><br>
                 <input type="submit" value="Zajmij" /><br><br>
             </form>
 
 
 <?
-			 // To do pÃ³Åºniejszego wywalenia
-			// TODO DorobiÄ‡ wyÅ›wietlenie aktualnej daty (zakresu dat dla tygodnia)
-			// TODO DorobiÄ‡ przyciski tydzieÅ„ w przÃ³d/tyÅ‚
-			// TODO DorobiÄ‡ zapisy/modyfikacjÄ™ zajmowania gabinetÃ³w
+			 // To do pó¼niejszego wywalenia
+			// TODO Dorobiæ wy¶wietlenie aktualnej daty (zakresu dat dla tygodnia)
+			// TODO Dorobiæ przyciski tydzieñ w przód/ty³
+			// TODO Dorobiæ zapisy/modyfikacjê zajmowania gabinetów
 			?>
 			<br><table cellpadding="5" border="1">
 			<tr bgcolor>
 			<td style="text-align: center;">Godzina</td>
-			<td style="text-align: center;">PoniedziaÅ‚ek</td>
+			<td style="text-align: center;">Poniedzia³ek</td>
 			<td style="text-align: center;">Wtorek</td>
-			<td style="text-align: center;">Åšroda</td>
+			<td style="text-align: center;">¦roda</td>
 			<td style="text-align: center;">Czwartek</td>
-			<td style="text-align: center;">PiÄ…tek</td>
+			<td style="text-align: center;">Pi±tek</td>
 			</tr>
 			<?
 			$Godzina = 8;
-			// Dat nie ruszaÄ‡ bo siÄ™ zjebiÄ…
+			// Dat nie ruszaæ bo siê zjebi±
 			$daty = gmdate("H:i", 28800);	
 			$half = gmdate("H:i", 1800);
 			$half = strtotime(gmdate("H:i", 1800)) - strtotime("00:00");
 			while($Godzina < 35) {
 				// TODO Kwerendy z zapytaniami dla danej godziny dla danego dnia
-				// TODO Kolorowanie(?) wolnych/zajÄ™tych miejsc - z wypisaniem nazwiska lekarza zajmujÄ…cego gabinet
+				// TODO Kolorowanie(?) wolnych/zajêtych miejsc - z wypisaniem nazwiska lekarza zajmuj±cego gabinet
 				?>
 				<tr bgcolor=white>
 				<td width="100" style="text-align: center;">
@@ -155,11 +155,11 @@
 			<?
 		}
 		else {
-			echo "Nie posiadasz uprawnieÅ„ lekarza";
+			echo "Nie posiadasz uprawnieñ lekarza";
 		}
 	}
 	else{
-		echo "Brak uprawnieÅ„ do treÅ›ci.<br>";
+		echo "Brak uprawnieñ do tre¶ci.<br>";
 	}
 ?>
 <?

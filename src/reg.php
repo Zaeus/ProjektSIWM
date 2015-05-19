@@ -8,10 +8,10 @@
 	<h4>Rejestracja nowego pacjenta/lekarza</h4>
 	<div id="RegForm">
 		<form action="reg.php" method="post">
-			<label for="Imiƒô"></label><input type="text" name="ImieReg" placeholder="Imiƒô" id="ImieReg"/><br>
+			<label for="ImiÍ"></label><input type="text" name="ImieReg" placeholder="ImiÍ" id="ImieReg"/><br>
 			<label for="Nazwisko"></label><input type="text" name="NazwiskoReg" placeholder="Nazwisko" id="NazwiskoReg"/><br>
 			<label for="Email"></label><input type="email" name="EmailReg" placeholder="Email" id="EmailReg"/><br>
-			<label for="Has≈Ço"></label><input type="text" name="HasloReg" placeholder="Has≈Ço" id="HasloReg"/><br>
+			<label for="Has≥o"></label><input type="text" name="HasloReg" placeholder="Has≥o" id="HasloReg"/><br>
 			<input type="radio" name="Radio" id="Lekarz" value="lekarz"/><label for="Lekarz">Lekarz</label><br>
 			<input type="radio" name="Radio" id="Pacjent" value="pacjent"/><label for="Pacjent">Pacjent</label><br>
 			<input type="submit" value="Zarejestruj" /><br><br>
@@ -20,14 +20,14 @@
 <?
 	if(isset($_POST['EmailReg']) ){
 		if(isset($_POST['ImieReg']) && isset($_POST['NazwiskoReg']) && isset($_POST['EmailReg']) && isset($_POST['HasloReg']) && isset($_POST['Radio'])){
-			echo "Rejestrujesz siƒô danymi:<br>";
+			echo "Rejestrujesz siÍ danymi:<br>";
 			echo $_POST['ImieReg'] . "<br>";
 			echo $_POST['NazwiskoReg'] . "<br>";
 			echo $_POST['EmailReg'] . "<br>";
 			echo $_POST['HasloReg'] . " = " . md5($_POST['HasloReg']) ."<br>";
 			echo $_POST['Radio'] . "<br><br>";
 			
-			// Kwerenda zapisu do bazy u≈ºytkownik√≥w
+			// Kwerenda zapisu do bazy uøytkownikÛw
 			$kwerenda_dodania = "INSERT INTO nazwiska (email,haslo,nazwisko,imie,uprawnienia) VALUES ";
 			$kwerenda_dodania .= "(";
 			$kwerenda_dodania .= "'" . $_POST['EmailReg'] . "'" . ",";
@@ -36,9 +36,9 @@
 			$kwerenda_dodania .= "'" . $_POST['ImieReg'] . "'" . ",";
 			$kwerenda_dodania .= "'" . $_POST['Radio'] . "'";
 			$kwerenda_dodania .= ")";
-			echo "Kwerenda dodania u≈ºytkownika: " . $kwerenda_dodania . "<br><br>";
+			echo "Kwerenda dodania uøytkownika: " . $kwerenda_dodania . "<br><br>";
 			
-			// Dodanie u≈ºytkownika do bazy danych wed≈Çug kwerendy
+			// Dodanie uøytkownika do bazy danych wed≥ug kwerendy
 			$wynik = mysql_query($kwerenda_dodania);
 			if(!$wynik) {
 				echo "Blad zapytania! <br /><br />";
@@ -46,10 +46,10 @@
 			else {
 				echo "Dodano nowy rekord o podanych parametrach <br>";
 			}
-            // TODO Doko≈Ñczenie rejestracji poprzez wyb√≥r specjalno≈õci w przypadku lekarza
+            // TODO DokoÒczenie rejestracji poprzez wybÛr specjalno∂ci w przypadku lekarza
 		}
 		else {
-			echo "B≈ÇƒÖd rejestracji - wprowad≈∫ raz jeszcze dane";
+			echo "B≥±d rejestracji - wprowadº raz jeszcze dane";
 		}
 	}
 ?>	

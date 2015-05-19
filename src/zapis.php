@@ -11,10 +11,10 @@
 
 <?
 	if(isset($_SESSION['login']) && ($_SESSION['haslo'] == $hasloSql)){
-		// Edycja istniejÄ…cych zapisÃ³w z moÅ¼liwoÅ›ciÄ… ich usuwania
+		// Edycja istniej±cych zapisów z mo¿liwo¶ci± ich usuwania
 	}
 	else{
-		echo "Brak uprawnieÅ„ do treÅ›ci.<br>";
+		echo "Brak uprawnieñ do tre¶ci.<br>";
 	}
 ?>
 <?

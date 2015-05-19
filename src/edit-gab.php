@@ -6,19 +6,19 @@
 	include("polaczenieSQL.php");
 	include("kwerenda_log.php");
 ?>
-// Edycja gabinetÃ³w dla admina
+// Edycja gabinetów dla admina
 <?
 	if(isset($_SESSION['login']) && ($_SESSION['haslo'] == $hasloSql)){
 		if($_SESSION['uprawnienia'] == "admin") {
 			echo "Posiadasz uprawnienia admina";
-			// Edycja gabinetÃ³w dla admina
+			// Edycja gabinetów dla admina
 		}
 		else {
-			echo "Nie posiadasz uprawnieÅ„ admina";
+			echo "Nie posiadasz uprawnieñ admina";
 		}
 	}
 	else {
-		echo "Brak uprawnieÅ„ do treÅ›ci.<br>";
+		echo "Brak uprawnieñ do tre¶ci.<br>";
 	}
 ?>
 <?

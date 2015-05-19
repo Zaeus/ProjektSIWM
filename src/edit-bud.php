@@ -7,19 +7,19 @@
 	include("kwerenda_log.php");
 ?>
 
-// Edycja budynkÃ³w dla admina
+// Edycja budynków dla admina
 <?
 	if(isset($_SESSION['login']) && ($_SESSION['haslo'] == $hasloSql)){
 		if($_SESSION['uprawnienia'] == "admin") {
 			echo "Posiadasz uprawnienia admina";
-			// Edycja budynkÃ³ww dla admina
+			// Edycja budynkóww dla admina
 		}
 		else {
-			echo "Nie posiadasz uprawnieÅ„ admina";
+			echo "Nie posiadasz uprawnieñ admina";
 		}
 	}
 	else {
-		echo "Brak uprawnieÅ„ do treÅ›ci.<br>";
+		echo "Brak uprawnieñ do tre¶ci.<br>";
 	}
 ?>
 <?

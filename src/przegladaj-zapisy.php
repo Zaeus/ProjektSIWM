@@ -7,20 +7,20 @@
 	include("kwerenda_log.php");
 ?>
 
-//PrzeglÄ…danie zapisÃ³w
+//Przegl±danie zapisów
 
 <?
 	if(isset($_SESSION['login']) && ($_SESSION['haslo'] == $hasloSql)){
 		if(($_SESSION['uprawnienia'] == "lekarz") || ($_SESSION['uprawnienia'] == "admin")) {
             echo "Masz uprawnienia lekarza";
-			//PrzeglÄ…danie zapisÃ³w
+			//Przegl±danie zapisów
 		}
 		else {
-			echo "Nie posiadasz uprawnieÅ„ lekarza";
+			echo "Nie posiadasz uprawnieñ lekarza";
 		}
 	}
 	else{
-		echo "Brak uprawnieÅ„ do treÅ›ci.<br>";
+		echo "Brak uprawnieñ do tre¶ci.<br>";
 	}
 ?>
 <?

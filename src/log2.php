@@ -11,7 +11,7 @@
 ?>
 <?
 	$kwerenda = "SELECT email, haslo, nazwisko, uprawnienia FROM nazwiska WHERE email = \"" . $_SESSION['login'] . "\"";
-	$logowanie = mysql_query($kwerenda)	or die('B≈ÇƒÖd logowania');
+	$logowanie = mysql_query($kwerenda)	or die('B≥±d logowania');
 	if($logowanie){
 		$wiersz = mysql_fetch_assoc($logowanie);
 		$hasloSql = $wiersz['haslo'];
@@ -19,60 +19,60 @@
 	}
 	
 	if(isset($_SESSION['login']) && ($hasloSql == $_SESSION['haslo'])){
-		echo "Witaj, jeste≈õ zalogowany jako: " . $_SESSION['login'] . "<br><br>";
+		echo "Witaj, jeste∂ zalogowany jako: " . $_SESSION['login'] . "<br><br>";
 		?>
 		<form action="index.php" method="POST">
-			<input type="submit" value="Wyloguj siƒô" />
+			<input type="submit" value="Wyloguj siÍ" />
 		</form>		
 		<?
-		echo "<br>Posiadasz dostƒôp do opcji pacjenta: <br>";		
+		echo "<br>Posiadasz dostÍp do opcji pacjenta: <br>";		
 		?>		
 		<form action="zapis.php" method="POST">
-			<input type="submit" value="Zapisz siƒô" /> Zapisz siƒô do gabinetu jako pacjent 
+			<input type="submit" value="Zapisz siÍ" /> Zapisz siÍ do gabinetu jako pacjent 
 		</form>
 			<form action="edycja.php" method="POST">
 			<input type="submit" value="Edytuj swoje zapisy" /><br>
 		</form>
 		<?
 		if(($_SESSION['uprawnienia'] == "lekarz") || ($_SESSION['uprawnienia'] == "admin")) {
-			echo "<br>Posiadasz dostƒôp do opcji lekarza: <br>";
+			echo "<br>Posiadasz dostÍp do opcji lekarza: <br>";
 			// TODO Zajmij gabinet, zwolnij gabinet
-			// TODO Uzupe≈Çnij/popraw kontrakt
-			// TODO PrzeglƒÖdaj zapisy
+			// TODO Uzupe≥nij/popraw kontrakt
+			// TODO Przegl±daj zapisy
 			?>			
 			<form action="gabinet.php" method="POST">
-				<input type="submit" value="Gabinety" /> Przejd≈∫ do strony rezerwacji oraz modyfikacji Twoich gabinet√≥w
+				<input type="submit" value="Gabinety" /> Przejdº do strony rezerwacji oraz modyfikacji Twoich gabinetÛw
 			</form>
 			<form action="przegladaj-zapisy.php" method="POST">
-				<input type="submit" value="Zapisy" /> Przejd≈∫ do strony przeglƒÖdania i edytowania zapis√≥w do Twoich gabinet√≥w
+				<input type="submit" value="Zapisy" /> Przejdº do strony przegl±dania i edytowania zapisÛw do Twoich gabinetÛw
 			</form>			
 			<?
 			if($uprawnieniaSql == "admin") {
-				echo "<br>Posiadasz dostƒôp do opcji administratora: <br>";
-				// TODO Dodaj gabinet, edytuj gabinet, usu≈Ñ gabinet
-				// TODO Dodaj budynek, edytuj budynek, usu≈Ñ budynek
-				// TODO Dodaj u≈ºytkownika, edytuj u≈ºytkownika, usu≈Ñ u≈ºytkownika 
+				echo "<br>Posiadasz dostÍp do opcji administratora: <br>";
+				// TODO Dodaj gabinet, edytuj gabinet, usuÒ gabinet
+				// TODO Dodaj budynek, edytuj budynek, usuÒ budynek
+				// TODO Dodaj uøytkownika, edytuj uøytkownika, usuÒ uøytkownika 
 				?>
 				<form action="edit-gab.php" method="POST">
-					<input type="submit" value="Gabinety" /> Przejd≈∫ do strony edytowania i modyfikowania wszystkich gabinet√≥w
+					<input type="submit" value="Gabinety" /> Przejdº do strony edytowania i modyfikowania wszystkich gabinetÛw
 				</form>
 				<form action="edit-bud.php" method="POST">
-					<input type="submit" value="Budynki" /> Przejd≈∫ do strony edytowania i modyfikowania wszystkich budynk√≥w
+					<input type="submit" value="Budynki" /> Przejdº do strony edytowania i modyfikowania wszystkich budynkÛw
 				</form>
 				<form action="edit-user.php" method="POST">
-					<input type="submit" value="U≈ºytkownicy" /> Przejd≈∫ do strony edytowania i modyfikowania wszystkich u≈ºytkownik√≥w
+					<input type="submit" value="Uøytkownicy" /> Przejdº do strony edytowania i modyfikowania wszystkich uøytkownikÛw
 				</form>
 				<?
 			}
 		}
 	}
 	else{
-		// Wyczyszczenie sesji je≈ºeli jest z≈Çe logowanie
+		// Wyczyszczenie sesji jeøeli jest z≥e logowanie
 		$_SESSION = array();
 		session_unset();
 		session_destroy();
 		?>
-		Nie jeste≈õ zalogowany. Zaloguj siƒô:<br>		
+		Nie jeste∂ zalogowany. Zaloguj siÍ:<br>		
 		<form action="log2.php" method="POST">
 		e-mail: <input type="text" name="email" /><br />
 		haslo: <input type="password" name="haslo" /><br />
