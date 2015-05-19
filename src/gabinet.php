@@ -13,15 +13,20 @@
 		if($_SESSION['uprawnienia'] == "lekarz" || $_SESSION['uprawnienia'] == "admin") {
 			echo "Posiadasz uprawnienia lekarza<br>";
             if(isset($_POST['Wstecz'])){
-                date_modify($_SESSION['data'], '-1 week');;
+                date_modify($_SESSION['data'], '-1 week');
                 unset($_POST['Wstecz']);
              }else if(isset($_POST['Dalej'])) {
-                date_modify($_SESSION['data'], '+1 week');;
+                date_modify($_SESSION['data'], '+1 week');
                 unset($_POST['Dalej']);
             }else {
                 $_SESSION['data'] = new DateTime();
             }
-            echo date_format($_SESSION['data'], 'Y-m-d');
+            while((date_format($_SESSION['data'],'l'))!="Monday"){
+                date_modify($_SESSION['data'], '-1 day');
+            }
+            $dataKoniec = clone $_SESSION['data'];
+            date_modify($dataKoniec, '+4 day');
+            echo "Początek tygodnia:".date_format($_SESSION['data'], 'Y-m-d')."<br>Koniec tygodnia:".date_format($dataKoniec, 'Y-m-d')."<br>";
 ?>
             <form action="gabinet.php" method="POST">
 			    <input type="submit" value="Wstecz" name="Wstecz" />

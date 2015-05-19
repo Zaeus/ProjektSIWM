@@ -12,7 +12,7 @@
 <?
 	if(isset($_SESSION['login']) && ($_SESSION['haslo'] == $hasloSql)){
 		if(($_SESSION['uprawnienia'] == "lekarz") || ($_SESSION['uprawnienia'] == "admin")) {
-			echo "Posiadasz uprawnienia lekarza";
+            echo "Masz uprawnienia lekarza";
 			//Przeglądanie zapisów
 		}
 		else {
