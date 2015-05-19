@@ -25,6 +25,7 @@
                 date_modify($_SESSION['data'], '-1 day');
             }
             $dataKoniec = clone $_SESSION['data'];
+			$dataDni = clone $_SESSION['data'];
             date_modify($dataKoniec, '+4 day');
             echo "Pocz±tek tygodnia:".date_format($_SESSION['data'], 'Y-m-d')."<br>Koniec tygodnia:".date_format($dataKoniec, 'Y-m-d')."<br>";
 ?>
@@ -108,21 +109,38 @@
                 <input type="submit" value="Zajmij" /><br><br>
             </form>
 
-
-<?
-			 // To do pó¼niejszego wywalenia
+			<?
 			// TODO Dorobiæ wy¶wietlenie aktualnej daty (zakresu dat dla tygodnia)
-			// TODO Dorobiæ przyciski tydzieñ w przód/ty³
 			// TODO Dorobiæ zapisy/modyfikacjê zajmowania gabinetów
 			?>
 			<br><table cellpadding="5" border="1">
 			<tr bgcolor>
 			<td style="text-align: center;">Godzina</td>
-			<td style="text-align: center;">Poniedzia³ek</td>
-			<td style="text-align: center;">Wtorek</td>
-			<td style="text-align: center;">¦roda</td>
-			<td style="text-align: center;">Czwartek</td>
-			<td style="text-align: center;">Pi±tek</td>
+			<td style="text-align: center;">Poniedzia³ek<br>
+			<?
+			echo date_format($dataDni, 'Y-m-d');
+			?>
+			</td>
+			<td style="text-align: center;">Wtorek<br>
+			<?
+			echo date_format(date_modify($dataDni, '+1 day'), 'Y-m-d');
+			?>
+			</td>
+			<td style="text-align: center;">Œroda<br>
+			<?
+			echo date_format(date_modify($dataDni, '+1 day'), 'Y-m-d');
+			?>
+			</td>
+			<td style="text-align: center;">Czwartek<br>
+			<?
+			echo date_format(date_modify($dataDni, '+1 day'), 'Y-m-d');
+			?>
+			</td>
+			<td style="text-align: center;">Pi¹tek<br>
+			<?
+			echo date_format(date_modify($dataDni, '+1 day'), 'Y-m-d');
+			?>
+			</td>
 			</tr>
 			<?
 			$Godzina = 8;
