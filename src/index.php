@@ -10,7 +10,7 @@
 	include("naglowek.php");	
 ?>
 	Witaj w projektowej bazie danych.<br>
-	MoÅ¼esz siÄ™ zalogowaÄ‡ lub zarejestrowaÄ‡:<br><br>
+	Mo¿esz siê zalogowaæ lub zarejestrowaæ:<br><br>
 <?	
 	$forma = "<form action = \"log2.php\" method=\"POST\"> ";
 	$forma .= "<input type=\"submit\" value=\"Loguj\" >";
@@ -22,7 +22,7 @@
 	echo $forma;
 ?>
 	<div style="text-align: center;"><img src="usecase.png" alt="Use Case Projektu" /><br>
-	Rys. 1 - ZamysÅ‚ projektu</div><br>
+	Rys. 1 - Zamys³ projektu</div><br>
 <?
 	include("stopka.php");
 ?>

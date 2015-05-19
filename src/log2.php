@@ -47,7 +47,7 @@
 				<input type="submit" value="Zapisy" /> Przejd¼ do strony przegl±dania i edytowania zapisów do Twoich gabinetów
 			</form>			
 			<?
-			if($uprawnieniaSql == "admin") {
+			if($_SESSION['uprawnienia'] == "admin") {
 				echo "<br>Posiadasz dostêp do opcji administratora: <br>";
 				// TODO Dodaj gabinet, edytuj gabinet, usuñ gabinet
 				// TODO Dodaj budynek, edytuj budynek, usuñ budynek
