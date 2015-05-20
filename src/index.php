@@ -9,7 +9,8 @@
 <?
 	include("naglowek.php");	
 ?>
-	Witaj w projektowej bazie danych.<br>
+    <div style="text-align: center;"><img src="Zdrowexerex.jpg" alt="Zdrowexerex" /><br><br>
+	<h2>Witaj w projektowej bazie danych - Zdrowexerex.</h2><br>
 	Mo¿esz siê zalogowaæ lub zarejestrowaæ:<br><br>
 <?	
 	$forma = "<form action = \"log2.php\" method=\"POST\"> ";
@@ -23,6 +24,8 @@
 ?>
 	<div style="text-align: center;"><img src="usecase.png" alt="Use Case Projektu" /><br>
 	Rys. 1 - Zamys³ projektu</div><br>
+    <div style="text-align: center;"><img src="medycyna-spoleczna.jpg" alt="Motto" /><br>
+    Rys. 2 - Motto zak³adowe</div><br>
 <?
 	include("stopka.php");
 ?>

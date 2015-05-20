@@ -126,7 +126,7 @@
 			echo date_format(date_modify($dataDni, '+1 day'), 'Y-m-d');
 			?>
 			</td>
-			<td style="text-align: center;">Œroda<br>
+			<td style="text-align: center;">¦roda<br>
 			<?
 			echo date_format(date_modify($dataDni, '+1 day'), 'Y-m-d');
 			?>
@@ -136,7 +136,7 @@
 			echo date_format(date_modify($dataDni, '+1 day'), 'Y-m-d');
 			?>
 			</td>
-			<td style="text-align: center;">Pi¹tek<br>
+			<td style="text-align: center;">Pi±tek<br>
 			<?
 			echo date_format(date_modify($dataDni, '+1 day'), 'Y-m-d');
 			?>
@@ -145,12 +145,13 @@
 			<?
 			$Godzina = 8;
 			// Dat nie ruszaæ bo siê zjebi±
-			$daty = gmdate("H:i", 28800);	
+			$daty = gmdate("H:i", 25200);
 			$half = gmdate("H:i", 1800);
 			$half = strtotime(gmdate("H:i", 1800)) - strtotime("00:00");
-			while($Godzina < 35) {
+			while($Godzina < 37) {
 				// TODO Kwerendy z zapytaniami dla danej godziny dla danego dnia
 				// TODO Kolorowanie(?) wolnych/zajêtych miejsc - z wypisaniem nazwiska lekarza zajmuj±cego gabinet
+                // TODO rozwiniêcie powy¿szego pomys³u - sprawdzenie kwerendy zajêto¶ci gabinetu i dopiero wygenerowanie odpowiedniego koloru t³a
 				?>
 				<tr bgcolor=white>
 				<td width="100" style="text-align: center;">
@@ -158,11 +159,11 @@
 				echo $daty;
 				?>
 				</td>
-				<td width="100" style="text-align: center;">A</td>
-				<td width="100" style="text-align: center;">B</td>
-				<td width="100" style="text-align: center;">C</td>
-				<td width="100" style="text-align: center;">D</td>
-				<td width="100" style="text-align: center;">E</td>
+				<td width="100" bgcolor="green" style="text-align: center;">A</td>
+				<td width="100" bgcolor="green" style="text-align: center;">B</td>
+				<td width="100" bgcolor="green" style="text-align: center;">C</td>
+				<td width="100" bgcolor="green" style="text-align: center;">D</td>
+				<td width="100" bgcolor="red" style="text-align: center;">E</td>
 				</tr>
 				<?
 				$Godzina = $Godzina + 1;
