@@ -3,7 +3,7 @@
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=ISO-8859-2">
-    <title>Projekt bazy danych SIWM</title>
   </head>
   <body>
     <b>Projekt bazy danych SIWM</b><br><br>
+    <div style="text-align: center;"><img src="Zdrowexerex.jpg" alt="Zdrowexerex" /><br><br>

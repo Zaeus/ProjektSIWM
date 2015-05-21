@@ -9,8 +9,7 @@
 <?
 	include("naglowek.php");	
 ?>
-    <div style="text-align: center;"><img src="Zdrowexerex.jpg" alt="Zdrowexerex" /><br><br>
-	<h2>Witaj w projektowej bazie danych - Zdrowexerex.</h2><br>
+    <h2>Witaj w projektowej bazie danych SIWM - Zdrowexerex.</h2><br>
 	Mo¿esz siê zalogowaæ lub zarejestrowaæ:<br><br>
 <?	
 	$forma = "<form action = \"log2.php\" method=\"POST\"> ";

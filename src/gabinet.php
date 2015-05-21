@@ -27,7 +27,7 @@
             $dataKoniec = clone $_SESSION['data'];
 			$dataDni = clone $_SESSION['data'];
             date_modify($dataKoniec, '+4 day');
-            echo "Pocz±tek tygodnia:".date_format($_SESSION['data'], 'Y-m-d')."<br>Koniec tygodnia:".date_format($dataKoniec, 'Y-m-d')."<br>";
+            echo "Pocz±tek tygodnia:" . date_format($_SESSION['data'], 'Y-m-d') . "<br>Koniec tygodnia:" . date_format($dataKoniec, 'Y-m-d') . "<br>";
 ?>
             <form action="gabinet.php" method="POST">
 			    <input type="submit" value="Wstecz" name="Wstecz" />
@@ -110,6 +110,7 @@
             </form>
 
 			<?
+            // TODO przerobiæ select dni na checkboxy!
 			// TODO Dorobiæ wy¶wietlenie aktualnej daty (zakresu dat dla tygodnia)
 			// TODO Dorobiæ zapisy/modyfikacjê zajmowania gabinetów
 			?>
