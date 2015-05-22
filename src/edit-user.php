@@ -16,7 +16,13 @@
                 $kwerenda_edycji = "UPDATE nazwiska SET email='" . $_POST['nowy_email'] . "', ";
                 $kwerenda_edycji .= "nazwisko='" . $_POST['nowe_nazwisko'] . "', ";
                 $kwerenda_edycji .= "imie='" . $_POST['nowe_imie'] . "', ";
-                $kwerenda_edycji .= "specjalizacja='" . $_POST['nowa_specjalizacja'] . "' ";
+                $kwerenda_edycji .= "specjalizacja=";
+                if($_POST['nowa_specjalizacja'] == ""){
+                    $kwerenda_edycji .= "NULL ";
+                }
+                else {
+                    $kwerenda_edycji .= "'" . $_POST['nowa_specjalizacja'] . "' ";
+                }
                 $kwerenda_edycji .= "WHERE id_nazwiska='" . $_POST['id_nazwiska'] . "'";
                 mysql_query($kwerenda_edycji) or die('B³±d zapytania edycji');
                 echo "<i>Edytowano rekord u¿ytkownika: " . $_POST['nowe_nazwisko'] . " " . $_POST['nowe_imie'] . "</i>";
@@ -39,7 +45,7 @@
                 mysql_query($kwerenda_dodania) or die('B³±d zapytania dodania');
                 echo "<i>Dodano u¿ytkownika: " . $_POST['dodane_nazwisko'] . " " . $_POST['dodane_imie'] . "</i>";
             }
-            elseif($_POST['usun'] >= 2){
+            elseif(isset($_POST['usun']) && ($_POST['usun'] != 1) && ($_POST['usun'] != 17)){
                 $kwerenda_usuniecia = "DELETE FROM nazwiska WHERE id_nazwiska=" . $_POST['usun'] . ";";
                 mysql_query($kwerenda_usuniecia) or die('B³±d zapytania usuniêcia');
                 echo "<i>Usuniêto u¿ytkownika o ID_Nazwiska: " . $_POST['usun'] . "</i>";
@@ -77,21 +83,43 @@
                     <tr>
                     <?
                     echo "<td>" . $wiersz['id_nazwiska'] . "</td>";
-                    $forma = "<td><form action = \"edit-user.php\" method=\"POST\"> ";
-                    $forma .= "<input type=\"hidden\" name=\"id_nazwiska\" value=\"" . $wiersz['id_nazwiska'] . "\">";
-                    $forma .= "<input type=\"text\" name=\"nowe_nazwisko\" value=\"" . $wiersz['nazwisko'] . "\">";
-                    $forma .= "<input type=\"text\" name=\"nowe_imie\" value=\"" . $wiersz['imie'] . "\">";
-                    $forma .= "<input type=\"text\" name=\"nowe_haslo\" value=\"" . $wiersz['haslo'] . "\" disabled>";
-                    $forma .= "<input type=\"email\" name=\"nowy_email\" value=\"" . $wiersz['email'] . "\">";
-                    $forma .= "<input type=\"text\" name=\"nowa_specjalizacja\" value=\"" . $wiersz['specjalizacja'] . "\"";
+                    $forma_edycji = "<td><form action = \"edit-user.php\" method=\"POST\"> ";
+                    $forma_edycji .= "<input type=\"hidden\" name=\"id_nazwiska\" value=\"" . $wiersz['id_nazwiska'] . "\">";
+                    $forma_edycji .= "<input type=\"text\" name=\"nowe_nazwisko\" value=\"" . $wiersz['nazwisko'] . "\">";
+                    $forma_edycji .= "<input type=\"text\" name=\"nowe_imie\" value=\"" . $wiersz['imie'] . "\">";
+                    $forma_edycji .= "<input type=\"text\" name=\"nowe_haslo\" value=\"" . $wiersz['haslo'] . "\" disabled>";
+                    $forma_edycji .= "<input type=\"email\" name=\"nowy_email\" value=\"" . $wiersz['email'] . "\">";
+                    $forma_edycji .= "<select name=\"nowa_specjalizacja\"";
                     if(($wiersz['uprawnienia'] == "pacjent") || ($wiersz['uprawnienia'] == "admin")){
-                        $forma .= " disabled";
+                        $forma_edycji .= " disabled";
                     }
-                    $forma .= ">";
-                    $forma .= "<input type=\"text\" name=\"uprawnienia\" value=\"" . $wiersz['uprawnienia'] . " \"disabled>";
-                    $forma .= "<input type=\"submit\" value=\"Edytuj rekord\" >";
-                    $forma .= "</form></td>";
-                    echo $forma;
+                    $forma_edycji .= ">";
+                    if($wiersz['specjalizacja'] == "USG"){
+                        $forma_edycji .= "<option value=\"USG\" selected=\"selected\">USG</option>";
+                        $forma_edycji .= "<option value=\"Interna\" >Interna</option>";
+                        $forma_edycji .= "<option value=\"Ginekolog\" >Ginekologia</option>";
+                    }
+                    elseif($wiersz['specjalizacja'] == "Interna"){
+                        $forma_edycji .= "<option value=\"USG\" >USG</option>";
+                        $forma_edycji .= "<option value=\"Interna\" selected=\"selected\">Interna</option>";
+                        $forma_edycji .= "<option value=\"Ginekolog\" >Ginekologia</option>";
+                    }
+                    elseif($wiersz['specjalizacja'] == "Ginekolog"){
+                        $forma_edycji .= "<option value=\"USG\" >USG</option>";
+                        $forma_edycji .= "<option value=\"Interna\" >Interna</option>";
+                        $forma_edycji .= "<option value=\"Ginekolog\" selected=\"selected\">Ginekologia</option>";
+                    }
+                    else{
+                        $forma_edycji .= "<option value=\"NULL\" ></option>";
+                        $forma_edycji .= "<option value=\"USG\" >USG</option>";
+                        $forma_edycji .= "<option value=\"Interna\" >Interna</option>";
+                        $forma_edycji .= "<option value=\"Ginekolog\" >Ginekologia</option>";
+                    }
+                    $forma_edycji .= "</select>";
+                    $forma_edycji .= "<input type=\"text\" name=\"uprawnienia\" value=\"" . $wiersz['uprawnienia'] . " \"disabled>";
+                    $forma_edycji .= "<input type=\"submit\" value=\"Edytuj rekord\" >";
+                    $forma_edycji .= "</form></td>";
+                    echo $forma_edycji;
 
                     $form_usun = "<td><form action=\"edit-user.php\" method=\"POST\">";
                     $form_usun .= "<button name=\"usun\" type=\"submit\" value=\"" . $wiersz['id_nazwiska'] . "\">Usuñ rekord</button>";

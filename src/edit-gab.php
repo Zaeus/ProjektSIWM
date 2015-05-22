@@ -6,7 +6,6 @@
 	include("polaczenieSQL.php");
 	include("kwerenda_log.php");
 ?>
-// Edycja gabinetów dla admina
 <?
 	if(isset($_SESSION['login']) && ($_SESSION['haslo'] == $hasloSql)){
 		if($_SESSION['uprawnienia'] == "admin") {

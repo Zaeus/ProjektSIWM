@@ -39,12 +39,11 @@
                 $kwerenda_dodania .= "'" . $_POST['Radio'] . "'" . ",";
                 $kwerenda_dodania .= "'" . $_POST['Radio2'] . "'";
                 $kwerenda_dodania .= ")";
-                // echo "Kwerenda dodania lekarza: " . $kwerenda_dodania . "<br><br>";
 
                 // Dodanie lekarza do bazy danych wed³ug kwerendy
                 $wynik = mysql_query($kwerenda_dodania);
                 if (!$wynik) {
-                    echo "Blad zapytania! <br /><br />";
+                    echo "Blad zapytania dodania! <br /><br />";
                 } else {
                     echo "Dodano nowego pacjenta o parametrach: <br>";
                     echo "Imiê lekarza: " . $_POST['ImieReg'] . "<br>";
@@ -72,7 +71,7 @@
             // Dodanie pacjenta do bazy danych wed³ug kwerendy
             $wynik = mysql_query($kwerenda_dodania);
             if (!$wynik) {
-                echo "Blad zapytania! <br /><br />";
+                echo "Blad zapytania dodania! <br /><br />";
             } else {
                 echo "Dodano nowego pacjenta o parametrach: <br>";
                 echo "Imiê lekarza: " . $_POST['ImieReg'] . "<br>";

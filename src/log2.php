@@ -19,7 +19,7 @@
 	}
 	
 	if(isset($_SESSION['login']) && ($hasloSql == $_SESSION['haslo'])){
-		echo "Witaj, jeste¶ zalogowany jako: " . $_SESSION['login'] . "<br><br>";
+		echo "Witaj, jeste¶ zalogowany jako: <b>" . $_SESSION['login'] . "</b></b><br><br>";
 		?>
 		<form action="index.php" method="POST">
 			<input type="submit" value="Wyloguj siê" />
@@ -51,7 +51,6 @@
 				echo "<br>Posiadasz dostêp do opcji administratora: <br>";
 				// TODO Dodaj gabinet, edytuj gabinet, usuñ gabinet
 				// TODO Dodaj budynek, edytuj budynek, usuñ budynek
-				// TODO Dodaj u¿ytkownika, edytuj u¿ytkownika, usuñ u¿ytkownika 
 				?>
 				<form action="edit-gab.php" method="POST">
 					<input type="submit" value="Gabinety" /> Przejd¼ do strony edytowania i modyfikowania wszystkich gabinetów
