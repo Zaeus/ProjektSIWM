@@ -23,7 +23,7 @@
             echo $form;
             ?>
                     <input type="radio" name="Radio2" id="Spec" value="Interna" checked="checked" /><label for="Internista">Internista</label><br>
-                    <input type="radio" name="Radio2" id="Spec" value="Ginekologia"/><label for="Ginekolog">Ginekologia</label><br>
+                    <input type="radio" name="Radio2" id="Spec" value="Ginekolog"/><label for="Ginekolog">Ginekologia</label><br>
                     <input type="radio" name="Radio2" id="Spec" value="USG"/><label for="USG">USG</label><br>
                     <input type="submit" value="Dokoñcz rejestracjê" /><br><br>
                 </form>

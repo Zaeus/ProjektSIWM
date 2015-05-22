@@ -6,12 +6,105 @@
 	include("polaczenieSQL.php");
 	include("kwerenda_log.php");
 ?>
-// Edycja u¿ytkowników dla admina
 <?
 	if(isset($_SESSION['login']) && ($_SESSION['haslo'] == $hasloSql)){
 		if($_SESSION['uprawnienia'] == "admin") {
-			echo "Posiadasz uprawnienia admina";
-			// Edycja u¿ytkowników dla admina
+			echo "<b>Posiadasz uprawnienia admina</b><br><br>";
+
+            // Update danych w bazie SQL
+            if(isset($_POST['nowe_haslo']) || isset($_POST['nowy_email']) || isset($_POST['nowe_nazwisko'])){
+                $kwerenda_edycji = "UPDATE nazwiska SET email='" . $_POST['nowy_email'] . "', ";
+                $kwerenda_edycji .= "nazwisko='" . $_POST['nowe_nazwisko'] . "', ";
+                $kwerenda_edycji .= "imie='" . $_POST['nowe_imie'] . "', ";
+                $kwerenda_edycji .= "specjalizacja='" . $_POST['nowa_specjalizacja'] . "' ";
+                $kwerenda_edycji .= "WHERE id_nazwiska='" . $_POST['id_nazwiska'] . "'";
+                mysql_query($kwerenda_edycji) or die('B³±d zapytania edycji');
+                echo "<i>Edytowano rekord u¿ytkownika: " . $_POST['nowe_nazwisko'] . " " . $_POST['nowe_imie'] . "</i>";
+            }
+            elseif(isset($_POST['dodane_nazwisko']) && isset($_POST['dodane_imie']) && isset($_POST['dodane_haslo']) && isset($_POST['dodany_email']) && isset($_POST['dodane_uprawnienia'])){
+                $kwerenda_dodania = "INSERT INTO nazwiska (email,haslo,nazwisko,imie,uprawnienia,specjalizacja) VALUES ";
+                $kwerenda_dodania .= "(";
+                $kwerenda_dodania .= "'" . $_POST['dodany_email'] . "'" . ",";
+                $kwerenda_dodania .= "'" . md5($_POST['dodane_haslo']) . "'" . ",";
+                $kwerenda_dodania .= "'" . $_POST['dodane_nazwisko'] . "'" . ",";
+                $kwerenda_dodania .= "'" . $_POST['dodane_imie'] . "'" . ",";
+                $kwerenda_dodania .= "'" . $_POST['dodane_uprawnienia'] . "'"  . ",";
+                if($_POST['dodana_specjalizacja'] == ""){
+                    $kwerenda_dodania .= "NULL";
+                }
+                else {
+                    $kwerenda_dodania .= "'" . $_POST['dodana_specjalizacja'] . "'";
+                }
+                $kwerenda_dodania .= ")";
+                mysql_query($kwerenda_dodania) or die('B³±d zapytania dodania');
+                echo "<i>Dodano u¿ytkownika: " . $_POST['dodane_nazwisko'] . " " . $_POST['dodane_imie'] . "</i>";
+            }
+            elseif($_POST['usun'] >= 2){
+                $kwerenda_usuniecia = "DELETE FROM nazwiska WHERE id_nazwiska=" . $_POST['usun'] . ";";
+                mysql_query($kwerenda_usuniecia) or die('B³±d zapytania usuniêcia');
+                echo "<i>Usuniêto u¿ytkownika o ID_Nazwiska: " . $_POST['usun'] . "</i>";
+            }
+
+            echo "<br><br>Dodaj u¿ytkownika o podanych parametrach - pamiêtaj ¿e pacjent/admin nie posiadaj± specjalizacji!";
+            $forma_dodania = "<br><form action = \"edit-user.php\" method=\"POST\"> ";
+            $forma_dodania .= "<input type=\"text\" name=\"dodane_nazwisko\" placeholder=\"Nazwisko\"><br>";
+            $forma_dodania .= "<input type=\"text\" name=\"dodane_imie\" placeholder=\"Imiê\"><br>";
+            $forma_dodania .= "<input type=\"password\" name=\"dodane_haslo\" placeholder=\"Has³o\"><br>";
+            $forma_dodania .= "<input type=\"email\" name=\"dodany_email\" placeholder=\"Email\"><br>";
+            $forma_dodania .= "<input type=\"radio\" name=\"dodana_specjalizacja\" id=\"dodana_specjalizacja\" value=\"Interna\"/><label for=\"Internista\">Internista</label><br>";
+            $forma_dodania .= "<input type=\"radio\" name=\"dodana_specjalizacja\" id=\"dodana_specjalizacja\" value=\"Ginekolog\"/><label for=\"Ginekolog\">Ginekologia</label><br>";
+            $forma_dodania .= "<input type=\"radio\" name=\"dodana_specjalizacja\" id=\"dodana_specjalizacja\" value=\"USG\"/><label for=\"USG\">USG</label><br>";
+            $forma_dodania .= "<input type=\"radio\" name=\"dodane_uprawnienia\" id=\"dodane_uprawnienia\" value=\"admin\"/><label for=\"admin\">Administrator</label><br>";
+            $forma_dodania .= "<input type=\"radio\" name=\"dodane_uprawnienia\" id=\"dodane_uprawnienia\" value=\"lekarz\"/><label for=\"lekarz\">Lekarz</label><br>";
+            $forma_dodania .= "<input type=\"radio\" name=\"dodane_uprawnienia\" id=\"dodane_uprawnienia\" value=\"pacjent\"/><label for=\"pacjent\">Pacjent</label><br>";
+            $forma_dodania .= "<input type=\"submit\" value=\"Dodaj rekord\" >";
+            $forma_dodania .= "</form><br>";
+            echo $forma_dodania;
+
+            $kwerenda = "SELECT id_nazwiska, email, haslo, imie, nazwisko, specjalizacja, uprawnienia FROM nazwiska WHERE 1";
+            $wynik = mysql_query($kwerenda) or die('B³±d zapytania');
+
+            if($wynik){
+                ?>
+                <table align="center" cellpadding="5" border="1">
+                    <tr>
+                        <td style="text-align: center;">Rekord o ID_Nazwiska:</td>
+                        <td style="text-align: center;">Dane u¿ytkowników znajduj±cych siê w bazie danych:</td>
+                    </tr>
+                <?
+                while($wiersz = mysql_fetch_assoc($wynik)){
+                    ?>
+                    <tr>
+                    <?
+                    echo "<td>" . $wiersz['id_nazwiska'] . "</td>";
+                    $forma = "<td><form action = \"edit-user.php\" method=\"POST\"> ";
+                    $forma .= "<input type=\"hidden\" name=\"id_nazwiska\" value=\"" . $wiersz['id_nazwiska'] . "\">";
+                    $forma .= "<input type=\"text\" name=\"nowe_nazwisko\" value=\"" . $wiersz['nazwisko'] . "\">";
+                    $forma .= "<input type=\"text\" name=\"nowe_imie\" value=\"" . $wiersz['imie'] . "\">";
+                    $forma .= "<input type=\"text\" name=\"nowe_haslo\" value=\"" . $wiersz['haslo'] . "\" disabled>";
+                    $forma .= "<input type=\"email\" name=\"nowy_email\" value=\"" . $wiersz['email'] . "\">";
+                    $forma .= "<input type=\"text\" name=\"nowa_specjalizacja\" value=\"" . $wiersz['specjalizacja'] . "\"";
+                    if(($wiersz['uprawnienia'] == "pacjent") || ($wiersz['uprawnienia'] == "admin")){
+                        $forma .= " disabled";
+                    }
+                    $forma .= ">";
+                    $forma .= "<input type=\"text\" name=\"uprawnienia\" value=\"" . $wiersz['uprawnienia'] . " \"disabled>";
+                    $forma .= "<input type=\"submit\" value=\"Edytuj rekord\" >";
+                    $forma .= "</form></td>";
+                    echo $forma;
+
+                    $form_usun = "<td><form action=\"edit-user.php\" method=\"POST\">";
+                    $form_usun .= "<button name=\"usun\" type=\"submit\" value=\"" . $wiersz['id_nazwiska'] . "\">Usuñ rekord</button>";
+                    $form_usun .= "</form></td>";
+                    echo $form_usun;
+                    ?>
+                    </tr>
+                    <?
+                }
+                ?>
+                </table>
+                <?
+            }
 		}
 		else {
 			echo "Nie posiadasz uprawnieñ admina";
