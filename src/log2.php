@@ -52,11 +52,8 @@
 				// TODO Dodaj gabinet, edytuj gabinet, usuñ gabinet
 				// TODO Dodaj budynek, edytuj budynek, usuñ budynek
 				?>
-				<form action="edit-gab.php" method="POST">
-					<input type="submit" value="Gabinety" /> Przejd¼ do strony edytowania i modyfikowania wszystkich gabinetów
-				</form>
-				<form action="edit-bud.php" method="POST">
-					<input type="submit" value="Budynki" /> Przejd¼ do strony edytowania i modyfikowania wszystkich budynków
+				<form action="edit-bud-gab.php" method="POST">
+					<input type="submit" value="Budynki i gabinety" /> Przejd¼ do strony edytowania, dodawania i usuwania wszystkich budynków i gabinetów
 				</form>
 				<form action="edit-user.php" method="POST">
 					<input type="submit" value="U¿ytkownicy" /> Przejd¼ do strony edytowania i modyfikowania wszystkich u¿ytkowników

@@ -51,19 +51,20 @@
                 echo "<i>Usuniêto u¿ytkownika o ID_Nazwiska: " . $_POST['usun'] . "</i>";
             }
 
-            echo "<br><br>Dodaj u¿ytkownika o podanych parametrach - pamiêtaj ¿e pacjent/admin nie posiadaj± specjalizacji!";
-            $forma_dodania = "<br><form action = \"edit-user.php\" method=\"POST\"> ";
+            echo "<br><br>";
+            $forma_dodania = "<br><fieldset><legend>Dodaj u¿ytkownika o podanych parametrach - pamiêtaj ¿e pacjent/admin nie posiadaj± specjalizacji!</legend><form action = \"edit-user.php\" method=\"POST\"> ";
             $forma_dodania .= "<input type=\"text\" name=\"dodane_nazwisko\" placeholder=\"Nazwisko\"><br>";
             $forma_dodania .= "<input type=\"text\" name=\"dodane_imie\" placeholder=\"Imiê\"><br>";
             $forma_dodania .= "<input type=\"password\" name=\"dodane_haslo\" placeholder=\"Has³o\"><br>";
             $forma_dodania .= "<input type=\"email\" name=\"dodany_email\" placeholder=\"Email\"><br>";
-            $forma_dodania .= "<input type=\"radio\" name=\"dodana_specjalizacja\" id=\"dodana_specjalizacja\" value=\"Interna\"/><label for=\"Internista\">Internista</label><br>";
+            $forma_dodania .= "<fieldset><legend>Specjalizacja:</legend><input type=\"radio\" name=\"dodana_specjalizacja\" id=\"dodana_specjalizacja\" value=\"Interna\"/><label for=\"Internista\">Internista</label><br>";
             $forma_dodania .= "<input type=\"radio\" name=\"dodana_specjalizacja\" id=\"dodana_specjalizacja\" value=\"Ginekolog\"/><label for=\"Ginekolog\">Ginekologia</label><br>";
-            $forma_dodania .= "<input type=\"radio\" name=\"dodana_specjalizacja\" id=\"dodana_specjalizacja\" value=\"USG\"/><label for=\"USG\">USG</label><br>";
-            $forma_dodania .= "<input type=\"radio\" name=\"dodane_uprawnienia\" id=\"dodane_uprawnienia\" value=\"admin\"/><label for=\"admin\">Administrator</label><br>";
+            $forma_dodania .= "<input type=\"radio\" name=\"dodana_specjalizacja\" id=\"dodana_specjalizacja\" value=\"USG\"/><label for=\"USG\">USG</label></fieldset><br>";
+            $forma_dodania .= "<fieldset><legend>Status:</legend><input type=\"radio\" name=\"dodane_uprawnienia\" id=\"dodane_uprawnienia\" value=\"admin\"/><label for=\"admin\">Administrator</label><br>";
             $forma_dodania .= "<input type=\"radio\" name=\"dodane_uprawnienia\" id=\"dodane_uprawnienia\" value=\"lekarz\"/><label for=\"lekarz\">Lekarz</label><br>";
-            $forma_dodania .= "<input type=\"radio\" name=\"dodane_uprawnienia\" id=\"dodane_uprawnienia\" value=\"pacjent\"/><label for=\"pacjent\">Pacjent</label><br>";
+            $forma_dodania .= "<input type=\"radio\" name=\"dodane_uprawnienia\" id=\"dodane_uprawnienia\" value=\"pacjent\"/><label for=\"pacjent\">Pacjent</label></fieldset><br>";
             $forma_dodania .= "<input type=\"submit\" value=\"Dodaj rekord\" >";
+            $forma_dodania .= "<input type=\"reset\" value=\"Resetuj dane\" /></fieldset>";
             $forma_dodania .= "</form><br>";
             echo $forma_dodania;
 
