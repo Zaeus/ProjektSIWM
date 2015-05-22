@@ -25,7 +25,7 @@
 			<input type="submit" value="Wyloguj siê" />
 		</form>		
 		<?
-		echo "<br>Posiadasz dostêp do opcji pacjenta: <br>";		
+		echo "<br><b>Posiadasz dostêp do opcji pacjenta: </b><br>";
 		?>		
 		<form action="zapis.php" method="POST">
 			<input type="submit" value="Zapisz siê" /> Zapisz siê do gabinetu jako pacjent 
@@ -35,7 +35,7 @@
 		</form>
 		<?
 		if(($_SESSION['uprawnienia'] == "lekarz") || ($_SESSION['uprawnienia'] == "admin")) {
-			echo "<br>Posiadasz dostêp do opcji lekarza: <br>";
+			echo "<br><b>Posiadasz dostêp do opcji lekarza: </b><br>";
 			// TODO Zajmij gabinet, zwolnij gabinet
 			// TODO Uzupe³nij/popraw kontrakt
 			// TODO Przegl±daj zapisy
@@ -48,7 +48,7 @@
 			</form>			
 			<?
 			if($_SESSION['uprawnienia'] == "admin") {
-				echo "<br>Posiadasz dostêp do opcji administratora: <br>";
+				echo "<br><b>Posiadasz dostêp do opcji administratora: </b><br>";
 				// TODO Dodaj gabinet, edytuj gabinet, usuñ gabinet
 				// TODO Dodaj budynek, edytuj budynek, usuñ budynek
 				?>
