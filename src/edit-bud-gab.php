@@ -28,6 +28,8 @@
             }
             elseif(isset($_POST['usun']) && ($_POST['usun'] != 1)){
                 // TODO kwerenda usuniêcia budynków
+                // TODO ostrze¿enie przed usuwaniem - zbyt powi±zane dane spowoduj± usuniêcie du¿ej czê¶ci danych
+                // TODO usuniêcie bydunków powinno wywo³aæ kaskadowe usuniêcie wszystkich gabinetów w nim zawartych, oraz wszystkich wizyt i zajêæ gabinetów
                 echo "Usuniêcie";
             }
             // TODO kwerenda edycji gabinetów
@@ -46,6 +48,31 @@
             $forma_dodania_bud .= "<input type=\"reset\" value=\"Resetuj dane\" />";
             $forma_dodania_bud .= "</form></fieldset><br><br>";
             echo $forma_dodania_bud;
+
+            $kwerenda_dodania_gab = "SELECT ID_budynku FROM budynki WHERE 1";
+            $wynik_dodania_gab = mysql_query($kwerenda_dodania_gab) or die('B³±d zapytania');
+
+            $forma_dodania_gab = "<fieldset><legend>Dodaj gabinet:</legend><form action = \"edit-bud-gab.php\" method=\"POST\">";
+            $forma_dodania_gab .= "Budynek: <select name=\"id_budynku\">";
+            if($wynik_dodania_gab) {
+                while($wiersz_dodania_gab = mysql_fetch_assoc($wynik_dodania_gab)) {
+                    $forma_dodania_gab .= "<option value=\"". $wiersz_dodania_gab['ID_budynku'] ."\">" . $wiersz_dodania_gab['ID_budynku'] ."</option>";
+                }
+            }
+            $forma_dodania_gab .= "</select><br>";
+            $forma_dodania_gab .= "Specjalizacja gabinetu: <select name=\"specjalizacja_gabinetu\">";
+            $forma_dodania_gab .= "<option value=\"USG\">USG</option>";
+            $forma_dodania_gab .= "<option value=\"Interna\" >Interna</option>";
+            $forma_dodania_gab .= "<option value=\"Ginekolog\" >Ginekologia</option>";
+            $forma_dodania_gab .= "</select><br>";
+            $forma_dodania_gab .= "Kontrakt do: <input type=\"date\" name=\"data_kontraktu\" placeholder=\"Data zakoñczenia kontraktu\">";
+            // TODO value radio button zmieniæ na datê dzisiejsz± plus odpowiednia liczba dni - najpewniej przez date modification i strtodate
+            $forma_dodania_gab .= " lub przez: <input type=\"radio\" name=\"data_kontraktu\" value=\"180\">Pó³ roku";
+            $forma_dodania_gab .= " lub: <input type=\"radio\" name=\"data_kontraktu\" value=\"365\">Rok<br>";
+            $forma_dodania_gab .= "<input type=\"submit\" value=\"Dodaj rekord\" >";
+            $forma_dodania_gab .= "<input type=\"reset\" value=\"Resetuj dane\" />";
+            $forma_dodania_gab .= "</form></fieldset><br><br>";
+            echo $forma_dodania_gab;
 
             $kwerenda = "SELECT ID_budynku, Miasto, Ulica, Numer, Kod_pocztowy FROM budynki WHERE 1";
             $wynik = mysql_query($kwerenda) or die('B³±d zapytania');
