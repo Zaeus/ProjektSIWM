@@ -355,8 +355,7 @@
             <?
             }
             ?>
-            </fieldset>
-            <?
+        <?
 		}
 		else {
 			echo "Nie posiadasz uprawnieñ lekarza";
