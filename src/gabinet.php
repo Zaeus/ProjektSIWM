@@ -182,16 +182,22 @@
             // TODO Nastêpnie pobrana data jest porównywana z aktualn± (czy siê mie¶ci - jak siê mie¶ci to sprawdzanie dalszej zajêto¶ci godziny)
             // TODO sprawdzana jest godzina czy nie jest zajêta
             // TODO jak po tym wszystkim nie jest zajêta to mo¿na dodaæ nowy rekord rezerwacji gabinetu
+            // TODO zapytanie o wszystkie gabinety od dni do dnia z wy¶wietleniem jego specjalizacji - je¿eli jest wolny siê wy¶wietli, w przeciwnym wypadku ignoruj
+            // TODO zajêcie gabinetu w danym dniu nie krócej ni¿ 2h nie d³u¿ej ni¿ 8h
             $kwerenda_przegladania_gab = "SELECT ID_gabinetu FROM zajetosc";
             $wynik_gab = mysql_query($kwerenda_przegladania_gab) or die('B³±d zapytania');
             $forma_przegladania_gab = "<fieldset><legend>Przejrzyj zajêto¶æ gabinet:</legend><form action = \"gabinet.php\" method=\"POST\">";
             $forma_przegladania_gab .= "Gabinet: <select name=\"ID_przegladany_gabinet\">";
             if($wynik_gab) {
+                $iterator = 0;
                 while($wiersz_gab = mysql_fetch_assoc($wynik_gab)) {
-                    if($poprzedni != $wiersz_gab['ID_gabinetu']) {
-                        $forma_przegladania_gab .= "<option value=\"" . $wiersz_gab['ID_gabinetu'] . "\">" . $wiersz_gab['ID_gabinetu'] . "</option>";
-                        $poprzedni = $wiersz_gab['ID_gabinetu'];
-                    }
+                    $tablica_gabinetow[$iterator] = $wiersz_gab['ID_gabinetu'];
+                    $iterator = $iterator + 1;
+                }
+                sort($tablica_gabinetow);
+                $tablica_gabinetow = array_unique($tablica_gabinetow);
+                foreach($tablica_gabinetow as $key => $val){
+                    $forma_przegladania_gab .= "<option value=\"" . $val . "\">" . $val . "</option>";
                 }
             }
             $forma_przegladania_gab .= "</select>";
