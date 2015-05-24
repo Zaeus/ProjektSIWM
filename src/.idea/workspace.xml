@@ -28,9 +28,55 @@
       <file leaf-file-name="gabinet.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/gabinet.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.029115342" vertical-offset="3561" max-vertical-offset="4454">
-              <caret line="211" column="14" selection-start-line="211" selection-start-column="14" selection-end-line="211" selection-end-column="14" />
-              <folding />
+            <state vertical-scroll-proportion="0.77155656" vertical-offset="2915" max-vertical-offset="6307">
+              <caret line="212" column="72" selection-start-line="212" selection-start-column="72" selection-end-line="212" selection-end-column="72" />
+              <folding>
+                <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#1;n#tr#0;n#table#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#2;n#tr#0;n#table#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#3;n#tr#0;n#table#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#4;n#tr#0;n#table#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#5;n#tr#0;n#table#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#0;n#tr#1;n#table#0;n#!!top" expanded="true" />
+                <marker date="1432499955887" expanded="true" signature="12400:12432" placeholder="SELECT ID_ga..zajetosc..." />
+                <marker date="1432499955887" expanded="true" signature="12431:12432" placeholder="SELECT ID_ga..zajetosc..." />
+                <marker date="1432499955887" expanded="true" signature="16310:16428" placeholder="SELECT ID_na..zajetosc..." />
+                <marker date="1432499955887" expanded="true" signature="16310:16472" placeholder="SELECT ID_na..zajetosc..." />
+                <marker date="1432499955887" expanded="true" signature="16974:16992" placeholder="..." />
+                <marker date="1432499955887" expanded="true" signature="17275:17293" placeholder="..." />
+                <marker date="1432499955887" expanded="true" signature="17517:17679" placeholder="SELECT ID_na..zajetosc..." />
+                <marker date="1432499955887" expanded="true" signature="18181:18199" placeholder="..." />
+                <marker date="1432499955887" expanded="true" signature="18482:18500" placeholder="..." />
+                <marker date="1432499955887" expanded="true" signature="18723:18885" placeholder="SELECT ID_na..zajetosc..." />
+                <marker date="1432499955887" expanded="true" signature="19387:19405" placeholder="..." />
+                <marker date="1432499955887" expanded="true" signature="19688:19706" placeholder="..." />
+                <marker date="1432499955887" expanded="true" signature="19932:20094" placeholder="SELECT ID_na..zajetosc..." />
+                <marker date="1432499955887" expanded="true" signature="20596:20614" placeholder="..." />
+                <marker date="1432499955887" expanded="true" signature="20897:20915" placeholder="..." />
+                <marker date="1432499955887" expanded="true" signature="21139:21301" placeholder="SELECT ID_na..zajetosc..." />
+                <marker date="1432499955887" expanded="true" signature="21802:21820" placeholder="..." />
+                <marker date="1432499955887" expanded="true" signature="22103:22121" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="edit-bud-gab.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/edit-bud-gab.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-20.923077" vertical-offset="1173" max-vertical-offset="3570">
+              <caret line="101" column="12" selection-start-line="101" selection-start-column="12" selection-end-line="103" selection-end-column="59" />
+              <folding>
+                <marker date="1432489295982" expanded="true" signature="494:554" placeholder="INSERT INTO ..." />
+                <marker date="1432489295982" expanded="true" signature="1479:1555" placeholder="INSERT INTO ..." />
+                <marker date="1432489295982" expanded="true" signature="2648:2706" placeholder="UPDATE budyn..." />
+                <marker date="1432489295982" expanded="true" signature="3468:3537" placeholder="UPDATE gabin..." />
+                <marker date="1432489295982" expanded="true" signature="5899:5937" placeholder="SELECT ID_bu..budynki..." />
+                <marker date="1432489295982" expanded="true" signature="8087:8161" placeholder="SELECT ID_bu..budynki..." />
+                <marker date="1432489295982" expanded="true" signature="8271:8362" placeholder="SELECT ID_ga..gabinety..." />
+                <marker date="1432489295982" expanded="true" signature="9101:9118" placeholder="..." />
+                <marker date="1432489295982" expanded="true" signature="10952:10969" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -53,6 +99,7 @@
         <option value="$PROJECT_DIR$/log2.php" />
         <option value="$PROJECT_DIR$/edit-bud-gab.php" />
         <option value="$PROJECT_DIR$/edit-user.php" />
+        <option value="$PROJECT_DIR$/../testowe/zajetosc.php" />
         <option value="$PROJECT_DIR$/gabinet.php" />
       </list>
     </option>
@@ -90,7 +137,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -111,6 +157,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -147,6 +194,9 @@
       <BehatRunner />
       <method />
     </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server" server_id="6bf8edb4-2710-4375-91a4-61f63199fc47" server_name="jbialkow">
+      <method />
+    </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
       <node-options />
       <gulpfile />
@@ -154,9 +204,6 @@
       <arguments />
       <pass-parent-envs>true</pass-parent-envs>
       <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server" server_id="6bf8edb4-2710-4375-91a4-61f63199fc47" server_name="jbialkow">
       <method />
     </configuration>
     <list size="1">
@@ -182,8 +229,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -199,13 +246,13 @@
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32946146" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -231,34 +278,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/edit-bud-gab.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3570">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1432489295982" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1432489295982" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1432489295982" expanded="true" signature="-1:-1" placeholder="UPDATE budyn..." />
-            <marker date="1432489295982" expanded="true" signature="-1:-1" placeholder="UPDATE gabin..." />
-            <marker date="1432489295982" expanded="true" signature="-1:-1" placeholder="SELECT ID_bu..budynki..." />
-            <marker date="1432489295982" expanded="true" signature="-1:-1" placeholder="SELECT ID_bu..budynki..." />
-            <marker date="1432489295982" expanded="true" signature="-1:-1" placeholder="SELECT ID_ga..gabinety..." />
-            <marker date="1432489295982" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1432489295982" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/edit-user.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="425" max-vertical-offset="527">
           <caret line="25" column="2" selection-start-line="25" selection-start-column="2" selection-end-line="25" selection-end-column="2" />
-          <folding>
-            <marker date="1432495192086" expanded="true" signature="-1:-1" placeholder="UPDATE nazwi..." />
-            <marker date="1432495192086" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1432495192086" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1432495192086" expanded="true" signature="-1:-1" placeholder="SELECT id_na..nazwiska..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -274,15 +297,15 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2210">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1432489295982" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1432489295982" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1432489295982" expanded="true" signature="-1:-1" placeholder="UPDATE budyn..." />
-            <marker date="1432489295982" expanded="true" signature="-1:-1" placeholder="UPDATE gabin..." />
-            <marker date="1432489295982" expanded="true" signature="-1:-1" placeholder="SELECT ID_bu..budynki..." />
-            <marker date="1432489295982" expanded="true" signature="-1:-1" placeholder="SELECT ID_bu..budynki..." />
-            <marker date="1432489295982" expanded="true" signature="-1:-1" placeholder="SELECT ID_ga..gabinety..." />
-            <marker date="1432489295982" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1432489295982" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1432489295982" expanded="true" signature="494:554" placeholder="INSERT INTO ..." />
+            <marker date="1432489295982" expanded="true" signature="1479:1555" placeholder="INSERT INTO ..." />
+            <marker date="1432489295982" expanded="true" signature="2648:2706" placeholder="UPDATE budyn..." />
+            <marker date="1432489295982" expanded="true" signature="3468:3537" placeholder="UPDATE gabin..." />
+            <marker date="1432489295982" expanded="true" signature="5899:5937" placeholder="SELECT ID_bu..budynki..." />
+            <marker date="1432489295982" expanded="true" signature="8087:8161" placeholder="SELECT ID_bu..budynki..." />
+            <marker date="1432489295982" expanded="true" signature="8271:8362" placeholder="SELECT ID_ga..gabinety..." />
+            <marker date="1432489295982" expanded="true" signature="9101:9118" placeholder="..." />
+            <marker date="1432489295982" expanded="true" signature="10952:10969" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -291,12 +314,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="2601">
           <caret line="118" column="20" selection-start-line="118" selection-start-column="20" selection-end-line="118" selection-end-column="49" />
-          <folding>
-            <marker date="1432495192086" expanded="true" signature="-1:-1" placeholder="UPDATE nazwi..." />
-            <marker date="1432495192086" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1432495192086" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1432495192086" expanded="true" signature="-1:-1" placeholder="SELECT id_na..nazwiska..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -305,15 +322,15 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1785">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1432489295982" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1432489295982" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1432489295982" expanded="true" signature="-1:-1" placeholder="UPDATE budyn..." />
-            <marker date="1432489295982" expanded="true" signature="-1:-1" placeholder="UPDATE gabin..." />
-            <marker date="1432489295982" expanded="true" signature="-1:-1" placeholder="SELECT ID_bu..budynki..." />
-            <marker date="1432489295982" expanded="true" signature="-1:-1" placeholder="SELECT ID_bu..budynki..." />
-            <marker date="1432489295982" expanded="true" signature="-1:-1" placeholder="SELECT ID_ga..gabinety..." />
-            <marker date="1432489295982" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1432489295982" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1432489295982" expanded="true" signature="494:554" placeholder="INSERT INTO ..." />
+            <marker date="1432489295982" expanded="true" signature="1479:1555" placeholder="INSERT INTO ..." />
+            <marker date="1432489295982" expanded="true" signature="2648:2706" placeholder="UPDATE budyn..." />
+            <marker date="1432489295982" expanded="true" signature="3468:3537" placeholder="UPDATE gabin..." />
+            <marker date="1432489295982" expanded="true" signature="5899:5937" placeholder="SELECT ID_bu..budynki..." />
+            <marker date="1432489295982" expanded="true" signature="8087:8161" placeholder="SELECT ID_bu..budynki..." />
+            <marker date="1432489295982" expanded="true" signature="8271:8362" placeholder="SELECT ID_ga..gabinety..." />
+            <marker date="1432489295982" expanded="true" signature="9101:9118" placeholder="..." />
+            <marker date="1432489295982" expanded="true" signature="10952:10969" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -323,15 +340,15 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1751">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1432489295982" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1432489295982" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1432489295982" expanded="true" signature="-1:-1" placeholder="UPDATE budyn..." />
-            <marker date="1432489295982" expanded="true" signature="-1:-1" placeholder="UPDATE gabin..." />
-            <marker date="1432489295982" expanded="true" signature="-1:-1" placeholder="SELECT ID_bu..budynki..." />
-            <marker date="1432489295982" expanded="true" signature="-1:-1" placeholder="SELECT ID_bu..budynki..." />
-            <marker date="1432489295982" expanded="true" signature="-1:-1" placeholder="SELECT ID_ga..gabinety..." />
-            <marker date="1432489295982" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1432489295982" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1432489295982" expanded="true" signature="494:554" placeholder="INSERT INTO ..." />
+            <marker date="1432489295982" expanded="true" signature="1479:1555" placeholder="INSERT INTO ..." />
+            <marker date="1432489295982" expanded="true" signature="2648:2706" placeholder="UPDATE budyn..." />
+            <marker date="1432489295982" expanded="true" signature="3468:3537" placeholder="UPDATE gabin..." />
+            <marker date="1432489295982" expanded="true" signature="5899:5937" placeholder="SELECT ID_bu..budynki..." />
+            <marker date="1432489295982" expanded="true" signature="8087:8161" placeholder="SELECT ID_bu..budynki..." />
+            <marker date="1432489295982" expanded="true" signature="8271:8362" placeholder="SELECT ID_ga..gabinety..." />
+            <marker date="1432489295982" expanded="true" signature="9101:9118" placeholder="..." />
+            <marker date="1432489295982" expanded="true" signature="10952:10969" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -341,15 +358,15 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1734">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1432489295982" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1432489295982" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1432489295982" expanded="true" signature="-1:-1" placeholder="UPDATE budyn..." />
-            <marker date="1432489295982" expanded="true" signature="-1:-1" placeholder="UPDATE gabin..." />
-            <marker date="1432489295982" expanded="true" signature="-1:-1" placeholder="SELECT ID_bu..budynki..." />
-            <marker date="1432489295982" expanded="true" signature="-1:-1" placeholder="SELECT ID_bu..budynki..." />
-            <marker date="1432489295982" expanded="true" signature="-1:-1" placeholder="SELECT ID_ga..gabinety..." />
-            <marker date="1432489295982" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1432489295982" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1432489295982" expanded="true" signature="494:554" placeholder="INSERT INTO ..." />
+            <marker date="1432489295982" expanded="true" signature="1479:1555" placeholder="INSERT INTO ..." />
+            <marker date="1432489295982" expanded="true" signature="2648:2706" placeholder="UPDATE budyn..." />
+            <marker date="1432489295982" expanded="true" signature="3468:3537" placeholder="UPDATE gabin..." />
+            <marker date="1432489295982" expanded="true" signature="5899:5937" placeholder="SELECT ID_bu..budynki..." />
+            <marker date="1432489295982" expanded="true" signature="8087:8161" placeholder="SELECT ID_bu..budynki..." />
+            <marker date="1432489295982" expanded="true" signature="8271:8362" placeholder="SELECT ID_ga..gabinety..." />
+            <marker date="1432489295982" expanded="true" signature="9101:9118" placeholder="..." />
+            <marker date="1432489295982" expanded="true" signature="10952:10969" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -629,28 +646,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.5520717" vertical-offset="816" max-vertical-offset="1887">
           <caret line="19" column="125" selection-start-line="19" selection-start-column="125" selection-end-line="19" selection-end-column="125" />
-          <folding>
-            <marker date="1432486984059" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1432486984059" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/edit-bud-gab.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.39977604" vertical-offset="0" max-vertical-offset="3570">
-          <caret line="21" column="84" selection-start-line="21" selection-start-column="84" selection-end-line="21" selection-end-column="84" />
-          <folding>
-            <marker date="1432489295982" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1432489295982" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1432489295982" expanded="true" signature="-1:-1" placeholder="UPDATE budyn..." />
-            <marker date="1432489295982" expanded="true" signature="-1:-1" placeholder="UPDATE gabin..." />
-            <marker date="1432489295982" expanded="true" signature="-1:-1" placeholder="SELECT ID_bu..budynki..." />
-            <marker date="1432489295982" expanded="true" signature="-1:-1" placeholder="SELECT ID_bu..budynki..." />
-            <marker date="1432489295982" expanded="true" signature="-1:-1" placeholder="SELECT ID_ga..gabinety..." />
-            <marker date="1432489295982" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1432489295982" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -658,20 +653,69 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.68533033" vertical-offset="0" max-vertical-offset="2652">
           <caret line="36" column="45" selection-start-line="36" selection-start-column="45" selection-end-line="36" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../testowe/zajetosc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.07614782" vertical-offset="0" max-vertical-offset="893">
+          <caret line="4" column="65" selection-start-line="4" selection-start-column="65" selection-end-line="4" selection-end-column="65" />
           <folding>
-            <marker date="1432495192086" expanded="true" signature="-1:-1" placeholder="UPDATE nazwi..." />
-            <marker date="1432495192086" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1432495192086" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1432495192086" expanded="true" signature="-1:-1" placeholder="SELECT id_na..nazwiska..." />
+            <marker date="1432496766312" expanded="true" signature="-1:-1" placeholder="SELECT ID_na..zajetosc..." />
+            <marker date="1432496766312" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edit-bud-gab.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-20.923077" vertical-offset="1173" max-vertical-offset="3570">
+          <caret line="101" column="12" selection-start-line="101" selection-start-column="12" selection-end-line="103" selection-end-column="59" />
+          <folding>
+            <marker date="1432489295982" expanded="true" signature="494:554" placeholder="INSERT INTO ..." />
+            <marker date="1432489295982" expanded="true" signature="1479:1555" placeholder="INSERT INTO ..." />
+            <marker date="1432489295982" expanded="true" signature="2648:2706" placeholder="UPDATE budyn..." />
+            <marker date="1432489295982" expanded="true" signature="3468:3537" placeholder="UPDATE gabin..." />
+            <marker date="1432489295982" expanded="true" signature="5899:5937" placeholder="SELECT ID_bu..budynki..." />
+            <marker date="1432489295982" expanded="true" signature="8087:8161" placeholder="SELECT ID_bu..budynki..." />
+            <marker date="1432489295982" expanded="true" signature="8271:8362" placeholder="SELECT ID_ga..gabinety..." />
+            <marker date="1432489295982" expanded="true" signature="9101:9118" placeholder="..." />
+            <marker date="1432489295982" expanded="true" signature="10952:10969" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gabinet.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.029115342" vertical-offset="3561" max-vertical-offset="4454">
-          <caret line="211" column="14" selection-start-line="211" selection-start-column="14" selection-end-line="211" selection-end-column="14" />
-          <folding />
+        <state vertical-scroll-proportion="0.77155656" vertical-offset="2915" max-vertical-offset="6307">
+          <caret line="212" column="72" selection-start-line="212" selection-start-column="72" selection-end-line="212" selection-end-column="72" />
+          <folding>
+            <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#0;n#table#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#tr#0;n#table#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#tr#0;n#table#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#4;n#tr#0;n#table#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#5;n#tr#0;n#table#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#1;n#table#0;n#!!top" expanded="true" />
+            <marker date="1432499955887" expanded="true" signature="12400:12432" placeholder="SELECT ID_ga..zajetosc..." />
+            <marker date="1432499955887" expanded="true" signature="12431:12432" placeholder="SELECT ID_ga..zajetosc..." />
+            <marker date="1432499955887" expanded="true" signature="16310:16428" placeholder="SELECT ID_na..zajetosc..." />
+            <marker date="1432499955887" expanded="true" signature="16310:16472" placeholder="SELECT ID_na..zajetosc..." />
+            <marker date="1432499955887" expanded="true" signature="16974:16992" placeholder="..." />
+            <marker date="1432499955887" expanded="true" signature="17275:17293" placeholder="..." />
+            <marker date="1432499955887" expanded="true" signature="17517:17679" placeholder="SELECT ID_na..zajetosc..." />
+            <marker date="1432499955887" expanded="true" signature="18181:18199" placeholder="..." />
+            <marker date="1432499955887" expanded="true" signature="18482:18500" placeholder="..." />
+            <marker date="1432499955887" expanded="true" signature="18723:18885" placeholder="SELECT ID_na..zajetosc..." />
+            <marker date="1432499955887" expanded="true" signature="19387:19405" placeholder="..." />
+            <marker date="1432499955887" expanded="true" signature="19688:19706" placeholder="..." />
+            <marker date="1432499955887" expanded="true" signature="19932:20094" placeholder="SELECT ID_na..zajetosc..." />
+            <marker date="1432499955887" expanded="true" signature="20596:20614" placeholder="..." />
+            <marker date="1432499955887" expanded="true" signature="20897:20915" placeholder="..." />
+            <marker date="1432499955887" expanded="true" signature="21139:21301" placeholder="SELECT ID_na..zajetosc..." />
+            <marker date="1432499955887" expanded="true" signature="21802:21820" placeholder="..." />
+            <marker date="1432499955887" expanded="true" signature="22103:22121" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
