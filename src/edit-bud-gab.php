@@ -22,18 +22,21 @@
                 mysql_query($kwerenda_dodania_bud) or die('B³±d zapytania dodania');
                 echo "<i>Dodano budynek: " . $_POST['dodane_miasto'] . " " . $_POST['dodana_ulica'] . " " . $_POST['dodany_numer'] . "</i>";
             }
-            elseif(isset($_POST['']) && isset($_POST['']) && isset($_POST['']) && isset($_POST[''])){
-                // TODO kwerenda dodania gabinetów
-                // TODO je¿eli jest zaznaczony radio button to ignorujemy datê wpisan± w pole o dodajemy tyle ile wynika z radio
+            elseif(isset($_POST['gab_id_budynku']) && isset($_POST['specjalizacja_gabinetu']) && isset($_POST['data_kontraktu_od']) && (isset($_POST['data_kontraktu_do1']) || isset($_POST['data_kontraktu_do2']))){
                 $kwerenda_dodania_gab = "INSERT INTO gabinety (ID_budynku,specjalnosc,kontrakt_od,kontrakt_do) VALUES ";
                 $kwerenda_dodania_gab .= "(";
-                $kwerenda_dodania_gab .= "'" . $_POST['dodane_miasto'] . "'" . ",";
-                $kwerenda_dodania_gab .= "'" . $_POST['dodana_ulica'] . "'" . ",";
-                $kwerenda_dodania_gab .= "'" . $_POST['dodany_numer'] . "'" . ",";
-                $kwerenda_dodania_gab .= "'" . $_POST['dodany_kod_pocztowy'] . "'";
+                $kwerenda_dodania_gab .= "'" . $_POST['gab_id_budynku'] . "'" . ",";
+                $kwerenda_dodania_gab .= "'" . $_POST['specjalizacja_gabinetu'] . "'" . ",";
+                $kwerenda_dodania_gab .= "'" . $_POST['data_kontraktu_od'] . "'" . ",";
+                if($_POST['data_kontraktu_do2'] == ""){
+                    $kwerenda_dodania_gab .= "'" . $_POST['data_kontraktu_do1'] . "'";
+                }
+                else{
+                    $kwerenda_dodania_gab .= "'" . $_POST['data_kontraktu_do2'] . "'";
+                }
                 $kwerenda_dodania_gab .= ")";
                 mysql_query($kwerenda_dodania_gab) or die('B³±d zapytania dodania');
-                echo "<i>Dodano gabinet w budynku o ID: " . $_POST[''] . " " . $_POST[''] . " " . $_POST[''] . "</i>";
+                echo "<i>Dodano gabinet o specjalizacji: " . $_POST['specjalizacja_gabinetu'] . " w budynku o ID: " . $_POST['gab_id_budynku'] .  "</i>";
             }
             elseif(isset($_POST['nowe_Miasto']) || isset($_POST['nowa_Ulica']) || isset($_POST['nowy_Numer']) || isset($_POST['nowy_Kod_pocztowy'])){
                 $kwerenda_edycji_bud = "UPDATE budynki SET Miasto='" . $_POST['nowe_Miasto'] . "', ";
@@ -62,7 +65,7 @@
             elseif(isset($_POST['usun_gab']) && ($_POST['usun_gab'] != 1)){
                 // TODO kwerenda usuniêcia gabinetów
                 // TODO usuniêcie gabinetu powinno usun±æ wszystkie klepniête w nim wizyty i zajêæ gabinetów przez lekarzy
-                echo "Usuniêcie budynku";
+                echo "Usuniêcie gabinetów";
             }
 
             echo "<br><br>";
@@ -80,7 +83,7 @@
             $wynik_dodania_gab = mysql_query($kwerenda_dodania_gab) or die('B³±d zapytania');
 
             $forma_dodania_gab = "<fieldset><legend>Dodaj gabinet:</legend><form action = \"edit-bud-gab.php\" method=\"POST\">";
-            $forma_dodania_gab .= "Budynek: <select name=\"id_budynku\">";
+            $forma_dodania_gab .= "Budynek: <select name=\"gab_id_budynku\">";
             if($wynik_dodania_gab) {
                 while($wiersz_dodania_gab = mysql_fetch_assoc($wynik_dodania_gab)) {
                     $forma_dodania_gab .= "<option value=\"". $wiersz_dodania_gab['ID_budynku'] ."\">" . $wiersz_dodania_gab['ID_budynku'] ."</option>";
@@ -179,6 +182,9 @@
                     $form_gab_usun .= "<button name=\"usun_gab\" type=\"submit\" value=\"" . $wiersz_gab['ID_gabinetu'] . "\">Usuñ rekord</button>";
                     $form_gab_usun .= "</form></td>";
                     echo $form_gab_usun;
+                    ?>
+                    </tr>
+                    <?
                 }
             }
             ?>

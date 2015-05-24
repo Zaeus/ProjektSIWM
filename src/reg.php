@@ -15,9 +15,9 @@
             $form .= "<label for=\"Imi獦"></label><input type=\"text\" name=\"ImieReg\" placeholder=\"Imi獦" id=\"ImieReg\" value=\"" . $_POST['ImieReg'] . "\"/><br>";
             $form .= "<label for=\"Nazwisko\"></label><input type=\"text\" name=\"NazwiskoReg\" placeholder=\"Nazwisko\" id=\"NazwiskoReg\" value=\"" . $_POST['NazwiskoReg'] . "\"/><br>";
             $form .= "<label for=\"Email\"></label><input type=\"email\" name=\"EmailReg\" placeholder=\"Email\" id=\"EmailReg\" value=\"" . $_POST['EmailReg'] . "\"/><br>";
-            $form .= "<label for=\"Powt鏎z Email\"></label><input type=\"email\" name=\"EmailReg2\" placeholder=\"Email2\" id=\"EmailReg2\" value=\"" . $_POST['EmailReg2'] . "\"/><br>";
+            $form .= "<label for=\"Powt鏎z Email\"></label><input type=\"email\" name=\"EmailReg2\" placeholder=\"Powt鏎z Email\" id=\"EmailReg2\" value=\"" . $_POST['EmailReg2'] . "\"/><br>";
             $form .= "<label for=\"Has這\"></label><input type=\"password\" name=\"HasloReg\" placeholder=\"Has這\" id=\"HasloReg\" value=\"" . $_POST['HasloReg'] . "\"/><br>";
-            $form .= "<label for=\"Powt鏎z has這\"></label><input type=\"password\" name=\"HasloReg2\" placeholder=\"Has這2\" id=\"HasloReg2\" value=\"" . $_POST['HasloReg2'] . "\"/><br>";
+            $form .= "<label for=\"Powt鏎z has這\"></label><input type=\"password\" name=\"HasloReg2\" placeholder=\"Powt鏎z Has這\" id=\"HasloReg2\" value=\"" . $_POST['HasloReg2'] . "\"/><br>";
             $form .= "<input type=\"radio\" name=\"Radio\" id=\"Lekarz\" value=\"lekarz\" checked=\"checked\"/><label for=\"Lekarz\">Lekarz</label><br>";
             $form .= "<input type=\"radio\" name=\"Radio\" id=\"Pacjent\" value=\"pacjent\" disabled=\"disabled\"/><label for=\"Pacjent\">Pacjent</label><br><br>";
             echo $form;

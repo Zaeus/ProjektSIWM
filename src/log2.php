@@ -49,8 +49,6 @@
 			<?
 			if($_SESSION['uprawnienia'] == "admin") {
 				echo "<br><b>Posiadasz dostêp do opcji administratora: </b><br>";
-				// TODO Dodaj gabinet, edytuj gabinet, usuñ gabinet
-				// TODO Dodaj budynek, edytuj budynek, usuñ budynek
 				?>
 				<form action="edit-bud-gab.php" method="POST">
 					<input type="submit" value="Budynki i gabinety" /> Przejd¼ do strony edytowania, dodawania i usuwania wszystkich budynków i gabinetów
