@@ -38,6 +38,9 @@
                 if($_POST['dodana_specjalizacja'] == ""){
                     $kwerenda_dodania .= "NULL";
                 }
+                elseif(($_POST['dodane_uprawnienia'] == "pacjent") || ($_POST['dodane_uprawnienia'] == "admin")){
+                    $kwerenda_dodania .= "NULL";
+                }
                 else {
                     $kwerenda_dodania .= "'" . $_POST['dodana_specjalizacja'] . "'";
                 }

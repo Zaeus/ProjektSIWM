@@ -177,9 +177,11 @@
             </form>
 
 			<?
-            // TODO przerobiæ select dni na checkboxy!
-			// TODO Dorobiæ wy¶wietlenie aktualnej daty (zakresu dat dla tygodnia)
-			// TODO Dorobiæ zapisy/modyfikacjê zajmowania gabinetów
+            // TODO Dorobiæ zapisy/modyfikacjê zajmowania gabinetów
+            // TODO Kwerenda pobieraj±ca dane oparte o aktualny dzieñ tygodnia
+            // TODO Nastêpnie pobrana data jest porównywana z aktualn± (czy siê mie¶ci - jak siê mie¶ci to sprawdzanie dalszej zajêto¶ci godziny)
+            // TODO sprawdzana jest godzina czy nie jest zajêta
+            // TODO jak po tym wszystkim nie jest zajêta to mo¿na dodaæ nowy rekord rezerwacji gabinetu
 			?>
 			<br><table align="center" cellpadding="5" border="1">
 			<tr bgcolor>
@@ -216,21 +218,22 @@
 			$daty = gmdate("H:i", 25200);
 			$half = strtotime(gmdate("H:i", 1800)) - strtotime("00:00");
 			while($Godzina < 37) {
-				// TODO Kwerendy z zapytaniami dla danej godziny dla danego dnia
-				// TODO Kolorowanie(?) wolnych/zajêtych miejsc - z wypisaniem nazwiska lekarza zajmuj±cego gabinet
-                // TODO rozwiniêcie powy¿szego pomys³u - sprawdzenie kwerendy zajêto¶ci gabinetu i dopiero wygenerowanie odpowiedniego koloru t³a
+				// TODO Kwerendy z zapytaniami dla danej godziny dla danego dnia - jak jest to kolorowanie czerwony dla zajêtego
+                // TODO plus pobranie nazwiska lekarza i jego wy¶wietlenie na polu
+                // TODO w przeciwnym wypadku kolor zielony bez niczego
 				?>
 				<tr bgcolor=white>
-				<td width="100" style="text-align: center;">
-				<?
-				echo $daty;
-				?>
-				</td>
-				<td width="100" bgcolor="green" style="text-align: center;">A</td>
-				<td width="100" bgcolor="green" style="text-align: center;">B</td>
-				<td width="100" bgcolor="green" style="text-align: center;">C</td>
-				<td width="100" bgcolor="green" style="text-align: center;">D</td>
-				<td width="100" bgcolor="red" style="text-align: center;">E</td>
+                    <td width="100" style="text-align: center;">
+                    <?
+                    echo $daty;
+
+                    ?>
+                    </td>
+                    <td width="100" bgcolor="green" style="text-align: center;">A</td>
+                    <td width="100" bgcolor="green" style="text-align: center;">B</td>
+                    <td width="100" bgcolor="green" style="text-align: center;">C</td>
+                    <td width="100" bgcolor="green" style="text-align: center;">D</td>
+                    <td width="100" bgcolor="red" style="text-align: center;">E</td>
 				</tr>
 				<?
 				$Godzina = $Godzina + 1;
