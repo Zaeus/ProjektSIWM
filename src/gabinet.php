@@ -34,149 +34,40 @@
                 <input type="submit" value="Tydzieñ w przód" name="Dalej" />
             </form>
             <br> Zajmij gabinet <br>
-            <form action="gabinet.php" method="POST">
-                Godzina rozpoczecia
-                <select name="GodzinaRozpoczecia">
-                    <?
-                    $select_h = gmdate("H:i", 25200);
-                    $select_30m = strtotime(gmdate("H:i", 1800)) - strtotime("00:00");
-                    $form = "<option value=" . $select_h . ">7:00</option>";
-                    $select_h = date("H:i", strtotime($select_h ) + $select_30m);
-                    $form .= "<option value=" . $select_h . ">7:30</option>";
-                    $select_h = date("H:i", strtotime($select_h ) + $select_30m);
-                    $form .= "<option value=" . $select_h . ">8:00</option>";
-                    $select_h = date("H:i", strtotime($select_h ) + $select_30m);
-                    $form .= "<option value=" . $select_h . ">8:30</option>";
-                    $select_h = date("H:i", strtotime($select_h ) + $select_30m);
-                    $form .= "<option value=" . $select_h . ">9:00</option>";
-                    $select_h = date("H:i", strtotime($select_h ) + $select_30m);
-                    $form .= "<option value=" . $select_h . ">9:30</option>";
-                    $select_h = date("H:i", strtotime($select_h ) + $select_30m);
-                    $form .= "<option value=" . $select_h . ">10:00</option>";
-                    $select_h = date("H:i", strtotime($select_h ) + $select_30m);
-                    $form .= "<option value=" . $select_h . ">10:30</option>";
-                    $select_h = date("H:i", strtotime($select_h ) + $select_30m);
-                    $form .= "<option value=" . $select_h . ">11:00</option>";
-                    $select_h = date("H:i", strtotime($select_h ) + $select_30m);
-                    $form .= "<option value=" . $select_h . ">11:30</option>";
-                    $select_h = date("H:i", strtotime($select_h ) + $select_30m);
-                    $form .= "<option value=" . $select_h . ">12:00</option>";
-                    $select_h = date("H:i", strtotime($select_h ) + $select_30m);
-                    $form .= "<option value=" . $select_h . ">12:30</option>";
-                    $select_h = date("H:i", strtotime($select_h ) + $select_30m);
-                    $form .= "<option value=" . $select_h . ">13:00</option>";
-                    $select_h = date("H:i", strtotime($select_h ) + $select_30m);
-                    $form .= "<option value=" . $select_h . ">13:30</option>";
-                    $select_h = date("H:i", strtotime($select_h ) + $select_30m);
-                    $form .= "<option value=" . $select_h . ">14:00</option>";
-                    $select_h = date("H:i", strtotime($select_h ) + $select_30m);
-                    $form .= "<option value=" . $select_h . ">14:30</option>";
-                    $select_h = date("H:i", strtotime($select_h ) + $select_30m);
-                    $form .= "<option value=" . $select_h . ">15:00</option>";
-                    $select_h = date("H:i", strtotime($select_h ) + $select_30m);
-                    $form .= "<option value=" . $select_h . ">15:30</option>";
-                    $select_h = date("H:i", strtotime($select_h ) + $select_30m);
-                    $form .= "<option value=" . $select_h . ">16:00</option>";
-                    $select_h = date("H:i", strtotime($select_h ) + $select_30m);
-                    $form .= "<option value=" . $select_h . ">16:30</option>";
-                    $select_h = date("H:i", strtotime($select_h ) + $select_30m);
-                    $form .= "<option value=" . $select_h . ">17:00</option>";
-                    $select_h = date("H:i", strtotime($select_h ) + $select_30m);
-                    $form .= "<option value=" . $select_h . ">17:30</option>";
-                    $select_h = date("H:i", strtotime($select_h ) + $select_30m);
-                    $form .= "<option value=" . $select_h . ">18:00</option>";
-                    $select_h = date("H:i", strtotime($select_h ) + $select_30m);
-                    $form .= "<option value=" . $select_h . ">18:30</option>";
-                    $select_h = date("H:i", strtotime($select_h ) + $select_30m);
-                    $form .= "<option value=" . $select_h . ">19:00</option>";
-                    $select_h = date("H:i", strtotime($select_h ) + $select_30m);
-                    $form .= "<option value=" . $select_h . ">19:30</option>";
-                    $select_h = date("H:i", strtotime($select_h ) + $select_30m);
-                    $form .= "<option value=" . $select_h . ">20:00</option>";
-                    $select_h = date("H:i", strtotime($select_h ) + $select_30m);
-                    $form .= "<option value=" . $select_h . ">20:30</option>";
-                    $select_h = date("H:i", strtotime($select_h ) + $select_30m);
-                    $form .= "<option value=" . $select_h . ">21:00</option>";
-                    echo $form;
-                    ?>
-                </select><br>
-                Godzina zakonczenia
-                <select name="GodzinaZakonczenia">
-                    <?
-                    $select_h = gmdate("H:i", 25200);
-                    $select_30m = strtotime(gmdate("H:i", 1800)) - strtotime("00:00");
-                    $select_h = date("H:i", strtotime($select_h ) + $select_30m);
-                    $form = "<option value=" . $select_h . ">7:30</option>";
-                    $select_h = date("H:i", strtotime($select_h ) + $select_30m);
-                    $form .= "<option value=" . $select_h . ">8:00</option>";
-                    $select_h = date("H:i", strtotime($select_h ) + $select_30m);
-                    $form .= "<option value=" . $select_h . ">8:30</option>";
-                    $select_h = date("H:i", strtotime($select_h ) + $select_30m);
-                    $form .= "<option value=" . $select_h . ">9:00</option>";
-                    $select_h = date("H:i", strtotime($select_h ) + $select_30m);
-                    $form .= "<option value=" . $select_h . ">9:30</option>";
-                    $select_h = date("H:i", strtotime($select_h ) + $select_30m);
-                    $form .= "<option value=" . $select_h . ">10:00</option>";
-                    $select_h = date("H:i", strtotime($select_h ) + $select_30m);
-                    $form .= "<option value=" . $select_h . ">10:30</option>";
-                    $select_h = date("H:i", strtotime($select_h ) + $select_30m);
-                    $form .= "<option value=" . $select_h . ">11:00</option>";
-                    $select_h = date("H:i", strtotime($select_h ) + $select_30m);
-                    $form .= "<option value=" . $select_h . ">11:30</option>";
-                    $select_h = date("H:i", strtotime($select_h ) + $select_30m);
-                    $form .= "<option value=" . $select_h . ">12:00</option>";
-                    $select_h = date("H:i", strtotime($select_h ) + $select_30m);
-                    $form .= "<option value=" . $select_h . ">12:30</option>";
-                    $select_h = date("H:i", strtotime($select_h ) + $select_30m);
-                    $form .= "<option value=" . $select_h . ">13:00</option>";
-                    $select_h = date("H:i", strtotime($select_h ) + $select_30m);
-                    $form .= "<option value=" . $select_h . ">13:30</option>";
-                    $select_h = date("H:i", strtotime($select_h ) + $select_30m);
-                    $form .= "<option value=" . $select_h . ">14:00</option>";
-                    $select_h = date("H:i", strtotime($select_h ) + $select_30m);
-                    $form .= "<option value=" . $select_h . ">14:30</option>";
-                    $select_h = date("H:i", strtotime($select_h ) + $select_30m);
-                    $form .= "<option value=" . $select_h . ">15:00</option>";
-                    $select_h = date("H:i", strtotime($select_h ) + $select_30m);
-                    $form .= "<option value=" . $select_h . ">15:30</option>";
-                    $select_h = date("H:i", strtotime($select_h ) + $select_30m);
-                    $form .= "<option value=" . $select_h . ">16:00</option>";
-                    $select_h = date("H:i", strtotime($select_h ) + $select_30m);
-                    $form .= "<option value=" . $select_h . ">16:30</option>";
-                    $select_h = date("H:i", strtotime($select_h ) + $select_30m);
-                    $form .= "<option value=" . $select_h . ">17:00</option>";
-                    $select_h = date("H:i", strtotime($select_h ) + $select_30m);
-                    $form .= "<option value=" . $select_h . ">17:30</option>";
-                    $select_h = date("H:i", strtotime($select_h ) + $select_30m);
-                    $form .= "<option value=" . $select_h . ">18:00</option>";
-                    $select_h = date("H:i", strtotime($select_h ) + $select_30m);
-                    $form .= "<option value=" . $select_h . ">18:30</option>";
-                    $select_h = date("H:i", strtotime($select_h ) + $select_30m);
-                    $form .= "<option value=" . $select_h . ">19:00</option>";
-                    $select_h = date("H:i", strtotime($select_h ) + $select_30m);
-                    $form .= "<option value=" . $select_h . ">19:30</option>";
-                    $select_h = date("H:i", strtotime($select_h ) + $select_30m);
-                    $form .= "<option value=" . $select_h . ">20:00</option>";
-                    $select_h = date("H:i", strtotime($select_h ) + $select_30m);
-                    $form .= "<option value=" . $select_h . ">20:30</option>";
-                    $select_h = date("H:i", strtotime($select_h ) + $select_30m);
-                    $form .= "<option value=" . $select_h . ">21:00</option>";
-                    echo $form;
-                    ?>
-                </select><br>
-                <table align="center" cellpadding="5" border="1">
-                    <tr>
-                        <td><input type="checkbox" name="Pon" value="Pon">Poniedzia³ek</td>
-                        <td><input type="checkbox" name="Wto" value="Wto">Wtorek</td>
-                        <td><input type="checkbox" name="Sro" value="Sro">¦roda</td>
-                        <td><input type="checkbox" name="Czw" value="Czw">Czwartek</td>
-                        <td><input type="checkbox" name="Pia" value="Pia">Pi±tek<br></td>
-                    </tr>
-                </table>
-                <input type="submit" value="Zajmij" /><br><br>
-            </form>
+            <?
+            echo "<form action=\"gabinet.php\" method=\"POST\">";
+            if(isset($_POST['Dzien'])){
+                $_SESSION['Dzien'] = $_POST['Dzien'];
+                echo "Godzina rozpoczêcia "."<select name=\"GodzinaRozpoczecia\">";
+                generateDate(date_create('7:00'), date_create('19:00'));
+                echo "<br><input type=\"submit\" value=\"Dalej\" /></form>";
+            }elseif(isset($_POST['GodzinaRozpoczecia'])){
+                $_SESSION['GodzinaRozpoczecia'] = $_POST['GodzinaRozpoczecia'];
+                $poczatek = date_create($_SESSION['GodzinaRozpoczecia']);
+                echo "</select>"."Godzina zakoñczenia "."<select name=\"GodzinaZakonczenia\">";
+                generateDate(date_modify($poczatek,'+2 hours'), date_create('21:00'));
+                echo "<br><input type=\"submit\" value=\"Zajmij\" /></form>";
+            }else{
+                if(isset($_POST['GodzinaZakonczenia'])){
+                echo $_SESSION['Dzien']."<br>";
+                echo $_SESSION['GodzinaRozpoczecia']."<br>";
+                echo $_POST['GodzinaZakonczenia'];
+                //TODO Tutaj ma byæ obs³u¿enie formularza, bo wychodz±c z tego ifa niszczymy dane
+                unset ($_SESSION['Dzien']);
+                unset ($_SESSION['GodzinaRozpoczecia']);
+                unset ($_POST['GodzinaZakonczenia']);
+            }
+                echo "</select><br>";
+                echo "<table align=\"center\" cellpadding=\"5\" border=\"1\">";
+                echo "<tr>";
+                echo "<td><input type=\"radio\" name=\"Dzien\" value=\"Pon\">Poniedzia³ek</td>";
+                echo "<td><input type=\"radio\" name=\"Dzien\" value=\"Wto\">Wtorek</td>";
+                echo "<td><input type=\"radio\" name=\"Dzien\" value=\"Sro\">¦roda</td>";
+                echo "<td><input type=\"radio\" name=\"Dzien\" value=\"Czw\">Czwartek</td>";
+                echo "<td><input type=\"radio\" name=\"Dzien\" value=\"Pia\">Pi±tek<br></td>";
+                echo "</tr></table><input type=\"submit\" value=\"Dalej\" /><br><br></form>";
+            }
 
-			<?
             // TODO Dorobiæ zapisy/modyfikacjê zajmowania gabinetów
             // TODO Kwerenda pobieraj±ca dane oparte o aktualny dzieñ tygodnia
             // TODO Nastêpnie pobrana data jest porównywana z aktualn± (czy siê mie¶ci - jak siê mie¶ci to sprawdzanie dalszej zajêto¶ci godziny)
@@ -367,4 +258,17 @@
 ?>
 <?
 	include("stopka.php");
+?>
+
+<?
+function generateDate($start, $stop){
+    $dataFormula = "";
+    for($current=$start; $current!=$stop; date_modify($current,'+30 minutes')){
+        $formatedData = date_format($current,'H:i');
+        $dataFormula .="<option value=" . $formatedData . ">$formatedData</option>";
+    }
+    $formatedData = date_format($stop,'H:i');
+    $dataFormula .= "<option value=" . $formatedData . ">$formatedData</option>";
+    echo $dataFormula;
+}
 ?>
