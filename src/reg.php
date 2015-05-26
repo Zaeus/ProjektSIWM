@@ -89,9 +89,9 @@
                 <label for="Imiê"></label><input type="text" name="ImieReg" placeholder="Imiê" id="ImieReg"/><br>
                 <label for="Nazwisko"></label><input type="text" name="NazwiskoReg" placeholder="Nazwisko" id="NazwiskoReg"/><br>
                 <label for="Email"></label><input type="email" name="EmailReg" placeholder="Email" id="EmailReg"/><br>
-                <label for="Powtórz Email"></label><input type="email" name="EmailReg2" placeholder="Email2" id="EmailReg2"/><br>
+                <label for="Powtórz Email"></label><input type="email" name="EmailReg2" placeholder="Powtórz Email" id="EmailReg2"/><br>
                 <label for="Has³o"></label><input type="password" name="HasloReg" placeholder="Has³o" id="HasloReg"/><br>
-                <label for="Powtórz has³o"></label><input type="password" name="HasloReg2" placeholder="Has³o2" id="HasloReg2"/><br>
+                <label for="Powtórz has³o"></label><input type="password" name="HasloReg2" placeholder="Powtórz Has³o" id="HasloReg2"/><br>
                 <input type="radio" name="Radio" id="Lekarz" value="lekarz"/><label for="Lekarz">Lekarz</label><br>
                 <input type="radio" name="Radio" id="Pacjent" value="pacjent"/><label for="Pacjent">Pacjent</label><br>
                 <input type="submit" value="Zarejestruj" /><br><br>
