@@ -50,14 +50,16 @@
                 echo "<br><input type=\"submit\" value=\"Zajmij\" /></form>";
             }else{
                 if(isset($_POST['GodzinaZakonczenia'])){
-                echo $_SESSION['Dzien']."<br>";
-                echo $_SESSION['GodzinaRozpoczecia']."<br>";
-                echo $_POST['GodzinaZakonczenia'];
-                //TODO Tutaj ma byæ obs³u¿enie formularza, bo wychodz±c z tego ifa niszczymy dane
-                unset ($_SESSION['Dzien']);
-                unset ($_SESSION['GodzinaRozpoczecia']);
-                unset ($_POST['GodzinaZakonczenia']);
-            }
+                    echo $_SESSION['Dzien']."<br>";
+                    echo $_SESSION['GodzinaRozpoczecia']."<br>";
+                    echo $_POST['GodzinaZakonczenia'];
+                    //TODO Tutaj ma byæ obs³u¿enie formularza, bo wychodz±c z tego ifa niszczymy dane
+                    // $kwerenda_wpisu terminu pasuj±cego do bazy danych
+                    // przed wpisaniem data/godzina powinna byæ sprawdzona z terminem w bazie danych
+                    unset ($_SESSION['Dzien']);
+                    unset ($_SESSION['GodzinaRozpoczecia']);
+                    unset ($_POST['GodzinaZakonczenia']);
+                }
                 echo "</select><br>";
                 echo "<table align=\"center\" cellpadding=\"5\" border=\"1\">";
                 echo "<tr>";
