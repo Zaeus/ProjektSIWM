@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="jbialkow" />
+  <component name="PublishConfigData" serverName="student.agh.edu.pl">
+    <serverData>
+      <paths name="student.agh.edu.pl">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/" local="$PROJECT_DIR$" web="/~wbuczek/Projekt/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
 </project>

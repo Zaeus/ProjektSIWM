@@ -5,13 +5,13 @@
 	include("naglowek.php");	
 	include("polaczenieSQL.php");
 	include("kwerenda_log.php");
+    include("functions/CheckTime.php");
+    include("functions/GenerateDate.php");
 ?>
-//Edycja gabinetów<br>
-
 <?
 	if(isset($_SESSION['login']) && ($_SESSION['haslo'] == $hasloSql)){
 		if($_SESSION['uprawnienia'] == "lekarz" || $_SESSION['uprawnienia'] == "admin") {
-			echo "Posiadasz uprawnienia lekarza<br>";
+			echo "<b>Posiadasz uprawnienia lekarza</b><br><br>";
             if(isset($_POST['Wstecz'])){
                 date_modify($_SESSION['data'], '-1 week');
                 unset($_POST['Wstecz']);
@@ -26,6 +26,7 @@
             }
             $dataKoniec = clone $_SESSION['data'];
 			$dataDni = clone $_SESSION['data'];
+            $dataCheckTime = clone $_SESSION['data'];
             date_modify($dataKoniec, '+4 day');
             echo "Pocz±tek tygodnia:" . date_format($_SESSION['data'], 'Y-m-d') . "<br>Koniec tygodnia:" . date_format($dataKoniec, 'Y-m-d') . "<br>";
             ?>
@@ -137,7 +138,7 @@
                 $Godzina = 8;
                 // Dat nie ruszaæ bo siê zjebi±
                 $godzina_tab = gmdate("H:i", 25200);
-                $godzina_tab_prim = gmdate("H:i:s", 25200);
+                $godzinaCheckTime = gmdate("H:i:s", 25200);
                 $half = strtotime(gmdate("H:i", 1800)) - strtotime("00:00");
                 while($Godzina < 37) {
                     // TODO Kwerendy z zapytaniami dla danej godziny dla danego dnia - jak jest to kolorowanie czerwony dla zajêtego
@@ -152,94 +153,25 @@
                         </td>
                         <?
                         // Sprawdzenie poniedzia³ku
-                        $kwerenda_PON = "SELECT ID_nazwiska_Lek, od_dnia, do_dnia, od_godziny, do_godziny FROM zajetosc WHERE dzien_tyg='Pon' AND ID_gabinetu='" . $_SESSION['ID_przegladany_gabinet'] . "'";
-                        $wynik_PON = mysql_query($kwerenda_PON) or die('B³±d zapytania');
-                        if($wynik_PON) {
-                            unset($tab_wiersz_PON);
-                            while($wiersz_PON = mysql_fetch_assoc($wynik_PON)) {
-                                if(($wiersz_PON['od_godziny'] <= $godzina_tab_prim) && ($wiersz_PON['do_godziny'] >= $godzina_tab_prim)){
-                                    $tab_wiersz_PON = "<td width=\"100\" bgcolor=\"red\" style=\"text-align: center\">" . $wiersz_PON['ID_nazwiska_Lek'] . "</td>";
-                                }
-                            }
-                        }
-                        if(!isset($tab_wiersz_PON)){
-                            $tab_wiersz_PON = "<td width=\"100\" bgcolor=\"green\" style=\"text-align: center\"></td>";
-                        }
-                        echo $tab_wiersz_PON;
-                        ?>
-                        <?
+                        checkTime("Pon",$godzinaCheckTime,$dataCheckTime);
+                        date_modify($date, '+1 day');
                         // Sprawdzenie wtorku
-                        $kwerenda_WTO = "SELECT ID_nazwiska_Lek, od_dnia, do_dnia, od_godziny, do_godziny FROM zajetosc WHERE dzien_tyg='Wto' AND ID_gabinetu='" . $_SESSION['ID_przegladany_gabinet'] . "'";
-                        $wynik_WTO = mysql_query($kwerenda_WTO) or die('B³±d zapytania');
-                        if($wynik_WTO) {
-                            unset($tab_wiersz_WTO);
-                            while($wiersz_WTO = mysql_fetch_assoc($wynik_WTO)) {
-                                if(($wiersz_WTO['od_godziny'] <= $godzina_tab_prim) && ($wiersz_WTO['do_godziny'] >= $godzina_tab_prim)){
-                                    $tab_wiersz_WTO = "<td width=\"100\" bgcolor=\"red\" style=\"text-align: center\">" . $wiersz_WTO['ID_nazwiska_Lek'] . "</td>";
-                                }
-                            }
-                        }
-                        if(!isset($tab_wiersz_WTO)){
-                            $tab_wiersz_WTO = "<td width=\"100\" bgcolor=\"green\" style=\"text-align: center\"></td>";
-                        }
-                        echo $tab_wiersz_WTO;
-                        ?>
-                        <?
+                        checkTime("Wto",$godzinaCheckTime,$dataCheckTime);
+                        date_modify($date, '+1 day');
                         // Sprawdzenie ¶rody
-                        $kwerenda_SRO = "SELECT ID_nazwiska_Lek, od_dnia, do_dnia, od_godziny, do_godziny FROM zajetosc WHERE dzien_tyg='Sro' AND ID_gabinetu='" . $_SESSION['ID_przegladany_gabinet'] . "'";
-                        $wynik_SRO = mysql_query($kwerenda_SRO) or die('B³±d zapytania');
-                        if($wynik_SRO) {
-                            unset($tab_wiersz_SRO);
-                            while($wiersz_SRO = mysql_fetch_assoc($wynik_SRO)) {
-                                if(($wiersz_SRO['od_godziny'] <= $godzina_tab_prim) && ($wiersz_SRO['do_godziny'] >= $godzina_tab_prim)){
-                                    $tab_wiersz_SRO = "<td width=\"100\" bgcolor=\"red\" style=\"text-align: center\">" . $wiersz_SRO['ID_nazwiska_Lek'] . "</td>";
-                                }
-                            }
-                        }
-                        if(!isset($tab_wiersz_SRO)){
-                            $tab_wiersz_SRO = "<td width=\"100\" bgcolor=\"green\" style=\"text-align: center\"></td>";
-                        }
-                        echo $tab_wiersz_SRO;
-                        ?>
-                        <?
+                        checkTime("Sro",$godzinaCheckTime,$dataCheckTime);
+                        date_modify($date, '+1 day');
                         // Sprawdzenie czwartku
-                        $kwerenda_CZW = "SELECT ID_nazwiska_Lek, od_dnia, do_dnia, od_godziny, do_godziny FROM zajetosc WHERE dzien_tyg='Czw' AND ID_gabinetu='" . $_SESSION['ID_przegladany_gabinet'] . "'";
-                        $wynik_CZW = mysql_query($kwerenda_CZW) or die('B³±d zapytania');
-                        if($wynik_CZW) {
-                            unset($tab_wiersz_CZW);
-                            while($wiersz_CZW = mysql_fetch_assoc($wynik_CZW)) {
-                                if(($wiersz_CZW['od_godziny'] <= $godzina_tab_prim) && ($wiersz_CZW['do_godziny'] >= $godzina_tab_prim)){
-                                    $tab_wiersz_CZW = "<td width=\"100\" bgcolor=\"red\" style=\"text-align: center\">" . $wiersz_CZW['ID_nazwiska_Lek'] . "</td>";
-                                }
-                            }
-                        }
-                        if(!isset($tab_wiersz_CZW)){
-                            $tab_wiersz_CZW = "<td width=\"100\" bgcolor=\"green\" style=\"text-align: center\"></td>";
-                        }
-                        echo $tab_wiersz_CZW;
-                        ?>
-                        <?
+                        checkTime("Czw",$godzinaCheckTime,$dataCheckTime);
+                        date_modify($date, '+1 day');
                         // Sprawdzenie pi±tku
-                        $kwerenda_PIA = "SELECT ID_nazwiska_Lek, od_dnia, do_dnia, od_godziny, do_godziny FROM zajetosc WHERE dzien_tyg='Pia' AND ID_gabinetu='" . $_SESSION['ID_przegladany_gabinet'] . "'";
-                        $wynik_PIA = mysql_query($kwerenda_PIA) or die('B³±d zapytania');
-                        if($wynik_PIA) {
-                            unset($tab_wiersz_PIA);
-                            while($wiersz_PIA = mysql_fetch_assoc($wynik_PIA)){
-                                if(($wiersz_PIA['od_godziny'] <= $godzina_tab_prim) && ($wiersz_PIA['do_godziny'] >= $godzina_tab_prim)){
-                                    $tab_wiersz_PIA = "<td width=\"100\" bgcolor=\"red\" style=\"text-align: center\">" . $wiersz_PIA['ID_nazwiska_Lek'] . "</td>";
-                                }
-                            }
-                        }
-                        if(!isset($tab_wiersz_PIA)){
-                            $tab_wiersz_PIA = "<td width=\"100\" bgcolor=\"green\" style=\"text-align: center\"></td>";
-                        }
-                        echo $tab_wiersz_PIA;
+                        checkTime("Pia",$godzinaCheckTime,$dataCheckTime);
                         ?>
                     </tr>
                     <?
                     $Godzina = $Godzina + 1;
                     $godzina_tab = date("H:i", strtotime($godzina_tab ) + $half);
-                    $godzina_tab_prim = date("H:i:s", strtotime($godzina_tab_prim ) + $half);
+                    $godzinaCheckTime = date("H:i:s", strtotime($godzinaCheckTime ) + $half);
                 }
                 ?>
                 </table>
@@ -258,19 +190,4 @@
 ?>
 <?
 	include("stopka.php");
-?>
-
-<?
-function generateDate($start, $stop){
-    $dataFormula = "";
-    for($current=$start; $current!=$stop; date_modify($current,'+30 minutes')){
-        $formatedData = date_format($current,'H:i');
-        $formatedDataSeconds = date_format($current,'H:i:s');
-        $dataFormula .="<option value=" . $formatedDataSeconds . ">$formatedData</option>";
-    }
-    $formatedData = date_format($stop,'H:i');
-    $formatedDataSeconds = date_format($stop,'H:i:s');
-    $dataFormula .= "<option value=" . $formatedDataSeconds . ">$formatedData</option>";
-    echo $dataFormula;
-}
 ?>
