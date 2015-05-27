@@ -7,26 +7,25 @@
 	include("kwerenda_log.php");
     include("functions/CheckTime.php");
     include("functions/GenerateDate.php");
+    include("functions/drawTable.php");
 ?>
 <?
-	if(isset($_SESSION['login']) && ($_SESSION['haslo'] == $hasloSql)){
-		if($_SESSION['uprawnienia'] == "lekarz" || $_SESSION['uprawnienia'] == "admin") {
-			echo "<b>Posiadasz uprawnienia lekarza</b><br><br>";
+    if(isset($_SESSION['login']) && ($_SESSION['haslo'] == $hasloSql)){
+        if($_SESSION['uprawnienia'] == "lekarz" || $_SESSION['uprawnienia'] == "admin") {
+            echo "Posiadasz uprawnienia lekarza<br>";
             if(isset($_POST['Wstecz'])){
                 date_modify($_SESSION['data'], '-1 week');
                 unset($_POST['Wstecz']);
-             }else if(isset($_POST['Dalej'])) {
+            }else if(isset($_POST['Dalej'])) {
                 date_modify($_SESSION['data'], '+1 week');
                 unset($_POST['Dalej']);
-            }else {
+            }elseif(!isset($_POST)||isset($_POST['initGabinet'])){
                 $_SESSION['data'] = new DateTime();
             }
             while((date_format($_SESSION['data'],'l'))!="Monday"){
                 date_modify($_SESSION['data'], '-1 day');
             }
             $dataKoniec = clone $_SESSION['data'];
-			$dataDni = clone $_SESSION['data'];
-            $dataCheckTime = clone $_SESSION['data'];
             date_modify($dataKoniec, '+4 day');
             echo "Pocz±tek tygodnia:" . date_format($_SESSION['data'], 'Y-m-d') . "<br>Koniec tygodnia:" . date_format($dataKoniec, 'Y-m-d') . "<br>";
             ?>
@@ -98,89 +97,14 @@
             $forma_przegladania_gab .= "<input type=\"submit\" value=\"Przegl±daj gabinet\" >";
             $forma_przegladania_gab .= "</form>";
             echo $forma_przegladania_gab;
-            if(isset($_POST['ID_przegladany_gabinet']) || isset($_SESSION['ID_przegladany_gabinet'])) {
-                if(isset($_POST['ID_przegladany_gabinet'])){
-                    if($_POST['ID_przegladany_gabinet'] != $_SESSION['ID_przegladany_gabinet']){
-                        $_SESSION['ID_przegladany_gabinet'] = $_POST['ID_przegladany_gabinet'];
-                    }
-                }
-                echo "Przegl±dany gabinet: " . $_SESSION['ID_przegladany_gabinet'];
-                ?>
-                <br>
-                <table align="center" cellpadding="5" border="1">
-                    <tr bgcolor>
-                        <td style="text-align: center;">Godzina</td>
-                        <td style="text-align: center;">Poniedzia³ek<br>
-                        <?
-                        echo date_format($dataDni, 'Y-m-d');
-                        ?>
-                        </td>
-                        <td style="text-align: center;">Wtorek<br>
-                        <?
-                        echo date_format(date_modify($dataDni, '+1 day'), 'Y-m-d');
-                        ?>
-                        </td>
-                        <td style="text-align: center;">¦roda<br>
-                        <?
-                        echo date_format(date_modify($dataDni, '+1 day'), 'Y-m-d');
-                        ?>
-                        </td>
-                        <td style="text-align: center;">Czwartek<br>
-                        <?
-                        echo date_format(date_modify($dataDni, '+1 day'), 'Y-m-d');
-                        ?>
-                        </td>
-                        <td style="text-align: center;">Pi±tek<br>
-                        <?
-                        echo date_format(date_modify($dataDni, '+1 day'), 'Y-m-d');
-                        ?>
-                        </td>
-                    </tr>
-                <?
-                $Godzina = 8;
-                // Dat nie ruszaæ bo siê zjebi±
-                $godzina_tab = gmdate("H:i", 25200);
-                $godzinaCheckTime = gmdate("H:i:s", 25200);
-                $half = strtotime(gmdate("H:i", 1800)) - strtotime("00:00");
-                while($Godzina < 37) {
-                    // TODO Kwerendy z zapytaniami dla danej godziny dla danego dnia - jak jest to kolorowanie czerwony dla zajêtego
-                    // TODO plus pobranie nazwiska lekarza i jego wy¶wietlenie na polu
-                    // TODO w przeciwnym wypadku kolor zielony bez niczego
-                    ?>
-                    <tr bgcolor=white>
-                        <td width="100" style="text-align: center;">
-                        <?
-                        echo $godzina_tab;
-                        ?>
-                        </td>
-                        <?
-                        // Sprawdzenie poniedzia³ku
-                        checkTime("Pon",$godzinaCheckTime,$dataCheckTime);
-                        date_modify($date, '+1 day');
-                        // Sprawdzenie wtorku
-                        checkTime("Wto",$godzinaCheckTime,$dataCheckTime);
-                        date_modify($date, '+1 day');
-                        // Sprawdzenie ¶rody
-                        checkTime("Sro",$godzinaCheckTime,$dataCheckTime);
-                        date_modify($date, '+1 day');
-                        // Sprawdzenie czwartku
-                        checkTime("Czw",$godzinaCheckTime,$dataCheckTime);
-                        date_modify($date, '+1 day');
-                        // Sprawdzenie pi±tku
-                        checkTime("Pia",$godzinaCheckTime,$dataCheckTime);
-                        ?>
-                    </tr>
-                    <?
-                    $Godzina = $Godzina + 1;
-                    $godzina_tab = date("H:i", strtotime($godzina_tab ) + $half);
-                    $godzinaCheckTime = date("H:i:s", strtotime($godzinaCheckTime ) + $half);
-                }
-                ?>
-                </table>
-            <?
+
+            if(isset($_POST['ID_przegladany_gabinet'])){
+                $_SESSION['ID_przegladany_gabinet'] = $_POST['ID_przegladany_gabinet'];
             }
-            ?>
-        <?
+
+            echo "Przegl±dany gabinet: " . $_SESSION['ID_przegladany_gabinet'];
+            drawTable(clone $_SESSION['data'], $_SESSION['ID_przegladany_gabinet']);
+
 		}
 		else {
 			echo "Nie posiadasz uprawnieñ lekarza";

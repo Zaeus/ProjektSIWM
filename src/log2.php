@@ -41,7 +41,7 @@
 			// TODO Przegl±daj zapisy
 			?>			
 			<form action="gabinet.php" method="POST">
-				<input type="submit" value="Gabinety" /> Przejd¼ do strony rezerwacji oraz modyfikacji Twoich gabinetów
+				<input type="submit" value="Gabinety" name="initGabinet" /> Przejd¼ do strony rezerwacji oraz modyfikacji Twoich gabinetów
 			</form>
 			<form action="przegladaj-zapisy.php" method="POST">
 				<input type="submit" value="Zapisy" /> Przejd¼ do strony przegl±dania i edytowania zapisów do Twoich gabinetów

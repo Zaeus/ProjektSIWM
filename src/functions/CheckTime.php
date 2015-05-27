@@ -1,13 +1,17 @@
 <?
 // Funkcja sprawdzająca zajętość dnia oraz wyświetlająca tą wynik w postaci pokolorowanej komórki tabeli
-function checkTime($day, $hour, $date) {
-    $kwerenda_checkTime = "SELECT ID_nazwiska_Lek, od_dnia, do_dnia, od_godziny, do_godziny FROM zajetosc WHERE dzien_tyg='" . $day . "' AND ID_gabinetu='" . $_SESSION['ID_przegladany_gabinet'] . "'";
+function checkTime($day, $hour, $date, $idGabinetu) {
+
+    $hour = date_format($hour, 'H:i:s');
+    $date = date_format($date, 'Y-m-d');
+
+    $kwerenda_checkTime = "SELECT ID_nazwiska_Lek, od_dnia, do_dnia, od_godziny, do_godziny FROM zajetosc WHERE dzien_tyg='" . $day . "' AND ID_gabinetu='" . $idGabinetu . "'";
     $wynik_checkTime = mysql_query($kwerenda_checkTime) or die('Błąd zapytania');
     if ($wynik_checkTime) {
         // TODO kwerenda pobierająca nazwisko lekarza z tablicy nazwisk
         unset($tab_wiersz);
         while ($wiersz = mysql_fetch_assoc($wynik_checkTime)) {
-            if (($wiersz['od_godziny'] <= $hour) && ($wiersz['do_godziny'] >= $hour) && ($wiersz['od_dnia'] <= date_format($date, 'Y-m-d')) && ($wiersz['do_dnia'] >= date_format($date, 'Y-m-d'))) {
+            if (($wiersz['od_godziny'] <= $hour) && ($wiersz['do_godziny'] >= $hour) && ($wiersz['od_dnia'] <= $date) && ($wiersz['do_dnia'] >= $date)) {
                 $kwerenda_Lekarz = "SELECT nazwisko FROM nazwiska WHERE id_nazwiska='" . $wiersz['ID_nazwiska_Lek'] . "'";
                 $wynik_Lekarz = mysql_query($kwerenda_Lekarz) or die('Błąd zapytania');
                 $dane_Lekarz = mysql_fetch_assoc($wynik_Lekarz);
