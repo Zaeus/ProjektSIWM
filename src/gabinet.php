@@ -16,10 +16,12 @@
             if(isset($_POST['Wstecz'])){
                 date_modify($_SESSION['data'], '-1 week');
                 unset($_POST['Wstecz']);
-            }else if(isset($_POST['Dalej'])) {
+            }
+            else if(isset($_POST['Dalej'])) {
                 date_modify($_SESSION['data'], '+1 week');
                 unset($_POST['Dalej']);
-            }elseif(!isset($_POST)||isset($_POST['initGabinet'])){
+            }
+            elseif(!isset($_POST)||isset($_POST['initGabinet'])){
                 $_SESSION['data'] = new DateTime();
             }
             while((date_format($_SESSION['data'],'l'))!="Monday"){
@@ -37,28 +39,42 @@
             echo "<br><fieldset><legend>Zajmij gabinet:</legend><form action=\"gabinet.php\" method=\"POST\">";
             if(isset($_POST['Dzien'])){
                 $_SESSION['Dzien'] = $_POST['Dzien'];
-                echo "Godzina rozpoczêcia " . "<select name=\"GodzinaRozpoczecia\">";
+                echo "Godzina rozpoczêcia: " . "<select name=\"GodzinaRozpoczecia\">";
                 generateDate(date_create('7:00'), date_create('19:00'));
-                echo "<br><input type=\"submit\" value=\"Dalej\" /></form></fieldset>";
+                echo "</select><br><input type=\"submit\" value=\"Dalej\" /></form></fieldset>";
             }
             elseif(isset($_POST['GodzinaRozpoczecia'])){
                 $_SESSION['GodzinaRozpoczecia'] = $_POST['GodzinaRozpoczecia'];
                 $timeBegin = date_create($_SESSION['GodzinaRozpoczecia']);
-                echo "</select>" . "Godzina zakoñczenia " . "<select name=\"GodzinaZakonczenia\">";
+                echo "Godzina zakoñczenia: " . "<select name=\"GodzinaZakonczenia\">";
                 generateDate(date_modify($timeBegin,'+2 hours'), date_create('21:00'));
+                echo "</select><br><input type=\"submit\" value=\"Dalej\" /></form></fieldset>";
+            }
+            elseif(isset($_POST['GodzinaZakonczenia'])){
+                $_SESSION['GodzinaZakonczenia'] = $_POST['GodzinaZakonczenia'];
+                echo "Data rozpoczêcia najmu gabinetu: <input type=\"date\" name=\"OdDnia\" placeholder=\"Data rozpoczêcia najmu gabinetu\" value=\"" . date_format(new DateTime(), 'Y-m-d') . "\">";
+                echo "<br><input type=\"submit\" value=\"Dalej\" /></form></fieldset>";
+            }
+            elseif(isset($_POST['OdDnia'])){
+                $_SESSION['OdDnia'] = $_POST['OdDnia'];
+                echo "Data zakoñczenia najmu gabinetu: <input type=\"date\" name=\"DoDnia\" placeholder=\"Data zakoñczenia najmu gabinetu\" value=\"" . date_format(date_modify(new DateTime(), '+1 week'), 'Y-m-d') . "\">";
                 echo "<br><input type=\"submit\" value=\"Zajmij\" /></form></fieldset>";
             }
             else{
-                if(isset($_POST['GodzinaZakonczenia'])){
-                    echo $_SESSION['Dzien']."<br>";
-                    echo $_SESSION['GodzinaRozpoczecia']."<br>";
-                    echo $_POST['GodzinaZakonczenia'];
+                if(isset($_POST['DoDnia'])){
+                    echo $_SESSION['Dzien'] . "<br>";
+                    echo $_SESSION['GodzinaRozpoczecia'] . "<br>";
+                    echo $_SESSION['GodzinaZakonczenia'] . "<br>";;
+                    echo $_SESSION['OdDnia'] . "<br>";;
+                    echo $_POST['DoDnia'] . "<br>";;
                     //TODO Tutaj ma byæ obs³u¿enie formularza, bo wychodz±c z tego ifa niszczymy dane
                     // $kwerenda_wpisu terminu pasuj±cego do bazy danych
                     // przed wpisaniem data/godzina powinna byæ sprawdzona z terminem w bazie danych
-                    unset ($_SESSION['Dzien']);
-                    unset ($_SESSION['GodzinaRozpoczecia']);
-                    unset ($_POST['GodzinaZakonczenia']);
+                    unset($_SESSION['Dzien']);
+                    unset($_SESSION['GodzinaRozpoczecia']);
+                    unset($_SESSION['GodzinaZakonczenia']);
+                    unset($_SESSION['OdDnia']);
+                    unset($_POST['DoDnia']);
                 }
                 echo "</select><br>";
                 echo "<table align=\"center\" cellpadding=\"5\" border=\"1\">";

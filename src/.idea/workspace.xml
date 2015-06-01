@@ -28,10 +28,10 @@
       <file leaf-file-name="gabinet.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/gabinet.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.7075332" vertical-offset="357" max-vertical-offset="2142">
-              <caret line="89" column="17" selection-start-line="89" selection-start-column="17" selection-end-line="89" selection-end-column="17" />
+            <state vertical-scroll-proportion="0.39734122" vertical-offset="513" max-vertical-offset="2414">
+              <caret line="46" column="79" selection-start-line="46" selection-start-column="79" selection-end-line="46" selection-end-column="79" />
               <folding>
-                <marker date="1433183058302" expanded="true" signature="4667:4699" placeholder="SELECT ID_ga..zajetosc..." />
+                <marker date="1433185035711" expanded="true" signature="5768:5800" placeholder="SELECT ID_ga..zajetosc..." />
               </folding>
             </state>
           </provider>
@@ -40,8 +40,8 @@
       <file leaf-file-name="edit-bud-gab.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/edit-bud-gab.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.692307" vertical-offset="955" max-vertical-offset="3570">
-              <caret line="71" column="75" selection-start-line="71" selection-start-column="34" selection-end-line="71" selection-end-column="75" />
+            <state vertical-scroll-proportion="-12.961538" vertical-offset="1312" max-vertical-offset="3570">
+              <caret line="97" column="194" selection-start-line="97" selection-start-column="48" selection-end-line="97" selection-end-column="194" />
               <folding />
             </state>
           </provider>
@@ -638,14 +638,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/functions/GenerateDate.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37666175" vertical-offset="0" max-vertical-offset="677">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/edit-user.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.6385542" vertical-offset="0" max-vertical-offset="2669">
@@ -661,18 +653,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/edit-bud-gab.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.692307" vertical-offset="955" max-vertical-offset="3570">
-          <caret line="71" column="75" selection-start-line="71" selection-start-column="34" selection-end-line="71" selection-end-column="75" />
+        <state vertical-scroll-proportion="-12.961538" vertical-offset="1312" max-vertical-offset="3570">
+          <caret line="97" column="194" selection-start-line="97" selection-start-column="48" selection-end-line="97" selection-end-column="194" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/functions/GenerateDate.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.37666175" vertical-offset="0" max-vertical-offset="677">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gabinet.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.7075332" vertical-offset="357" max-vertical-offset="2142">
-          <caret line="89" column="17" selection-start-line="89" selection-start-column="17" selection-end-line="89" selection-end-column="17" />
+        <state vertical-scroll-proportion="0.39734122" vertical-offset="513" max-vertical-offset="2414">
+          <caret line="46" column="79" selection-start-line="46" selection-start-column="79" selection-end-line="46" selection-end-column="79" />
           <folding>
-            <marker date="1433183058302" expanded="true" signature="4667:4699" placeholder="SELECT ID_ga..zajetosc..." />
+            <marker date="1433185035711" expanded="true" signature="5768:5800" placeholder="SELECT ID_ga..zajetosc..." />
           </folding>
         </state>
       </provider>
