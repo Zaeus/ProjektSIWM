@@ -28,11 +28,21 @@
       <file leaf-file-name="gabinet.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/gabinet.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9137738" vertical-offset="0" max-vertical-offset="2108">
-              <caret line="48" column="77" selection-start-line="48" selection-start-column="77" selection-end-line="48" selection-end-column="77" />
+            <state vertical-scroll-proportion="1.7075332" vertical-offset="357" max-vertical-offset="2142">
+              <caret line="89" column="17" selection-start-line="89" selection-start-column="17" selection-end-line="89" selection-end-column="17" />
               <folding>
-                <marker date="1433169682230" expanded="true" signature="4607:4639" placeholder="SELECT ID_ga..zajetosc..." />
+                <marker date="1433183058302" expanded="true" signature="4667:4699" placeholder="SELECT ID_ga..zajetosc..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="edit-bud-gab.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/edit-bud-gab.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-9.692307" vertical-offset="955" max-vertical-offset="3570">
+              <caret line="71" column="75" selection-start-line="71" selection-start-column="34" selection-end-line="71" selection-end-column="75" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -54,15 +64,15 @@
         <option value="$PROJECT_DIR$/naglowek.php" />
         <option value="$PROJECT_DIR$/log2.php" />
         <option value="$PROJECT_DIR$/edit-bud-gab.php" />
-        <option value="$PROJECT_DIR$/edit-user.php" />
         <option value="$PROJECT_DIR$/../testowe/zajetosc.php" />
         <option value="$PROJECT_DIR$/test.php" />
         <option value="$PROJECT_DIR$/test" />
         <option value="$PROJECT_DIR$/nowy.php" />
-        <option value="$PROJECT_DIR$/gabinet.php" />
         <option value="$PROJECT_DIR$/functions/drawTable.php" />
         <option value="$PROJECT_DIR$/functions/CheckTime.php" />
         <option value="$PROJECT_DIR$/functions/GenerateDate.php" />
+        <option value="$PROJECT_DIR$/edit-user.php" />
+        <option value="$PROJECT_DIR$/gabinet.php" />
       </list>
     </option>
   </component>
@@ -73,7 +83,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1936" />
+    <option name="width" value="1932" />
     <option name="height" value="1056" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -245,7 +255,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
+    <frame x="-8" y="-8" width="1932" height="1056" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
@@ -255,11 +265,11 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296875" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.108333334" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1085595" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32897604" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2280887" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32946146" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -600,25 +610,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/edit-user.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.68533033" vertical-offset="0" max-vertical-offset="2652">
-          <caret line="36" column="45" selection-start-line="36" selection-start-column="45" selection-end-line="36" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../testowe/zajetosc.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.07614782" vertical-offset="0" max-vertical-offset="893">
           <caret line="4" column="65" selection-start-line="4" selection-start-column="65" selection-end-line="4" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/edit-bud-gab.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7234042" vertical-offset="1071" max-vertical-offset="3570">
-          <caret line="101" column="12" selection-start-line="101" selection-start-column="12" selection-end-line="103" selection-end-column="59" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -645,18 +640,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/functions/GenerateDate.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28555432" vertical-offset="0" max-vertical-offset="893">
+        <state vertical-scroll-proportion="0.37666175" vertical-offset="0" max-vertical-offset="677">
           <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edit-user.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.6385542" vertical-offset="0" max-vertical-offset="2669">
+          <caret line="64" column="113" selection-start-line="64" selection-start-column="113" selection-end-line="64" selection-end-column="113" />
+          <folding>
+            <marker date="1433179294810" expanded="true" signature="-1:-1" placeholder="UPDATE nazwi..." />
+            <marker date="1433179294810" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1433179294810" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1433179294810" expanded="true" signature="-1:-1" placeholder="SELECT id_na..nazwiska..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edit-bud-gab.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.692307" vertical-offset="955" max-vertical-offset="3570">
+          <caret line="71" column="75" selection-start-line="71" selection-start-column="34" selection-end-line="71" selection-end-column="75" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gabinet.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9137738" vertical-offset="0" max-vertical-offset="2108">
-          <caret line="48" column="77" selection-start-line="48" selection-start-column="77" selection-end-line="48" selection-end-column="77" />
+        <state vertical-scroll-proportion="1.7075332" vertical-offset="357" max-vertical-offset="2142">
+          <caret line="89" column="17" selection-start-line="89" selection-start-column="17" selection-end-line="89" selection-end-column="17" />
           <folding>
-            <marker date="1433169682230" expanded="true" signature="4607:4639" placeholder="SELECT ID_ga..zajetosc..." />
+            <marker date="1433183058302" expanded="true" signature="4667:4699" placeholder="SELECT ID_ga..zajetosc..." />
           </folding>
         </state>
       </provider>
