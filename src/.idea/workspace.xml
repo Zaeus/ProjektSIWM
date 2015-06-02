@@ -25,14 +25,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="gabinet.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="gabinet.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gabinet.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.81858903" vertical-offset="459" max-vertical-offset="2380">
+            <state vertical-scroll-proportion="-4.576923" vertical-offset="1071" max-vertical-offset="2380">
               <caret line="70" column="59" selection-start-line="70" selection-start-column="59" selection-end-line="70" selection-end-column="59" />
               <folding>
                 <marker date="1433259078258" expanded="true" signature="6273:6305" placeholder="SELECT ID_ga..zajetosc..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="stopka.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/includes/stopka.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.26651737" vertical-offset="0" max-vertical-offset="893">
+              <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -67,7 +77,6 @@
         <option value="$PROJECT_DIR$/functions/index.php" />
         <option value="$PROJECT_DIR$/images/index.php" />
         <option value="$PROJECT_DIR$/includes/kwerenda_log.php" />
-        <option value="$PROJECT_DIR$/includes/stopka.php" />
         <option value="$PROJECT_DIR$/includes/naglowek.php" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/functions/reservationTable.php" />
@@ -75,6 +84,7 @@
         <option value="$PROJECT_DIR$/functions/reservationRemoveQuery.php" />
         <option value="$PROJECT_DIR$/functions/viewMyReservationTable.php" />
         <option value="$PROJECT_DIR$/gabinet.php" />
+        <option value="$PROJECT_DIR$/includes/stopka.php" />
       </list>
     </option>
   </component>
@@ -218,9 +228,6 @@
       <BehatRunner />
       <method />
     </configuration>
-    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server" server_id="6bf8edb4-2710-4375-91a4-61f63199fc47" server_name="jbialkow">
-      <method />
-    </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
       <node-options />
       <gulpfile />
@@ -228,6 +235,9 @@
       <arguments />
       <pass-parent-envs>true</pass-parent-envs>
       <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server" server_id="6bf8edb4-2710-4375-91a4-61f63199fc47" server_name="jbialkow">
       <method />
     </configuration>
     <configuration default="false" name="test.php" type="JavascriptDebugType" factoryName="JavaScript Debug" nameIsGenerated="true" uri="http://student.agh.edu.pl/~wbuczek/Projekt/test.php">
@@ -294,13 +304,13 @@
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32946146" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -599,25 +609,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/includes/stopka.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.11422172" vertical-offset="0" max-vertical-offset="893">
-          <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/naglowek.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15229563" vertical-offset="0" max-vertical-offset="893">
-          <caret line="8" column="54" selection-start-line="8" selection-start-column="54" selection-end-line="8" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.53303474" vertical-offset="0" max-vertical-offset="893">
           <caret line="28" column="35" selection-start-line="28" selection-start-column="35" selection-end-line="28" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -625,9 +620,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.19036955" vertical-offset="0" max-vertical-offset="893">
           <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding>
-            <marker date="1433240182980" expanded="true" signature="-1:-1" placeholder="SELECT email..nazwiska..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -635,9 +627,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-51.0" vertical-offset="0" max-vertical-offset="1462">
           <caret line="78" column="22" selection-start-line="78" selection-start-column="22" selection-end-line="78" selection-end-column="22" />
-          <folding>
-            <marker date="1433239712155" expanded="true" signature="-1:-1" placeholder="SELECT email..nazwiska..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -645,12 +634,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.6227273" vertical-offset="0" max-vertical-offset="2669">
           <caret line="84" column="22" selection-start-line="84" selection-start-column="22" selection-end-line="84" selection-end-column="27" />
-          <folding>
-            <marker date="1433239786667" expanded="true" signature="-1:-1" placeholder="UPDATE nazwi..." />
-            <marker date="1433239786667" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1433239786667" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1433239786667" expanded="true" signature="-1:-1" placeholder="SELECT id_na..nazwiska..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -658,17 +641,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.47592387" vertical-offset="1836" max-vertical-offset="3570">
           <caret line="133" column="20" selection-start-line="133" selection-start-column="20" selection-end-line="136" selection-end-column="40" />
-          <folding>
-            <marker date="1433239796290" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1433239796290" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1433239796290" expanded="true" signature="-1:-1" placeholder="UPDATE budyn..." />
-            <marker date="1433239796290" expanded="true" signature="-1:-1" placeholder="UPDATE gabin..." />
-            <marker date="1433239796290" expanded="true" signature="-1:-1" placeholder="SELECT ID_bu..budynki..." />
-            <marker date="1433239796290" expanded="true" signature="-1:-1" placeholder="SELECT ID_bu..budynki..." />
-            <marker date="1433239796290" expanded="true" signature="-1:-1" placeholder="SELECT ID_ga..gabinety..." />
-            <marker date="1433239796290" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1433239796290" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -676,10 +648,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.26651737" vertical-offset="0" max-vertical-offset="893">
           <caret line="14" column="33" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
-          <folding>
-            <marker date="1433258798303" expanded="true" signature="-1:-1" placeholder="SELECT id_na..nazwiska..." />
-            <marker date="1433258798303" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -687,10 +655,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.17133258" vertical-offset="0" max-vertical-offset="893">
           <caret line="9" column="45" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
-          <folding>
-            <marker date="1433257089654" expanded="true" signature="-1:-1" placeholder="SELECT id_na..nazwiska..." />
-            <marker date="1433257089654" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -698,10 +662,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.05711086" vertical-offset="0" max-vertical-offset="901">
           <caret line="3" column="65" selection-start-line="3" selection-start-column="65" selection-end-line="3" selection-end-column="65" />
-          <folding>
-            <marker date="1433258983824" expanded="true" signature="-1:-1" placeholder="SELECT id_na..nazwiska..." />
-            <marker date="1433258983824" expanded="true" signature="-1:-1" placeholder="SELECT ID_ga..zajetosc..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -709,17 +669,32 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.64725643" vertical-offset="1071" max-vertical-offset="2363">
           <caret line="29" column="12" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/naglowek.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15229563" vertical-offset="0" max-vertical-offset="893">
+          <caret line="8" column="54" selection-start-line="8" selection-start-column="54" selection-end-line="8" selection-end-column="54" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gabinet.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.81858903" vertical-offset="459" max-vertical-offset="2380">
+        <state vertical-scroll-proportion="-4.576923" vertical-offset="1071" max-vertical-offset="2380">
           <caret line="70" column="59" selection-start-line="70" selection-start-column="59" selection-end-line="70" selection-end-column="59" />
           <folding>
             <marker date="1433259078258" expanded="true" signature="6273:6305" placeholder="SELECT ID_ga..zajetosc..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/stopka.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.26651737" vertical-offset="0" max-vertical-offset="893">
+          <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+          <folding />
         </state>
       </provider>
     </entry>

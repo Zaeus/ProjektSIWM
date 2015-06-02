@@ -9,7 +9,7 @@
 		</form>
 	</div>
 	<h5>
-		Projekt bazy danych pacjent?w by: <br>
+		Projekt bazy danych pacjentów by: <br>
         Wojciech Buczek wbuczek@student.agh.edu.pl <br>
         Jan Bia³kowski jbialkow@student.agh.edu.pl <br>
 		@AGH EAIIB
