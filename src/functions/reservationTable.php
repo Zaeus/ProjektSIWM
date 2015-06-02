@@ -24,7 +24,7 @@ function ReservationTable($day, $fromTime, $toTime, $sinceDate, $toDate, $docEma
             $iterator = $iterator + 1;
         }
         sort($reservationTable);
-        foreach($reservationTable as $key => $val){
+        foreach($reservationTable as $key => $val) {
             $checkForReservationQuery = "SELECT od_dnia, do_dnia, od_godziny, do_godziny FROM zajetosc WHERE ID_gabinetu='" . $val . "' AND dzien_tyg='" . $day . "'";
             $checkForReservationResult = mysql_query($checkForReservationQuery);
             $numberOfLine = mysql_num_rows($checkForReservationResult);
@@ -39,6 +39,7 @@ function ReservationTable($day, $fromTime, $toTime, $sinceDate, $toDate, $docEma
                     $timeArrayOfReservation[] = array();
                     $dateArrayOfReservation[] = array();
                     while ($line = mysql_fetch_assoc($checkForReservationResult)) {
+                        // Wszystkie if-else musz± byæ wewn±trz pêtli while ¿eby wykryæ wszystkie mo¿liwe niedopasowania
                         // Sprawdzenie wszystkich mo¿liwych zachodzeñ godzin
                         if(($line['od_godziny'] <= $fromTime) && ($line['do_godziny'] >= $toTime)) {
                             $timeArrayOfReservation[$iteratorReservation] = "NotOk";
@@ -74,7 +75,8 @@ function ReservationTable($day, $fromTime, $toTime, $sinceDate, $toDate, $docEma
                             $desisionDate = "NotOk";
                         }
                     }
-                    // W przypadku kiedy data nie jest ok, sprawdzamy czy czas jest ok - w przypadku kiedy data jest ok godzin± siê nawet nie przejmujemy
+                    // W przypadku kiedy data nie jest ok, sprawdzamy czy czas jest ok - je¿eli jest to oznacza ¿e w danym dniu mo¿e byæ ponowna rezerwacja danego gabinetu
+                    // W przypadku kiedy data jest ok godzin± siê nawet nie przejmujemy
                     if($desisionDate == "NotOk"){
                         foreach($timeArrayOfReservation as $iterator => $value){
                             if($value == "NotOk"){

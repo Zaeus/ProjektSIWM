@@ -25,24 +25,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="reservationTable.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/functions/reservationTable.php">
+      <file leaf-file-name="gabinet.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/gabinet.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.60022396" vertical-offset="671" max-vertical-offset="2329">
-              <caret line="71" column="76" selection-start-line="71" selection-start-column="76" selection-end-line="71" selection-end-column="76" />
+            <state vertical-scroll-proportion="0.81858903" vertical-offset="459" max-vertical-offset="2380">
+              <caret line="70" column="59" selection-start-line="70" selection-start-column="59" selection-end-line="70" selection-end-column="59" />
               <folding>
-                <marker date="1433253866020" expanded="true" signature="113:145" placeholder="SELECT ID_ga..gabinety..." />
-                <marker date="1433253866020" expanded="true" signature="736:784" placeholder="SELECT specj..naziwska..." />
-                <marker date="1433253866020" expanded="true" signature="736:802" placeholder="SELECT specj..nazwiska..." />
-                <marker date="1433253866020" expanded="true" signature="736:803" placeholder="SELECT specj..naziwska..." />
-                <marker date="1433253866020" expanded="true" signature="1324:1418" placeholder="SELECT dzien..zajetosc..." />
-                <marker date="1433253866020" expanded="true" signature="1324:1447" placeholder="SELECT od_dn..zajetosc..." />
-                <marker date="1433253866020" expanded="true" signature="1685:1827" placeholder="SELECT specj..zajetosc..." />
-                <marker date="1433253866020" expanded="true" signature="1685:1827" placeholder="SELECT specj..zajetosc..." />
-                <marker date="1433253866020" expanded="true" signature="1685:1899" placeholder="SELECT specj..zajetosc..." />
-                <marker date="1433253866020" expanded="true" signature="7087:8173" placeholder="..." />
-                <marker date="1433253866020" expanded="true" signature="7437:8139" placeholder="..." />
-                <marker date="1433253866020" expanded="true" signature="7484:8134" placeholder="..." />
+                <marker date="1433259078258" expanded="true" signature="6273:6305" placeholder="SELECT ID_ga..zajetosc..." />
               </folding>
             </state>
           </provider>
@@ -81,8 +70,11 @@
         <option value="$PROJECT_DIR$/includes/stopka.php" />
         <option value="$PROJECT_DIR$/includes/naglowek.php" />
         <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/gabinet.php" />
         <option value="$PROJECT_DIR$/functions/reservationTable.php" />
+        <option value="$PROJECT_DIR$/functions/reservationQuery.php" />
+        <option value="$PROJECT_DIR$/functions/reservationRemoveQuery.php" />
+        <option value="$PROJECT_DIR$/functions/viewMyReservationTable.php" />
+        <option value="$PROJECT_DIR$/gabinet.php" />
       </list>
     </option>
   </component>
@@ -295,7 +287,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296875" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1085595" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.10908142" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2280887" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -329,32 +321,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="3" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/edit-bud-gab.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1785">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/edit-bud-gab.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1751">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/edit-bud-gab.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1734">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/reg.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="28" max-vertical-offset="1887">
@@ -621,20 +592,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/edit-bud-gab.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.10044313" vertical-offset="0" max-vertical-offset="3570">
-          <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/edit-user.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.10240964" vertical-offset="0" max-vertical-offset="2669">
-          <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/edycja.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4519941" vertical-offset="0" max-vertical-offset="677">
@@ -684,33 +641,84 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gabinet.php">
+    <entry file="file://$PROJECT_DIR$/edit-user.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.09518477" vertical-offset="765" max-vertical-offset="2278">
-          <caret line="40" column="39" selection-start-line="40" selection-start-column="39" selection-end-line="40" selection-end-column="39" />
+        <state vertical-scroll-proportion="1.6227273" vertical-offset="0" max-vertical-offset="2669">
+          <caret line="84" column="22" selection-start-line="84" selection-start-column="22" selection-end-line="84" selection-end-column="27" />
           <folding>
-            <marker date="1433250331518" expanded="true" signature="-1:-1" placeholder="SELECT ID_ga..zajetosc..." />
+            <marker date="1433239786667" expanded="true" signature="-1:-1" placeholder="UPDATE nazwi..." />
+            <marker date="1433239786667" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1433239786667" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1433239786667" expanded="true" signature="-1:-1" placeholder="SELECT id_na..nazwiska..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edit-bud-gab.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.47592387" vertical-offset="1836" max-vertical-offset="3570">
+          <caret line="133" column="20" selection-start-line="133" selection-start-column="20" selection-end-line="136" selection-end-column="40" />
+          <folding>
+            <marker date="1433239796290" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1433239796290" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1433239796290" expanded="true" signature="-1:-1" placeholder="UPDATE budyn..." />
+            <marker date="1433239796290" expanded="true" signature="-1:-1" placeholder="UPDATE gabin..." />
+            <marker date="1433239796290" expanded="true" signature="-1:-1" placeholder="SELECT ID_bu..budynki..." />
+            <marker date="1433239796290" expanded="true" signature="-1:-1" placeholder="SELECT ID_bu..budynki..." />
+            <marker date="1433239796290" expanded="true" signature="-1:-1" placeholder="SELECT ID_ga..gabinety..." />
+            <marker date="1433239796290" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1433239796290" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/functions/reservationRemoveQuery.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.26651737" vertical-offset="0" max-vertical-offset="893">
+          <caret line="14" column="33" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
+          <folding>
+            <marker date="1433258798303" expanded="true" signature="-1:-1" placeholder="SELECT id_na..nazwiska..." />
+            <marker date="1433258798303" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/functions/reservationQuery.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.17133258" vertical-offset="0" max-vertical-offset="893">
+          <caret line="9" column="45" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
+          <folding>
+            <marker date="1433257089654" expanded="true" signature="-1:-1" placeholder="SELECT id_na..nazwiska..." />
+            <marker date="1433257089654" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/functions/viewMyReservationTable.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.05711086" vertical-offset="0" max-vertical-offset="901">
+          <caret line="3" column="65" selection-start-line="3" selection-start-column="65" selection-end-line="3" selection-end-column="65" />
+          <folding>
+            <marker date="1433258983824" expanded="true" signature="-1:-1" placeholder="SELECT id_na..nazwiska..." />
+            <marker date="1433258983824" expanded="true" signature="-1:-1" placeholder="SELECT ID_ga..zajetosc..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/functions/reservationTable.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.60022396" vertical-offset="671" max-vertical-offset="2329">
-          <caret line="71" column="76" selection-start-line="71" selection-start-column="76" selection-end-line="71" selection-end-column="76" />
+        <state vertical-scroll-proportion="-0.64725643" vertical-offset="1071" max-vertical-offset="2363">
+          <caret line="29" column="12" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gabinet.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.81858903" vertical-offset="459" max-vertical-offset="2380">
+          <caret line="70" column="59" selection-start-line="70" selection-start-column="59" selection-end-line="70" selection-end-column="59" />
           <folding>
-            <marker date="1433253866020" expanded="true" signature="113:145" placeholder="SELECT ID_ga..gabinety..." />
-            <marker date="1433253866020" expanded="true" signature="736:784" placeholder="SELECT specj..naziwska..." />
-            <marker date="1433253866020" expanded="true" signature="736:802" placeholder="SELECT specj..nazwiska..." />
-            <marker date="1433253866020" expanded="true" signature="736:803" placeholder="SELECT specj..naziwska..." />
-            <marker date="1433253866020" expanded="true" signature="1324:1418" placeholder="SELECT dzien..zajetosc..." />
-            <marker date="1433253866020" expanded="true" signature="1324:1447" placeholder="SELECT od_dn..zajetosc..." />
-            <marker date="1433253866020" expanded="true" signature="1685:1827" placeholder="SELECT specj..zajetosc..." />
-            <marker date="1433253866020" expanded="true" signature="1685:1827" placeholder="SELECT specj..zajetosc..." />
-            <marker date="1433253866020" expanded="true" signature="1685:1899" placeholder="SELECT specj..zajetosc..." />
-            <marker date="1433253866020" expanded="true" signature="7087:8173" placeholder="..." />
-            <marker date="1433253866020" expanded="true" signature="7437:8139" placeholder="..." />
-            <marker date="1433253866020" expanded="true" signature="7484:8134" placeholder="..." />
+            <marker date="1433259078258" expanded="true" signature="6273:6305" placeholder="SELECT ID_ga..zajetosc..." />
           </folding>
         </state>
       </provider>

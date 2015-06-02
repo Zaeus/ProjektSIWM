@@ -9,6 +9,9 @@
     include("functions/GenerateDate.php");
     include("functions/drawTable.php");
     include("functions/reservationTable.php");
+    include("functions/reservationQuery.php");
+    include("functions/viewMyReservationTable.php");
+    include("functions/reservationRemoveQuery.php");
 ?>
 <?
     if(isset($_SESSION['login']) && ($_SESSION['haslo'] == $hasloSql)){
@@ -37,6 +40,10 @@
                 <input type="submit" value="Tydzieñ w przód" name="Dalej" />
             </form>
             <?
+            // IF przechwytuj±cy dane pochodz±ce z tabeli rezerwacji tworzonej przez funkcjê reservaionTable
+            if(isset($_POST['Day']) && isset($_POST['SinceDate']) && isset($_POST['ToDate']) && isset($_POST['FromTime']) && isset($_POST['ToTime']) && isset($_POST['ID_Gabinetu'])) {
+                reservationQuery($_SESSION['login'], $_POST['ID_Gabinetu'], $_POST['Day'], $_POST['SinceDate'], $_POST['ToDate'], $_POST['FromTime'], $_POST['ToTime']);
+            }
             echo "<br><fieldset><legend>Zajmij gabinet:</legend><form action=\"gabinet.php\" method=\"POST\">";
             if(isset($_POST['Dzien'])) {
                 $_SESSION['Dzien'] = $_POST['Dzien'];
@@ -60,8 +67,6 @@
             } else {
                 if(isset($_POST['DoDnia'])){
                     reservationTable($_SESSION['Dzien'], $_SESSION['GodzinaRozpoczecia'], $_SESSION['GodzinaZakonczenia'], $_SESSION['OdDnia'], $_POST['DoDnia'], $_SESSION['login']);
-                    // TODO Dorobiæ obs³ugê POSTa z reservationTable
-                    // TODO $kwerenda_wpisu terminu rezerwacji gabinetu do bazy danych
                     unset($_SESSION['Dzien']);
                     unset($_SESSION['GodzinaRozpoczecia']);
                     unset($_SESSION['GodzinaZakonczenia']);
@@ -78,14 +83,15 @@
                 echo "<td><input type=\"radio\" name=\"Dzien\" value=\"Pia\">Pi±tek<br></td>";
                 echo "</tr></table><input type=\"submit\" value=\"Dalej\" /><br><br></form></fieldset>";
             }
-
-            // TODO Dorobiæ zapisy/modyfikacjê zajmowania gabinetów
             // TODO Kwerenda pobieraj±ca dane oparte o aktualny dzieñ tygodnia
-            // TODO Nastêpnie pobrana data jest porównywana z aktualn± (czy siê mie¶ci - jak siê mie¶ci to sprawdzanie dalszej zajêto¶ci godziny)
-            // TODO sprawdzana jest godzina czy nie jest zajêta
-            // TODO jak po tym wszystkim nie jest zajêta to mo¿na dodaæ nowy rekord rezerwacji gabinetu
             // TODO zapytanie o wszystkie gabinety od dni do dnia z wy¶wietleniem jego specjalizacji - je¿eli jest wolny siê wy¶wietli, w przeciwnym wypadku ignoruj
             // TODO zajêcie gabinetu w danym dniu nie krócej ni¿ 2h nie d³u¿ej ni¿ 8h
+
+            // Usuniêcie rezerwacja je¿eli w tabeli powsta³ej w ViewMyReservationTable zostaje klikniêty przycisk usuñ
+            if(isset($_POST['RemoveDay']) && isset($_POST['RemoveSinceDate']) && isset($_POST['RemoveToDate']) && isset($_POST['RemoveFromTime']) && isset($_POST['RemoveToTime']) && isset($_POST['RemoveID_Gabinetu'])){
+                ReservationRemoveQuery($_SESSION['login'], $_POST['RemoveID_Gabinetu'], $_POST['RemoveDay'], $_POST['RemoveFromTime'], $_POST['RemoveToTime'], $_POST['RemoveSinceDate'], $_POST['RemoveToDate']);
+            }
+            ViewMyReservationTable($_SESSION['login']);
             $docOfficeViewQuery = "SELECT ID_gabinetu FROM zajetosc";
             $viewOfficeResult = mysql_query($docOfficeViewQuery) or die('B³±d zapytania');
             $docOfficeViewFrom = "<br><fieldset><legend>Przejrzyj zajêto¶æ gabinet:</legend><form action = \"gabinet.php\" method=\"POST\">";
