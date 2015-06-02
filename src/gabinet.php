@@ -38,32 +38,28 @@
             </form>
             <?
             echo "<br><fieldset><legend>Zajmij gabinet:</legend><form action=\"gabinet.php\" method=\"POST\">";
-            if(isset($_POST['Dzien'])){
+            if(isset($_POST['Dzien'])) {
                 $_SESSION['Dzien'] = $_POST['Dzien'];
                 echo "Godzina rozpoczêcia: " . "<select name=\"GodzinaRozpoczecia\">";
                 generateDate(date_create('7:00'), date_create('19:00'));
                 echo "</select><br><input type=\"submit\" value=\"Dalej\" /></form></fieldset>";
-            }
-            elseif(isset($_POST['GodzinaRozpoczecia'])){
+            } elseif(isset($_POST['GodzinaRozpoczecia'])) {
                 $_SESSION['GodzinaRozpoczecia'] = $_POST['GodzinaRozpoczecia'];
                 $timeBegin = date_create($_SESSION['GodzinaRozpoczecia']);
                 echo "Godzina zakoñczenia: " . "<select name=\"GodzinaZakonczenia\">";
                 generateDate(date_modify($timeBegin,'+2 hours'), date_create('21:00'));
                 echo "</select><br><input type=\"submit\" value=\"Dalej\" /></form></fieldset>";
-            }
-            elseif(isset($_POST['GodzinaZakonczenia'])){
+            } elseif(isset($_POST['GodzinaZakonczenia'])) {
                 $_SESSION['GodzinaZakonczenia'] = $_POST['GodzinaZakonczenia'];
                 echo "Data rozpoczêcia najmu gabinetu: <input type=\"date\" name=\"OdDnia\" placeholder=\"Data rozpoczêcia najmu gabinetu\" value=\"" . date_format(new DateTime(), 'Y-m-d') . "\">";
                 echo "<br><input type=\"submit\" value=\"Dalej\" /></form></fieldset>";
-            }
-            elseif(isset($_POST['OdDnia'])){
+            } elseif(isset($_POST['OdDnia'])) {
                 $_SESSION['OdDnia'] = $_POST['OdDnia'];
                 echo "Data zakoñczenia najmu gabinetu: <input type=\"date\" name=\"DoDnia\" placeholder=\"Data zakoñczenia najmu gabinetu\" value=\"" . date_format(date_modify(new DateTime(), '+1 week'), 'Y-m-d') . "\">";
                 echo "<br><input type=\"submit\" value=\"Zajmij\" /></form></fieldset>";
-            }
-            else{
+            } else {
                 if(isset($_POST['DoDnia'])){
-                    reservationTable($_SESSION['Dzien'], $_SESSION['GodzinaRozpoczecia'], $_SESSION['GodzinaZakonczenia'], $_SESSION['OdDnia'], $_POST['DoDnia']);
+                    reservationTable($_SESSION['Dzien'], $_SESSION['GodzinaRozpoczecia'], $_SESSION['GodzinaZakonczenia'], $_SESSION['OdDnia'], $_POST['DoDnia'], $_SESSION['login']);
                     // TODO Dorobiæ obs³ugê POSTa z reservationTable
                     // TODO $kwerenda_wpisu terminu rezerwacji gabinetu do bazy danych
                     unset($_SESSION['Dzien']);
