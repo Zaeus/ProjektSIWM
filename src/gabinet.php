@@ -2,12 +2,13 @@
 	session_start();
 ?>
 <?
-	include("naglowek.php");	
-	include("polaczenieSQL.php");
-	include("kwerenda_log.php");
+	include("includes/naglowek.php");
+	include("includes/polaczenieSQL.php");
+	include("includes/kwerenda_log.php");
     include("functions/CheckTime.php");
     include("functions/GenerateDate.php");
     include("functions/drawTable.php");
+    include("functions/reservationTable.php");
 ?>
 <?
     if(isset($_SESSION['login']) && ($_SESSION['haslo'] == $hasloSql)){
@@ -62,14 +63,9 @@
             }
             else{
                 if(isset($_POST['DoDnia'])){
-                    echo $_SESSION['Dzien'] . "<br>";
-                    echo $_SESSION['GodzinaRozpoczecia'] . "<br>";
-                    echo $_SESSION['GodzinaZakonczenia'] . "<br>";;
-                    echo $_SESSION['OdDnia'] . "<br>";;
-                    echo $_POST['DoDnia'] . "<br>";;
-                    //TODO Tutaj ma byæ obs³u¿enie formularza, bo wychodz±c z tego ifa niszczymy dane
-                    // $kwerenda_wpisu terminu pasuj±cego do bazy danych
-                    // przed wpisaniem data/godzina powinna byæ sprawdzona z terminem w bazie danych
+                    reservationTable($_SESSION['Dzien'], $_SESSION['GodzinaRozpoczecia'], $_SESSION['GodzinaZakonczenia'], $_SESSION['OdDnia'], $_POST['DoDnia']);
+                    // TODO Dorobiæ obs³ugê POSTa z reservationTable
+                    // TODO $kwerenda_wpisu terminu rezerwacji gabinetu do bazy danych
                     unset($_SESSION['Dzien']);
                     unset($_SESSION['GodzinaRozpoczecia']);
                     unset($_SESSION['GodzinaZakonczenia']);
@@ -132,5 +128,5 @@
 	}
 ?>
 <?
-	include("stopka.php");
+	include("includes/stopka.php");
 ?>

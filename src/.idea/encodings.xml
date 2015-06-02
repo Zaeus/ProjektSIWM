@@ -5,7 +5,14 @@
     <file url="file://$PROJECT_DIR$/edit-user.php" charset="ISO-8859-2" />
     <file url="file://$PROJECT_DIR$/edycja.php" charset="ISO-8859-2" />
     <file url="file://$PROJECT_DIR$/functions/drawTable.php" charset="ISO-8859-2" />
+    <file url="file://$PROJECT_DIR$/functions/index.php" charset="ISO-8859-2" />
+    <file url="file://$PROJECT_DIR$/functions/reservationTable.php" charset="ISO-8859-2" />
     <file url="file://$PROJECT_DIR$/gabinet.php" charset="ISO-8859-2" />
+    <file url="file://$PROJECT_DIR$/images/index.php" charset="ISO-8859-2" />
+    <file url="file://$PROJECT_DIR$/includes/index.php" charset="ISO-8859-2" />
+    <file url="file://$PROJECT_DIR$/includes/kwerenda_log.php" charset="ISO-8859-2" />
+    <file url="file://$PROJECT_DIR$/includes/naglowek.php" charset="ISO-8859-2" />
+    <file url="file://$PROJECT_DIR$/includes/stopka.php" charset="ISO-8859-2" />
     <file url="file://$PROJECT_DIR$/index.php" charset="ISO-8859-2" />
     <file url="file://$PROJECT_DIR$/kwerenda_log.php" charset="ISO-8859-2" />
     <file url="file://$PROJECT_DIR$/log2.php" charset="ISO-8859-2" />

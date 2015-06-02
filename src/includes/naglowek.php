@@ -6,4 +6,4 @@
   </head>
   <body>
     <br>
-    <div style="text-align: center;"><img src="Zdrowexerex.jpg" alt="Zdrowexerex" /><br><br>
+    <div style="text-align: center;"><img src="images/Zdrowexerex.jpg" alt="Zdrowexerex" /><br><br>

@@ -2,9 +2,9 @@
 	session_start();
 ?>
 <?
-	include("naglowek.php");	
-	include("polaczenieSQL.php");
-	include("kwerenda_log.php");
+	include("includes/naglowek.php");
+	include("includes/polaczenieSQL.php");
+	include("includes/kwerenda_log.php");
 ?>
 
 //Przegl±danie zapisów
@@ -24,5 +24,5 @@
 	}
 ?>
 <?
-	include("stopka.php");
+	include("includes/stopka.php");
 ?>

@@ -7,7 +7,7 @@
 	}	
 ?>
 <?
-	include("naglowek.php");	
+	include("includes/naglowek.php");
 ?>
     <h2>Witaj w projektowej bazie danych SIWM - Zdrowexerex.</h2><br>
 	Mo¿esz siê zalogowaæ lub zarejestrowaæ:<br><br>
@@ -21,10 +21,10 @@
 	$forma .= "</form><br/>";	
 	echo $forma;
 ?>
-	<div style="text-align: center;"><img src="usecase.png" alt="Use Case Projektu" /><br>
+	<div style="text-align: center;"><img src="images/UseCase.png" alt="Use Case Projektu" /><br>
 	Rys. 1 - Zamys³ projektu</div><br>
-    <div style="text-align: center;"><img src="medycyna-spoleczna.jpg" alt="Motto" /><br>
+    <div style="text-align: center;"><img src="images/MedycynaSpoleczna.jpg" alt="Motto" /><br>
     Rys. 2 - Motto zak³adowe</div><br>
 <?
-	include("stopka.php");
+	include("includes/stopka.php");
 ?>

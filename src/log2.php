@@ -6,8 +6,8 @@
 	}
 ?>
 <?
-	include("naglowek.php");	
-	include("polaczenieSQL.php");
+	include("includes/naglowek.php");
+	include("includes/polaczenieSQL.php");
 ?>
 <?
 	$kwerenda = "SELECT email, haslo, nazwisko, uprawnienia FROM nazwiska WHERE email = \"" . $_SESSION['login'] . "\"";
@@ -76,5 +76,5 @@
 	}
 ?>
 <?
-	include("stopka.php");
+	include("includes/stopka.php");
 ?>
