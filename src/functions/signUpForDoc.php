@@ -3,28 +3,28 @@ include("GenerateDate.php");
 
 function SignUpForDoc($officeSpecialization)
 {
-    // TODO tabele z wygenerowanymi parametrami gabinetów po pobraniu info o szukanej spracjalno¶ci gabinetu (ew. mie¶cie)
-    echo "<br><fieldset><legend>Dostêpne gabinety:</legend>";
+    // TODO tabele z wygenerowanymi parametrami gabinetï¿½w po pobraniu info o szukanej spracjalnoï¿½ci gabinetu (ew. mieï¿½cie)
+    echo "<br><fieldset><legend>Dostï¿½pne gabinety:</legend>";
     $officeSpecQuery = "SELECT zajetosc.ID_gabinetu, zajetosc.ID_nazwiska_Lek, zajetosc.dzien_tyg, zajetosc.od_dnia, zajetosc.do_dnia, zajetosc.od_godziny, zajetosc.do_godziny, budynki.miasto FROM gabinety ";
     $officeSpecQuery .= "INNER JOIN zajetosc ON gabinety.ID_gabinetu = zajetosc.ID_gabinetu ";
     $officeSpecQuery .= "INNER JOIN budynki ON gabinety.ID_budynku = budynki.ID_budynku ";
     $officeSpecQuery .= "WHERE gabinety.specjalnosc='" . $officeSpecialization . "'";
-    $officeSpecResult = mysql_query($officeSpecQuery) or die('B³±d zapytania o gabinety o podanej specjalizacji');
+    $officeSpecResult = mysql_query($officeSpecQuery) or die('Bï¿½ï¿½d zapytania o gabinety o podanej specjalizacji');
     $howMuchLines = mysql_num_rows($officeSpecResult);
     if($howMuchLines > 0) {
         echo "<table align=\"center\" cellpadding=\"5\" border=\"1\">";
         echo "<td>Dane lekarza</td>";
         echo "<td>Miasto</td>";
-        echo "<td>Dzieñ tygodnia</td>";
-        echo "<td>Dostêpny od</td>";
-        echo "<td>Dostêpny do</td>";
+        echo "<td>Dzieï¿½ tygodnia</td>";
+        echo "<td>Dostï¿½pny od</td>";
+        echo "<td>Dostï¿½pny do</td>";
         echo "<td>Od godziny</td>";
         echo "<td>Do godziny</td>";
         echo "<td>Opcje</td>";
         while($officeSpecLine = mysql_fetch_assoc($officeSpecResult)) {
             echo "<tr>";
             $docNameQuery = "SELECT imie, nazwisko FROM nazwiska WHERE id_nazwiska='" . $officeSpecLine['ID_nazwiska_Lek'] . "'";
-            $docNameResult = mysql_query($docNameQuery) or die('B³±d zapytania o nazwisko lekarza');
+            $docNameResult = mysql_query($docNameQuery) or die('Bï¿½ï¿½d zapytania o nazwisko lekarza');
             $docNameLine = mysql_fetch_assoc($docNameResult);
             echo "<td>" . "dr " . $docNameLine['imie'] . " " . $docNameLine['nazwisko'] . "</td>";
             echo "<td>" . $officeSpecLine['miasto'] . "</td>";
@@ -34,14 +34,20 @@ function SignUpForDoc($officeSpecialization)
             echo "<td>" . $officeSpecLine['od_godziny'] . "</td>";
             echo "<td>" . $officeSpecLine['do_godziny'] . "</td>";
             echo "<td><form action = \"zapis.php\" method=\"POST\"> ";
-            // TODO tabela powinna mieæ selektor z mo¿liwymi godzinami do zaklepania (ew. pole ile ma trwaæ wizyta - wed³ug mnie przyjmujemy 30minut na wizytê)
-            // TODO selektor ma usuniête godziny z zaklepanych godzin
-            // TODO Poza selektoram powinien byæ wybór daty z zakresu najmu gabinetu
+            // TODO tabela powinna mieï¿½ selektor z moï¿½liwymi godzinami do zaklepania (ew. pole ile ma trwaï¿½ wizyta - wedï¿½ug mnie przyjmujemy 30minut na wizytï¿½)
+            // TODO selektor ma usuniï¿½te godziny z zaklepanych godzin
+            // TODO Poza selektoram powinien byï¿½ wybï¿½r daty z zakresu najmu gabinetu
             // TODO przycisk zarezerwowania wizyty
-            // TODO niewy¶wietlaæ gabinetów których data dostêpu ju¿ minê³a
+            // TODO niewyï¿½wietlaï¿½ gabinetï¿½w ktï¿½rych data dostï¿½pu juï¿½ minï¿½a
             echo date_format($officeSpecLine['do_godziny'],'H:i');
             echo "<select name=\"godzinaRezerwacji\">";
-            generateDate(date_create($officeSpecLine['od_godziny']), date_modify(date_create($officeSpecLine['do_godziny']), '-30 minutes'));
+            //TODO kwerenda wczytujÄ…ca godzine poczÄ…tkowÄ… zajÄ™tej wizyty i wpisujÄ…ca jÄ… do tablicy $occupiedHours w formacie daty ! (data_create())
+            $occupiedHours[]=0;
+            generateDate(date_create($officeSpecLine['od_godziny']),date_modify($occupiedHours[0],'-30 minutes'));
+            for($i=0;$i<$occupiedHours.length();$i++){
+                generateDate(date_modify(($occupiedHours[$i]),'+30 minutes'), date_modify($occupiedHours[$i++],'-30 minutes'));
+            }
+            generateDate(date_modify($occupiedHours[$occupiedHours.length()], '-30 minutes'), date_create($officeSpecLine['do_godziny']));
             echo "</select> ";
             echo "<input type=\"date\" name=\"regDate\" value=\"" . date_format(new DateTime(), 'Y-m-d') . "\"> ";
             echo "<input type=\"hidden\" name=\"officeID\" value=\"" . $officeSpecLine['ID_gabinetu'] . "\">";
@@ -51,7 +57,7 @@ function SignUpForDoc($officeSpecialization)
         }
         echo "</table>";
     } else {
-        echo "Brak gabinetów o podanej specjalizacji";
+        echo "Brak gabinetï¿½w o podanej specjalizacji";
     }
     echo "</fieldset><br>";
 }
