@@ -5,7 +5,7 @@ function SignUpForDoc($officeSpecialization)
 {
     // TODO tabele z wygenerowanymi parametrami gabinetów po pobraniu info o szukanej spracjalno¶ci gabinetu (ew. mie¶cie)
     echo "<br><fieldset><legend>Dostêpne gabinety:</legend>";
-    $officeSpecQuery = "SELECT zajetosc.ID_nazwiska_Lek, zajetosc.dzien_tyg, zajetosc.od_dnia, zajetosc.do_dnia, zajetosc.od_godziny, zajetosc.do_godziny, budynki.miasto FROM gabinety ";
+    $officeSpecQuery = "SELECT zajetosc.ID_gabinetu, zajetosc.ID_nazwiska_Lek, zajetosc.dzien_tyg, zajetosc.od_dnia, zajetosc.do_dnia, zajetosc.od_godziny, zajetosc.do_godziny, budynki.miasto FROM gabinety ";
     $officeSpecQuery .= "INNER JOIN zajetosc ON gabinety.ID_gabinetu = zajetosc.ID_gabinetu ";
     $officeSpecQuery .= "INNER JOIN budynki ON gabinety.ID_budynku = budynki.ID_budynku ";
     $officeSpecQuery .= "WHERE gabinety.specjalnosc='" . $officeSpecialization . "'";
@@ -38,10 +38,13 @@ function SignUpForDoc($officeSpecialization)
             // TODO selektor ma usuniête godziny z zaklepanych godzin
             // TODO Poza selektoram powinien byæ wybór daty z zakresu najmu gabinetu
             // TODO przycisk zarezerwowania wizyty
+            // TODO niewy¶wietlaæ gabinetów których data dostêpu ju¿ minê³a
             echo date_format($officeSpecLine['do_godziny'],'H:i');
             echo "<select name=\"godzinaRezerwacji\">";
             generateDate(date_create($officeSpecLine['od_godziny']), date_modify(date_create($officeSpecLine['do_godziny']), '-30 minutes'));
-            echo "</select>";
+            echo "</select> ";
+            echo "<input type=\"date\" name=\"regDate\" value=\"" . date_format(new DateTime(), 'Y-m-d') . "\"> ";
+            echo "<input type=\"hidden\" name=\"officeID\" value=\"" . $officeSpecLine['ID_gabinetu'] . "\">";
             echo "<input type=\"submit\" value=\"Rezerwuj\" ></form></td>";
             echo "</tr>";
             echo "</tr>";

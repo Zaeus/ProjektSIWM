@@ -6,6 +6,7 @@
 	include("includes/polaczenieSQL.php");
 	include("includes/kwerenda_log.php");
     include("functions/signUpForDoc.php");
+    include("functions/regVisit.php");
 ?>
 <?
 	if(isset($_SESSION['login']) && ($_SESSION['haslo'] == $hasloSql)){
@@ -22,10 +23,11 @@
         if(isset($_POST['specjalizacjaGabinetu'])) {
             SignUpForDoc($_POST['specjalizacjaGabinetu']);
         }
-        if(isset($_POST['godzinaRezerwacji'])){
-            // TODO obs³uga POST z funkcji SignUpForDoc
+        if(isset($_POST['godzinaRezerwacji']) && isset($_POST['regDate']) && isset($_POST['officeID'])){
+            // Wpisanie nowej rezerwacji do bazy danych
+            RegVisit($_POST['godzinaRezerwacji'], $_POST['regDate'], $_POST['officeID'], $_SESSION['login']);
         }
-        // TODO Edycja istniej±cych zapisów z mo¿liwo¶ci± ich usuwania
+        // TODO Edycja istniej±cych zapisów z mo¿liwo¶ci± ich usuwania nie pó¼niej ni¿ 24h przed
 	}
 	else{
 		echo "Brak uprawnieñ do tre¶ci.<br>";
@@ -34,4 +36,3 @@
 <?
 	include("includes/stopka.php");
 ?>
-
