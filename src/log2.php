@@ -23,14 +23,17 @@
 		?>
 		<form action="index.php" method="POST">
 			<input type="submit" value="Wyloguj siê" />
-		</form>		
-		<?
+		</form>
+        <form action="edytuj_konto.php" method="POST">
+            <input type="submit" value="Edytuj swoje konto" />
+        </form>
+        <?
 		echo "<br><b>Posiadasz dostêp do opcji pacjenta: </b><br>";
 		?>		
 		<form action="zapis.php" method="POST">
 			<input type="submit" value="Zapisz siê" /> Zapisz siê do gabinetu jako pacjent 
 		</form>
-			<form action="edycja.php" method="POST">
+			<form action="edytuj_zapisy.php" method="POST">
 			<input type="submit" value="Edytuj swoje zapisy" /><br>
 		</form>
 		<?
@@ -56,6 +59,9 @@
 				<form action="edit-user.php" method="POST">
 					<input type="submit" value="U¿ytkownicy" /> Przejd¼ do strony edytowania i modyfikowania wszystkich u¿ytkowników
 				</form>
+                <form action="zasoby.php" method="POST">
+                    <input type="submit" value="Zasoby bazy danych" /> Przejd¼ do strony przegl±dania wszystkich zasobów w bazie danych
+                </form>
 				<?
 			}
 		}

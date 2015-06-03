@@ -4,6 +4,7 @@
     <file url="file://$PROJECT_DIR$/edit-bud-gab.php" charset="ISO-8859-2" />
     <file url="file://$PROJECT_DIR$/edit-user.php" charset="ISO-8859-2" />
     <file url="file://$PROJECT_DIR$/edycja.php" charset="ISO-8859-2" />
+    <file url="file://$PROJECT_DIR$/edytuj_konto.php" charset="ISO-8859-2" />
     <file url="file://$PROJECT_DIR$/functions/drawTable.php" charset="ISO-8859-2" />
     <file url="file://$PROJECT_DIR$/functions/index.php" charset="ISO-8859-2" />
     <file url="file://$PROJECT_DIR$/functions/reservationTable.php" charset="ISO-8859-2" />
@@ -20,6 +21,7 @@
     <file url="file://$PROJECT_DIR$/reg.php" charset="ISO-8859-2" />
     <file url="file://$PROJECT_DIR$/style.css" charset="ISO-8859-2" />
     <file url="file://$PROJECT_DIR$/zapis.php" charset="ISO-8859-2" />
+    <file url="file://$PROJECT_DIR$/zasoby.php" charset="ISO-8859-2" />
     <file url="file://$PROJECT_DIR$/../testowe/data.php" charset="ISO-8859-2" />
   </component>
 </project>

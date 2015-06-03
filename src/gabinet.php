@@ -57,6 +57,7 @@
                 generateDate(date_modify($timeBegin,'+2 hours'), date_create('21:00'));
                 echo "</select><br><input type=\"submit\" value=\"Dalej\" /></form></fieldset>";
             } elseif(isset($_POST['GodzinaZakonczenia'])) {
+                // TODO test czy pomiêdzy pocz±tkiem a koñcem jest nie wiêkszy ni¿ 8h
                 $_SESSION['GodzinaZakonczenia'] = $_POST['GodzinaZakonczenia'];
                 echo "Data rozpoczêcia najmu gabinetu: <input type=\"date\" name=\"OdDnia\" placeholder=\"Data rozpoczêcia najmu gabinetu\" value=\"" . date_format(new DateTime(), 'Y-m-d') . "\">";
                 echo "<br><input type=\"submit\" value=\"Dalej\" /></form></fieldset>";
@@ -83,9 +84,6 @@
                 echo "<td><input type=\"radio\" name=\"Dzien\" value=\"Pia\">Pi±tek<br></td>";
                 echo "</tr></table><input type=\"submit\" value=\"Dalej\" /><br><br></form></fieldset>";
             }
-            // TODO Kwerenda pobieraj±ca dane oparte o aktualny dzieñ tygodnia
-            // TODO zapytanie o wszystkie gabinety od dni do dnia z wy¶wietleniem jego specjalizacji - je¿eli jest wolny siê wy¶wietli, w przeciwnym wypadku ignoruj
-            // TODO zajêcie gabinetu w danym dniu nie krócej ni¿ 2h nie d³u¿ej ni¿ 8h
 
             // Usuniêcie rezerwacja je¿eli w tabeli powsta³ej w ViewMyReservationTable zostaje klikniêty przycisk usuñ
             if(isset($_POST['RemoveDay']) && isset($_POST['RemoveSinceDate']) && isset($_POST['RemoveToDate']) && isset($_POST['RemoveFromTime']) && isset($_POST['RemoveToTime']) && isset($_POST['RemoveID_Gabinetu'])){
