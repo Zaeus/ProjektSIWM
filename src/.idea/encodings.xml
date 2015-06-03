@@ -3,7 +3,6 @@
   <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
     <file url="file://$PROJECT_DIR$/edit-bud-gab.php" charset="ISO-8859-2" />
     <file url="file://$PROJECT_DIR$/edit-user.php" charset="ISO-8859-2" />
-    <file url="file://$PROJECT_DIR$/edycja.php" charset="ISO-8859-2" />
     <file url="file://$PROJECT_DIR$/edytuj_konto.php" charset="ISO-8859-2" />
     <file url="file://$PROJECT_DIR$/edytuj_zapisy.php" charset="ISO-8859-2" />
     <file url="file://$PROJECT_DIR$/functions/drawTable.php" charset="ISO-8859-2" />
@@ -12,7 +11,6 @@
     <file url="file://$PROJECT_DIR$/functions/reservationTable.php" charset="ISO-8859-2" />
     <file url="file://$PROJECT_DIR$/functions/signUpForDoc.php" charset="ISO-8859-2" />
     <file url="file://$PROJECT_DIR$/functions/viewMyReservationTable.php" charset="ISO-8859-2" />
-    <file url="file://$PROJECT_DIR$/functions/viewMyVisit.php" charset="ISO-8859-2" />
     <file url="file://$PROJECT_DIR$/gabinet.php" charset="ISO-8859-2" />
     <file url="file://$PROJECT_DIR$/images/index.php" charset="ISO-8859-2" />
     <file url="file://$PROJECT_DIR$/includes/index.php" charset="ISO-8859-2" />
