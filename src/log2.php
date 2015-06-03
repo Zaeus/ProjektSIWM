@@ -23,7 +23,7 @@
 		?>
 		<form action="index.php" method="POST">
 			<input type="submit" value="Wyloguj siê" />
-		</form>
+		</form><br>
         <form action="edytuj_konto.php" method="POST">
             <input type="submit" value="Edytuj swoje konto" />
         </form>
