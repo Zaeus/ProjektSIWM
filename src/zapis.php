@@ -7,6 +7,7 @@
 	include("includes/kwerenda_log.php");
     include("functions/signUpForDoc.php");
     include("functions/regVisit.php");
+    include("functions/viewMyVisit.php");
 ?>
 <?
 	if(isset($_SESSION['login']) && ($_SESSION['haslo'] == $hasloSql)){
@@ -28,6 +29,7 @@
             RegVisit($_POST['godzinaRezerwacji'], $_POST['regDate'], $_POST['officeID'], $_SESSION['login']);
         }
         // TODO Edycja istniej±cych zapisów z mo¿liwo¶ci± ich usuwania nie pó¼niej ni¿ 24h przed
+        ViewMyVisit($_SESSION['login']);
 	}
 	else{
 		echo "Brak uprawnieñ do tre¶ci.<br>";

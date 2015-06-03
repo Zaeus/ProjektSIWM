@@ -53,7 +53,6 @@ function SignUpForDoc($officeSpecialization)
             echo "<input type=\"hidden\" name=\"officeID\" value=\"" . $officeSpecLine['ID_gabinetu'] . "\">";
             echo "<input type=\"submit\" value=\"Rezerwuj\" ></form></td>";
             echo "</tr>";
-            echo "</tr>";
         }
         echo "</table>";
     } else {
