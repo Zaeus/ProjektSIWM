@@ -18,11 +18,11 @@ function dateButtons($_POST){
 
     $endDate = clone $_SESSION['data'];
     date_modify($endDate, '+4 day');
-    echo "PoczÄ…tek tygodnia:" . date_format($_SESSION['data'], 'Y-m-d') . "<br>Koniec tygodnia:" . date_format($endDate, 'Y-m-d') . "<br>";
+    echo "Pocz±tek tygodnia:" . date_format($_SESSION['data'], 'Y-m-d') . "<br>Koniec tygodnia:" . date_format($endDate, 'Y-m-d') . "<br>";
     ?>
 
     <form action="gabinet.php" method="POST">
-        <input type="submit" value="TydzieÅ„ wstecz" name="Wstecz" />
-        <input type="submit" value="TydzieÅ„ w przÃ³d" name="Dalej" />
+        <input type="submit" value="Tydzieñ wstecz" name="Wstecz" />
+        <input type="submit" value="Tydzieñ w przód" name="Dalej" />
     </form>
 <?}

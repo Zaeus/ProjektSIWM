@@ -4,12 +4,12 @@ function isLoggedDoctor($hasloSql, $_SESSION){
         if ($_SESSION['uprawnienia'] == "lekarz" || $_SESSION['uprawnienia'] == "admin") {
             return true;
         } else {
-            echo "Nie posiadasz uprawnie≈Ñ lekarza";
+            echo "Nie posiadasz uprawnieÒ lekarza";
             return false;
         }
     }
     else{
-        echo "Brak uprawnie≈Ñ do tre≈õci.<br>";
+        echo "Brak uprawnieÒ do tre∂ci.<br>";
         return false;
     }
 }

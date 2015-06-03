@@ -2,7 +2,7 @@
 function reservationQuery($docEmail, $officeID, $day, $sinceDate, $toDate, $fromTime, $toTime)
 {
     $emailInfoQuery = "SELECT id_nazwiska FROM nazwiska WHERE email='" . $docEmail . "'";
-    $infoResult = mysql_query($emailInfoQuery) or die('BÅ‚Ä…d zapytania o ID nazwiska lekarza');
+    $infoResult = mysql_query($emailInfoQuery) or die('B³±d zapytania o ID nazwiska lekarza');
     $infoLine = mysql_fetch_assoc($infoResult);
     $reservationQuery = "INSERT INTO zajetosc (ID_nazwiska_Lek,ID_gabinetu,dzien_tyg,od_dnia,do_dnia,od_godziny,do_godziny) VALUES ";
     $reservationQuery .= "(";
@@ -14,7 +14,7 @@ function reservationQuery($docEmail, $officeID, $day, $sinceDate, $toDate, $from
     $reservationQuery .= "'" . $fromTime . "'" . ",";
     $reservationQuery .= "'" . $toTime . "'";
     $reservationQuery .= ")";
-    mysql_query($reservationQuery) or die('BÅ‚Ä…d zapytania nowej rezerwacji gabinetu');
+    mysql_query($reservationQuery) or die('B³±d zapytania nowej rezerwacji gabinetu');
     echo "<br>Wpisanie danych rezerwacj dla gabinetu o ID: " . $officeID . " do bazy danych w godzinach: <br>" . $fromTime . "-" . $toTime . "<br> od-do: <br>" . $sinceDate . "-" . $toDate . "<br>";
 }
 ?>

@@ -2,7 +2,7 @@
 function ReservationRemoveQuery($docEmail, $officeID, $day, $fromTime, $toTime, $sinceDate, $toDate)
 {
     $removeInfoQuery = "SELECT id_nazwiska FROM nazwiska WHERE email='" . $docEmail . "'";
-    $removeInfoResult = mysql_query($removeInfoQuery) or die('BÅ‚Ä…d zapytania od ID nazwiska lekarza');
+    $removeInfoResult = mysql_query($removeInfoQuery) or die('B³±d zapytania od ID nazwiska lekarza');
     $removeInfoLine = mysql_fetch_assoc($removeInfoResult);
     $removeReservationQuery = "DELETE FROM zajetosc WHERE ";
     $removeReservationQuery .= "ID_nazwiska_Lek='" . $removeInfoLine['id_nazwiska'] . "' AND ";
@@ -13,6 +13,6 @@ function ReservationRemoveQuery($docEmail, $officeID, $day, $fromTime, $toTime, 
     $removeReservationQuery .= "od_dnia='" . $sinceDate . "' AND ";
     $removeReservationQuery .= "do_dnia='" . $toDate . "'";
     echo $removeReservationQuery;
-    mysql_query($removeReservationQuery) or die('BÅ‚Ä…d zapytania usuniÄ™cia rezerwacji');
+    mysql_query($removeReservationQuery) or die('B³±d zapytania usuniêcia rezerwacji');
 }
 ?>

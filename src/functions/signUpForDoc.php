@@ -40,18 +40,25 @@ function SignUpForDoc($officeSpecialization)
                 $occupiedHours[$iterator] = date_create($timeVisitLine['godzina']);
                 $iterator = $iterator + 1;
             }
-            print_r($occupiedHours);
+
             // TODO tabela powinna mie? selektor z mo?liwymi godzinami do zaklepania (ew. pole ile ma trwa? wizyta - wed?ug mnie przyjmujemy 30minut na wizyt?)
             // TODO selektor ma usuni?te godziny z zaklepanych godzin
             // TODO Poza selektoram powinien by? wyb?r daty z zakresu najmu gabinetu
             // TODO przycisk zarezerwowania wizyty
             // TODO niewy?wietla? gabinet?w kt?rych data dost?pu ju? min?a
             echo "<select name=\"godzinaRezerwacji\">";
-            generateDate(date_create($officeSpecLine['od_godziny']),date_modify($occupiedHours[0],'-30 minutes'));
-            for($i=0;$i<$occupiedHours.length();$i++){
-                generateDate(date_modify(($occupiedHours[$i]),'+30 minutes'), date_modify($occupiedHours[$i++],'-30 minutes'));
+            $start = date_create($officeSpecLine['od_godziny']);
+            $stop = date_create($officeSpecLine['do_godziny']);
+            $stop = date_modify($stop, '-30 minutes');
+            $temp = clone($occupiedHours[0]);
+            generateDate($start,date_modify($temp,'-30 minutes'));
+            for($i=0; $i<count($occupiedHours); $i++){
+                $temp = clone($occupiedHours[$i]);
+                $temp2 = clone($occupiedHours[++$i]);
+                generateDate(date_modify($temp,'+30 minutes'), date_modify($temp2,'-30 minutes'));
             }
-            generateDate(date_modify($occupiedHours[$occupiedHours.length()], '-30 minutes'), date_create($officeSpecLine['do_godziny']));
+            $temp =clone($occupiedHours[count($occupiedHours)-1]);
+            generateDate(date_modify($temp,'+30 minutes'), $stop);
             echo "</select> ";
             echo "<input type=\"date\" name=\"regDate\" value=\"" . date_format(new DateTime(), 'Y-m-d') . "\"> ";
             echo "<input type=\"hidden\" name=\"officeID\" value=\"" . $officeSpecLine['ID_gabinetu'] . "\">";

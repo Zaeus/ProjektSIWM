@@ -4,12 +4,12 @@ function isLoggedAdmin($hasloSql, $_SESSION){
         if ($_SESSION['uprawnienia'] == "admin") {
             return true;
         } else {
-            echo "Nie posiadasz uprawnie≈Ñ admina";
+            echo "Nie posiadasz uprawnieÒ admina";
             return false;
         }
     }
     else{
-        echo "Brak uprawnie≈Ñ do tre≈õci.<br>";
+        echo "Brak uprawnieÒ do tre∂ci.<br>";
         return false;
     }
 }
