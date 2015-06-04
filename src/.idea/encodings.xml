@@ -7,7 +7,6 @@
     <file url="file://$PROJECT_DIR$/edytuj_zapisy.php" charset="ISO-8859-2" />
     <file url="file://$PROJECT_DIR$/functions/CheckTime.php" charset="ISO-8859-2" />
     <file url="file://$PROJECT_DIR$/functions/GenerateDate.php" charset="ISO-8859-2" />
-    <file url="file://$PROJECT_DIR$/functions/dateButtons.php" charset="ISO-8859-2" />
     <file url="file://$PROJECT_DIR$/functions/drawTable.php" charset="ISO-8859-2" />
     <file url="file://$PROJECT_DIR$/functions/index.php" charset="ISO-8859-2" />
     <file url="file://$PROJECT_DIR$/functions/isLoggedAdmin.php" charset="ISO-8859-2" />

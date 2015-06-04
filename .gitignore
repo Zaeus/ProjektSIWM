@@ -1,4 +1,4 @@
-src/polaczenieSQL.php
 src/.idea/
 src/.idea/workspace.xml
 *.xml
+src/includes/SQLConnection.php

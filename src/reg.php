@@ -2,8 +2,8 @@
 	session_start();
 ?>
 <?
-	include("includes/naglowek.php");
-	include("includes/includes/.php");
+    include("includes/header.php");
+    include("includes/SQLConnection.php");
 ?>
 	<h4>Rejestracja nowego pacjenta/lekarza:</h4>
 <?
@@ -101,5 +101,5 @@
     }
 ?>	
 <?
-	include("includes/stopka.php");
+include("includes/footer.php");
 ?>

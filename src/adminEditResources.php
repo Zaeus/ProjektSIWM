@@ -2,12 +2,10 @@
 	session_start();
 ?>
 <?
-	include("includes/naglowek.php");
-	include("includes/polaczenieSQL.php");
-	include("includes/kwerenda_log.php");
-    include("functions/isLoggedPatient.php");
-    include("functions/isLoggedDoctor.php");
-    include("functions/isLoggedAdmin.php");
+    include("includes/header.php");
+    include("includes/SQLConnection.php");
+    include("includes/logQuery.php");
+    include("functions/LoginPowerFunctions.php");
 ?>
 <?
 	if(isLoggedPatient($hasloSql, $_SESSION['login'], $_SESSION['haslo'])){
@@ -72,7 +70,7 @@
             }
 
             echo "<br><br>";
-            $forma_dodania_bud = "<fieldset><legend>Dodaj budynek:</legend><form action = \"edit-bud-gab.php\" method=\"POST\">";
+            $forma_dodania_bud = "<fieldset><legend>Dodaj budynek:</legend><form action = \"adminEditResources.php\" method=\"POST\">";
             $forma_dodania_bud .= "<input type=\"text\" name=\"dodane_miasto\" placeholder=\"Miasto\"><br>";
             $forma_dodania_bud .= "<input type=\"text\" name=\"dodana_ulica\" placeholder=\"Ulica\"><br>";
             $forma_dodania_bud .= "<input type=\"text\" name=\"dodany_numer\" placeholder=\"Numer budynku\" maxlength='5'><br>";
@@ -85,7 +83,7 @@
             $kwerenda_dodania_gab = "SELECT ID_budynku FROM budynki WHERE 1";
             $wynik_dodania_gab = mysql_query($kwerenda_dodania_gab) or die('B³±d zapytania');
 
-            $forma_dodania_gab = "<fieldset><legend>Dodaj gabinet:</legend><form action = \"edit-bud-gab.php\" method=\"POST\">";
+            $forma_dodania_gab = "<fieldset><legend>Dodaj gabinet:</legend><form action = \"adminEditResources.php\" method=\"POST\">";
             $forma_dodania_gab .= "Budynek: <select name=\"gab_id_budynku\">";
             if($wynik_dodania_gab) {
                 while($wiersz_dodania_gab = mysql_fetch_assoc($wynik_dodania_gab)) {
@@ -124,7 +122,7 @@
                     <tr>
                     <?
                     echo "<td>" . $wiersz_bud['ID_budynku'] . "</td>";
-                    $form_bud = "<td style=\"text-align: right\"><form action = \"edit-bud-gab.php\" method=\"POST\"> ";
+                    $form_bud = "<td style=\"text-align: right\"><form action = \"adminEditResources.php\" method=\"POST\"> ";
                     $form_bud .= "<input type=\"hidden\" name=\"nowe_ID_budynku\" value=\"" . $wiersz_bud['ID_budynku'] . "\">";
                     $form_bud .= "Miasto:<input type=\"text\" name=\"nowe_Miasto\" value=\"" . $wiersz_bud['Miasto'] . "\">";
                     $form_bud .= " Ulica:<input type=\"text\" name=\"nowa_Ulica\" value=\"" . $wiersz_bud['Ulica'] . "\">";
@@ -134,7 +132,7 @@
                     $form_bud .= "</form></td>";
                     echo $form_bud;
 
-                    $form_bud_usun = "<td><form action=\"edit-bud-gab.php\" method=\"POST\">";
+                    $form_bud_usun = "<td><form action=\"adminEditResources.php\" method=\"POST\">";
                     $form_bud_usun .= "<button name=\"usun_bud\" type=\"submit\" value=\"" . $wiersz_bud['ID_budynku'] . "\">Usuñ rekord</button>";
                     $form_bud_usun .= "</form></td>";
                     echo $form_bud_usun;
@@ -154,7 +152,7 @@
             {
                 while($wiersz_gab = mysql_fetch_assoc($wynik_gab)) {
                     echo "<td>" . $wiersz_gab['ID_gabinetu'] . "</td>";
-                    $form_gab = "<td style=\"text-align: right\"><form action = \"edit-bud-gab.php\" method=\"POST\"> ";
+                    $form_gab = "<td style=\"text-align: right\"><form action = \"adminEditResources.php\" method=\"POST\"> ";
                     $form_gab .= "<input type=\"hidden\" name=\"nowe_ID_gabinetu\" value=\"" . $wiersz_gab['ID_gabinetu'] . "\">";
                     $form_gab .= "Budynek: <input type=\"text\" name=\"nowe_ID_budynku\" value=\"" . $wiersz_gab['ID_budynku'] . "\" disabled>";
                     // TODO lista rozwijana specjalno¶ci gabinetu z warto¶ci± domy¶ln± ustawion± na pobrany z bazy
@@ -181,7 +179,7 @@
                     $form_gab .= "</form></td>";
                     echo $form_gab;
 
-                    $form_gab_usun = "<td><form action=\"edit-bud-gab.php\" method=\"POST\">";
+                    $form_gab_usun = "<td><form action=\"adminEditResources.php\" method=\"POST\">";
                     $form_gab_usun .= "<button name=\"usun_gab\" type=\"submit\" value=\"" . $wiersz_gab['ID_gabinetu'] . "\">Usuñ rekord</button>";
                     $form_gab_usun .= "</form></td>";
                     echo $form_gab_usun;
@@ -203,5 +201,5 @@
 	}
 ?>
 <?
-	include("includes/stopka.php");
+include("includes/footer.php");
 ?>

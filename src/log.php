@@ -6,11 +6,10 @@
 	}
 ?>
 <?
-	include("includes/naglowek.php");
-	include("includes/polaczenieSQL.php");
-    include("functions/isLoggedPatient.php");
-    include("functions/isLoggedDoctor.php");
-    include("functions/isLoggedAdmin.php");
+include("includes/header.php");
+include("includes/SQLConnection.php");
+include("includes/logQuery.php");
+include("functions/LoginPowerFunctions.php");
 ?>
 <?
 	$kwerenda = "SELECT email, haslo, nazwisko, uprawnienia FROM nazwiska WHERE email = \"" . $_SESSION['login'] . "\"";
@@ -26,16 +25,16 @@
 		<form action="index.php" method="POST">
 			<input type="submit" value="Wyloguj siê" />
 		</form><br>
-        <form action="edytuj_konto.php" method="POST">
+        <form action="editMyAccount.php" method="POST">
             <input type="submit" value="Edytuj swoje konto" />
         </form>
         <?
 		echo "<br><b>Posiadasz dostêp do opcji pacjenta: </b><br>";
 		?>		
-		<form action="zapis.php" method="POST">
+		<form action="signUpForDoc.php" method="POST">
 			<input type="submit" value="Zapisz siê" /> Zapisz siê do gabinetu jako pacjent 
 		</form>
-			<form action="edytuj_zapisy.php" method="POST">
+			<form action="editMyVisits.php" method="POST">
 			<input type="submit" value="Edytuj swoje zapisy" /><br>
 		</form>
 		<?
@@ -45,23 +44,23 @@
 			// TODO Uzupe³nij/popraw kontrakt
 			// TODO Przegl±daj zapisy
 			?>			
-			<form action="gabinet.php" method="POST">
+			<form action="docOffices.php" method="POST">
 				<input type="submit" value="Gabinety" name="initGabinet" /> Przejd¼ do strony rezerwacji oraz modyfikacji Twoich gabinetów
 			</form>
-			<form action="przegladaj-zapisy.php" method="POST">
+			<form action="docMyVisits.php" method="POST">
 				<input type="submit" value="Zapisy" /> Przejd¼ do strony przegl±dania i edytowania zapisów do Twoich gabinetów
 			</form>			
 			<?
 			if(isLoggedAdmin($hasloSql, $_SESSION['login'], $_SESSION['haslo'], $_SESSION['uprawnienia'])) {
 				echo "<br><b>Posiadasz dostêp do opcji administratora: </b><br>";
 				?>
-				<form action="edit-bud-gab.php" method="POST">
+				<form action="adminEditResources.php" method="POST">
 					<input type="submit" value="Budynki i gabinety" /> Przejd¼ do strony edytowania, dodawania i usuwania wszystkich budynków i gabinetów
 				</form>
-				<form action="edit-user.php" method="POST">
+				<form action="adminEditUsers.php" method="POST">
 					<input type="submit" value="U¿ytkownicy" /> Przejd¼ do strony edytowania i modyfikowania wszystkich u¿ytkowników
 				</form>
-                <form action="zasoby.php" method="POST">
+                <form action="adminAllResources.php" method="POST">
                     <input type="submit" value="Zasoby bazy danych" /> Przejd¼ do strony przegl±dania wszystkich zasobów w bazie danych
                 </form>
 				<?
@@ -75,7 +74,7 @@
 		session_destroy();
 		?>
 		Nie jeste¶ zalogowany. Zaloguj siê:<br>		
-		<form action="log2.php" method="POST">
+		<form action="log.php" method="POST">
 		e-mail: <input type="text" name="email" /><br />
 		haslo: <input type="password" name="haslo" /><br />
 		<input type="submit" value="Loguj" />
@@ -84,5 +83,5 @@
 	}
 ?>
 <?
-	include("includes/stopka.php");
+include("includes/footer.php");
 ?>

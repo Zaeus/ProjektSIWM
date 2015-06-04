@@ -7,12 +7,12 @@
 	}	
 ?>
 <?
-	include("includes/naglowek.php");
+    include("includes/header.php");
 ?>
     <h2>Witaj w projektowej bazie danych SIWM - Zdrowexerex.</h2><br>
 	Mo¿esz siê zalogowaæ lub zarejestrowaæ:<br><br>
 <?	
-	$forma = "<form action = \"log2.php\" method=\"POST\"> ";
+	$forma = "<form action = \"log.php\" method=\"POST\"> ";
 	$forma .= "<input type=\"submit\" value=\"Loguj\" >";
 	$forma .= "</form>";
 	echo $forma;
@@ -26,5 +26,5 @@
     <div style="text-align: center;"><img src="images/MedycynaSpoleczna.jpg" alt="Motto" /><br>
     Rys. 2 - Motto zak³adowe</div><br>
 <?
-	include("includes/stopka.php");
+	include("includes/footer.php");
 ?>

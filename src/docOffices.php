@@ -1,16 +1,11 @@
 <?
 	session_start();
-	include("includes/naglowek.php");
-	include("includes/polaczenieSQL.php");
-	include("includes/kwerenda_log.php");
-    include("functions/CheckTime.php");
+    include("includes/header.php");
+    include("includes/SQLConnection.php");
+    include("includes/logQuery.php");
+    include("functions/LoginPowerFunctions.php");
     include("functions/GenerateDate.php");
-    include("functions/drawTable.php");
-    include("functions/reservationTable.php");
-    include("functions/reservationQuery.php");
-    include("functions/viewMyReservationTable.php");
-    include("functions/reservationRemoveQuery.php");
-    include("functions/isLoggedDoctor.php");
+    include("functions/DocOfficesFunctions.php");
 
     if(isLoggedDoctor($hasloSql, $_SESSION['login'], $_SESSION['haslo'], $_SESSION['uprawnienia'])){
         echo "Posiadasz uprawnienia lekarza<br>";
@@ -33,7 +28,7 @@
         echo "Pocz±tek tygodnia:" . date_format($_SESSION['date'], 'Y-m-d') . "<br>Koniec tygodnia:" . date_format($endDate, 'Y-m-d') . "<br>";
         ?>
 
-        <form action="gabinet.php" method="POST">
+        <form action="docOffices.php" method="POST">
             <input type="submit" value="Tydzieñ wstecz" name="Wstecz" />
             <input type="submit" value="Tydzieñ w przód" name="Dalej" />
         </form>
@@ -42,7 +37,7 @@
         if(isset($_POST['Day']) && isset($_POST['SinceDate']) && isset($_POST['ToDate']) && isset($_POST['FromTime']) && isset($_POST['ToTime']) && isset($_POST['ID_Gabinetu'])) {
             reservationQuery($_SESSION['login'], $_POST['ID_Gabinetu'], $_POST['Day'], $_POST['SinceDate'], $_POST['ToDate'], $_POST['FromTime'], $_POST['ToTime']);
         }
-        echo "<br><fieldset><legend>Zajmij gabinet:</legend><form action=\"gabinet.php\" method=\"POST\">";
+        echo "<br><fieldset><legend>Zajmij gabinet:</legend><form action=\"docOffices.php\" method=\"POST\">";
         if(isset($_POST['Dzien'])) {
             $_SESSION['Dzien'] = $_POST['Dzien'];
             echo "Godzina rozpoczêcia: " . "<select name=\"GodzinaRozpoczecia\">";
@@ -84,12 +79,12 @@
         }
         // Usuniêcie rezerwacja je¿eli w tabeli powsta³ej w ViewMyReservationTable zostaje klikniêty przycisk usuñ
         if(isset($_POST['RemoveDay'])){
-            ReservationRemoveQuery($_SESSION['login'], $_POST['RemoveID_Gabinetu'], $_POST['RemoveDay'], $_POST['RemoveFromTime'], $_POST['RemoveToTime'], $_POST['RemoveSinceDate'], $_POST['RemoveToDate']);
+            reservationRemoveQuery($_SESSION['login'], $_POST['RemoveID_Gabinetu'], $_POST['RemoveDay'], $_POST['RemoveFromTime'], $_POST['RemoveToTime'], $_POST['RemoveSinceDate'], $_POST['RemoveToDate']);
         }
         ViewMyReservationTable($_SESSION['login']);
         $docOfficeViewQuery = "SELECT ID_gabinetu FROM zajetosc";
         $viewOfficeResult = mysql_query($docOfficeViewQuery) or die('B³±d zapytania');
-        $docOfficeViewFrom = "<br><fieldset><legend>Przejrzyj zajêto¶æ gabinet:</legend><form action = \"gabinet.php\" method=\"POST\">";
+        $docOfficeViewFrom = "<br><fieldset><legend>Przejrzyj zajêto¶æ gabinet:</legend><form action = \"docOffices.php\" method=\"POST\">";
         $docOfficeViewFrom .= "Gabinet: <select name=\"ID_przegladany_gabinet\">";
         if($viewOfficeResult) {
             $iterator = 0;
@@ -114,5 +109,5 @@
         drawTable(clone $_SESSION['date'], $_SESSION['ID_przegladany_gabinet']);
         echo "</fieldset>";
     }
-	include("includes/stopka.php");
+include("includes/footer.php");
 ?>

@@ -2,12 +2,10 @@
 	session_start();
 ?>
 <?
-	include("includes/naglowek.php");
-	include("includes/polaczenieSQL.php");
-	include("includes/kwerenda_log.php");
-    include("functions/isLoggedPatient.php");
-    include("functions/isLoggedDoctor.php");
-    include("functions/isLoggedAdmin.php");
+    include("includes/header.php");
+    include("includes/SQLConnection.php");
+    include("includes/logQuery.php");
+    include("functions/LoginPowerFunctions.php");
 ?>
 <?
 	if(isLoggedPatient($hasloSql, $_SESSION['login'], $_SESSION['haslo'])){
@@ -58,7 +56,7 @@
             }
 
             echo "<br><br>";
-            $addForm = "<br><fieldset><legend>Dodaj u¿ytkownika o podanych parametrach:</legend><form action = \"edit-user.php\" method=\"POST\"> ";
+            $addForm = "<br><fieldset><legend>Dodaj u¿ytkownika o podanych parametrach:</legend><form action = \"adminEditUsers.php\" method=\"POST\"> ";
             $addForm .= "<input type=\"text\" name=\"dodane_nazwisko\" placeholder=\"Nazwisko\"><br>";
             $addForm .= "<input type=\"text\" name=\"dodane_imie\" placeholder=\"Imiê\"><br>";
             $addForm .= "<input type=\"password\" name=\"dodane_haslo\" placeholder=\"Has³o\"><br>";
@@ -90,7 +88,7 @@
                     <tr>
                     <?
                     echo "<td>" . $line['id_nazwiska'] . "</td>";
-                    $editForm = "<td><form action = \"edit-user.php\" method=\"POST\"> ";
+                    $editForm = "<td><form action = \"adminEditUsers.php\" method=\"POST\"> ";
                     $editForm .= "<input type=\"hidden\" name=\"id_nazwiska\" value=\"" . $line['id_nazwiska'] . "\">";
                     $editForm .= "<input type=\"text\" name=\"nowe_nazwisko\" value=\"" . $line['nazwisko'] . "\">";
                     $editForm .= "<input type=\"text\" name=\"nowe_imie\" value=\"" . $line['imie'] . "\">";
@@ -128,7 +126,7 @@
                     $editForm .= "</form></td>";
                     echo $editForm;
 
-                    $removeForm = "<td><form action=\"edit-user.php\" method=\"POST\">";
+                    $removeForm = "<td><form action=\"adminEditUsers.php\" method=\"POST\">";
                     $removeForm .= "<button name=\"usun\" type=\"submit\" value=\"" . $line['id_nazwiska'] . "\">Usuñ rekord</button>";
                     $removeForm .= "</form></td>";
                     echo $removeForm;
@@ -150,5 +148,5 @@
 	}
 ?>
 <?
-	include("includes/stopka.php");
+include("includes/footer.php");
 ?>

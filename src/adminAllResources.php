@@ -2,12 +2,10 @@
 session_start();
 ?>
 <?
-include("includes/naglowek.php");
-include("includes/polaczenieSQL.php");
-include("includes/kwerenda_log.php");
-include("functions/isLoggedPatient.php");
-include("functions/isLoggedDoctor.php");
-include("functions/isLoggedAdmin.php");
+include("includes/header.php");
+include("includes/SQLConnection.php");
+include("includes/logQuery.php");
+include("functions/LoginPowerFunctions.php");
 ?>
 
 //Przegl±danie zasobów bazy danych
@@ -22,6 +20,6 @@ else{
 }
 ?>
 <?
-include("includes/stopka.php");
+include("includes/footer.php");
 ?>
 
