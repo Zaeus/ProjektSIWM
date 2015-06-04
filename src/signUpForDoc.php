@@ -19,7 +19,6 @@ if(isLoggedPatient($hasloSql, $_SESSION['login'], $_SESSION['haslo'])){
     echo "</select>";
     echo "<input type=\"submit\" value=\"Wybierz\" >";
     echo "</form></td>";
-    echo "</fieldset>";
     if(isset($_POST['specjalizacjaGabinetu'])) {
         signUpForDoc($_POST['specjalizacjaGabinetu'], NULL);
         $_SESSION['specjalizacjaGabinetu'] = $_POST['specjalizacjaGabinetu'];
@@ -35,6 +34,7 @@ if(isLoggedPatient($hasloSql, $_SESSION['login'], $_SESSION['haslo'])){
         // Usuniêcie rezerwacji z systemu
         removeMyVisit($_SESSION['login'], $_POST['removeVisitOfficeID'], $_POST['removeVisitDate'], $_POST['removeVisitTime']);
     }
+    echo "</fieldset>";
     viewMyVisit($_SESSION['login']);
 }
 else{

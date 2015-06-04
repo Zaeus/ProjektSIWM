@@ -20,26 +20,27 @@ include("functions/LoginPowerFunctions.php");
 		$_SESSION['uprawnienia'] = $wiersz['uprawnienia'];
 	}
 	if(isLoggedPatient($hasloSql, $_SESSION['login'], $_SESSION['haslo'])){
-		echo "Witaj, jeste¶ zalogowany jako: <b>" . $_SESSION['login'] . "</b></b><br><br>";
+		echo "<fieldset><legend>Witaj, jeste¶ zalogowany jako:<b> " . $_SESSION['login'] . "</b></legend>";
+        echo "<fieldset><legend><b>Opcje:</b></legend>";
 		?>
 		<form action="index.php" method="POST">
 			<input type="submit" value="Wyloguj siê" />
 		</form><br>
         <form action="editMyAccount.php" method="POST">
             <input type="submit" value="Edytuj swoje konto" />
-        </form>
+        </form></fieldset>
         <?
-		echo "<br><b>Posiadasz dostêp do opcji pacjenta: </b><br>";
+		echo "<br><fieldset><legend><b>Posiadasz dostêp do opcji pacjenta: </b></legend>";
 		?>		
 		<form action="signUpForDoc.php" method="POST">
 			<input type="submit" value="Zapisz siê" /> Zapisz siê do gabinetu jako pacjent 
 		</form>
 			<form action="editMyVisits.php" method="POST">
 			<input type="submit" value="Edytuj swoje zapisy" /><br>
-		</form>
+		</form></fieldset>
 		<?
 		if(isLoggedDoctor($hasloSql, $_SESSION['login'], $_SESSION['haslo'], $_SESSION['uprawnienia'])) {
-			echo "<br><b>Posiadasz dostêp do opcji lekarza: </b><br>";
+			echo "<br><fieldset><legend><b>Posiadasz dostêp do opcji lekarza: </b></legend>";
 			// TODO Zajmij gabinet, zwolnij gabinet
 			// TODO Uzupe³nij/popraw kontrakt
 			// TODO Przegl±daj zapisy
@@ -49,10 +50,10 @@ include("functions/LoginPowerFunctions.php");
 			</form>
 			<form action="docMyVisits.php" method="POST">
 				<input type="submit" value="Zapisy" /> Przejd¼ do strony przegl±dania i edytowania zapisów do Twoich gabinetów
-			</form>			
+			</form></fieldset>
 			<?
 			if(isLoggedAdmin($hasloSql, $_SESSION['login'], $_SESSION['haslo'], $_SESSION['uprawnienia'])) {
-				echo "<br><b>Posiadasz dostêp do opcji administratora: </b><br>";
+				echo "<br><fieldset><legend><b>Posiadasz dostêp do opcji administratora: </b></legend>";
 				?>
 				<form action="adminEditResources.php" method="POST">
 					<input type="submit" value="Budynki i gabinety" /> Przejd¼ do strony edytowania, dodawania i usuwania wszystkich budynków i gabinetów
@@ -62,7 +63,7 @@ include("functions/LoginPowerFunctions.php");
 				</form>
                 <form action="adminAllResources.php" method="POST">
                     <input type="submit" value="Zasoby bazy danych" /> Przejd¼ do strony przegl±dania wszystkich zasobów w bazie danych
-                </form>
+                </form></fieldset></fieldset>
 				<?
 			}
 		}
