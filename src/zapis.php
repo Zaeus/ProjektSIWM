@@ -33,9 +33,9 @@
             RegVisit($_POST['godzinaRezerwacji'], $_POST['regDate'], $_POST['officeID'], $_SESSION['login']);
         }
         if(isset($_POST['removeVisitOfficeID'], $_POST['removeVisitDate'], $_POST['removeVisitTime'])){
+            // Usuniêcie rezerwacji z systemu
             removeMyVisit($_SESSION['login'], $_POST['removeVisitOfficeID'], $_POST['removeVisitDate'], $_POST['removeVisitTime']);
         }
-        // TODO Edycja istniej±cych zapisów z mo¿liwo¶ci± ich usuwania nie pó¼niej ni¿ 24h przed
         ViewMyVisit($_SESSION['login']);
 	}
 	else{

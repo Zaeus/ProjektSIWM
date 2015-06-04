@@ -43,8 +43,7 @@ function SignUpForDoc($officeSpecialization)
                 }
             }
             echo "<td><form action = \"zapis.php\" method=\"POST\"> ";
-            // TODO tabela powinna mieæ selektor z mo¿liwymi godzinami do zaklepania (ew. pole ile ma trwaæ wizyta - wed?ug mnie przyjmujemy 30minut na wizytê)
-            // TODO selektor ma usuniête godziny z zaklepanych godzin
+            // TODO selektor ma usuniête godziny z zaklepanych godzin w danym dniu!! ¿eby zaklepanie w jednym dniu nie powodowa³o zablokowania danej godziny na wszystkie dni
             // TODO niewy¶wietlaæ gabinetów których data dostêpu ju¿ minê³a
             // TODO data powinna siê pokrywaæ z dniem tygodnia i uniemo¿liwiaæ zaklepanie daty nie bêd±cej dniem tygodnia pracy gabinetu
             echo "<select name=\"godzinaRezerwacji\">";

@@ -31,7 +31,12 @@ function ViewMyVisit($patientLogin)
             echo "<input type=\"hidden\" name=\"removeVisitOfficeID\" value=\"" . $visitLine['ID_gabinetu'] . "\">";
             echo "<input type=\"hidden\" name=\"removeVisitDate\" value=\"" . $visitLine['data'] . "\">";
             echo "<input type=\"hidden\" name=\"removeVisitTime\" value=\"" . $visitLine['godzina']  . "\">";
-            echo "<input type=\"submit\" value=\"Usuñ\" ></form></td>";
+            echo "<input type=\"submit\" value=\"Usuñ\" ";
+            echo ($visitLine['data'] == date_format(date_modify(new DateTime(), '+1 day'), 'Y-m-d'));
+            if($visitLine['data'] == date_format(new DateTime(), 'Y-m-d')){
+                echo "disabled";
+            }
+            echo " ></form></td>";
             echo "</tr>";
         }
         echo "</table>";

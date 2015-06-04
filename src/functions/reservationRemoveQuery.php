@@ -12,7 +12,6 @@ function ReservationRemoveQuery($docEmail, $officeID, $day, $fromTime, $toTime, 
     $removeReservationQuery .= "do_godziny='" . $toTime . "' AND ";
     $removeReservationQuery .= "od_dnia='" . $sinceDate . "' AND ";
     $removeReservationQuery .= "do_dnia='" . $toDate . "'";
-    echo $removeReservationQuery;
     mysql_query($removeReservationQuery) or die('B³±d zapytania usuniêcia rezerwacji');
 }
 ?>
