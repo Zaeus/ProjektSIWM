@@ -3,7 +3,7 @@ include("GenerateDate.php");
 function SignUpForDoc($officeSpecialization)
 {
     // TODO tabele z wygenerowanymi parametrami gabinetów po pobraniu info o szukanej spracjalno¶ci gabinetu (ew. mie¶cie)
-    echo "<br><fieldset><legend>Dostêpne gabinety:</legend>";
+    echo "<br><fieldset><legend>Dostêpne gabinety o specjalizacji: " . $officeSpecialization . "</legend>";
     $officeSpecQuery = "SELECT zajetosc.ID_gabinetu, zajetosc.ID_nazwiska_Lek, zajetosc.dzien_tyg, zajetosc.od_dnia, zajetosc.do_dnia, zajetosc.od_godziny, zajetosc.do_godziny, budynki.miasto FROM gabinety ";
     $officeSpecQuery .= "INNER JOIN zajetosc ON gabinety.ID_gabinetu = zajetosc.ID_gabinetu ";
     $officeSpecQuery .= "INNER JOIN budynki ON gabinety.ID_budynku = budynki.ID_budynku ";
@@ -80,6 +80,6 @@ function SignUpForDoc($officeSpecialization)
     } else {
         echo "Brak gabinetów o podanej specjalizacji";
     }
-    echo "</fieldset><br>";
+    echo "</fieldset>";
 }
 ?>

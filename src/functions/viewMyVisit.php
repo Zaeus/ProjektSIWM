@@ -17,13 +17,20 @@ function ViewMyVisit($patientLogin)
         echo "<td>Godzina</td>";
         echo "<td>Opcje</td>";
         while($visitLine = mysql_fetch_assoc($visitResult)){
+            $officeInfoQuery = "SELECT budynki.miasto, gabinety.specjalnosc FROM gabinety INNER JOIN budynki ON gabinety.ID_budynku = budynki.ID_budynku ";
+            $officeInfoQuery .= "WHERE gabinety.ID_gabinetu='" . $visitLine['ID_gabinetu'] . "'";
+            $officeInfoResult = mysql_query($officeInfoQuery) or die('B³±d zapytania o gabinety o podanym ID');
+            $officeInfoLine = mysql_fetch_assoc($officeInfoResult);
             echo "<tr>";
             echo "<td>" . $visitLine['ID_gabinetu'] . "</td>";
-            echo "<td></td>"; // TODO Miasto do uzupe³nienia
-            echo "<td></td>"; // TODO Specjalizacja do uzupe³nienia
+            echo "<td>" . $officeInfoLine['specjalnosc'] . "</td>";
+            echo "<td>" . $officeInfoLine['miasto'] . "</td>";
             echo "<td>" . $visitLine['data'] . "</td>";
             echo "<td>" . $visitLine['godzina'] . "</td>";
             echo "<td><form action = \"zapis.php\" method=\"POST\"> ";
+            echo "<input type=\"hidden\" name=\"removeVisitOfficeID\" value=\"" . $visitLine['ID_gabinetu'] . "\">";
+            echo "<input type=\"hidden\" name=\"removeVisitDate\" value=\"" . $visitLine['data'] . "\">";
+            echo "<input type=\"hidden\" name=\"removeVisitTime\" value=\"" . $visitLine['godzina']  . "\">";
             echo "<input type=\"submit\" value=\"Usuñ\" ></form></td>";
             echo "</tr>";
         }
