@@ -25,30 +25,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="editMyAccount.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/editMyAccount.php">
+      <file leaf-file-name="adminAllResources.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/adminAllResources.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.1574074" vertical-offset="0" max-vertical-offset="1360">
-              <caret line="8" column="2" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
-              <folding>
-                <marker date="1433443311777" expanded="true" signature="471:523" placeholder="UPDATE nazwi..." />
-                <marker date="1433443311777" expanded="true" signature="1203:1266" placeholder="SELECT * FRO..nazwiska..." />
-              </folding>
+            <state vertical-scroll-proportion="0.19675925" vertical-offset="0" max-vertical-offset="864">
+              <caret line="10" column="2" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="2" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="adminEditUsers.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/adminEditUsers.php">
+      <file leaf-file-name="ResourcesFunctions.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/functions/ResourcesFunctions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.884615" vertical-offset="24" max-vertical-offset="2686">
-              <caret line="15" column="52" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="52" />
-              <folding>
-                <marker date="1433441585923" expanded="true" signature="609:666" placeholder="UPDATE nazwi..." />
-                <marker date="1433441585923" expanded="true" signature="1612:1693" placeholder="INSERT INTO ..." />
-                <marker date="1433441585923" expanded="true" signature="2870:2909" placeholder="DELETE FROM ..." />
-                <marker date="1433441585923" expanded="true" signature="5105:5203" placeholder="SELECT id_na..nazwiska..." />
-              </folding>
+            <state vertical-scroll-proportion="-1.3076923" vertical-offset="0" max-vertical-offset="204">
+              <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -58,7 +50,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/nowy.php" />
         <option value="$PROJECT_DIR$/functions/drawTable.php" />
         <option value="$PROJECT_DIR$/naglowek.php" />
         <option value="$PROJECT_DIR$/edycja.php" />
@@ -94,7 +85,6 @@
         <option value="$PROJECT_DIR$/includes/logQuery.php" />
         <option value="$PROJECT_DIR$/includes/header.php" />
         <option value="$PROJECT_DIR$/includes/footer.php" />
-        <option value="$PROJECT_DIR$/adminAllResources.php" />
         <option value="$PROJECT_DIR$/docMyVisits.php" />
         <option value="$PROJECT_DIR$/docOffices.php" />
         <option value="$PROJECT_DIR$/editMyVisits.php" />
@@ -109,6 +99,8 @@
         <option value="$PROJECT_DIR$/includes/SQLConnection.php" />
         <option value="$PROJECT_DIR$/adminEditUsers.php" />
         <option value="$PROJECT_DIR$/editMyAccount.php" />
+        <option value="$PROJECT_DIR$/functions/ResourcesFunctions.php" />
+        <option value="$PROJECT_DIR$/adminAllResources.php" />
       </list>
     </option>
   </component>
@@ -439,14 +431,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/adminAllResources.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43287036" vertical-offset="0" max-vertical-offset="864">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/docMyVisits.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.41319445" vertical-offset="0" max-vertical-offset="864">
@@ -607,27 +591,43 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/adminEditUsers.php">
+    <entry file="file://$PROJECT_DIR$/editMyAccount.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.884615" vertical-offset="24" max-vertical-offset="2686">
-          <caret line="15" column="52" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="52" />
+        <state vertical-scroll-proportion="0.03935185" vertical-offset="0" max-vertical-offset="1360">
+          <caret line="2" column="2" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="2" />
           <folding>
-            <marker date="1433441585923" expanded="true" signature="609:666" placeholder="UPDATE nazwi..." />
-            <marker date="1433441585923" expanded="true" signature="1612:1693" placeholder="INSERT INTO ..." />
-            <marker date="1433441585923" expanded="true" signature="2870:2909" placeholder="DELETE FROM ..." />
-            <marker date="1433441585923" expanded="true" signature="5105:5203" placeholder="SELECT id_na..nazwiska..." />
+            <marker date="1433443311777" expanded="true" signature="-1:-1" placeholder="UPDATE nazwi..." />
+            <marker date="1433443311777" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..nazwiska..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/editMyAccount.php">
+    <entry file="file://$PROJECT_DIR$/adminEditUsers.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1574074" vertical-offset="0" max-vertical-offset="1360">
-          <caret line="8" column="2" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
+        <state vertical-scroll-proportion="0.27144536" vertical-offset="24" max-vertical-offset="2686">
+          <caret line="15" column="52" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="52" />
           <folding>
-            <marker date="1433443311777" expanded="true" signature="471:523" placeholder="UPDATE nazwi..." />
-            <marker date="1433443311777" expanded="true" signature="1203:1266" placeholder="SELECT * FRO..nazwiska..." />
+            <marker date="1433441585923" expanded="true" signature="-1:-1" placeholder="UPDATE nazwi..." />
+            <marker date="1433441585923" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1433441585923" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1433441585923" expanded="true" signature="-1:-1" placeholder="SELECT id_na..nazwiska..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/functions/ResourcesFunctions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.3076923" vertical-offset="0" max-vertical-offset="204">
+          <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adminAllResources.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.19675925" vertical-offset="0" max-vertical-offset="864">
+          <caret line="10" column="2" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="2" />
+          <folding />
         </state>
       </provider>
     </entry>
