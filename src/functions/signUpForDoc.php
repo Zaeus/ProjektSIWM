@@ -32,43 +32,53 @@ function SignUpForDoc($officeSpecialization)
             echo "<td>" . $officeSpecLine['do_dnia'] . "</td>";
             echo "<td>" . $officeSpecLine['od_godziny'] . "</td>";
             echo "<td>" . $officeSpecLine['do_godziny'] . "</td>";
-            echo "<td><form action = \"zapis.php\" method=\"POST\"> ";
             $timeVisitQuery = "SELECT godzina FROM wizyty WHERE ID_gabinetu='" . $officeSpecLine['ID_gabinetu'] . "'";
             $timeVisitResult = mysql_query($timeVisitQuery) or die('B³±d zapytania o nazwisko lekarza');
             $iterator = 0;
             while($timeVisitLine = mysql_fetch_assoc($timeVisitResult)){
-                $occupiedHours[$iterator] = date_create($timeVisitLine['godzina']);
-                $iterator = $iterator + 1;
+                // Sprawdzenie czy godzina mie¶cie siê w pracy gabinetu
+                if(($officeSpecLine['od_godziny'] <= $timeVisitLine['godzina']) && ($officeSpecLine['do_godziny'] >= $timeVisitLine['godzina'])) {
+                    $occupiedHours[$iterator] = date_create($timeVisitLine['godzina']);
+                    $iterator = $iterator + 1;
+                }
             }
-
-            // TODO tabela powinna mie? selektor z mo?liwymi godzinami do zaklepania (ew. pole ile ma trwa? wizyta - wed?ug mnie przyjmujemy 30minut na wizyt?)
-            // TODO selektor ma usuni?te godziny z zaklepanych godzin
-            // TODO Poza selektoram powinien by? wyb?r daty z zakresu najmu gabinetu
-            // TODO przycisk zarezerwowania wizyty
-            // TODO niewy?wietla? gabinet?w kt?rych data dost?pu ju? min?a
+            echo "<td><form action = \"zapis.php\" method=\"POST\"> ";
+            // TODO tabela powinna mieæ selektor z mo¿liwymi godzinami do zaklepania (ew. pole ile ma trwaæ wizyta - wed?ug mnie przyjmujemy 30minut na wizytê)
+            // TODO selektor ma usuniête godziny z zaklepanych godzin
+            // TODO niewy¶wietlaæ gabinetów których data dostêpu ju¿ minê³a
+            // TODO data powinna siê pokrywaæ z dniem tygodnia i uniemo¿liwiaæ zaklepanie daty nie bêd±cej dniem tygodnia pracy gabinetu
             echo "<select name=\"godzinaRezerwacji\">";
             $start = date_create($officeSpecLine['od_godziny']);
             $stop = date_create($officeSpecLine['do_godziny']);
             $stop = date_modify($stop, '-30 minutes');
-            $temp = clone($occupiedHours[0]);
-            generateDate($start,date_modify($temp,'-30 minutes'));
-            for($i=0; $i<count($occupiedHours); $i++){
-                $temp = clone($occupiedHours[$i]);
-                $temp2 = clone($occupiedHours[++$i]);
-                generateDate(date_modify($temp,'+30 minutes'), date_modify($temp2,'-30 minutes'));
+            if(isset($occupiedHours)) {
+                // Je¿eli w bazie danych s± godziny zajêtych wizyt to wchodzimy w tego if'a
+                $temp = clone($occupiedHours[0]);
+                generateDate($start, date_modify($temp, '-30 minutes'));
+                for ($i = 0; $i < count($occupiedHours); $i++) {
+                    $temp = clone($occupiedHours[$i]);
+                    if(isset($occupiedHours[$i+1])) {
+                        echo "tutaj";
+                        $temp2 = clone($occupiedHours[$i+1]);
+                        generateDate(date_modify($temp, '+30 minutes'), date_modify($temp2, '-30 minutes'));
+                    } else {
+                        generateDate(date_modify($temp, '+30 minutes'), $stop);
+                    }
+                }
+            } else {
+                // Je¿eli nie ma zajêtych godzin to generujemy pe³ny selektor od startu do stopu
+                generateDate($start, $stop);
             }
-            $temp =clone($occupiedHours[count($occupiedHours)-1]);
-            generateDate(date_modify($temp,'+30 minutes'), $stop);
             echo "</select> ";
             echo "<input type=\"date\" name=\"regDate\" value=\"" . date_format(new DateTime(), 'Y-m-d') . "\"> ";
             echo "<input type=\"hidden\" name=\"officeID\" value=\"" . $officeSpecLine['ID_gabinetu'] . "\">";
             echo "<input type=\"submit\" value=\"Rezerwuj\" ></form></td>";
             echo "</tr>";
-            echo "</tr>";
+            unset($temp, $temp2, $start, $stop, $occupiedHours);
         }
         echo "</table>";
     } else {
-        echo "Brak gabinet?w o podanej specjalizacji";
+        echo "Brak gabinetów o podanej specjalizacji";
     }
     echo "</fieldset><br>";
 }

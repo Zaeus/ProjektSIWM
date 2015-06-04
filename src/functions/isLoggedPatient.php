@@ -1,6 +1,6 @@
 <?php
-function isLoggedPatient($hasloSql, $_SESSION){
-    if (isset($_SESSION['login']) && ($_SESSION['haslo'] == $hasloSql)) {
+function isLoggedPatient($hasloSql, $userLogin, $userPassword){
+    if (isset($userLogin) && ($userPassword == $hasloSql)) {
         return true;
     }
     else{

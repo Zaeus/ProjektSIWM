@@ -5,12 +5,21 @@
     <file url="file://$PROJECT_DIR$/edit-user.php" charset="ISO-8859-2" />
     <file url="file://$PROJECT_DIR$/edytuj_konto.php" charset="ISO-8859-2" />
     <file url="file://$PROJECT_DIR$/edytuj_zapisy.php" charset="ISO-8859-2" />
+    <file url="file://$PROJECT_DIR$/functions/CheckTime.php" charset="ISO-8859-2" />
+    <file url="file://$PROJECT_DIR$/functions/GenerateDate.php" charset="ISO-8859-2" />
+    <file url="file://$PROJECT_DIR$/functions/dateButtons.php" charset="ISO-8859-2" />
     <file url="file://$PROJECT_DIR$/functions/drawTable.php" charset="ISO-8859-2" />
     <file url="file://$PROJECT_DIR$/functions/index.php" charset="ISO-8859-2" />
+    <file url="file://$PROJECT_DIR$/functions/isLoggedAdmin.php" charset="ISO-8859-2" />
+    <file url="file://$PROJECT_DIR$/functions/isLoggedDoctor.php" charset="ISO-8859-2" />
+    <file url="file://$PROJECT_DIR$/functions/isLoggedPatient.php" charset="ISO-8859-2" />
     <file url="file://$PROJECT_DIR$/functions/regVisit.php" charset="ISO-8859-2" />
+    <file url="file://$PROJECT_DIR$/functions/reservationQuery.php" charset="ISO-8859-2" />
+    <file url="file://$PROJECT_DIR$/functions/reservationRemoveQuery.php" charset="ISO-8859-2" />
     <file url="file://$PROJECT_DIR$/functions/reservationTable.php" charset="ISO-8859-2" />
     <file url="file://$PROJECT_DIR$/functions/signUpForDoc.php" charset="ISO-8859-2" />
     <file url="file://$PROJECT_DIR$/functions/viewMyReservationTable.php" charset="ISO-8859-2" />
+    <file url="file://$PROJECT_DIR$/functions/viewMyVisit.php" charset="ISO-8859-2" />
     <file url="file://$PROJECT_DIR$/gabinet.php" charset="ISO-8859-2" />
     <file url="file://$PROJECT_DIR$/images/index.php" charset="ISO-8859-2" />
     <file url="file://$PROJECT_DIR$/includes/index.php" charset="ISO-8859-2" />
@@ -24,6 +33,6 @@
     <file url="file://$PROJECT_DIR$/style.css" charset="ISO-8859-2" />
     <file url="file://$PROJECT_DIR$/zapis.php" charset="ISO-8859-2" />
     <file url="file://$PROJECT_DIR$/zasoby.php" charset="ISO-8859-2" />
-    <file url="file://$PROJECT_DIR$/../testowe/data.php" charset="ISO-8859-2" />
+    <file url="PROJECT" charset="ISO-8859-2" />
   </component>
 </project>

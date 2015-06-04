@@ -5,10 +5,13 @@
 	include("includes/naglowek.php");
 	include("includes/polaczenieSQL.php");
 	include("includes/kwerenda_log.php");
+    include("functions/isLoggedPatient.php");
+    include("functions/isLoggedDoctor.php");
+    include("functions/isLoggedAdmin.php");
 ?>
 <?
-	if(isset($_SESSION['login']) && ($_SESSION['haslo'] == $hasloSql)){
-		if($_SESSION['uprawnienia'] == "admin") {
+	if(isLoggedPatient($hasloSql, $_SESSION['login'], $_SESSION['haslo'])){
+		if(isLoggedAdmin($hasloSql, $_SESSION['login'], $_SESSION['haslo'], $_SESSION['uprawnienia'])) {
             echo "<b>Posiadasz uprawnienia admina</b><br><br>";
 
             if(isset($_POST['dodane_miasto']) && isset($_POST['dodana_ulica']) && isset($_POST['dodany_numer']) && isset($_POST['dodany_kod_pocztowy'])){

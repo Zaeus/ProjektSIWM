@@ -8,9 +8,12 @@
     include("functions/signUpForDoc.php");
     include("functions/regVisit.php");
     include("functions/viewMyVisit.php");
+    include("functions/isLoggedPatient.php");
+    include("functions/isLoggedDoctor.php");
+    include("functions/isLoggedAdmin.php");
 ?>
 <?
-	if(isset($_SESSION['login']) && ($_SESSION['haslo'] == $hasloSql)){
+	if(isLoggedPatient($hasloSql, $_SESSION['login'], $_SESSION['haslo'])){
         echo "<fieldset><legend>Specjalizacja gabinetu:</legend>";
         echo "<form action = \"zapis.php\" method=\"POST\"> ";
         echo "<select name=\"specjalizacjaGabinetu\">";

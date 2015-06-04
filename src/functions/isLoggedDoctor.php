@@ -1,10 +1,9 @@
 <?php
-function isLoggedDoctor($hasloSql, $_SESSION){
-    if (isset($_SESSION['login']) && ($_SESSION['haslo'] == $hasloSql)) {
-        if ($_SESSION['uprawnienia'] == "lekarz" || $_SESSION['uprawnienia'] == "admin") {
+function isLoggedDoctor($hasloSql, $userLogin, $userPassword, $userPower){
+    if (isset($userLogin) && ($userPassword == $hasloSql)) {
+        if ($userPower == "lekarz" || $userPower == "admin") {
             return true;
         } else {
-            echo "Nie posiadasz uprawnieñ lekarza";
             return false;
         }
     }

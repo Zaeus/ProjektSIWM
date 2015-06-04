@@ -8,6 +8,9 @@
 <?
 	include("includes/naglowek.php");
 	include("includes/polaczenieSQL.php");
+    include("functions/isLoggedPatient.php");
+    include("functions/isLoggedDoctor.php");
+    include("functions/isLoggedAdmin.php");
 ?>
 <?
 	$kwerenda = "SELECT email, haslo, nazwisko, uprawnienia FROM nazwiska WHERE email = \"" . $_SESSION['login'] . "\"";
@@ -17,8 +20,7 @@
 		$hasloSql = $wiersz['haslo'];
 		$_SESSION['uprawnienia'] = $wiersz['uprawnienia'];
 	}
-	
-	if(isset($_SESSION['login']) && ($hasloSql == $_SESSION['haslo'])){
+	if(isLoggedPatient($hasloSql, $_SESSION['login'], $_SESSION['haslo'])){
 		echo "Witaj, jeste¶ zalogowany jako: <b>" . $_SESSION['login'] . "</b></b><br><br>";
 		?>
 		<form action="index.php" method="POST">
@@ -37,7 +39,7 @@
 			<input type="submit" value="Edytuj swoje zapisy" /><br>
 		</form>
 		<?
-		if(($_SESSION['uprawnienia'] == "lekarz") || ($_SESSION['uprawnienia'] == "admin")) {
+		if(isLoggedDoctor($hasloSql, $_SESSION['login'], $_SESSION['haslo'], $_SESSION['uprawnienia'])) {
 			echo "<br><b>Posiadasz dostêp do opcji lekarza: </b><br>";
 			// TODO Zajmij gabinet, zwolnij gabinet
 			// TODO Uzupe³nij/popraw kontrakt
@@ -50,7 +52,7 @@
 				<input type="submit" value="Zapisy" /> Przejd¼ do strony przegl±dania i edytowania zapisów do Twoich gabinetów
 			</form>			
 			<?
-			if($_SESSION['uprawnienia'] == "admin") {
+			if(isLoggedAdmin($hasloSql, $_SESSION['login'], $_SESSION['haslo'], $_SESSION['uprawnienia'])) {
 				echo "<br><b>Posiadasz dostêp do opcji administratora: </b><br>";
 				?>
 				<form action="edit-bud-gab.php" method="POST">
