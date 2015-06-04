@@ -10,7 +10,11 @@ include("functions/ResourcesFunctions.php");
 ?>
 <?
 if(isLoggedAdmin($hasloSql, $_SESSION['login'], $_SESSION['haslo'], $_SESSION['uprawnienia'])){
-    drawAllResourcesTable();
+    drawAllResourcesTable("nazwiska");
+    drawAllResourcesTable("gabinety");
+    drawAllResourcesTable("budynki");
+    drawAllResourcesTable("wizyty");
+    drawAllResourcesTable("zajetosc");
 }
 else{
     echo "Brak uprawnieñ do tre¶ci.<br>";

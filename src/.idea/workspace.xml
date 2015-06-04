@@ -25,21 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="adminAllResources.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/adminAllResources.php">
+      <file leaf-file-name="SignUpForDocFunctions.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/functions/SignUpForDocFunctions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.19675925" vertical-offset="0" max-vertical-offset="864">
-              <caret line="10" column="2" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="2" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ResourcesFunctions.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/functions/ResourcesFunctions.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.3076923" vertical-offset="0" max-vertical-offset="204">
-              <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+            <state vertical-scroll-proportion="0.31962398" vertical-offset="0" max-vertical-offset="3485">
+              <caret line="16" column="37" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -99,8 +89,8 @@
         <option value="$PROJECT_DIR$/includes/SQLConnection.php" />
         <option value="$PROJECT_DIR$/adminEditUsers.php" />
         <option value="$PROJECT_DIR$/editMyAccount.php" />
-        <option value="$PROJECT_DIR$/functions/ResourcesFunctions.php" />
         <option value="$PROJECT_DIR$/adminAllResources.php" />
+        <option value="$PROJECT_DIR$/functions/ResourcesFunctions.php" />
       </list>
     </option>
   </component>
@@ -560,14 +550,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/functions/SignUpForDocFunctions.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-25.5" vertical-offset="1173" max-vertical-offset="3485">
-          <caret line="108" column="73" selection-start-line="108" selection-start-column="26" selection-end-line="108" selection-end-column="73" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/functions/DocOfficesFunctions.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="2.082176" vertical-offset="2791" max-vertical-offset="5491">
@@ -615,18 +597,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/functions/ResourcesFunctions.php">
+    <entry file="file://$PROJECT_DIR$/adminAllResources.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.3076923" vertical-offset="0" max-vertical-offset="204">
-          <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+        <state vertical-scroll-proportion="0.4525463" vertical-offset="0" max-vertical-offset="864">
+          <caret line="23" column="31" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/adminAllResources.php">
+    <entry file="file://$PROJECT_DIR$/functions/ResourcesFunctions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.19675925" vertical-offset="0" max-vertical-offset="864">
-          <caret line="10" column="2" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="2" />
+        <state vertical-scroll-proportion="0.03935185" vertical-offset="0" max-vertical-offset="864">
+          <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
+          <folding>
+            <marker date="1433445779569" expanded="true" signature="-1:-1" placeholder="SELECT COLUM..columns..." />
+            <marker date="1433445779569" expanded="true" signature="-1:-1" placeholder="SELECT COLUM..columns..." />
+            <marker date="1433445779569" expanded="true" signature="-1:-1" placeholder="SELECT COLUM..columns..." />
+            <marker date="1433445779569" expanded="true" signature="-1:-1" placeholder="SELECT COLUM..columns..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/functions/SignUpForDocFunctions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.31962398" vertical-offset="0" max-vertical-offset="3485">
+          <caret line="16" column="37" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="37" />
           <folding />
         </state>
       </provider>
