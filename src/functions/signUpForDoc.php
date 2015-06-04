@@ -46,6 +46,8 @@ function SignUpForDoc($officeSpecialization)
             // TODO selektor ma usuniête godziny z zaklepanych godzin w danym dniu!! ¿eby zaklepanie w jednym dniu nie powodowa³o zablokowania danej godziny na wszystkie dni
             // TODO niewy¶wietlaæ gabinetów których data dostêpu ju¿ minê³a
             // TODO data powinna siê pokrywaæ z dniem tygodnia i uniemo¿liwiaæ zaklepanie daty nie bêd±cej dniem tygodnia pracy gabinetu
+            // TODO obs³uga - data tygodnia zrzutowana na dzieñ wynajmu gabinetu - w ty³
+            // TODO obs³uga - data je¿el nie jest w zakresie daj komunikat b³êdu
             echo "<select name=\"godzinaRezerwacji\">";
             $start = date_create($officeSpecLine['od_godziny']);
             $stop = date_create($officeSpecLine['do_godziny']);
@@ -69,8 +71,8 @@ function SignUpForDoc($officeSpecialization)
                 generateDate($start, $stop);
             }
             echo "</select> ";
-            echo "<input type=\"date\" name=\"regDate\" value=\"" . date_format(new DateTime(), 'Y-m-d') . "\"> ";
-            echo "<input type=\"hidden\" name=\"officeID\" value=\"" . $officeSpecLine['ID_gabinetu'] . "\">";
+            echo "<input type=\"week\" name=\"regDate\" value=\"" . date_format(new DateTime(), 'Y') . "-W" . date_format(new DateTime(), 'W') . "\"\"> ";
+            echo "<input type=\"hidden\" name=\"officeID\" step=\"7\" value=\"" . $officeSpecLine['ID_gabinetu'] . "\">";
             echo "<input type=\"submit\" value=\"Rezerwuj\" ></form></td>";
             echo "</tr>";
             unset($temp, $temp2, $start, $stop, $occupiedHours);
