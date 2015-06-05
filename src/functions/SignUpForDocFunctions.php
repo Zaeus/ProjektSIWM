@@ -38,7 +38,6 @@ function signUpForDoc($officeSpecialization, $regDate)
                 echo "<td>" . $officeSpecLine['od_godziny'] . "</td>";
                 echo "<td>" . $officeSpecLine['do_godziny'] . "</td>";
                 echo "<td><form action = \"signUpForDoc.php\" method=\"POST\"> ";
-                // TODO obs³uga - data je¿el nie jest w zakresie daj komunikat b³êdu
                 if (isset($regDate)) {
                     $finalDate = date_create($regDate);
                     switch ($officeSpecLine['dzien_tyg']) {
@@ -125,17 +124,21 @@ function regVisit($time, $date, $officeID, $docID, $patientLogin)
     $patientInfoQuery = "SELECT id_nazwiska FROM nazwiska WHERE email='" . $patientLogin . "'";
     $patientInfoResult = mysql_query($patientInfoQuery) or die('B³±d zapytania o ID nazwiska lekarza');
     $patientInfoLine = mysql_fetch_assoc($patientInfoResult);
-
-    $regQuery = "INSERT INTO wizyty (ID_nazwiska_Lek, ID_nazwiska_P,ID_gabinetu,data,godzina) VALUES ";
-    $regQuery .= "(";
-    $regQuery .= "'" . $docID . "'" . ",";
-    $regQuery .= "'" . $patientInfoLine['id_nazwiska'] . "'" . ",";
-    $regQuery .= "'" . $officeID . "'" . ",";
-    $regQuery .= "'" . $date . "'" . ",";
-    $regQuery .= "'" . $time . "'";
-    $regQuery .= ")";
-    mysql_query($regQuery) or die('B³±d zapytania nowej rezerwacji wizyty');
-    echo "<br>Zarezerwowano wizytê w gabinecie: " . $officeID . " dnia: " . $date . " o godzinie: " . $time . " <br>";
+    $today = new DateTime();
+    if($date >= date_format($today, 'Y-m-d')) {
+        $regQuery = "INSERT INTO wizyty (ID_nazwiska_Lek, ID_nazwiska_P,ID_gabinetu,data,godzina) VALUES ";
+        $regQuery .= "(";
+        $regQuery .= "'" . $docID . "'" . ",";
+        $regQuery .= "'" . $patientInfoLine['id_nazwiska'] . "'" . ",";
+        $regQuery .= "'" . $officeID . "'" . ",";
+        $regQuery .= "'" . $date . "'" . ",";
+        $regQuery .= "'" . $time . "'";
+        $regQuery .= ")";
+        mysql_query($regQuery) or die('B³±d zapytania nowej rezerwacji wizyty');
+        echo "<br><i>Zarezerwowano wizytê w gabinecie: " . $officeID . " dnia: " . $date . " o godzinie: " . $time . " </i><br>";
+    } else {
+        echo "<br><i>Nie mo¿na zarezerwowaæ wizyty w gabinecie w czasie przesz³ym </i><br>";
+    }
 }
 
 // Funkcja viewMyVisit - buduj±ca tabelê ze wszystkimi wizytami osoby zalogowanej

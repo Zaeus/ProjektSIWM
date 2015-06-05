@@ -50,15 +50,41 @@
             generateDate(date_modify($timeBegin,'+2 hours'), date_create('21:00'));
             echo "</select><br><input type=\"submit\" value=\"Dalej\" /></form></fieldset>";
         } elseif(isset($_POST['GodzinaZakonczenia'])) {
-            // TODO test czy pomiêdzy pocz±tkiem a koñcem jest nie wiêkszy ni¿ 8h
-            $_SESSION['GodzinaZakonczenia'] = $_POST['GodzinaZakonczenia'];
-            echo "Data rozpoczêcia najmu gabinetu: <input type=\"date\" name=\"OdDnia\" placeholder=\"Data rozpoczêcia najmu gabinetu\" value=\"" . date_format(new DateTime(), 'Y-m-d') . "\">";
-            echo "<br><input type=\"submit\" value=\"Dalej\" /></form></fieldset>";
+            $timeTest1 = date_create($_SESSION['GodzinaRozpoczecia']);
+            date_modify($timeTest1,'+8 hours');
+            $timeTest2 = date_create($_POST['GodzinaZakonczenia']);
+            if(date_format($timeTest1, 'H:i:s') >= date_format($timeTest2, 'H:i:s')) {
+                $_SESSION['GodzinaZakonczenia'] = $_POST['GodzinaZakonczenia'];
+                echo "Data rozpoczêcia najmu gabinetu: <input type=\"date\" name=\"OdDnia\" placeholder=\"Data rozpoczêcia najmu gabinetu\" value=\"" . date_format(new DateTime(), 'Y-m-d') . "\">";
+                echo "<br><input type=\"submit\" value=\"Dalej\" /></form></fieldset>";
+            } else {
+                echo "Nie mo¿esz pracowaæ wiêcej ni¿ 8h w przeci±gu dnia.<br>Wybierz raz jeszcze mniejszy zakres godzin pracy:<br>";
+                echo "</select><br>";
+                echo "<table align=\"center\" cellpadding=\"5\" border=\"1\">";
+                echo "<tr>";
+                echo "<td>Dzieñ tygodnia: </td>";
+                echo "<td><input type=\"radio\" name=\"Dzien\" value=\"Pon\">Poniedzia³ek</td>";
+                echo "<td><input type=\"radio\" name=\"Dzien\" value=\"Wto\">Wtorek</td>";
+                echo "<td><input type=\"radio\" name=\"Dzien\" value=\"Sro\">¦roda</td>";
+                echo "<td><input type=\"radio\" name=\"Dzien\" value=\"Czw\">Czwartek</td>";
+                echo "<td><input type=\"radio\" name=\"Dzien\" value=\"Pia\">Pi±tek<br></td>";
+                echo "</tr></table><input type=\"submit\" value=\"Dalej\" /><br><br></form></fieldset>";
+            }
         } elseif(isset($_POST['OdDnia'])) {
             $_SESSION['OdDnia'] = $_POST['OdDnia'];
             echo "Data zakoñczenia najmu gabinetu: <input type=\"date\" name=\"DoDnia\" placeholder=\"Data zakoñczenia najmu gabinetu\" value=\"" . date_format(date_modify(new DateTime(), '+1 week'), 'Y-m-d') . "\">";
             echo "<br><input type=\"submit\" value=\"Zajmij\" /></form></fieldset>";
         } else {
+            echo "</select><br>";
+            echo "<table align=\"center\" cellpadding=\"5\" border=\"1\">";
+            echo "<tr>";
+            echo "<td>Dzieñ tygodnia: </td>";
+            echo "<td><input type=\"radio\" name=\"Dzien\" value=\"Pon\">Poniedzia³ek</td>";
+            echo "<td><input type=\"radio\" name=\"Dzien\" value=\"Wto\">Wtorek</td>";
+            echo "<td><input type=\"radio\" name=\"Dzien\" value=\"Sro\">¦roda</td>";
+            echo "<td><input type=\"radio\" name=\"Dzien\" value=\"Czw\">Czwartek</td>";
+            echo "<td><input type=\"radio\" name=\"Dzien\" value=\"Pia\">Pi±tek<br></td>";
+            echo "</tr></table><input type=\"submit\" value=\"Dalej\" /><br><br></form></fieldset>";
             if(isset($_POST['DoDnia'])){
                 reservationTable($_SESSION['Dzien'], $_SESSION['GodzinaRozpoczecia'], $_SESSION['GodzinaZakonczenia'], $_SESSION['OdDnia'], $_POST['DoDnia'], $_SESSION['login']);
                 unset($_SESSION['Dzien']);
@@ -67,15 +93,6 @@
                 unset($_SESSION['OdDnia']);
                 unset($_POST['DoDnia']);
             }
-            echo "</select><br>";
-            echo "<table align=\"center\" cellpadding=\"5\" border=\"1\">";
-            echo "<tr>";
-            echo "<td><input type=\"radio\" name=\"Dzien\" value=\"Pon\">Poniedzia³ek</td>";
-            echo "<td><input type=\"radio\" name=\"Dzien\" value=\"Wto\">Wtorek</td>";
-            echo "<td><input type=\"radio\" name=\"Dzien\" value=\"Sro\">¦roda</td>";
-            echo "<td><input type=\"radio\" name=\"Dzien\" value=\"Czw\">Czwartek</td>";
-            echo "<td><input type=\"radio\" name=\"Dzien\" value=\"Pia\">Pi±tek<br></td>";
-            echo "</tr></table><input type=\"submit\" value=\"Dalej\" /><br><br></form></fieldset>";
         }
         // Usuniêcie rezerwacja je¿eli w tabeli powsta³ej w ViewMyReservationTable zostaje klikniêty przycisk usuñ
         if(isset($_POST['RemoveDay'])){

@@ -25,44 +25,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="DocVisitsFunctions.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/functions/DocVisitsFunctions.php">
+      <file leaf-file-name="GenerateDate.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/functions/GenerateDate.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="1479">
-              <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
-              <folding>
-                <marker date="1433503544977" expanded="true" signature="375:543" placeholder="SELECT zajet..nazwiska..." />
-                <marker date="1433503544977" expanded="true" signature="1408:1503" placeholder="SELECT * FRO..wizyty..." />
-                <marker date="1433503544977" expanded="true" signature="1808:1906" placeholder="SELECT budyn..gabinety..." />
-                <marker date="1433503544977" expanded="true" signature="2253:2344" placeholder="SELECT id_na..nazwiska..." />
-                <marker date="1433503544977" expanded="true" signature="4210:4274" placeholder="SELECT id_na..nazwiska..." />
-                <marker date="1433503544977" expanded="true" signature="4485:4509" placeholder="DELETE FROM ..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="reg.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/reg.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.61538464" vertical-offset="154" max-vertical-offset="1870">
-              <caret line="10" column="41" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
-              <folding>
-                <marker date="1433504738436" expanded="true" signature="2628:2709" placeholder="INSERT INTO ..." />
-                <marker date="1433504738436" expanded="true" signature="4184:4265" placeholder="INSERT INTO ..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="log.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/log.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.1319858" vertical-offset="0" max-vertical-offset="1513">
-              <caret line="56" column="23" selection-start-line="56" selection-start-column="23" selection-end-line="56" selection-end-column="23" />
-              <folding>
-                <marker date="1433504753892" expanded="true" signature="349:450" placeholder="SELECT email..nazwiska..." />
-              </folding>
+            <state vertical-scroll-proportion="0.5283364" vertical-offset="0" max-vertical-offset="547">
+              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -104,7 +72,6 @@
         <option value="$PROJECT_DIR$/includes/logQuery.php" />
         <option value="$PROJECT_DIR$/includes/header.php" />
         <option value="$PROJECT_DIR$/includes/footer.php" />
-        <option value="$PROJECT_DIR$/docOffices.php" />
         <option value="$PROJECT_DIR$/editMyVisits.php" />
         <option value="$PROJECT_DIR$/adminEditResources.php" />
         <option value="$PROJECT_DIR$/includes/index.php" />
@@ -116,13 +83,14 @@
         <option value="$PROJECT_DIR$/adminAllResources.php" />
         <option value="$PROJECT_DIR$/functions/ResourcesFunctions.php" />
         <option value="$PROJECT_DIR$/functions/docVisitsFunctions.php" />
-        <option value="$PROJECT_DIR$/functions/SignUpForDocFunctions.php" />
         <option value="$PROJECT_DIR$/signUpForDoc.php" />
         <option value="$PROJECT_DIR$/functions/DocVisitsFunctions.php" />
         <option value="$PROJECT_DIR$/docMyVisits.php" />
         <option value="$PROJECT_DIR$/editMyAccount.php" />
         <option value="$PROJECT_DIR$/reg.php" />
         <option value="$PROJECT_DIR$/log.php" />
+        <option value="$PROJECT_DIR$/functions/SignUpForDocFunctions.php" />
+        <option value="$PROJECT_DIR$/docOffices.php" />
       </list>
     </option>
   </component>
@@ -335,7 +303,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32897604" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
@@ -347,7 +315,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3224401" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32849163" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32849163" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.148533" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -446,14 +414,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docOffices.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.840188" vertical-offset="1172" max-vertical-offset="2023">
-          <caret line="111" column="31" selection-start-line="111" selection-start-column="31" selection-end-line="111" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/includes/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.6153846" vertical-offset="0" max-vertical-offset="170">
@@ -487,6 +447,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5509259" vertical-offset="0" max-vertical-offset="864">
           <caret line="28" column="28" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -502,13 +463,6 @@
         <state vertical-scroll-proportion="0.6296296" vertical-offset="0" max-vertical-offset="864">
           <caret line="32" column="84" selection-start-line="32" selection-start-column="84" selection-end-line="32" selection-end-column="84" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/functions/GenerateDate.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33449075" vertical-offset="0" max-vertical-offset="864">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -537,25 +491,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.19675925" vertical-offset="0" max-vertical-offset="864">
           <caret line="10" column="63" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/functions/SignUpForDocFunctions.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32079905" vertical-offset="2192" max-vertical-offset="3553">
-          <caret line="145" column="62" selection-start-line="145" selection-start-column="62" selection-end-line="145" selection-end-column="62" />
-          <folding>
-            <marker date="1433502788437" expanded="true" signature="-1:-1" placeholder="SELECT zajet..gabinety..." />
-            <marker date="1433502788437" expanded="true" signature="-1:-1" placeholder="SELECT imie,..nazwiska..." />
-            <marker date="1433502788437" expanded="true" signature="-1:-1" placeholder="SELECT godzi..wizyty..." />
-            <marker date="1433502788437" expanded="true" signature="-1:-1" placeholder="SELECT id_na..nazwiska..." />
-            <marker date="1433502788437" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1433502788437" expanded="true" signature="-1:-1" placeholder="SELECT id_na..nazwiska..." />
-            <marker date="1433502788437" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..wizyty..." />
-            <marker date="1433502788437" expanded="true" signature="-1:-1" placeholder="SELECT budyn..gabinety..." />
-            <marker date="1433502788437" expanded="true" signature="-1:-1" placeholder="SELECT id_na..nazwiska..." />
-            <marker date="1433502788437" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -591,12 +526,12 @@
         <state vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="1479">
           <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
           <folding>
-            <marker date="1433503544977" expanded="true" signature="375:543" placeholder="SELECT zajet..nazwiska..." />
-            <marker date="1433503544977" expanded="true" signature="1408:1503" placeholder="SELECT * FRO..wizyty..." />
-            <marker date="1433503544977" expanded="true" signature="1808:1906" placeholder="SELECT budyn..gabinety..." />
-            <marker date="1433503544977" expanded="true" signature="2253:2344" placeholder="SELECT id_na..nazwiska..." />
-            <marker date="1433503544977" expanded="true" signature="4210:4274" placeholder="SELECT id_na..nazwiska..." />
-            <marker date="1433503544977" expanded="true" signature="4485:4509" placeholder="DELETE FROM ..." />
+            <marker date="1433503544977" expanded="true" signature="-1:-1" placeholder="SELECT zajet..nazwiska..." />
+            <marker date="1433503544977" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..wizyty..." />
+            <marker date="1433503544977" expanded="true" signature="-1:-1" placeholder="SELECT budyn..gabinety..." />
+            <marker date="1433503544977" expanded="true" signature="-1:-1" placeholder="SELECT id_na..nazwiska..." />
+            <marker date="1433503544977" expanded="true" signature="-1:-1" placeholder="SELECT id_na..nazwiska..." />
+            <marker date="1433503544977" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
           </folding>
         </state>
       </provider>
@@ -606,19 +541,56 @@
         <state vertical-scroll-proportion="-0.61538464" vertical-offset="154" max-vertical-offset="1870">
           <caret line="10" column="41" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
           <folding>
-            <marker date="1433504738436" expanded="true" signature="2628:2709" placeholder="INSERT INTO ..." />
-            <marker date="1433504738436" expanded="true" signature="4184:4265" placeholder="INSERT INTO ..." />
+            <marker date="1433504738436" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1433504738436" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/log.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1319858" vertical-offset="0" max-vertical-offset="1513">
+        <state vertical-scroll-proportion="-36.615383" vertical-offset="0" max-vertical-offset="1513">
           <caret line="56" column="23" selection-start-line="56" selection-start-column="23" selection-end-line="56" selection-end-column="23" />
           <folding>
-            <marker date="1433504753892" expanded="true" signature="349:450" placeholder="SELECT email..nazwiska..." />
+            <marker date="1433504753892" expanded="true" signature="-1:-1" placeholder="SELECT email..nazwiska..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/functions/SignUpForDocFunctions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.269231" vertical-offset="1807" max-vertical-offset="3604">
+          <caret line="122" column="1" selection-start-line="122" selection-start-column="1" selection-end-line="122" selection-end-column="1" />
+          <folding>
+            <marker date="1433506517253" expanded="true" signature="-1:-1" placeholder="SELECT zajet..gabinety..." />
+            <marker date="1433506517253" expanded="true" signature="-1:-1" placeholder="SELECT imie,..nazwiska..." />
+            <marker date="1433506517253" expanded="true" signature="-1:-1" placeholder="SELECT godzi..wizyty..." />
+            <marker date="1433506517253" expanded="true" signature="-1:-1" placeholder="SELECT id_na..nazwiska..." />
+            <marker date="1433506517253" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1433506517253" expanded="true" signature="-1:-1" placeholder="SELECT id_na..nazwiska..." />
+            <marker date="1433506517253" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..wizyty..." />
+            <marker date="1433506517253" expanded="true" signature="-1:-1" placeholder="SELECT budyn..gabinety..." />
+            <marker date="1433506517253" expanded="true" signature="-1:-1" placeholder="SELECT id_na..nazwiska..." />
+            <marker date="1433506517253" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docOffices.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.10144927" vertical-offset="324" max-vertical-offset="2312">
+          <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+          <folding>
+            <marker date="1433507540421" expanded="true" signature="-1:-1" placeholder="SELECT ID_ga..zajetosc..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/functions/GenerateDate.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5283364" vertical-offset="0" max-vertical-offset="547">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
