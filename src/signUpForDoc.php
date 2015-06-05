@@ -10,7 +10,7 @@ include("functions/LoginPowerFunctions.php");
 ?>
 <?
 if(isLoggedPatient($hasloSql, $_SESSION['login'], $_SESSION['haslo'])){
-    echo "<fieldset><legend>Specjalizacja gabinetu:</legend>";
+    echo "<fieldset><legend><b>Specjalizacja gabinetu:</b></legend>";
     echo "<form action = \"signUpForDoc.php\" method=\"POST\"> ";
     echo "<select name=\"specjalizacjaGabinetu\">";
     echo "<option value=\"USG\" >USG</option>";
@@ -26,9 +26,9 @@ if(isLoggedPatient($hasloSql, $_SESSION['login'], $_SESSION['haslo'])){
         signUpForDoc($_SESSION['specjalizacjaGabinetu'], $_POST['regDate']);
         unset($_SESSION['specjalizacjaGabinetu']);
     }
-    if(isset($_POST['godzinaRezerwacji'], $_POST['finalRegDate'], $_POST['officeID'])){
+    if(isset($_POST['godzinaRezerwacji'], $_POST['finalRegDate'], $_POST['officeID'], $_POST['docID'])){
         // Wpisanie nowej rezerwacji do bazy danych
-        regVisit($_POST['godzinaRezerwacji'], $_POST['finalRegDate'], $_POST['officeID'], $_SESSION['login']);
+        regVisit($_POST['godzinaRezerwacji'], $_POST['finalRegDate'], $_POST['officeID'], $_POST['docID'], $_SESSION['login']);
     }
     if(isset($_POST['removeVisitOfficeID'], $_POST['removeVisitDate'], $_POST['removeVisitTime'])){
         // Usuniêcie rezerwacji z systemu

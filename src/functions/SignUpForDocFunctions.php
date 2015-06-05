@@ -4,7 +4,7 @@ include("GenerateDate.php");
 // Funkcja signUpForDoc - funkcja odpowiedzialna za generowanie tablicy zapisów
 function signUpForDoc($officeSpecialization, $regDate)
 {
-    echo "<br><fieldset><legend>Dostêpne gabinety o specjalizacji: " . $officeSpecialization . "</legend>";
+    echo "<br><fieldset><legend><b>Dostêpne gabinety w systemie o specjalizacji: " . $officeSpecialization . "</b></legend>";
     $officeSpecQuery = "SELECT zajetosc.ID_gabinetu, zajetosc.ID_nazwiska_Lek, zajetosc.dzien_tyg, zajetosc.od_dnia, zajetosc.do_dnia, zajetosc.od_godziny, zajetosc.do_godziny, budynki.miasto FROM gabinety ";
     $officeSpecQuery .= "INNER JOIN zajetosc ON gabinety.ID_gabinetu = zajetosc.ID_gabinetu ";
     $officeSpecQuery .= "INNER JOIN budynki ON gabinety.ID_budynku = budynki.ID_budynku ";
@@ -101,6 +101,7 @@ function signUpForDoc($officeSpecialization, $regDate)
                     echo "<input type=\"week\" name=\"notImportantDate\" value=\"" . $regDate . "\" disabled> ";
                     echo "<input type=\"hidden\" name=\"finalRegDate\" value=\"" . date_format($finalDate, 'Y-m-d') . "\">";
                     echo "<input type=\"hidden\" name=\"officeID\" value=\"" . $officeSpecLine['ID_gabinetu'] . "\">";
+                    echo "<input type=\"hidden\" name=\"docID\" value=\"" . $officeSpecLine['ID_nazwiska_Lek'] . "\">";
                     echo "<input type=\"submit\" value=\"Rezerwuj\" ></form></td>";
                     echo "</tr>";
                     unset($temp, $temp2, $start, $stop, $occupiedHours);
@@ -119,13 +120,15 @@ function signUpForDoc($officeSpecialization, $regDate)
 }
 
 // Funkcja regVisit - funkcja odpowiedzialna za kwerendê zapisania nowej wizyty do bazy danych
-function regVisit($time, $date, $officeID, $patientLogin)
+function regVisit($time, $date, $officeID, $docID, $patientLogin)
 {
     $patientInfoQuery = "SELECT id_nazwiska FROM nazwiska WHERE email='" . $patientLogin . "'";
     $patientInfoResult = mysql_query($patientInfoQuery) or die('B³±d zapytania o ID nazwiska lekarza');
     $patientInfoLine = mysql_fetch_assoc($patientInfoResult);
-    $regQuery = "INSERT INTO wizyty (ID_nazwiska_P,ID_gabinetu,data,godzina) VALUES ";
+
+    $regQuery = "INSERT INTO wizyty (ID_nazwiska_Lek, ID_nazwiska_P,ID_gabinetu,data,godzina) VALUES ";
     $regQuery .= "(";
+    $regQuery .= "'" . $docID . "'" . ",";
     $regQuery .= "'" . $patientInfoLine['id_nazwiska'] . "'" . ",";
     $regQuery .= "'" . $officeID . "'" . ",";
     $regQuery .= "'" . $date . "'" . ",";
@@ -138,7 +141,8 @@ function regVisit($time, $date, $officeID, $patientLogin)
 // Funkcja viewMyVisit - buduj±ca tabelê ze wszystkimi wizytami osoby zalogowanej
 function viewMyVisit($patientLogin)
 {
-    echo "<br><fieldset><legend>Twoje wizyty:</legend>";
+    echo "<br><fieldset><legend><b>Twoje wizyty:</b></legend>";
+    echo "Mo¿esz usuwaæ wizyty, ale nie pó¼niej ni¿ <b>24 godziny</b> przed zaplanowan± wizyt±<br><br>";
     $patientInfoQuery = "SELECT id_nazwiska FROM nazwiska WHERE email='" . $patientLogin . "'";
     $patientInfoResult = mysql_query($patientInfoQuery) or die('B³±d zapytania o ID pacjenta');
     $patientInfoLine = mysql_fetch_assoc($patientInfoResult);

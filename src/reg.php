@@ -9,7 +9,6 @@
 <?
 	if(isset($_POST['ImieReg']) && isset($_POST['NazwiskoReg']) && ($_POST['EmailReg'] == $_POST['EmailReg2']) && ($_POST['HasloReg'] == $_POST['HasloReg2']) && isset($_POST['Radio'])){
         if($_POST['Radio'] == "lekarz") {
-            // TODO Dokoñczenie rejestracji poprzez wybór specjalno¶ci w przypadku lekarza
             $form = "<div id=\"RegForm\">";
             $form .= "<form action=\"reg.php\" method=\"post\">";
             $form .= "<label for=\"Imiê\"></label><input type=\"text\" name=\"ImieReg\" placeholder=\"Imiê\" id=\"ImieReg\" value=\"" . $_POST['ImieReg'] . "\"/><br>";

@@ -33,17 +33,11 @@ include("functions/LoginPowerFunctions.php");
 		echo "<br><fieldset><legend><b>Posiadasz dostêp do opcji pacjenta: </b></legend>";
 		?>		
 		<form action="signUpForDoc.php" method="POST">
-			<input type="submit" value="Zapisz siê" /> Zapisz siê do gabinetu jako pacjent 
-		</form>
-			<form action="editMyVisits.php" method="POST">
-			<input type="submit" value="Edytuj swoje zapisy" /><br>
+			<input type="submit" value="Zapisz siê na wizytê" /> Przejd¼ do strony z zapisami<br> do gabinetu lekarza oraz wszystkimi twoimi wizytami
 		</form></fieldset>
 		<?
 		if(isLoggedDoctor($hasloSql, $_SESSION['login'], $_SESSION['haslo'], $_SESSION['uprawnienia'])) {
 			echo "<br><fieldset><legend><b>Posiadasz dostêp do opcji lekarza: </b></legend>";
-			// TODO Zajmij gabinet, zwolnij gabinet
-			// TODO Uzupe³nij/popraw kontrakt
-			// TODO Przegl±daj zapisy
 			?>			
 			<form action="docOffices.php" method="POST">
 				<input type="submit" value="Gabinety" name="initGabinet" /> Przejd¼ do strony rezerwacji oraz modyfikacji Twoich gabinetów
@@ -63,9 +57,10 @@ include("functions/LoginPowerFunctions.php");
 				</form>
                 <form action="adminAllResources.php" method="POST">
                     <input type="submit" value="Zasoby bazy danych" /> Przejd¼ do strony przegl±dania wszystkich zasobów w bazie danych
-                </form></fieldset></fieldset>
+                </form></fieldset>
 				<?
 			}
+            echo "</fieldset>";
 		}
 	}
 	else{
@@ -74,12 +69,12 @@ include("functions/LoginPowerFunctions.php");
 		session_unset();
 		session_destroy();
 		?>
-		Nie jeste¶ zalogowany. Zaloguj siê:<br>		
-		<form action="log.php" method="POST">
+        <fieldset><legend><b>Nie jeste¶ zalogowany. Zaloguj siê:</b></legend><br>
+        <form action="log.php" method="POST">
 		e-mail: <input type="text" name="email" /><br />
 		haslo: <input type="password" name="haslo" /><br />
 		<input type="submit" value="Loguj" />
-		</form>
+		</form></fieldset>
 		<?
 	}
 ?>
