@@ -27,7 +27,8 @@ function checkTime($day, $time, $date, $idGabinetu) {
 }
 
 // Funkcja drawTable - odpowiada za
-function drawTable($date, $idGabinetu){
+function drawTable($date, $idGabinetu, $officeParameters){
+    $officeParameters['closingTime'] = date_modify($officeParameters['closingTime'],'+'.$officeParameters['visitDuration']);
     $dateShowDay = clone $date;
     if(isset($idGabinetu)){
         ?>
@@ -62,8 +63,8 @@ function drawTable($date, $idGabinetu){
                 </td>
             </tr>
             <?
-            $time = date_create('7:00');
-            while($time != date_create('21:30')) {
+            $time = $officeParameters['openingTime'];
+            while($time != $officeParameters['closingTime']) {
                 ?>
                 <tr bgcolor=white>
                     <td width="100" style="text-align: center;">
@@ -90,7 +91,7 @@ function drawTable($date, $idGabinetu){
                     ?>
                 </tr>
                 <?
-                $time = date_modify($time, '+30 minutes');
+                $time = date_modify($time, '+'.$officeParameters['visitDuration']);
             }
             ?>
         </table>
@@ -121,7 +122,7 @@ function reservationTable($day, $fromTime, $toTime, $sinceDate, $toDate, $docEma
         $reservationTable[] = array();
         while($reservationLine = mysql_fetch_assoc($reservationResult)) {
             $reservationTable[$iterator] = $reservationLine['ID_gabinetu'];
-            $iterator = $iterator + 1;
+            $iterator++;
         }
         sort($reservationTable);
         foreach($reservationTable as $key => $val) {
@@ -165,26 +166,26 @@ function reservationTable($day, $fromTime, $toTime, $sinceDate, $toDate, $docEma
                         } else{
                             $dateArrayOfReservation[$iteratorReservation] = "Ok";
                         }
-                        $iteratorReservation = $iteratorReserv + 1;
+                        $iteratorReservation++;
                     }
-                    $desisionDate = "Ok";
-                    $desisionTime = "Ok";
+                    $decisionDate = "Ok";
+                    $decisionTime = "Ok";
                     // Sumaryczne sprawdzenie czy data jest ok
                     foreach($dateArrayOfReservation as $iterator => $value){
                         if($value == "NotOk"){
-                            $desisionDate = "NotOk";
+                            $decisionDate = "NotOk";
                         }
                     }
                     // W przypadku kiedy data nie jest ok, sprawdzamy czy czas jest ok - je¿eli jest to oznacza ¿e w danym dniu mo¿e byæ ponowna rezerwacja danego gabinetu
                     // W przypadku kiedy data jest ok godzin± siê nawet nie przejmujemy
-                    if($desisionDate == "NotOk"){
+                    if($decisionDate == "NotOk"){
                         foreach($timeArrayOfReservation as $iterator => $value){
                             if($value == "NotOk"){
-                                $desisionTime = "NotOk";
+                                $decisionTime = "NotOk";
                             }
                         }
                     }
-                    if (($desisionDate == "Ok") || ($desisionTime == "Ok")) {
+                    if (($decisionDate == "Ok") || ($decisionTime == "Ok")) {
                         // Gabinet w podanym czasie w podanej dacie nie jest zajêty - mo¿na go zaj±æ
                         echo "<tr>";
                         echo "<td>" . $val . "</td>";
@@ -225,6 +226,7 @@ function reservationTable($day, $fromTime, $toTime, $sinceDate, $toDate, $docEma
             }
         }
         echo "</table><br></fieldset>";
+
     }
     else{
         echo "Brak gabinetów w bazie danych";
@@ -269,8 +271,13 @@ function reservationRemoveQuery($docEmail, $officeID, $day, $fromTime, $toTime, 
 }
 
 // Funkcja viewMyReservationTable - odpowiada za wy¶wietlenie tabeli ze wszystkimi rezerwacjami gabinetów na aktualnego u¿ytkownika
-function viewMyReservationTable($docEmail)
-{
+function viewMyReservationTable($docEmail){
+
+    // Usuniêcie rezerwacja je¿eli w tabeli powsta³ej w ViewMyReservationTable zostaje klikniêty przycisk usuñ
+    if(isset($_POST['RemoveDay'])){
+        reservationRemoveQuery($_SESSION['login'], $_POST['RemoveID_Gabinetu'], $_POST['RemoveDay'], $_POST['RemoveFromTime'], $_POST['RemoveToTime'], $_POST['RemoveSinceDate'], $_POST['RemoveToDate']);
+    }
+
     echo "<br><fieldset><legend>Twoje najmy gabinetów:</legend>";
     $emailDocQuery = "SELECT id_nazwiska FROM nazwiska WHERE email='" . $docEmail . "'";
     $infoDocResult = mysql_query($emailDocQuery) or die('B³±d zapytania od ID nazwiska lekarza');
@@ -314,4 +321,134 @@ function viewMyReservationTable($docEmail)
     }
     echo "</fieldset>";
 }
+
+function dateButtons($previousButton, $nextButton, $initialization){
+    echo "<fieldset><legend>Czas:</legend>";
+    if(isset($previousButton)){
+        date_modify($_SESSION['date'], '-1 week');
+        unset($previousButton);
+    }
+    elseif(isset($nextButton)) {
+        date_modify($_SESSION['date'], '+1 week');
+        unset($nextButton);
+    }
+    elseif(isset($initialization)){
+        $_SESSION['date'] = new DateTime();
+    }
+    while (date_format($_SESSION['date'], 'l') != "Monday") {
+        date_modify($_SESSION['date'], '-1 day');
+    }
+    $endDate = clone $_SESSION['date'];
+    date_modify($endDate, '+4 day');
+    echo "Pocz±tek tygodnia:" . date_format($_SESSION['date'], 'Y-m-d') . "<br>Koniec tygodnia:" . date_format($endDate, 'Y-m-d') . "<br>";
+    ?>
+
+    <form action="docOffices.php" method="POST">
+        <input type="submit" value="Tydzieñ wstecz" name="Wstecz" />
+        <input type="submit" value="Tydzieñ w przód" name="Dalej" />
+    </form>
+    </fieldset>
+<?
+}
+
+function rentOffice($dayPost, $openingHourPost, $closingHourPost, $fromDayPost,  $toDayPost, $login, $officeParameters){
+
+    echo "<br><fieldset><legend>Zajmij gabinet:</legend><form action=\"docOffices.php\" method=\"POST\">";
+    $opening = $officeParameters['openingTime'];
+    $closing = $officeParameters['closingTime'];
+    $closingMinWorkTimeCheck = clone $closing;
+    date_modify($closingMinWorkTimeCheck,'-'.$officeParameters['minDurationOfWork']);
+
+    if (isset($dayPost)) {
+        $_SESSION['Dzien'] = $dayPost;
+        echo "Godzina rozpoczêcia: " . "<select name=\"GodzinaRozpoczecia\">";
+        generateDate($opening, $closingMinWorkTimeCheck);
+        submitButton('Dalej');
+    } elseif (isset($openingHourPost)) {
+        $_SESSION['GodzinaRozpoczecia'] = $openingHourPost;
+        $timeBegin = date_create($_SESSION['GodzinaRozpoczecia']);
+        date_modify($timeBegin, '+'.$officeParameters['minDurationOfWork']);
+        echo "Godzina zakoñczenia: " . "<select name=\"GodzinaZakonczenia\">";
+        generateDate($timeBegin, $closingMinWorkTimeCheck);
+        submitButton('Dalej');
+    } elseif (isset($closingHourPost)) {
+        $timeTest1 = date_create($_SESSION['GodzinaRozpoczecia']);
+        date_modify($timeTest1, '+'.$officeParameters['maxDurationOfWork']);
+        $timeTest2 = date_create($closingHourPost);
+        if (date_format($timeTest1, 'H:i:s') >= date_format($timeTest2, 'H:i:s')) {
+            $_SESSION['GodzinaZakonczenia'] = $closingHourPost;
+            echo "Data rozpoczêcia najmu gabinetu: <input type=\"date\" name=\"OdDnia\" placeholder=\"Data rozpoczêcia najmu gabinetu\" value=\"" . date_format(new DateTime(), 'Y-m-d') . "\">";
+            submitButton('Dalej');
+        } else {
+            echo "Nie mo¿esz pracowaæ wiêcej ni¿ 8h w przeci±gu dnia.<br>Wybierz raz jeszcze mniejszy zakres godzin pracy:<br>";
+            daysSelection();
+        }
+    } elseif (isset($fromDayPost)) {
+        $_SESSION['OdDnia'] = $fromDayPost;
+        echo "Data zakoñczenia najmu gabinetu: <input type=\"date\" name=\"DoDnia\" placeholder=\"Data zakoñczenia najmu gabinetu\" value=\"" . date_format(date_modify(new DateTime(), '+1 week'), 'Y-m-d') . "\">";
+        echo "<br><input type=\"submit\" value=\"Zajmij\" /></form></fieldset>";
+    } else {
+        daysSelection();
+        if (isset($toDayPost)) {
+            reservationTable($_SESSION['Dzien'], $_SESSION['GodzinaRozpoczecia'], $_SESSION['GodzinaZakonczenia'], $_SESSION['OdDnia'], $toDayPost, $login);
+            unset($_SESSION['Dzien']);
+            unset($_SESSION['GodzinaRozpoczecia']);
+            unset($_SESSION['GodzinaZakonczenia']);
+            unset($_SESSION['OdDnia']);
+            unset($toDayPost);
+        }
+    }
+    // Je¿eli reservationTable wyrzuci³o dane to s± one wpisywane do kwerendy
+    if(isset($_POST['Day'])) {
+        reservationQuery($_SESSION['login'], $_POST['ID_Gabinetu'], $_POST['Day'], $_POST['SinceDate'], $_POST['ToDate'], $_POST['FromTime'], $_POST['ToTime']);
+    }
+}
+
+function submitButton ($value){
+    echo "<br><input type=\"submit\" value=\"$value\" /></form></fieldset>";
+}
+
+function viewOffice($officeParameters){
+    $docOfficeViewQuery = "SELECT ID_gabinetu FROM zajetosc";
+    $viewOfficeResult = mysql_query($docOfficeViewQuery) or die('B³±d zapytania');
+    $docOfficeViewFrom = "<br><fieldset><legend>Przejrzyj zajêto¶æ gabinet:</legend><form action = \"docOffices.php\" method=\"POST\">";
+    $docOfficeViewFrom .= "Gabinet: <select name=\"ID_przegladany_gabinet\">";
+    if($viewOfficeResult) {
+        $iterator = 0;
+        while($docOfficeViewLine = mysql_fetch_assoc($viewOfficeResult)) {
+            $docOfficeTable[$iterator] = $docOfficeViewLine['ID_gabinetu'];
+            $iterator = $iterator + 1;
+        }
+        sort($docOfficeTable);
+        $docOfficeTable = array_unique($docOfficeTable);
+        foreach($docOfficeTable as $key => $val){
+            $docOfficeViewFrom .= "<option value=\"" . $val . "\">" . $val . "</option>";
+        }
+    }
+    $docOfficeViewFrom .= "</select>";
+    $docOfficeViewFrom .= "<input type=\"submit\" value=\"Przegl±daj gabinet\" >";
+    $docOfficeViewFrom .= "</form>";
+    echo $docOfficeViewFrom;
+    if(isset($_POST['ID_przegladany_gabinet'])){
+        $_SESSION['ID_przegladany_gabinet'] = $_POST['ID_przegladany_gabinet'];
+    }
+    echo "Przegl±dany gabinet: " . $_SESSION['ID_przegladany_gabinet'];
+    drawTable(clone $_SESSION['date'], $_SESSION['ID_przegladany_gabinet'], $officeParameters);
+    echo "</fieldset>";
+}
+
+function daysSelection(){
+
+    echo "</select><br>";
+    echo "<table align=\"center\" cellpadding=\"5\" border=\"1\">";
+    echo "<tr>";
+    echo "<td>Dzieñ tygodnia: </td>";
+    echo "<td><input type=\"radio\" name=\"Dzien\" value=\"Pon\">Poniedzia³ek</td>";
+    echo "<td><input type=\"radio\" name=\"Dzien\" value=\"Wto\">Wtorek</td>";
+    echo "<td><input type=\"radio\" name=\"Dzien\" value=\"Sro\">¦roda</td>";
+    echo "<td><input type=\"radio\" name=\"Dzien\" value=\"Czw\">Czwartek</td>";
+    echo "<td><input type=\"radio\" name=\"Dzien\" value=\"Pia\">Pi±tek<br></td>";
+    echo "</tr></table><input type=\"submit\" value=\"Dalej\" /><br><br></form></fieldset>";
+}
+
 ?>
