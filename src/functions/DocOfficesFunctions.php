@@ -1,30 +1,4 @@
 <?php
-// Funkcja checkTime - sprawdzaj±ca zajêto¶æ dnia oraz wy¶wietlaj±ca t± wynik w postaci pokolorowanej komórki tabeli
-// Komórka jest zielona w przypadku braku znalezienia pasuj±cego do wytycznych rekordu
-// Komórka jest czerwona z wypisanym nazwiskiem lekarza w przypadku znalezienia pasuj±cego do wytycznych rekordu
-function checkTime($day, $time, $date, $idGabinetu) {
-
-    $time = date_format($time, 'H:i:s');
-    $date = date_format($date, 'Y-m-d');
-
-    $queryCheckTime = "SELECT ID_nazwiska_Lek, od_dnia, do_dnia, od_godziny, do_godziny FROM zajetosc WHERE dzien_tyg='" . $day . "' AND ID_gabinetu='" . $idGabinetu . "'";
-    $resultCheckTime = mysql_query($queryCheckTime) or die('B³±d zapytania');
-    if ($resultCheckTime) {
-        unset($tabRecord);
-        while ($line = mysql_fetch_assoc($resultCheckTime)) {
-            if (($line['od_godziny'] <= $time) && ($line['do_godziny'] >= $time) && ($line['od_dnia'] <= $date) && ($line['do_dnia'] >= $date)) {
-                $queryDoc = "SELECT nazwisko FROM nazwiska WHERE id_nazwiska='" . $line['ID_nazwiska_Lek'] . "'";
-                $docResult = mysql_query($queryDoc) or die('B³±d zapytania');
-                $docData = mysql_fetch_assoc($docResult);
-                $tabRecord = "<td width=\"100\" bgcolor=\"red\" style=\"text-align: center\">" . $docData['nazwisko'] . "</td>";
-            }
-        }
-    }
-    if (!isset($tabRecord)) {
-        $tabRecord = "<td width=\"100\" bgcolor=\"green\" style=\"text-align: center\"></td>";
-    }
-    echo $tabRecord;
-}
 
 // Funkcja drawTable - odpowiada za
 function drawTable($date, $idGabinetu, $officeParameters){
@@ -99,8 +73,39 @@ function drawTable($date, $idGabinetu, $officeParameters){
     }
 }
 
+// Funkcja checkTime - sprawdzaj±ca zajêto¶æ dnia oraz wy¶wietlaj±ca t± wynik w postaci pokolorowanej komórki tabeli
+// Komórka jest zielona w przypadku braku znalezienia pasuj±cego do wytycznych rekordu
+// Komórka jest czerwona z wypisanym nazwiskiem lekarza w przypadku znalezienia pasuj±cego do wytycznych rekordu
+function checkTime($day, $time, $date, $idGabinetu) {
+
+    $time = date_format($time, 'H:i:s');
+    $date = date_format($date, 'Y-m-d');
+
+    $queryCheckTime = "SELECT ID_nazwiska_Lek, od_dnia, do_dnia, od_godziny, do_godziny FROM zajetosc WHERE dzien_tyg='" . $day . "' AND ID_gabinetu='" . $idGabinetu . "'";
+    $resultCheckTime = mysql_query($queryCheckTime) or die('B³±d zapytania');
+    if ($resultCheckTime) {
+        unset($tabRecord);
+        while ($line = mysql_fetch_assoc($resultCheckTime)) {
+            if (($line['od_godziny'] <= $time) && ($line['do_godziny'] > $time) && ($line['od_dnia'] <= $date) && ($line['do_dnia'] >= $date)) {
+                $queryDoc = "SELECT nazwisko FROM nazwiska WHERE id_nazwiska='" . $line['ID_nazwiska_Lek'] . "'";
+                $docResult = mysql_query($queryDoc) or die('B³±d zapytania');
+                $docData = mysql_fetch_assoc($docResult);
+                $tabRecord = "<td width=\"100\" bgcolor=\"red\" style=\"text-align: center\">" . $docData['nazwisko'] . "</td>";
+            }
+        }
+    }
+    if (!isset($tabRecord)) {
+        $tabRecord = "<td width=\"100\" bgcolor=\"green\" style=\"text-align: center\"></td>";
+    }
+    echo $tabRecord;
+}
+
 // Funkcja reservationTable - odpowiadaj±ca za
-function reservationTable($day, $fromTime, $toTime, $sinceDate, $toDate, $docEmail){
+function reservationTable($day, $fromTime, $toTime, $sinceDate, $toDate, $docEmail, $break){
+
+    date_modify($fromTime, '-'.$break);
+    date_modify($toTime, '+'.$break);
+
     $reservationQuery = "SELECT ID_gabinetu FROM gabinety";
     $reservationResult = mysql_query($reservationQuery) or die('B³±d zapytania');
     if($reservationResult) {
@@ -185,6 +190,8 @@ function reservationTable($day, $fromTime, $toTime, $sinceDate, $toDate, $docEma
                             }
                         }
                     }
+                    date_modify($fromTime, '+'.$break);
+                    date_modify($toTime, '-'.$break);
                     if (($decisionDate == "Ok") || ($decisionTime == "Ok")) {
                         // Gabinet w podanym czasie w podanej dacie nie jest zajêty - mo¿na go zaj±æ
                         echo "<tr>";
@@ -362,41 +369,52 @@ function rentOffice($dayPost, $openingHourPost, $closingHourPost, $fromDayPost, 
     if (isset($dayPost)) {
         $_SESSION['Dzien'] = $dayPost;
         echo "Godzina rozpoczêcia: " . "<select name=\"GodzinaRozpoczecia\">";
-        generateDate($opening, $closingMinWorkTimeCheck);
+        generateDate($opening, $closingMinWorkTimeCheck, $officeParameters['visitDuration']);
         submitButton('Dalej');
     } elseif (isset($openingHourPost)) {
         $_SESSION['GodzinaRozpoczecia'] = $openingHourPost;
         $timeBegin = date_create($_SESSION['GodzinaRozpoczecia']);
+        $maxWorkTime = clone $timeBegin;
         date_modify($timeBegin, '+'.$officeParameters['minDurationOfWork']);
+        date_modify($maxWorkTime, '+'.$officeParameters['maxDurationOfWork']);
         echo "Godzina zakoñczenia: " . "<select name=\"GodzinaZakonczenia\">";
-        generateDate($timeBegin, $closingMinWorkTimeCheck);
+        if($closing<$maxWorkTime) {
+            generateDate($timeBegin, $closing, $officeParameters['visitDuration']);
+        }else{
+            generateDate($timeBegin, $maxWorkTime, $officeParameters['visitDuration']);
+        }
         submitButton('Dalej');
     } elseif (isset($closingHourPost)) {
-        $timeTest1 = date_create($_SESSION['GodzinaRozpoczecia']);
-        date_modify($timeTest1, '+'.$officeParameters['maxDurationOfWork']);
-        $timeTest2 = date_create($closingHourPost);
-        if (date_format($timeTest1, 'H:i:s') >= date_format($timeTest2, 'H:i:s')) {
             $_SESSION['GodzinaZakonczenia'] = $closingHourPost;
             echo "Data rozpoczêcia najmu gabinetu: <input type=\"date\" name=\"OdDnia\" placeholder=\"Data rozpoczêcia najmu gabinetu\" value=\"" . date_format(new DateTime(), 'Y-m-d') . "\">";
             submitButton('Dalej');
-        } else {
-            echo "Nie mo¿esz pracowaæ wiêcej ni¿ 8h w przeci±gu dnia.<br>Wybierz raz jeszcze mniejszy zakres godzin pracy:<br>";
-            daysSelection();
-        }
     } elseif (isset($fromDayPost)) {
-        $_SESSION['OdDnia'] = $fromDayPost;
-        echo "Data zakoñczenia najmu gabinetu: <input type=\"date\" name=\"DoDnia\" placeholder=\"Data zakoñczenia najmu gabinetu\" value=\"" . date_format(date_modify(new DateTime(), '+1 week'), 'Y-m-d') . "\">";
-        echo "<br><input type=\"submit\" value=\"Zajmij\" /></form></fieldset>";
-    } else {
-        daysSelection();
-        if (isset($toDayPost)) {
-            reservationTable($_SESSION['Dzien'], $_SESSION['GodzinaRozpoczecia'], $_SESSION['GodzinaZakonczenia'], $_SESSION['OdDnia'], $toDayPost, $login);
+        if(date_create($fromDayPost)>date_modify(date_create(), '-1 day')){
+            $_SESSION['OdDnia'] = $fromDayPost;
+            echo "Data zakoñczenia najmu gabinetu: <input type=\"date\" name=\"DoDnia\" placeholder=\"Data zakoñczenia najmu gabinetu\" value=\"" . date_format(date_modify(new DateTime(), '+1 week'), 'Y-m-d') . "\">";
+            submitButton('Zobacz dostêpne gabinety');
+        }else{
+            echo "Nie mo¿esz rezerwowaæ gabinetów wstecz<br>";
+            echo "Data rozpoczêcia najmu gabinetu: <input type=\"date\" name=\"OdDnia\" placeholder=\"Data rozpoczêcia najmu gabinetu\" value=\"" . date_format(new DateTime(), 'Y-m-d') . "\">";
+            submitButton('Dalej');
+        }
+    } elseif(isset($toDayPost)){
+        if($toDayPost<$_SESSION['OdDnia']){
+            echo "Data zakoñczenia najmu nie mo¿e byæ wcze¶niejsza ni¿ data rozpoczêcia najmu<br>";
+            echo "Data zakoñczenia najmu gabinetu: <input type=\"date\" name=\"DoDnia\" placeholder=\"Data zakoñczenia najmu gabinetu\" value=\"" . date_format(date_modify(new DateTime(), '+1 week'), 'Y-m-d') . "\">";
+            submitButton('Zobacz dostêpne gabinety');
+        }else{
+            daysSelection();
+            reservationTable($_SESSION['Dzien'], $_SESSION['GodzinaRozpoczecia'], $_SESSION['GodzinaZakonczenia'], $_SESSION['OdDnia'], $toDayPost, $login, $officeParameters['officeBreak']);
             unset($_SESSION['Dzien']);
             unset($_SESSION['GodzinaRozpoczecia']);
             unset($_SESSION['GodzinaZakonczenia']);
             unset($_SESSION['OdDnia']);
             unset($toDayPost);
         }
+
+    }else{
+        daysSelection();
     }
     // Je¿eli reservationTable wyrzuci³o dane to s± one wpisywane do kwerendy
     if(isset($_POST['Day'])) {

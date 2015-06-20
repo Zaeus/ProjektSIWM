@@ -7,6 +7,7 @@ include("includes/SQLConnection.php");
 include("includes/logQuery.php");
 include("functions/SignUpForDocFunctions.php");
 include("functions/LoginPowerFunctions.php");
+include("includes/Parameters.php");
 ?>
 <?
 if(isLoggedPatient($hasloSql, $_SESSION['login'], $_SESSION['haslo'])){
@@ -20,10 +21,10 @@ if(isLoggedPatient($hasloSql, $_SESSION['login'], $_SESSION['haslo'])){
     echo "<input type=\"submit\" value=\"Wybierz\" >";
     echo "</form></td>";
     if(isset($_POST['specjalizacjaGabinetu'])) {
-        signUpForDoc($_POST['specjalizacjaGabinetu'], NULL);
+        signUpForDoc($_POST['specjalizacjaGabinetu'], NULL, $officeParameters);
         $_SESSION['specjalizacjaGabinetu'] = $_POST['specjalizacjaGabinetu'];
     } elseif(isset($_POST['regDate'])) {
-        signUpForDoc($_SESSION['specjalizacjaGabinetu'], $_POST['regDate']);
+        signUpForDoc($_SESSION['specjalizacjaGabinetu'], $_POST['regDate'],$officeParameters);
         unset($_SESSION['specjalizacjaGabinetu']);
     }
     if(isset($_POST['godzinaRezerwacji'], $_POST['finalRegDate'], $_POST['officeID'], $_POST['docID'])){

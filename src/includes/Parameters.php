@@ -9,8 +9,12 @@ define('CLOSING_TIME','21:00');
 $officeParameters['closingTime'] = date_create('21:00');
 
 //Czas wizyty
-define('VISIT_DURATION', '30 minutes');
-$officeParameters['visitDuration'] = '30 minutes';
+define('VISIT_DURATION', '20 minutes');
+$officeParameters['visitDuration'] = '20 minutes';
+
+//Czas przerwy miêdzy dzier¿awami
+define('OFFICE_BREAK', '20 minutes');
+$officeParameters['officeBreak'] = '20 minutes';
 
 //Minimalny czas zajêcia gabinetu
 define('MIN_WORK_DURATION', '2 hours');

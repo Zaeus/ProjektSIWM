@@ -1,16 +1,13 @@
 <?
 // Funkcja generuj±ca pola wyboru OPTION selektrora SELECT
-function generateDate($start, $stop){
+function generateDate($start, $stop, $visitDuration){
     if ($start <= $stop) {
         $dataFormula = "";
-        for ($current = clone($start); $current != $stop; date_modify($current, '+30 minutes')) {
+        for ($current = clone($start); $current <= $stop; date_modify($current, '+'.$visitDuration)) {
             $formatedData = date_format($current, 'H:i');
             $formatedDataSeconds = date_format($current, 'H:i:s');
             $dataFormula .= "<option value=" . $formatedDataSeconds . ">$formatedData</option>";
         }
-        $formatedData = date_format($stop, 'H:i');
-        $formatedDataSeconds = date_format($stop, 'H:i:s');
-        $dataFormula .= "<option value=" . $formatedDataSeconds . ">$formatedData</option>";
         echo $dataFormula;
     }
 }

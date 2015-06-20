@@ -2,7 +2,7 @@
 include("GenerateDate.php");
 
 // Funkcja signUpForDoc - funkcja odpowiedzialna za generowanie tablicy zapisów
-function signUpForDoc($officeSpecialization, $regDate)
+function signUpForDoc($officeSpecialization, $regDate, $officeParameters)
 {
     echo "<br><fieldset><legend><b>Dostêpne gabinety w systemie o specjalizacji: " . $officeSpecialization . "</b></legend>";
     $officeSpecQuery = "SELECT zajetosc.ID_gabinetu, zajetosc.ID_nazwiska_Lek, zajetosc.dzien_tyg, zajetosc.od_dnia, zajetosc.do_dnia, zajetosc.od_godziny, zajetosc.do_godziny, budynki.miasto FROM gabinety ";
@@ -40,29 +40,6 @@ function signUpForDoc($officeSpecialization, $regDate)
                 echo "<td><form action = \"signUpForDoc.php\" method=\"POST\"> ";
                 if (isset($regDate)) {
                     $finalDate = date_create($regDate);
-                    switch ($officeSpecLine['dzien_tyg']) {
-                        case "Pon":
-                            $dayOfTheWeek = "Monday";
-                            break;
-                        case "Wto":
-                            $dayOfTheWeek = "Tuesday";
-                            break;
-                        case "Sro":
-                            $dayOfTheWeek = "Wednesday";
-                            break;
-                        case "Czw":
-                            $dayOfTheWeek = "Thursday";
-                            break;
-                        case "Pia":
-                            $dayOfTheWeek = "Friday";
-                            break;
-                        default:
-                            $dayOfTheWeek = "Monday";
-                            break;
-                    }
-                    while (date_format($finalDate, 'l') != $dayOfTheWeek) {
-                        date_modify($finalDate, '+1 day');
-                    }
                     $timeVisitQuery = "SELECT godzina FROM wizyty WHERE ID_gabinetu='" . $officeSpecLine['ID_gabinetu'] . "' AND data='" . date_format($finalDate, 'Y-m-d') . "'";
                     $timeVisitResult = mysql_query($timeVisitQuery) or die('B³±d zapytania o nazwisko lekarza');
                     $iterator = 0;
@@ -77,27 +54,26 @@ function signUpForDoc($officeSpecialization, $regDate)
                     echo "<select name=\"godzinaRezerwacji\">";
                     $start = date_create($officeSpecLine['od_godziny']);
                     $stop = date_create($officeSpecLine['do_godziny']);
-                    $stop = date_modify($stop, '-30 minutes');
+                    $stop = date_modify($stop, '-'.$officeParameters['visitDuration']);
                     if (isset($occupiedHours)) {
                         // Je¿eli w bazie danych s± godziny zajêtych wizyt to wchodzimy w tego if'a
                         $temp = clone($occupiedHours[0]);
-                        generateDate($start, date_modify($temp, '-30 minutes'));
+                        generateDate($start, date_modify($temp, '-'.$officeParameters['visitDuration']),$officeParameters['visitDuration']);
                         for ($i = 0; $i < count($occupiedHours); $i++) {
                             $temp = clone($occupiedHours[$i]);
                             if (isset($occupiedHours[$i + 1])) {
                                 echo "tutaj";
                                 $temp2 = clone($occupiedHours[$i + 1]);
-                                generateDate(date_modify($temp, '+30 minutes'), date_modify($temp2, '-30 minutes'));
+                                generateDate(date_modify($temp, '+'.$officeParameters['visitDuration']), date_modify($temp2, '-'.$officeParameters['visitDuration']),$officeParameters['visitDuration']);
                             } else {
-                                generateDate(date_modify($temp, '+30 minutes'), $stop);
+                                generateDate(date_modify($temp, '+'.$officeParameters['visitDuration']), $stop, $officeParameters['visitDuration']);
                             }
                         }
                     } else {
                         // Je¿eli nie ma zajêtych godzin to generujemy pe³ny selektor od startu do stopu
-                        generateDate($start, $stop);
+                        generateDate($start, $stop, $officeParameters['visitDuration']);
                     }
                     echo "</select> ";
-                    echo "<input type=\"week\" name=\"notImportantDate\" value=\"" . $regDate . "\" disabled> ";
                     echo "<input type=\"hidden\" name=\"finalRegDate\" value=\"" . date_format($finalDate, 'Y-m-d') . "\">";
                     echo "<input type=\"hidden\" name=\"officeID\" value=\"" . $officeSpecLine['ID_gabinetu'] . "\">";
                     echo "<input type=\"hidden\" name=\"docID\" value=\"" . $officeSpecLine['ID_nazwiska_Lek'] . "\">";
@@ -105,7 +81,7 @@ function signUpForDoc($officeSpecialization, $regDate)
                     echo "</tr>";
                     unset($temp, $temp2, $start, $stop, $occupiedHours);
                 } else {
-                    echo "<input type=\"week\" name=\"regDate\" value=\"" . date_format(new DateTime(), 'Y') . "-W" . date_format(new DateTime(), 'W') . "\" > ";
+                    generateDays($officeSpecLine['dzien_tyg'],  $officeSpecLine['do_dnia'], $officeSpecLine['od_dnia'] );
                     echo "<input type=\"submit\" value=\"Dalej\" ></form></td>";
                     echo "</tr>";
                 }
@@ -116,6 +92,46 @@ function signUpForDoc($officeSpecialization, $regDate)
         echo "Brak gabinetów o podanej specjalizacji";
     }
     echo "</fieldset>";
+}
+
+function generateDays($dayOfTheWeek, $toDay, $fromDay){
+    switch ($dayOfTheWeek) {
+        case "Pon":
+            $dayOfTheWeek = "Monday";
+            break;
+        case "Wto":
+            $dayOfTheWeek = "Tuesday";
+            break;
+        case "Sro":
+            $dayOfTheWeek = "Wednesday";
+            break;
+        case "Czw":
+            $dayOfTheWeek = "Thursday";
+            break;
+        case "Pia":
+            $dayOfTheWeek = "Friday";
+            break;
+        default:
+            $dayOfTheWeek = "Monday";
+            break;
+    }
+    $dataFormula="";
+    echo "<select name=\"regDate\">";
+    $start = date_create($fromDay);
+    $stop = date_create($toDay);
+    if($start<date_create()){
+        $start = date_create();
+    }
+    while($start<$stop){
+        if(date_format($start,'l')==$dayOfTheWeek){
+            $date = date_format($start,'Y-m-d');
+            $dataFormula .= "<option value=" . $date . ">$date</option>";
+            date_modify($start,'+1 week');
+        }else{
+            date_modify($start,'+1 day');
+        }
+    }
+    echo $dataFormula;
 }
 
 // Funkcja regVisit - funkcja odpowiedzialna za kwerendê zapisania nowej wizyty do bazy danych
