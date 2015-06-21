@@ -386,33 +386,28 @@ function rentOffice($dayPost, $openingHourPost, $closingHourPost, $fromDayPost, 
         submitButton('Dalej');
     } elseif (isset($closingHourPost)) {
             $_SESSION['GodzinaZakonczenia'] = $closingHourPost;
-            echo "Data rozpoczêcia najmu gabinetu: <input type=\"date\" name=\"OdDnia\" placeholder=\"Data rozpoczêcia najmu gabinetu\" value=\"" . date_format(new DateTime(), 'Y-m-d') . "\">";
+            echo "Data rozpoczêcia najmu gabinetu:";
+            $today = date_create();
+            $maxDate = clone $today;
+            date_modify($maxDate, '+'.$officeParameters['maxDate']);
+            generateDays($_SESSION['Dzien'], $today, $maxDate, 'OdDnia');
             submitButton('Dalej');
     } elseif (isset($fromDayPost)) {
-        if(date_create($fromDayPost)>date_modify(date_create(), '-1 day')){
-            $_SESSION['OdDnia'] = $fromDayPost;
-            echo "Data zakoñczenia najmu gabinetu: <input type=\"date\" name=\"DoDnia\" placeholder=\"Data zakoñczenia najmu gabinetu\" value=\"" . date_format(date_modify(new DateTime(), '+1 week'), 'Y-m-d') . "\">";
-            submitButton('Zobacz dostêpne gabinety');
-        }else{
-            echo "Nie mo¿esz rezerwowaæ gabinetów wstecz<br>";
-            echo "Data rozpoczêcia najmu gabinetu: <input type=\"date\" name=\"OdDnia\" placeholder=\"Data rozpoczêcia najmu gabinetu\" value=\"" . date_format(new DateTime(), 'Y-m-d') . "\">";
-            submitButton('Dalej');
-        }
+        $_SESSION['OdDnia'] = $fromDayPost;
+        echo "Data zakoñczenia najmu gabinetu:";
+        $maxDate = date_create();
+        $fromDay =date_create($fromDayPost);
+        date_modify($maxDate, '+'.$officeParameters['maxDate']);
+        generateDays($_SESSION['Dzien'], $fromDay, $maxDate, 'DoDnia');
+        submitButton('Zobacz gabinety');
     } elseif(isset($toDayPost)){
-        if($toDayPost<$_SESSION['OdDnia']){
-            echo "Data zakoñczenia najmu nie mo¿e byæ wcze¶niejsza ni¿ data rozpoczêcia najmu<br>";
-            echo "Data zakoñczenia najmu gabinetu: <input type=\"date\" name=\"DoDnia\" placeholder=\"Data zakoñczenia najmu gabinetu\" value=\"" . date_format(date_modify(new DateTime(), '+1 week'), 'Y-m-d') . "\">";
-            submitButton('Zobacz dostêpne gabinety');
-        }else{
-            daysSelection();
-            reservationTable($_SESSION['Dzien'], $_SESSION['GodzinaRozpoczecia'], $_SESSION['GodzinaZakonczenia'], $_SESSION['OdDnia'], $toDayPost, $login, $officeParameters['officeBreak']);
-            unset($_SESSION['Dzien']);
-            unset($_SESSION['GodzinaRozpoczecia']);
-            unset($_SESSION['GodzinaZakonczenia']);
-            unset($_SESSION['OdDnia']);
-            unset($toDayPost);
-        }
-
+        daysSelection();
+        reservationTable($_SESSION['Dzien'], $_SESSION['GodzinaRozpoczecia'], $_SESSION['GodzinaZakonczenia'], $_SESSION['OdDnia'], $toDayPost, $login, $officeParameters['officeBreak']);
+        unset($_SESSION['Dzien']);
+        unset($_SESSION['GodzinaRozpoczecia']);
+        unset($_SESSION['GodzinaZakonczenia']);
+        unset($_SESSION['OdDnia']);
+        unset($toDayPost);
     }else{
         daysSelection();
     }
@@ -420,6 +415,42 @@ function rentOffice($dayPost, $openingHourPost, $closingHourPost, $fromDayPost, 
     if(isset($_POST['Day'])) {
         reservationQuery($_SESSION['login'], $_POST['ID_Gabinetu'], $_POST['Day'], $_POST['SinceDate'], $_POST['ToDate'], $_POST['FromTime'], $_POST['ToTime']);
     }
+}
+
+function generateDays($dayOfTheWeek, $start, $stop, $selectName){
+    switch ($dayOfTheWeek) {
+        case "Pon":
+            $dayOfTheWeek = "Monday";
+            break;
+        case "Wto":
+            $dayOfTheWeek = "Tuesday";
+            break;
+        case "Sro":
+            $dayOfTheWeek = "Wednesday";
+            break;
+        case "Czw":
+            $dayOfTheWeek = "Thursday";
+            break;
+        case "Pia":
+            $dayOfTheWeek = "Friday";
+            break;
+        default:
+            $dayOfTheWeek = "Monday";
+            break;
+    }
+    $dataFormula="";
+    echo "<select name=\"$selectName\">";
+    while($start<$stop){
+        if(date_format($start,'l')==$dayOfTheWeek){
+            $date = date_format($start,'Y-m-d');
+            $dataFormula .= "<option value=" . $date . ">$date</option>";
+            date_modify($start,'+1 week');
+        }else{
+            date_modify($start,'+1 day');
+        }
+    }
+    echo $dataFormula;
+    echo "</select>";
 }
 
 function submitButton ($value){

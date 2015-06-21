@@ -23,3 +23,8 @@ $officeParameters['minDurationOfWork'] = '2 hours';
 //Maksymalny czas pracy
 define('MAX_WORK_DURATION', '8 hours');
 $officeParameters['maxDurationOfWork'] = '8 hours';
+
+//Ile lat w przód wy¶wietlanie
+define('MAX_DATE', '2 year');
+$officeParameters['maxDate'] = '2 year';
+
