@@ -187,19 +187,24 @@ function viewMyVisit($patientLogin)
             echo "<td>" . $officeInfoLine['miasto'] . "</td>";
             echo "<td>" . $visitLine['data'] . "</td>";
             echo "<td>" . $visitLine['godzina'] . "</td>";
-            echo "<td><form action = \"signUpForDoc.php\" method=\"POST\"> ";
-            echo "<input type=\"hidden\" name=\"removeVisitOfficeID\" value=\"" . $visitLine['ID_gabinetu'] . "\">";
-            echo "<input type=\"hidden\" name=\"removeVisitDate\" value=\"" . $visitLine['data'] . "\">";
-            echo "<input type=\"hidden\" name=\"removeVisitTime\" value=\"" . $visitLine['godzina'] . "\">";
-            echo "<input type=\"submit\" value=\"Usuñ\" ";
-            echo($visitLine['data'] == date_format(date_modify(new DateTime(), '+1 day'), 'Y-m-d'));
-            // Zablokowanie mo¿liwo¶ci usuniêcia wizyty je¿eli do wizyty zosta³o mniej ni¿ 24h
             $visitDate = date_create($visitLine['data'] . " " . $visitLine['godzina']);
-            date_modify($visitDate, '-1 day');
-            if ((date_create() > $visitDate) && (date_create($visitLine['data'] . " " . $visitLine['godzina']) < $visitDate)) {
-                echo "disabled";
+            if(date_create() > $visitDate) {
+                echo "<td><form action = \"signUpForDoc.php\" method=\"POST\"> ";
+                echo "<input type=\"hidden\" name=\"removeVisitOfficeID\" value=\"" . $visitLine['ID_gabinetu'] . "\">";
+                echo "<input type=\"hidden\" name=\"removeVisitDate\" value=\"" . $visitLine['data'] . "\">";
+                echo "<input type=\"hidden\" name=\"removeVisitTime\" value=\"" . $visitLine['godzina'] . "\">";
+                echo "<input type=\"submit\" value=\"Usuñ\" ";
+                echo($visitLine['data'] == date_format(date_modify(new DateTime(), '+1 day'), 'Y-m-d'));
+                // Zablokowanie mo¿liwo¶ci usuniêcia wizyty je¿eli do wizyty zosta³o mniej ni¿ 24h
+                date_modify($visitDate, '-1 day');
+                if ((date_create() > $visitDate) && (date_create($visitLine['data'] . " " . $visitLine['godzina']) < $visitDate)) {
+                    echo "disabled";
+                }
+                echo " ></form>";
+            } else {
+                echo "<td>Dane zarchiwizowane";
             }
-            echo " ></form></td>";
+            echo "</td>";
             echo "</tr>";
         }
         echo "</table>";
