@@ -28,3 +28,9 @@ $officeParameters['maxDurationOfWork'] = MAX_WORK_DURATION;
 define('MAX_DATE', '2 year');
 $officeParameters['maxDate'] = MAX_DATE;
 
+//Ile dni przed wizyt± mo¿na sie rejestrowaæ
+define('DAYS_BEFORE_VISIT_MIN', '1 day');
+$officeParameters['daysBeforeVisitMin']=DAYS_BEFORE_VISIT_MIN;
+
+define('DAYS_BEFORE_VISIT_MAX', '8 weeks');
+$officeParameters['daysBeforeVisitMax']=DAYS_BEFORE_VISIT_MAX;

@@ -155,8 +155,15 @@ function generateDays($dayOfTheWeek, $toDay, $fromDay){
     echo "<select name=\"regDate\">";
     $start = date_create($fromDay);
     $stop = date_create($toDay);
-    if($start < date_create()){
+    if($start <= date_create()){
         $start = date_create();
+        //Ile wcze¶niej mo¿na siê zapisywaæ (np. min 24h przed)
+        date_modify($start,'+'.DAYS_BEFORE_VISIT_MIN);
+    }
+    $stopCheck = clone $start;
+    if($stop>date_modify($stopCheck, '+'.DAYS_BEFORE_VISIT_MAX)){
+        //ile wcze¶niej mo¿na siê zapisywaæ (np. max 8 tygodni przed)
+        $stop=$stopCheck;
     }
     while($start < $stop){
         if(date_format($start,'l')==$dayOfTheWeek){
