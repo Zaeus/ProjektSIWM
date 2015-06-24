@@ -188,7 +188,7 @@ function viewMyVisit($patientLogin)
             echo "<td>" . $visitLine['data'] . "</td>";
             echo "<td>" . $visitLine['godzina'] . "</td>";
             $visitDate = date_create($visitLine['data'] . " " . $visitLine['godzina']);
-            if(date_create() > $visitDate) {
+            if(date_create() < $visitDate) {
                 echo "<td><form action = \"signUpForDoc.php\" method=\"POST\"> ";
                 echo "<input type=\"hidden\" name=\"removeVisitOfficeID\" value=\"" . $visitLine['ID_gabinetu'] . "\">";
                 echo "<input type=\"hidden\" name=\"removeVisitDate\" value=\"" . $visitLine['data'] . "\">";
