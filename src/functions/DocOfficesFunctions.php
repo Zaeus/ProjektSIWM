@@ -371,7 +371,7 @@ function rentOffice($dayPost, $openingHourPost, $closingHourPost, $fromDayPost, 
     if (isset($dayPost)) {
         $_SESSION['Dzien'] = $dayPost;
         echo "Godzina rozpoczêcia: " . "<select name=\"GodzinaRozpoczecia\">";
-        generateDate($opening, $closingMinWorkTimeCheck, VISIT_DURATION);
+        generateDate($opening, $closingMinWorkTimeCheck);
         submitButton('Dalej');
     } elseif (isset($openingHourPost)) {
         $_SESSION['GodzinaRozpoczecia'] = $openingHourPost;
@@ -381,9 +381,9 @@ function rentOffice($dayPost, $openingHourPost, $closingHourPost, $fromDayPost, 
         date_modify($maxWorkTime, '+'.MAX_WORK_DURATION);
         echo "Godzina zakoñczenia: " . "<select name=\"GodzinaZakonczenia\">";
         if($closing<$maxWorkTime) {
-            generateDate($timeBegin, $closing, VISIT_DURATION);
+            generateDate($timeBegin, $closing);
         }else{
-            generateDate($timeBegin, $maxWorkTime, VISIT_DURATION);
+            generateDate($timeBegin, $maxWorkTime);
         }
         submitButton('Dalej');
     } elseif (isset($closingHourPost)) {

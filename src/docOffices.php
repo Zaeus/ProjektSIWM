@@ -12,10 +12,10 @@
 
         echo "Posiadasz uprawnienia lekarza<br>";
 
-        rentOffice($_POST['Dzien'], $_POST['GodzinaRozpoczecia'], $_POST['GodzinaZakonczenia'],$_POST['OdDnia'], $_POST['DoDnia'], $_SESSION['login'], $officeParameters);
+        rentOffice($_POST['Dzien'], $_POST['GodzinaRozpoczecia'], $_POST['GodzinaZakonczenia'],$_POST['OdDnia'], $_POST['DoDnia'], $_SESSION['login']);
         viewMyReservationTable($_SESSION['login']);
         dateButtons($_POST['Wstecz'], $_POST['Dalej'], $_POST['initGabinet']);
-        viewOffice($officeParameters);
+        viewOffice();
 
     }
 include("includes/footer.php");

@@ -2,7 +2,7 @@
 include("GenerateDate.php");
 
 // Funkcja signUpForDoc - funkcja odpowiedzialna za generowanie tablicy zapisów
-function signUpForDoc($officeSpecialization, $regDate, $officeParameters)
+function signUpForDoc($officeSpecialization, $regDate)
 {
     echo "<br><fieldset><legend><b>Dostêpne gabinety w systemie o specjalizacji: " . $officeSpecialization . "</b></legend>";
     $officeSpecQuery = "SELECT zajetosc.ID_gabinetu, zajetosc.ID_nazwiska_Lek, zajetosc.dzien_tyg, zajetosc.od_dnia, zajetosc.do_dnia, zajetosc.od_godziny, zajetosc.do_godziny, budynki.miasto FROM gabinety ";
@@ -54,24 +54,24 @@ function signUpForDoc($officeSpecialization, $regDate, $officeParameters)
                     echo "<select name=\"godzinaRezerwacji\">";
                     $start = date_create($officeSpecLine['od_godziny']);
                     $stop = date_create($officeSpecLine['do_godziny']);
-                    $stop = date_modify($stop, '-'.$officeParameters['visitDuration']);
+                    $stop = date_modify($stop, '-'.VISIT_DURATION);
                     if (isset($occupiedHours)) {
                         // Je¿eli w bazie danych s± godziny zajêtych wizyt to wchodzimy w tego if'a
                         $temp = clone($occupiedHours[0]);
-                        generateDate($start, date_modify($temp, '-'.$officeParameters['visitDuration']),$officeParameters['visitDuration']);
+                        generateDate($start, date_modify($temp, '-'.VISIT_DURATION));
                         for ($i = 0; $i < count($occupiedHours); $i++) {
                             $temp = clone($occupiedHours[$i]);
                             if (isset($occupiedHours[$i + 1])) {
                                 echo "tutaj";
                                 $temp2 = clone($occupiedHours[$i + 1]);
-                                generateDate(date_modify($temp, '+'.$officeParameters['visitDuration']), date_modify($temp2, '-'.$officeParameters['visitDuration']),$officeParameters['visitDuration']);
+                                generateDate(date_modify($temp, '+'.VISIT_DURATION), date_modify($temp2, '-'.VISIT_DURATION));
                             } else {
-                                generateDate(date_modify($temp, '+'.$officeParameters['visitDuration']), $stop, $officeParameters['visitDuration']);
+                                generateDate(date_modify($temp, '+'.VISIT_DURATION), $stop);
                             }
                         }
                     } else {
                         // Je¿eli nie ma zajêtych godzin to generujemy pe³ny selektor od startu do stopu
-                        generateDate($start, $stop, $officeParameters['visitDuration']);
+                        generateDate($start, $stop);
                     }
                     echo "</select> ";
                     echo "<input type=\"hidden\" name=\"finalRegDate\" value=\"" . date_format($finalDate, 'Y-m-d') . "\">";
