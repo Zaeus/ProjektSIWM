@@ -2,7 +2,7 @@
 include("GenerateDate.php");
 
 // Funkcja signUpForDoc - funkcja odpowiedzialna za generowanie tablicy zapisów
-function signUpForDoc($officeSpecialization, $regDate)
+function signUpForDoc($officeSpecialization)
 {
     echo "<br><fieldset><legend><b>Dostêpne gabinety w systemie o specjalizacji: " . $officeSpecialization . "</b></legend>";
     $officeSpecQuery = "SELECT zajetosc.ID_gabinetu, zajetosc.ID_nazwiska_Lek, zajetosc.dzien_tyg, zajetosc.od_dnia, zajetosc.do_dnia, zajetosc.od_godziny, zajetosc.do_godziny, budynki.miasto FROM gabinety ";
@@ -38,59 +38,95 @@ function signUpForDoc($officeSpecialization, $regDate)
                 echo "<td>" . $officeSpecLine['od_godziny'] . "</td>";
                 echo "<td>" . $officeSpecLine['do_godziny'] . "</td>";
                 echo "<td><form action = \"signUpForDoc.php\" method=\"POST\"> ";
-                if (isset($regDate)) {
-                    $finalDate = date_create($regDate);
-                    $timeVisitQuery = "SELECT godzina FROM wizyty WHERE ID_gabinetu='" . $officeSpecLine['ID_gabinetu'] . "' AND data='" . date_format($finalDate, 'Y-m-d') . "'";
-                    $timeVisitResult = mysql_query($timeVisitQuery) or die('B³±d zapytania o nazwisko lekarza');
-                    $iterator = 0;
-                    while ($timeVisitLine = mysql_fetch_assoc($timeVisitResult)) {
-                        // Sprawdzenie czy godzina mie¶cie siê w pracy gabinetu
-                        if (($officeSpecLine['od_godziny'] <= $timeVisitLine['godzina']) && ($officeSpecLine['do_godziny'] >= $timeVisitLine['godzina'])) {
-                            $occupiedHours[$iterator] = date_create($timeVisitLine['godzina']);
-                            $iterator = $iterator + 1;
-                        }
-                    }
-                    sort($occupiedHours);
-                    echo "<select name=\"godzinaRezerwacji\">";
-                    $start = date_create($officeSpecLine['od_godziny']);
-                    $stop = date_create($officeSpecLine['do_godziny']);
-                    $stop = date_modify($stop, '-'.VISIT_DURATION);
-                    if (isset($occupiedHours)) {
-                        // Je¿eli w bazie danych s± godziny zajêtych wizyt to wchodzimy w tego if'a
-                        $temp = clone($occupiedHours[0]);
-                        generateDate($start, date_modify($temp, '-'.VISIT_DURATION));
-                        for ($i = 0; $i < count($occupiedHours); $i++) {
-                            $temp = clone($occupiedHours[$i]);
-                            if (isset($occupiedHours[$i + 1])) {
-                                echo "tutaj";
-                                $temp2 = clone($occupiedHours[$i + 1]);
-                                generateDate(date_modify($temp, '+'.VISIT_DURATION), date_modify($temp2, '-'.VISIT_DURATION));
-                            } else {
-                                generateDate(date_modify($temp, '+'.VISIT_DURATION), $stop);
-                            }
-                        }
-                    } else {
-                        // Je¿eli nie ma zajêtych godzin to generujemy pe³ny selektor od startu do stopu
-                        generateDate($start, $stop);
-                    }
-                    echo "</select> ";
-                    echo "<input type=\"hidden\" name=\"finalRegDate\" value=\"" . date_format($finalDate, 'Y-m-d') . "\">";
-                    echo "<input type=\"hidden\" name=\"officeID\" value=\"" . $officeSpecLine['ID_gabinetu'] . "\">";
-                    echo "<input type=\"hidden\" name=\"docID\" value=\"" . $officeSpecLine['ID_nazwiska_Lek'] . "\">";
-                    echo "<input type=\"submit\" value=\"Rezerwuj\" ></form></td>";
-                    echo "</tr>";
-                    unset($temp, $temp2, $start, $stop, $occupiedHours);
-                } else {
-                    generateDays($officeSpecLine['dzien_tyg'],  $officeSpecLine['do_dnia'], $officeSpecLine['od_dnia'] );
-                    echo "<input type=\"submit\" value=\"Dalej\" ></form></td>";
-                    echo "</tr>";
+                generateDays($officeSpecLine['dzien_tyg'],  $officeSpecLine['do_dnia'], $officeSpecLine['od_dnia'] );
+                echo "<input type=\"hidden\" name=\"officeID\" value=\"" . $officeSpecLine['ID_gabinetu'] . "\">";
+                echo "<input type=\"hidden\" name=\"fromTime\" value=\"" . $officeSpecLine['od_godziny'] . "\">";
+                echo "<input type=\"hidden\" name=\"sinceDate\" value=\"" . $officeSpecLine['od_dnia'] . "\">";
+                echo "<input type=\"submit\" value=\"Dalej\" ></form></td>";
+                echo "</tr>";
                 }
             }
-        }
         echo "</table>";
     } else {
         echo "Brak gabinetów o podanej specjalizacji";
     }
+    echo "</fieldset>";
+}
+
+// Funkcja signUpForDoc - funkcja odpowiedzialna za generowanie danych kwerendy zapisu
+function signUpForDoc2($officeSpecialization, $regDate, $officeID, $fromTime, $sinceDate) {
+    echo "<br><fieldset><legend><b>Rezerwacja w gabinecie nr." . $officeID . " o specjalizacji: " . $officeSpecialization . "</b></legend>";
+    $officeSpecQuery = "SELECT zajetosc.ID_gabinetu, zajetosc.ID_nazwiska_Lek, zajetosc.dzien_tyg, zajetosc.od_dnia, zajetosc.do_dnia, zajetosc.od_godziny, zajetosc.do_godziny, budynki.miasto FROM gabinety ";
+    $officeSpecQuery .= "INNER JOIN zajetosc ON gabinety.ID_gabinetu = zajetosc.ID_gabinetu ";
+    $officeSpecQuery .= "INNER JOIN budynki ON gabinety.ID_budynku = budynki.ID_budynku ";
+    $officeSpecQuery .= "WHERE gabinety.ID_gabinetu='" . $officeID . "' ";
+    $officeSpecQuery .= "AND zajetosc.od_godziny='" . $fromTime . "' ";
+    $officeSpecQuery .= "AND zajetosc.od_dnia='" . $sinceDate . "'";
+    $officeSpecResult = mysql_query($officeSpecQuery) or die('B³±d zapytania o gabinety o podanej specjalizacji');
+    echo "<table align=\"center\" cellpadding=\"5\" border=\"1\">";
+    echo "<tr>";
+    echo "<td>Dane lekarza</td>";
+    echo "<td>Miasto</td>";
+    echo "<td>Dzieñ tygodnia</td>";
+    echo "<td>Dnia</td>";
+    echo "<td>Opcje</td>";
+    echo "</tr>";
+    while($officeSpecLine = mysql_fetch_assoc($officeSpecResult)) {
+        $today = new DateTime();
+        if(($officeSpecLine['od_dnia'] <= date_format($today, 'Y-m-d')) && (date_format($today, 'Y-m-d') <= $officeSpecLine['do_dnia'])) {
+            echo "<tr>";
+            $docNameQuery = "SELECT imie, nazwisko FROM nazwiska WHERE id_nazwiska='" . $officeSpecLine['ID_nazwiska_Lek'] . "'";
+            $docNameResult = mysql_query($docNameQuery) or die('B³±d zapytania o nazwisko lekarza');
+            $docNameLine = mysql_fetch_assoc($docNameResult);
+            echo "<td>" . "dr " . $docNameLine['imie'] . " " . $docNameLine['nazwisko'] . "</td>";
+            echo "<td>" . $officeSpecLine['miasto'] . "</td>";
+            echo "<td>" . $officeSpecLine['dzien_tyg'] . "</td>";
+            echo "<td>" . $regDate . "</td>";
+            echo "<td><form action = \"signUpForDoc.php\" method=\"POST\"> ";
+            $finalDate = date_create($regDate);
+            $timeVisitQuery = "SELECT godzina FROM wizyty WHERE ID_gabinetu='" . $officeSpecLine['ID_gabinetu'] . "' AND data='" . date_format($finalDate, 'Y-m-d') . "'";
+            $timeVisitResult = mysql_query($timeVisitQuery) or die('B³±d zapytania o nazwisko lekarza');
+            $iterator = 0;
+            while ($timeVisitLine = mysql_fetch_assoc($timeVisitResult)) {
+            // Sprawdzenie czy godzina mie¶cie siê w pracy gabinetu
+                if (($officeSpecLine['od_godziny'] <= $timeVisitLine['godzina']) && ($officeSpecLine['do_godziny'] >= $timeVisitLine['godzina'])) {
+                    $occupiedHours[$iterator] = date_create($timeVisitLine['godzina']);
+                    $iterator = $iterator + 1;
+                }
+            }
+            sort($occupiedHours);
+            echo "<select name=\"godzinaRezerwacji\">";
+            $start = date_create($officeSpecLine['od_godziny']);
+            $stop = date_create($officeSpecLine['do_godziny']);
+            $stop = date_modify($stop, '-'.VISIT_DURATION);
+            if (isset($occupiedHours)) {
+                // Je¿eli w bazie danych s± godziny zajêtych wizyt to wchodzimy w tego if'a
+                $temp = clone($occupiedHours[0]);
+                generateDate($start, date_modify($temp, '-'.VISIT_DURATION));
+                for ($i = 0; $i < count($occupiedHours); $i++) {
+                    $temp = clone($occupiedHours[$i]);
+                    if (isset($occupiedHours[$i + 1])) {
+                        echo "tutaj";
+                        $temp2 = clone($occupiedHours[$i + 1]);
+                        generateDate(date_modify($temp, '+'.VISIT_DURATION), date_modify($temp2, '-'.VISIT_DURATION));
+                    } else {
+                        generateDate(date_modify($temp, '+'.VISIT_DURATION), $stop);
+                    }
+                }
+            } else {
+                // Je¿eli nie ma zajêtych godzin to generujemy pe³ny selektor od startu do stopu
+                generateDate($start, $stop);
+            }
+            echo "</select> ";
+            echo "<input type=\"hidden\" name=\"finalRegDate\" value=\"" . date_format($finalDate, 'Y-m-d') . "\">";
+            echo "<input type=\"hidden\" name=\"officeID\" value=\"" . $officeSpecLine['ID_gabinetu'] . "\">";
+            echo "<input type=\"hidden\" name=\"docID\" value=\"" . $officeSpecLine['ID_nazwiska_Lek'] . "\">";
+            echo "<input type=\"submit\" value=\"Rezerwuj\" ></form></td>";
+            echo "</tr>";
+            unset($temp, $temp2, $start, $stop, $occupiedHours);
+        }
+    }
+    echo "</table>";
     echo "</fieldset>";
 }
 
@@ -171,18 +207,23 @@ function viewMyVisit($patientLogin)
     if($myVisitLineNumber > 0){
         echo "<table align=\"center\" cellpadding=\"5\" border=\"1\">";
         echo "<td>Gabinet</td>";
+        echo "<td>Dane lekarza</td>";
         echo "<td>Specjalizacja</td>";
         echo "<td>Miasto</td>";
         echo "<td>Data wizyty</td>";
         echo "<td>Godzina wizyty</td>";
         echo "<td>Opcje</td>";
         while($visitLine = mysql_fetch_assoc($visitResult)){
+            $docInfoQuery = "SELECT imie, nazwisko FROM nazwiska WHERE id_nazwiska='" . $visitLine['ID_nazwiska_Lek'] . "'";
+            $docInfoResult = mysql_query($docInfoQuery) or die('B³±d zapytania o nazwisko o podanym ID');
+            $docInfoLine = mysql_fetch_assoc($docInfoResult);
             $officeInfoQuery = "SELECT budynki.miasto, gabinety.specjalnosc FROM gabinety INNER JOIN budynki ON gabinety.ID_budynku = budynki.ID_budynku ";
             $officeInfoQuery .= "WHERE gabinety.ID_gabinetu='" . $visitLine['ID_gabinetu'] . "'";
             $officeInfoResult = mysql_query($officeInfoQuery) or die('B³±d zapytania o gabinety o podanym ID');
             $officeInfoLine = mysql_fetch_assoc($officeInfoResult);
             echo "<tr>";
             echo "<td>" . $visitLine['ID_gabinetu'] . "</td>";
+            echo "<td> dr " . $docInfoLine['imie'] . " " . $docInfoLine['nazwisko'] . "</td>";
             echo "<td>" . $officeInfoLine['specjalnosc'] . "</td>";
             echo "<td>" . $officeInfoLine['miasto'] . "</td>";
             echo "<td>" . $visitLine['data'] . "</td>";
