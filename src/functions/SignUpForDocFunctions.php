@@ -204,6 +204,12 @@ function viewMyVisit($patientLogin)
     $myVisitQuery = "SELECT * FROM wizyty WHERE id_nazwiska_P='" . $patientInfoLine['id_nazwiska'] . "'";
     $visitResult = mysql_query($myVisitQuery) or die('B³±d zapytania o wizyty');
     $myVisitLineNumber = mysql_num_rows($visitResult);
+    $i=0;
+    while($visitLine = mysql_fetch_assoc($visitResult)){
+        $result[$i]=$visitLine;
+        $i++;
+    }
+    $sortedResult = array_orderby($result, 'data', SORT_DESC, 'godzina', SORT_DESC);
     if($myVisitLineNumber > 0){
         echo "<table align=\"center\" cellpadding=\"5\" border=\"1\">";
         echo "<td>Gabinet</td>";
@@ -213,7 +219,7 @@ function viewMyVisit($patientLogin)
         echo "<td>Data wizyty</td>";
         echo "<td>Godzina wizyty</td>";
         echo "<td>Opcje</td>";
-        while($visitLine = mysql_fetch_assoc($visitResult)){
+        foreach($sortedResult as $visitLine){
             $docInfoQuery = "SELECT imie, nazwisko FROM nazwiska WHERE id_nazwiska='" . $visitLine['ID_nazwiska_Lek'] . "'";
             $docInfoResult = mysql_query($docInfoQuery) or die('B³±d zapytania o nazwisko o podanym ID');
             $docInfoLine = mysql_fetch_assoc($docInfoResult);
@@ -268,4 +274,21 @@ function removeMyVisit($patientLogin, $officeID, $date, $time)
     $removeVisitQuery .= "godzina='" . $time . "'";
     mysql_query($removeVisitQuery) or die('B³±d zapytania usuniêcia rezerwacji');
 }
+function array_orderby()
+{
+    $args = func_get_args();
+    $data = array_shift($args);
+    foreach ($args as $n => $field) {
+        if (is_string($field)) {
+            $tmp = array();
+            foreach ($data as $key => $row)
+                $tmp[$key] = $row[$field];
+            $args[$n] = $tmp;
+        }
+    }
+    $args[] = &$data;
+    call_user_func_array('array_multisort', $args);
+    return array_pop($args);
+}
 ?>
+
