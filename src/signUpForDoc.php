@@ -16,7 +16,7 @@ if(isLoggedPatient($hasloSql, $_SESSION['login'], $_SESSION['haslo'])){
     echo "<select name=\"specjalizacjaGabinetu\">";
     echo "<option value=\"USG\" >USG</option>";
     echo "<option value=\"Interna\" >Interna</option>";
-    echo "<option value=\"Ginekolog\" >Ginekologia</option>";
+    echo "<option value=\"Ginekologia\" >Ginekologia</option>";
     echo "</select>";
     echo "<input type=\"submit\" value=\"Wybierz\" >";
     echo "</form></td>";

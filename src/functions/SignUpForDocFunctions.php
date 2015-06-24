@@ -25,7 +25,7 @@ function signUpForDoc($officeSpecialization)
         echo "</tr>";
         while($officeSpecLine = mysql_fetch_assoc($officeSpecResult)) {
             $today = new DateTime();
-            if(($officeSpecLine['od_dnia'] <= date_format($today, 'Y-m-d')) && (date_format($today, 'Y-m-d') <= $officeSpecLine['do_dnia'])) {
+           if((date_format($today, 'Y-m-d') <= $officeSpecLine['do_dnia'])) {
                 echo "<tr>";
                 $docNameQuery = "SELECT imie, nazwisko FROM nazwiska WHERE id_nazwiska='" . $officeSpecLine['ID_nazwiska_Lek'] . "'";
                 $docNameResult = mysql_query($docNameQuery) or die('B³±d zapytania o nazwisko lekarza');
@@ -165,7 +165,7 @@ function generateDays($dayOfTheWeek, $toDay, $fromDay){
         //ile wcze¶niej mo¿na siê zapisywaæ (np. max 8 tygodni przed)
         $stop=$stopCheck;
     }
-    while($start < $stop){
+    while($start <= $stop){
         if(date_format($start,'l')==$dayOfTheWeek){
             $date = date_format($start,'Y-m-d');
             $dataFormula .= "<option value=" . $date . ">$date</option>";

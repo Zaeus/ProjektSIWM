@@ -62,7 +62,7 @@
             $addForm .= "<input type=\"password\" name=\"dodane_haslo\" placeholder=\"Has³o\"><br>";
             $addForm .= "<input type=\"email\" name=\"dodany_email\" placeholder=\"Email\"><br>";
             $addForm .= "<fieldset><legend>Specjalizacja (pamiêtaj ¿e pacjent/admin nie posiadaj± specjalizacji!):</legend><input type=\"radio\" name=\"dodana_specjalizacja\" id=\"dodana_specjalizacja\" value=\"Interna\"/><label for=\"Internista\">Internista</label><br>";
-            $addForm .= "<input type=\"radio\" name=\"dodana_specjalizacja\" id=\"dodana_specjalizacja\" value=\"Ginekolog\"/><label for=\"Ginekolog\">Ginekologia</label><br>";
+            $addForm .= "<input type=\"radio\" name=\"dodana_specjalizacja\" id=\"dodana_specjalizacja\" value=\"Ginekologia\"/><label for=\"Ginekologia\">Ginekologia</label><br>";
             $addForm .= "<input type=\"radio\" name=\"dodana_specjalizacja\" id=\"dodana_specjalizacja\" value=\"USG\"/><label for=\"USG\">USG</label></fieldset><br>";
             $addForm .= "<fieldset><legend>Status:</legend><input type=\"radio\" name=\"dodane_uprawnienia\" id=\"dodane_uprawnienia\" value=\"admin\"/><label for=\"admin\">Administrator</label><br>";
             $addForm .= "<input type=\"radio\" name=\"dodane_uprawnienia\" id=\"dodane_uprawnienia\" value=\"lekarz\"/><label for=\"lekarz\">Lekarz</label><br>";
@@ -102,23 +102,23 @@
                     if($line['specjalizacja'] == "USG"){
                         $editForm .= "<option value=\"USG\" selected=\"selected\">USG</option>";
                         $editForm .= "<option value=\"Interna\" >Interna</option>";
-                        $editForm .= "<option value=\"Ginekolog\" >Ginekologia</option>";
+                        $editForm .= "<option value=\"Ginekologia\" >Ginekologia</option>";
                     }
                     elseif($line['specjalizacja'] == "Interna"){
                         $editForm .= "<option value=\"USG\" >USG</option>";
                         $editForm .= "<option value=\"Interna\" selected=\"selected\">Interna</option>";
-                        $editForm .= "<option value=\"Ginekolog\" >Ginekologia</option>";
+                        $editForm .= "<option value=\"Ginekologia\" >Ginekologia</option>";
                     }
-                    elseif($line['specjalizacja'] == "Ginekolog"){
+                    elseif($line['specjalizacja'] == "Ginekologia"){
                         $editForm .= "<option value=\"USG\" >USG</option>";
                         $editForm .= "<option value=\"Interna\" >Interna</option>";
-                        $editForm .= "<option value=\"Ginekolog\" selected=\"selected\">Ginekologia</option>";
+                        $editForm .= "<option value=\"Ginekologia\" selected=\"selected\">Ginekologia</option>";
                     }
                     else{
                         $editForm .= "<option value=\"NULL\" ></option>";
                         $editForm .= "<option value=\"USG\" >USG</option>";
                         $editForm .= "<option value=\"Interna\" >Interna</option>";
-                        $editForm .= "<option value=\"Ginekolog\" >Ginekologia</option>";
+                        $editForm .= "<option value=\"Ginekologia\" >Ginekologia</option>";
                     }
                     $editForm .= "</select>";
                     $editForm .= "<input type=\"text\" name=\"uprawnienia\" value=\"" . $line['uprawnienia'] . " \"disabled>";

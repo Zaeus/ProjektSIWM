@@ -160,17 +160,17 @@
                     if($wiersz_gab['specjalnosc'] == "USG"){
                         $form_gab .= "<option value=\"USG\" selected=\"selected\">USG</option>";
                         $form_gab .= "<option value=\"Interna\" >Interna</option>";
-                        $form_gab .= "<option value=\"Ginekolog\" >Ginekologia</option>";
+                        $form_gab .= "<option value=\"Ginekologia\" >Ginekologia</option>";
                     }
                     elseif($wiersz_gab['specjalnosc'] == "Interna"){
                         $form_gab .= "<option value=\"USG\" >USG</option>";
                         $form_gab .= "<option value=\"Interna\" selected=\"selected\">Interna</option>";
-                        $form_gab .= "<option value=\"Ginekolog\" >Ginekologia</option>";
+                        $form_gab .= "<option value=\"Ginekologia\" >Ginekologia</option>";
                     }
-                    elseif($wiersz_gab['specjalnosc'] == "Ginekolog"){
+                    elseif($wiersz_gab['specjalnosc'] == "Ginekologia"){
                         $form_gab .= "<option value=\"USG\">USG</option>";
                         $form_gab .= "<option value=\"Interna\" >Interna</option>";
-                        $form_gab .= "<option value=\"Ginekolog\" selected=\"selected\">Ginekologia</option>";
+                        $form_gab .= "<option value=\"Ginekologia\" selected=\"selected\">Ginekologia</option>";
                     }
                     $form_gab .= "</select>";
                     $form_gab .= " Kotrakt gabinetu od<input type=\"date\" name=\"nowy_kontrakt_od\" value=\"" . $wiersz_gab['kontrakt_od'] . "\">";
