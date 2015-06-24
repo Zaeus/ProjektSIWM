@@ -1,8 +1,10 @@
 <?php
 
 // Funkcja drawTable - odpowiada za
-function drawTable($date, $idGabinetu, $officeParameters){
-    $officeParameters['closingTime'] = date_modify($officeParameters['closingTime'],'+'.$officeParameters['visitDuration']);
+function drawTable($date, $idGabinetu){
+    $openingTime = date_create(OPENING_TIME);
+    $closingTime = date_create(CLOSING_TIME);
+    date_modify($closingTime,'+'.VISIT_DURATION);
     $dateShowDay = clone $date;
     if(isset($idGabinetu)){
         ?>
@@ -37,8 +39,8 @@ function drawTable($date, $idGabinetu, $officeParameters){
                 </td>
             </tr>
             <?
-            $time = $officeParameters['openingTime'];
-            while($time != $officeParameters['closingTime']) {
+            $time = $openingTime;
+            while($time < $closingTime) {
                 ?>
                 <tr bgcolor=white>
                     <td width="100" style="text-align: center;">
@@ -65,7 +67,7 @@ function drawTable($date, $idGabinetu, $officeParameters){
                     ?>
                 </tr>
                 <?
-                $time = date_modify($time, '+'.$officeParameters['visitDuration']);
+                $time = date_modify($time, '+'.VISIT_DURATION);
             }
             ?>
         </table>
@@ -358,30 +360,30 @@ function dateButtons($previousButton, $nextButton, $initialization){
 <?
 }
 
-function rentOffice($dayPost, $openingHourPost, $closingHourPost, $fromDayPost,  $toDayPost, $login, $officeParameters){
+function rentOffice($dayPost, $openingHourPost, $closingHourPost, $fromDayPost,  $toDayPost, $login){
 
     echo "<br><fieldset><legend>Zajmij gabinet:</legend><form action=\"docOffices.php\" method=\"POST\">";
-    $opening = $officeParameters['openingTime'];
-    $closing = $officeParameters['closingTime'];
+    $opening = date_create(OPENING_TIME);
+    $closing = date_create(CLOSING_TIME);
     $closingMinWorkTimeCheck = clone $closing;
-    date_modify($closingMinWorkTimeCheck,'-'.$officeParameters['minDurationOfWork']);
+    date_modify($closingMinWorkTimeCheck,'-'.MIN_WORK_DURATION);
 
     if (isset($dayPost)) {
         $_SESSION['Dzien'] = $dayPost;
         echo "Godzina rozpoczêcia: " . "<select name=\"GodzinaRozpoczecia\">";
-        generateDate($opening, $closingMinWorkTimeCheck, $officeParameters['visitDuration']);
+        generateDate($opening, $closingMinWorkTimeCheck, VISIT_DURATION);
         submitButton('Dalej');
     } elseif (isset($openingHourPost)) {
         $_SESSION['GodzinaRozpoczecia'] = $openingHourPost;
         $timeBegin = date_create($_SESSION['GodzinaRozpoczecia']);
         $maxWorkTime = clone $timeBegin;
-        date_modify($timeBegin, '+'.$officeParameters['minDurationOfWork']);
-        date_modify($maxWorkTime, '+'.$officeParameters['maxDurationOfWork']);
+        date_modify($timeBegin, '+'.MIN_WORK_DURATION);
+        date_modify($maxWorkTime, '+'.MAX_WORK_DURATION);
         echo "Godzina zakoñczenia: " . "<select name=\"GodzinaZakonczenia\">";
         if($closing<$maxWorkTime) {
-            generateDate($timeBegin, $closing, $officeParameters['visitDuration']);
+            generateDate($timeBegin, $closing, VISIT_DURATION);
         }else{
-            generateDate($timeBegin, $maxWorkTime, $officeParameters['visitDuration']);
+            generateDate($timeBegin, $maxWorkTime, VISIT_DURATION);
         }
         submitButton('Dalej');
     } elseif (isset($closingHourPost)) {
@@ -389,7 +391,7 @@ function rentOffice($dayPost, $openingHourPost, $closingHourPost, $fromDayPost, 
             echo "Data rozpoczêcia najmu gabinetu:";
             $today = date_create();
             $maxDate = clone $today;
-            date_modify($maxDate, '+'.$officeParameters['maxDate']);
+            date_modify($maxDate, '+'.MAX_DATE);
             generateDays($_SESSION['Dzien'], $today, $maxDate, 'OdDnia');
             submitButton('Dalej');
     } elseif (isset($fromDayPost)) {
@@ -397,12 +399,12 @@ function rentOffice($dayPost, $openingHourPost, $closingHourPost, $fromDayPost, 
         echo "Data zakoñczenia najmu gabinetu:";
         $maxDate = date_create();
         $fromDay =date_create($fromDayPost);
-        date_modify($maxDate, '+'.$officeParameters['maxDate']);
+        date_modify($maxDate, '+'.MAX_DATE);
         generateDays($_SESSION['Dzien'], $fromDay, $maxDate, 'DoDnia');
         submitButton('Zobacz gabinety');
     } elseif(isset($toDayPost)){
         daysSelection();
-        reservationTable($_SESSION['Dzien'], $_SESSION['GodzinaRozpoczecia'], $_SESSION['GodzinaZakonczenia'], $_SESSION['OdDnia'], $toDayPost, $login, $officeParameters['officeBreak']);
+        reservationTable($_SESSION['Dzien'], $_SESSION['GodzinaRozpoczecia'], $_SESSION['GodzinaZakonczenia'], $_SESSION['OdDnia'], $toDayPost, $login, OFFICE_BREAK);
         unset($_SESSION['Dzien']);
         unset($_SESSION['GodzinaRozpoczecia']);
         unset($_SESSION['GodzinaZakonczenia']);
@@ -457,7 +459,7 @@ function submitButton ($value){
     echo "<br><input type=\"submit\" value=\"$value\" /></form></fieldset>";
 }
 
-function viewOffice($officeParameters){
+function viewOffice(){
     $docOfficeViewQuery = "SELECT ID_gabinetu FROM zajetosc";
     $viewOfficeResult = mysql_query($docOfficeViewQuery) or die('B³±d zapytania');
     $docOfficeViewFrom = "<br><fieldset><legend>Przejrzyj zajêto¶æ gabinet:</legend><form action = \"docOffices.php\" method=\"POST\">";
@@ -482,7 +484,7 @@ function viewOffice($officeParameters){
         $_SESSION['ID_przegladany_gabinet'] = $_POST['ID_przegladany_gabinet'];
     }
     echo "Przegl±dany gabinet: " . $_SESSION['ID_przegladany_gabinet'];
-    drawTable(clone $_SESSION['date'], $_SESSION['ID_przegladany_gabinet'], $officeParameters);
+    drawTable(clone $_SESSION['date'], $_SESSION['ID_przegladany_gabinet']);
     echo "</fieldset>";
 }
 
