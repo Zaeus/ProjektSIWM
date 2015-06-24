@@ -115,14 +115,14 @@ function generateDays($dayOfTheWeek, $toDay, $fromDay){
             $dayOfTheWeek = "Monday";
             break;
     }
-    $dataFormula="";
+    $dataFormula = "";
     echo "<select name=\"regDate\">";
     $start = date_create($fromDay);
     $stop = date_create($toDay);
-    if($start<date_create()){
+    if($start < date_create()){
         $start = date_create();
     }
-    while($start<$stop){
+    while($start < $stop){
         if(date_format($start,'l')==$dayOfTheWeek){
             $date = date_format($start,'Y-m-d');
             $dataFormula .= "<option value=" . $date . ">$date</option>";
@@ -190,10 +190,13 @@ function viewMyVisit($patientLogin)
             echo "<td><form action = \"signUpForDoc.php\" method=\"POST\"> ";
             echo "<input type=\"hidden\" name=\"removeVisitOfficeID\" value=\"" . $visitLine['ID_gabinetu'] . "\">";
             echo "<input type=\"hidden\" name=\"removeVisitDate\" value=\"" . $visitLine['data'] . "\">";
-            echo "<input type=\"hidden\" name=\"removeVisitTime\" value=\"" . $visitLine['godzina']  . "\">";
+            echo "<input type=\"hidden\" name=\"removeVisitTime\" value=\"" . $visitLine['godzina'] . "\">";
             echo "<input type=\"submit\" value=\"Usuñ\" ";
-            echo ($visitLine['data'] == date_format(date_modify(new DateTime(), '+1 day'), 'Y-m-d'));
-            if($visitLine['data'] == date_format(new DateTime(), 'Y-m-d')){
+            echo($visitLine['data'] == date_format(date_modify(new DateTime(), '+1 day'), 'Y-m-d'));
+            // Zablokowanie mo¿liwo¶ci usuniêcia wizyty je¿eli do wizyty zosta³o mniej ni¿ 24h
+            $visitDate = date_create($visitLine['data'] . " " . $visitLine['godzina']);
+            date_modify($visitDate, '-1 day');
+            if ((date_create() > $visitDate) && (date_create($visitLine['data'] . " " . $visitLine['godzina']) < $visitDate)) {
                 echo "disabled";
             }
             echo " ></form></td>";
