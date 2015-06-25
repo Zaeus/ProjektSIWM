@@ -24,23 +24,23 @@ if(isLoggedPatient($hasloSql, $_SESSION['login'], $_SESSION['haslo'])){
             $patientUpdateQuery .= "'" . $_POST['specjalizacja'] . "' ";
         }
         $patientUpdateQuery .= "WHERE id_nazwiska='" . $_POST['id_nazwiska'] . "'";
-        mysql_query($patientUpdateQuery) or die('B≥±d zapytania edycji');
-        echo "<i>Edytowano rekord uøytkownika: " . $_POST['nazwisko'] . " " . $_POST['imie'] . "</i>";
+        mysql_query($patientUpdateQuery) or die('B≈ÇƒÖd zapytania edycji');
+        echo "<i>Edytowano rekord u≈ºytkownika: " . $_POST['nazwisko'] . " " . $_POST['imie'] . "</i>";
     }
     $patientInfoQuery = "SELECT * FROM nazwiska WHERE email='" . $_SESSION['login'] . "'";
-    $patientInfoResult = mysql_query($patientInfoQuery) or die('B≥±d zapytania o ID nazwiska lekarza');
+    $patientInfoResult = mysql_query($patientInfoQuery) or die('B≈Çad zapytania o ID nazwiska lekarza');
     $patientInfoLine = mysql_fetch_assoc($patientInfoResult);
-    echo "<br><fieldset><legend>Dane uøytkownika w bazie</legend>";
-    echo "Moøesz edytowaÊ dane swojego konta - takie jak:<br><b>imiÍ</b>, <b>nazwisko</b>, <b>has≥o</b>, <b>email</b> oraz jeøeli jeste∂ lekarzem swoj± <b>specjalizacjÍ</b><br><br>";
+    echo "<br><fieldset><legend>Dane u≈ºytkownika w bazie</legend>";
+    echo "Mooesz edytowaƒá dane swojego konta - takie jak:<br><b>imiƒô</b>, <b>nazwisko</b>, <b>has≈Ço</b>, <b>email</b> oraz je≈ºeli jeste≈õ lekarzem swojƒÖ <b>specjalizacjƒô</b><br><br>";
     echo "<form action = \"editMyAccount.php\" method=\"POST\">";
-    echo "Uprawnienia uøytkownika: <input type=\"text\" name=\"uprawnienia\" value=\"" . $patientInfoLine['uprawnienia'] . "\" disabled><br>";
+    echo "Uprawnienia u≈ºytkownika: <input type=\"text\" name=\"uprawnienia\" value=\"" . $patientInfoLine['uprawnienia'] . "\" disabled><br>";
     echo "<input type=\"hidden\" name=\"id_nazwiska\" value=\"" . $patientInfoLine['id_nazwiska'] . "\" >";
-    echo "Nazwisko uøytkownika: <input type=\"text\" name=\"nazwisko\" value=\"" . $patientInfoLine['nazwisko'] . "\" ><br>";
-    echo "ImiÍ uøytkownika: <input type=\"text\" name=\"imie\" value=\"" . $patientInfoLine['imie'] . "\" ><br>";
-    echo "Email uøytkownika: <input type=\"email\" name=\"email\" value=\"" . $patientInfoLine['email'] . "\" ><br>";
-    echo "Nowe has≥o uøytkownika: <input type=\"pass\" name=\"haslo1\" placeholder=\"Nowe Has≥o\"\" ><br>";
-    echo "PowtÛrz has≥o: <input type=\"pass\" name=\"haslo2\" placeholder=\"PowtÛrz Has≥o\"\"><br>";
-    echo "Specjalizacja uøytkownika <select name=\"specjalizacja\"";
+    echo "Nazwisko u≈ºytkownika: <input type=\"text\" name=\"nazwisko\" value=\"" . $patientInfoLine['nazwisko'] . "\" ><br>";
+    echo "Imiƒô u≈ºytkownika: <input type=\"text\" name=\"imie\" value=\"" . $patientInfoLine['imie'] . "\" ><br>";
+    echo "Email u≈ºytkownika: <input type=\"email\" name=\"email\" value=\"" . $patientInfoLine['email'] . "\" ><br>";
+    echo "Nowe has≈Ço u≈ºytkownika: <input type=\"pass\" name=\"haslo1\" placeholder=\"Nowe Has≈Ço\"\" ><br>";
+    echo "Powt√≥rz has≈Ço: <input type=\"pass\" name=\"haslo2\" placeholder=\"Powt√≥rz Has≈Ço\"\"><br>";
+    echo "Specjalizacja u≈ºytkownika <select name=\"specjalizacja\"";
     if(($patientInfoLine['uprawnienia'] == "pacjent") || ($patientInfoLine['uprawnienia'] == "admin")){
         echo " disabled";
     }
@@ -71,7 +71,7 @@ if(isLoggedPatient($hasloSql, $_SESSION['login'], $_SESSION['haslo'])){
     echo "</fieldset>";
 }
 else{
-    echo "Brak uprawnieÒ do tre∂ci.<br>";
+    echo "Brak uprawnie≈Ñ do tre≈õci.<br>";
 }
 ?>
 <?

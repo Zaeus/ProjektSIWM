@@ -10,7 +10,7 @@
     include("includes/header.php");
 ?>
     <h2>Witaj w projektowej bazie danych SIWM - Zdrowexerex.</h2><br>
-	Mo¿esz siê zalogowaæ lub zarejestrowaæ:<br><br>
+	Mooesz siÄ™ zalogowaÄ‡ lub zarejestrowaÄ‡:<br><br>
 <?	
 	$forma = "<form action = \"log.php\" method=\"POST\"> ";
 	$forma .= "<input type=\"submit\" value=\"Loguj\" >";
@@ -22,11 +22,11 @@
 	echo $forma;
 ?>
 	<div style="text-align: center;"><img src="images/UseCase.png" alt="Use Case Projektu" /><br>
-	Rys. 1 - Zamys³ projektu</div><br>
+	Rys. 1 - ZamysÅ‚ projektu</div><br>
     <div style="text-align: center;"><img src="images/mysqlDbProject.png" alt="Use Case Projektu" /><br>
-    Rys. 2 - Pogl±dowy schemat bazy danych</div><br>
+    Rys. 2 - PoglÄ…dowy schemat bazy danych</div><br>
     <div style="text-align: center;"><img src="images/MedycynaSpoleczna.jpg" alt="Motto" /><br>
-    Rys. 3 - Motto zak³adowe</div><br>
+    Rys. 3 - Motto zakÅ‚adowe</div><br>
 <?
 	include("includes/footer.php");
 ?>

@@ -11,12 +11,12 @@
         if($_POST['Radio'] == "lekarz") {
             $form = "<div id=\"RegForm\">";
             $form .= "<form action=\"reg.php\" method=\"post\">";
-            $form .= "<label for=\"Imiê\"></label><input type=\"text\" name=\"ImieReg\" placeholder=\"Imiê\" id=\"ImieReg\" value=\"" . $_POST['ImieReg'] . "\"/><br>";
+            $form .= "<label for=\"ImiÄ™\"></label><input type=\"text\" name=\"ImieReg\" placeholder=\"ImiÄ™\" id=\"ImieReg\" value=\"" . $_POST['ImieReg'] . "\"/><br>";
             $form .= "<label for=\"Nazwisko\"></label><input type=\"text\" name=\"NazwiskoReg\" placeholder=\"Nazwisko\" id=\"NazwiskoReg\" value=\"" . $_POST['NazwiskoReg'] . "\"/><br>";
             $form .= "<label for=\"Email\"></label><input type=\"email\" name=\"EmailReg\" placeholder=\"Email\" id=\"EmailReg\" value=\"" . $_POST['EmailReg'] . "\"/><br>";
-            $form .= "<label for=\"Powtórz Email\"></label><input type=\"email\" name=\"EmailReg2\" placeholder=\"Powtórz Email\" id=\"EmailReg2\" value=\"" . $_POST['EmailReg2'] . "\"/><br>";
-            $form .= "<label for=\"Has³o\"></label><input type=\"password\" name=\"HasloReg\" placeholder=\"Has³o\" id=\"HasloReg\" value=\"" . $_POST['HasloReg'] . "\"/><br>";
-            $form .= "<label for=\"Powtórz has³o\"></label><input type=\"password\" name=\"HasloReg2\" placeholder=\"Powtórz Has³o\" id=\"HasloReg2\" value=\"" . $_POST['HasloReg2'] . "\"/><br>";
+            $form .= "<label for=\"PowtÃ³rz Email\"></label><input type=\"email\" name=\"EmailReg2\" placeholder=\"PowtÃ³rz Email\" id=\"EmailReg2\" value=\"" . $_POST['EmailReg2'] . "\"/><br>";
+            $form .= "<label for=\"HasÅ‚o\"></label><input type=\"password\" name=\"HasloReg\" placeholder=\"HasÅ‚o\" id=\"HasloReg\" value=\"" . $_POST['HasloReg'] . "\"/><br>";
+            $form .= "<label for=\"PowtÃ³rz hasÅ‚o\"></label><input type=\"password\" name=\"HasloReg2\" placeholder=\"PowtÃ³rz HasÅ‚o\" id=\"HasloReg2\" value=\"" . $_POST['HasloReg2'] . "\"/><br>";
             $form .= "<input type=\"radio\" name=\"Radio\" id=\"Lekarz\" value=\"lekarz\" checked=\"checked\"/><label for=\"Lekarz\">Lekarz</label><br>";
             $form .= "<input type=\"radio\" name=\"Radio\" id=\"Pacjent\" value=\"pacjent\" disabled=\"disabled\"/><label for=\"Pacjent\">Pacjent</label><br><br>";
             echo $form;
@@ -24,7 +24,7 @@
                     <input type="radio" name="Radio2" id="Spec" value="Interna" checked="checked" /><label for="Internista">Internista</label><br>
                     <input type="radio" name="Radio2" id="Spec" value="Ginekolog"/><label for="Ginekolog">Ginekologia</label><br>
                     <input type="radio" name="Radio2" id="Spec" value="USG"/><label for="USG">USG</label><br>
-                    <input type="submit" value="Dokoñcz rejestracjê" /><br><br>
+                    <input type="submit" value="DokoÅ„cz rejestracjÄ™" /><br><br>
                 </form>
             </div>
             <?
@@ -39,23 +39,23 @@
                 $kwerenda_dodania .= "'" . $_POST['Radio2'] . "'";
                 $kwerenda_dodania .= ")";
 
-                // Dodanie lekarza do bazy danych wed³ug kwerendy
+                // Dodanie lekarza do bazy danych wedÅ‚ug kwerendy
                 $wynik = mysql_query($kwerenda_dodania);
                 if (!$wynik) {
                     echo "Blad zapytania dodania! <br /><br />";
                 } else {
                     echo "Dodano nowego pacjenta o parametrach: <br>";
-                    echo "Imiê lekarza: " . $_POST['ImieReg'] . "<br>";
+                    echo "ImiÄ™ lekarza: " . $_POST['ImieReg'] . "<br>";
                     echo "Nazwisko lekarza: " . $_POST['NazwiskoReg'] . "<br>";
                     echo "E-mail lekarza: " . $_POST['EmailReg'] . "<br>";
-                    echo "Has³o lekarza: " . $_POST['HasloReg'] . " = " . md5($_POST['HasloReg']) . "<br>";
+                    echo "HasÅ‚o lekarza: " . $_POST['HasloReg'] . " = " . md5($_POST['HasloReg']) . "<br>";
                     echo "Status: " . $_POST['Radio'] . "<br>";
                     echo "Specjalizacja lekarza: " . $_POST['Radio2'] . "<br><br>";
                 }
             }
         }
         else {
-            // Kwerenda zapisu do bazy u¿ytkowników
+            // Kwerenda zapisu do bazy uÅ¼ytkownikÃ³w
             $kwerenda_dodania = "INSERT INTO nazwiska (email,haslo,nazwisko,imie,uprawnienia,specjalizacja) VALUES ";
             $kwerenda_dodania .= "(";
             $kwerenda_dodania .= "'" . $_POST['EmailReg'] . "'" . ",";
@@ -67,16 +67,16 @@
             $kwerenda_dodania .= ")";
             // echo "Kwerenda dodania pacjenta: " . $kwerenda_dodania . "<br><br>";
 
-            // Dodanie pacjenta do bazy danych wed³ug kwerendy
+            // Dodanie pacjenta do bazy danych wedÅ‚ug kwerendy
             $wynik = mysql_query($kwerenda_dodania);
             if (!$wynik) {
                 echo "Blad zapytania dodania! <br /><br />";
             } else {
                 echo "Dodano nowego pacjenta o parametrach: <br>";
-                echo "Imiê lekarza: " . $_POST['ImieReg'] . "<br>";
+                echo "ImiÄ™ lekarza: " . $_POST['ImieReg'] . "<br>";
                 echo "Nazwisko lekarza: " . $_POST['NazwiskoReg'] . "<br>";
                 echo "E-mail lekarza: " . $_POST['EmailReg'] . "<br>";
-                echo "Has³o lekarza: " . $_POST['HasloReg'] . " = " . md5($_POST['HasloReg']) . "<br>";
+                echo "HasÅ‚o lekarza: " . $_POST['HasloReg'] . " = " . md5($_POST['HasloReg']) . "<br>";
                 echo "Status: " . $_POST['Radio'] . "<br><br>";
             }
         }
@@ -85,12 +85,12 @@
         ?>
         <div id="RegForm">
             <form action="reg.php" method="post">
-                <label for="Imiê"></label><input type="text" name="ImieReg" placeholder="Imiê" id="ImieReg"/><br>
+                <label for="ImiÄ™"></label><input type="text" name="ImieReg" placeholder="ImiÄ™" id="ImieReg"/><br>
                 <label for="Nazwisko"></label><input type="text" name="NazwiskoReg" placeholder="Nazwisko" id="NazwiskoReg"/><br>
                 <label for="Email"></label><input type="email" name="EmailReg" placeholder="Email" id="EmailReg"/><br>
-                <label for="Powtórz Email"></label><input type="email" name="EmailReg2" placeholder="Powtórz Email" id="EmailReg2"/><br>
-                <label for="Has³o"></label><input type="password" name="HasloReg" placeholder="Has³o" id="HasloReg"/><br>
-                <label for="Powtórz has³o"></label><input type="password" name="HasloReg2" placeholder="Powtórz Has³o" id="HasloReg2"/><br>
+                <label for="PowtÃ³rz Email"></label><input type="email" name="EmailReg2" placeholder="PowtÃ³rz Email" id="EmailReg2"/><br>
+                <label for="HasÅ‚o"></label><input type="password" name="HasloReg" placeholder="HasÅ‚o" id="HasloReg"/><br>
+                <label for="PowtÃ³rz hasÅ‚o"></label><input type="password" name="HasloReg2" placeholder="PowtÃ³rz HasÅ‚o" id="HasloReg2"/><br>
                 <input type="radio" name="Radio" id="Lekarz" value="lekarz"/><label for="Lekarz">Lekarz</label><br>
                 <input type="radio" name="Radio" id="Pacjent" value="pacjent"/><label for="Pacjent">Pacjent</label><br>
                 <input type="submit" value="Zarejestruj" /><br><br>

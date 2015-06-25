@@ -1,24 +1,24 @@
 <?php
 include("GenerateDate.php");
 
-// Funkcja signUpForDoc - funkcja odpowiedzialna za generowanie tablicy zapisów
+// Funkcja signUpForDoc - funkcja odpowiedzialna za generowanie tablicy zapisÃ³w
 function signUpForDoc($officeSpecialization)
 {
-    echo "<br><fieldset><legend><b>Dostêpne gabinety w systemie o specjalizacji: " . $officeSpecialization . "</b></legend>";
+    echo "<br><fieldset><legend><b>DostÄ™pne gabinety w systemie o specjalizacji: " . $officeSpecialization . "</b></legend>";
     $officeSpecQuery = "SELECT zajetosc.ID_gabinetu, zajetosc.ID_nazwiska_Lek, zajetosc.dzien_tyg, zajetosc.od_dnia, zajetosc.do_dnia, zajetosc.od_godziny, zajetosc.do_godziny, budynki.miasto FROM gabinety ";
     $officeSpecQuery .= "INNER JOIN zajetosc ON gabinety.ID_gabinetu = zajetosc.ID_gabinetu ";
     $officeSpecQuery .= "INNER JOIN budynki ON gabinety.ID_budynku = budynki.ID_budynku ";
     $officeSpecQuery .= "WHERE gabinety.specjalnosc='" . $officeSpecialization . "'";
-    $officeSpecResult = mysql_query($officeSpecQuery) or die('B³±d zapytania o gabinety o podanej specjalizacji');
+    $officeSpecResult = mysql_query($officeSpecQuery) or die('BÅ‚Ä…d zapytania o gabinety o podanej specjalizacji');
     $howMuchLines = mysql_num_rows($officeSpecResult);
     if($howMuchLines > 0) {
         echo "<table align=\"center\" cellpadding=\"5\" border=\"1\">";
         echo "<tr>";
         echo "<td>Dane lekarza</td>";
         echo "<td>Miasto</td>";
-        echo "<td>Dzieñ tygodnia</td>";
-        echo "<td>Dostêpny od</td>";
-        echo "<td>Dostêpny do</td>";
+        echo "<td>DzieÅ„ tygodnia</td>";
+        echo "<td>DostÄ™pny od</td>";
+        echo "<td>DostÄ™pny do</td>";
         echo "<td>Od godziny</td>";
         echo "<td>Do godziny</td>";
         echo "<td>Opcje</td>";
@@ -28,7 +28,7 @@ function signUpForDoc($officeSpecialization)
            if((date_format($today, 'Y-m-d') <= $officeSpecLine['do_dnia'])) {
                 echo "<tr>";
                 $docNameQuery = "SELECT imie, nazwisko FROM nazwiska WHERE id_nazwiska='" . $officeSpecLine['ID_nazwiska_Lek'] . "'";
-                $docNameResult = mysql_query($docNameQuery) or die('B³±d zapytania o nazwisko lekarza');
+                $docNameResult = mysql_query($docNameQuery) or die('BÅ‚Ä…d zapytania o nazwisko lekarza');
                 $docNameLine = mysql_fetch_assoc($docNameResult);
                 echo "<td>" . "dr " . $docNameLine['imie'] . " " . $docNameLine['nazwisko'] . "</td>";
                 echo "<td>" . $officeSpecLine['miasto'] . "</td>";
@@ -48,7 +48,7 @@ function signUpForDoc($officeSpecialization)
             }
         echo "</table>";
     } else {
-        echo "Brak gabinetów o podanej specjalizacji";
+        echo "Brak gabinetÃ³w o podanej specjalizacji";
     }
     echo "</fieldset>";
 }
@@ -62,12 +62,12 @@ function signUpForDoc2($officeSpecialization, $regDate, $officeID, $fromTime, $s
     $officeSpecQuery .= "WHERE gabinety.ID_gabinetu='" . $officeID . "' ";
     $officeSpecQuery .= "AND zajetosc.od_godziny='" . $fromTime . "' ";
     $officeSpecQuery .= "AND zajetosc.od_dnia='" . $sinceDate . "'";
-    $officeSpecResult = mysql_query($officeSpecQuery) or die('B³±d zapytania o gabinety o podanej specjalizacji');
+    $officeSpecResult = mysql_query($officeSpecQuery) or die('BÅ‚Ä…d zapytania o gabinety o podanej specjalizacji');
     echo "<table align=\"center\" cellpadding=\"5\" border=\"1\">";
     echo "<tr>";
     echo "<td>Dane lekarza</td>";
     echo "<td>Miasto</td>";
-    echo "<td>Dzieñ tygodnia</td>";
+    echo "<td>DzieÅ„ tygodnia</td>";
     echo "<td>Dnia</td>";
     echo "<td>Opcje</td>";
     echo "</tr>";
@@ -76,7 +76,7 @@ function signUpForDoc2($officeSpecialization, $regDate, $officeID, $fromTime, $s
         if(($officeSpecLine['od_dnia'] <= date_format($today, 'Y-m-d')) && (date_format($today, 'Y-m-d') <= $officeSpecLine['do_dnia'])) {
             echo "<tr>";
             $docNameQuery = "SELECT imie, nazwisko FROM nazwiska WHERE id_nazwiska='" . $officeSpecLine['ID_nazwiska_Lek'] . "'";
-            $docNameResult = mysql_query($docNameQuery) or die('B³±d zapytania o nazwisko lekarza');
+            $docNameResult = mysql_query($docNameQuery) or die('BÅ‚Ä…d zapytania o nazwisko lekarza');
             $docNameLine = mysql_fetch_assoc($docNameResult);
             echo "<td>" . "dr " . $docNameLine['imie'] . " " . $docNameLine['nazwisko'] . "</td>";
             echo "<td>" . $officeSpecLine['miasto'] . "</td>";
@@ -85,10 +85,10 @@ function signUpForDoc2($officeSpecialization, $regDate, $officeID, $fromTime, $s
             echo "<td><form action = \"signUpForDoc.php\" method=\"POST\"> ";
             $finalDate = date_create($regDate);
             $timeVisitQuery = "SELECT godzina FROM wizyty WHERE ID_gabinetu='" . $officeSpecLine['ID_gabinetu'] . "' AND data='" . date_format($finalDate, 'Y-m-d') . "'";
-            $timeVisitResult = mysql_query($timeVisitQuery) or die('B³±d zapytania o nazwisko lekarza');
+            $timeVisitResult = mysql_query($timeVisitQuery) or die('BÅ‚Ä…d zapytania o nazwisko lekarza');
             $iterator = 0;
             while ($timeVisitLine = mysql_fetch_assoc($timeVisitResult)) {
-            // Sprawdzenie czy godzina mie¶cie siê w pracy gabinetu
+            // Sprawdzenie czy godzina mieÅ›cie siÄ™ w pracy gabinetu
                 if (($officeSpecLine['od_godziny'] <= $timeVisitLine['godzina']) && ($officeSpecLine['do_godziny'] >= $timeVisitLine['godzina'])) {
                     $occupiedHours[$iterator] = date_create($timeVisitLine['godzina']);
                     $iterator = $iterator + 1;
@@ -100,7 +100,7 @@ function signUpForDoc2($officeSpecialization, $regDate, $officeID, $fromTime, $s
             $stop = date_create($officeSpecLine['do_godziny']);
             $stop = date_modify($stop, '-'.VISIT_DURATION);
             if (isset($occupiedHours)) {
-                // Je¿eli w bazie danych s± godziny zajêtych wizyt to wchodzimy w tego if'a
+                // JeÅ¼eli w bazie danych sÄ… godziny zajÄ™tych wizyt to wchodzimy w tego if'a
                 $temp = clone($occupiedHours[0]);
                 generateDate($start, date_modify($temp, '-'.VISIT_DURATION));
                 for ($i = 0; $i < count($occupiedHours); $i++) {
@@ -114,7 +114,7 @@ function signUpForDoc2($officeSpecialization, $regDate, $officeID, $fromTime, $s
                     }
                 }
             } else {
-                // Je¿eli nie ma zajêtych godzin to generujemy pe³ny selektor od startu do stopu
+                // JeÅ¼eli nie ma zajÄ™tych godzin to generujemy peÅ‚ny selektor od startu do stopu
                 generateDate($start, $stop);
             }
             echo "</select> ";
@@ -157,12 +157,12 @@ function generateDays($dayOfTheWeek, $toDay, $fromDay){
     $stop = date_create($toDay);
     if($start <= date_create()){
         $start = date_create();
-        //Ile wcze¶niej mo¿na siê zapisywaæ (np. min 24h przed)
+        //Ile wczeÅ›niej moÅ¼na siÄ™ zapisywaÄ‡ (np. min 24h przed)
         date_modify($start,'+'.DAYS_BEFORE_VISIT_MIN);
     }
     $stopCheck = clone $start;
     if($stop>date_modify($stopCheck, '+'.DAYS_BEFORE_VISIT_MAX)){
-        //ile wcze¶niej mo¿na siê zapisywaæ (np. max 8 tygodni przed)
+        //ile wczeÅ›niej moÅ¼na siÄ™ zapisywaÄ‡ (np. max 8 tygodni przed)
         $stop=$stopCheck;
     }
     while($start <= $stop){
@@ -177,11 +177,11 @@ function generateDays($dayOfTheWeek, $toDay, $fromDay){
     echo $dataFormula;
 }
 
-// Funkcja regVisit - funkcja odpowiedzialna za kwerendê zapisania nowej wizyty do bazy danych
+// Funkcja regVisit - funkcja odpowiedzialna za kwerendÄ™ zapisania nowej wizyty do bazy danych
 function regVisit($time, $date, $officeID, $docID, $patientLogin)
 {
     $patientInfoQuery = "SELECT id_nazwiska FROM nazwiska WHERE email='" . $patientLogin . "'";
-    $patientInfoResult = mysql_query($patientInfoQuery) or die('B³±d zapytania o ID nazwiska lekarza');
+    $patientInfoResult = mysql_query($patientInfoQuery) or die('BÅ‚Ä…d zapytania o ID nazwiska lekarza');
     $patientInfoLine = mysql_fetch_assoc($patientInfoResult);
     $today = new DateTime();
     if($date >= date_format($today, 'Y-m-d')) {
@@ -193,23 +193,23 @@ function regVisit($time, $date, $officeID, $docID, $patientLogin)
         $regQuery .= "'" . $date . "'" . ",";
         $regQuery .= "'" . $time . "'";
         $regQuery .= ")";
-        mysql_query($regQuery) or die('B³±d zapytania nowej rezerwacji wizyty');
-        echo "<br><i>Zarezerwowano wizytê w gabinecie: " . $officeID . " dnia: " . $date . " o godzinie: " . $time . " </i><br>";
+        mysql_query($regQuery) or die('BÅ‚Ä…d zapytania nowej rezerwacji wizyty');
+        echo "<br><i>Zarezerwowano wizytÄ™ w gabinecie: " . $officeID . " dnia: " . $date . " o godzinie: " . $time . " </i><br>";
     } else {
-        echo "<br><i>Nie mo¿na zarezerwowaæ wizyty w gabinecie w czasie przesz³ym </i><br>";
+        echo "<br><i>Nie moÅ¼na zarezerwowaÄ‡ wizyty w gabinecie w czasie przeszÅ‚ym </i><br>";
     }
 }
 
-// Funkcja viewMyVisit - buduj±ca tabelê ze wszystkimi wizytami osoby zalogowanej
+// Funkcja viewMyVisit - budujÄ…ca tabelÄ™ ze wszystkimi wizytami osoby zalogowanej
 function viewMyVisit($patientLogin)
 {
     echo "<br><fieldset><legend><b>Twoje wizyty:</b></legend>";
-    echo "Mo¿esz usuwaæ wizyty, ale nie pó¼niej ni¿ <b>24 godziny</b> przed zaplanowan± wizyt±<br><br>";
+    echo "MoÅ¼esz usuwaÄ‡ wizyty, ale nie pÃ³Åºniej niÅ¼ <b>24 godziny</b> przed zaplanowanÄ… wizytÄ…<br><br>";
     $patientInfoQuery = "SELECT id_nazwiska FROM nazwiska WHERE email='" . $patientLogin . "'";
-    $patientInfoResult = mysql_query($patientInfoQuery) or die('B³±d zapytania o ID pacjenta');
+    $patientInfoResult = mysql_query($patientInfoQuery) or die('BÅ‚Ä…d zapytania o ID pacjenta');
     $patientInfoLine = mysql_fetch_assoc($patientInfoResult);
     $myVisitQuery = "SELECT * FROM wizyty WHERE id_nazwiska_P='" . $patientInfoLine['id_nazwiska'] . "'";
-    $visitResult = mysql_query($myVisitQuery) or die('B³±d zapytania o wizyty');
+    $visitResult = mysql_query($myVisitQuery) or die('BÅ‚Ä…d zapytania o wizyty');
     $myVisitLineNumber = mysql_num_rows($visitResult);
     $i=0;
     while($visitLine = mysql_fetch_assoc($visitResult)){
@@ -228,11 +228,11 @@ function viewMyVisit($patientLogin)
         echo "<td>Opcje</td>";
         foreach($sortedResult as $visitLine){
             $docInfoQuery = "SELECT imie, nazwisko FROM nazwiska WHERE id_nazwiska='" . $visitLine['ID_nazwiska_Lek'] . "'";
-            $docInfoResult = mysql_query($docInfoQuery) or die('B³±d zapytania o nazwisko o podanym ID');
+            $docInfoResult = mysql_query($docInfoQuery) or die('BÅ‚Ä…d zapytania o nazwisko o podanym ID');
             $docInfoLine = mysql_fetch_assoc($docInfoResult);
             $officeInfoQuery = "SELECT budynki.miasto, gabinety.specjalnosc FROM gabinety INNER JOIN budynki ON gabinety.ID_budynku = budynki.ID_budynku ";
             $officeInfoQuery .= "WHERE gabinety.ID_gabinetu='" . $visitLine['ID_gabinetu'] . "'";
-            $officeInfoResult = mysql_query($officeInfoQuery) or die('B³±d zapytania o gabinety o podanym ID');
+            $officeInfoResult = mysql_query($officeInfoQuery) or die('BÅ‚Ä…d zapytania o gabinety o podanym ID');
             $officeInfoLine = mysql_fetch_assoc($officeInfoResult);
             echo "<tr>";
             echo "<td>" . $visitLine['ID_gabinetu'] . "</td>";
@@ -247,9 +247,9 @@ function viewMyVisit($patientLogin)
                 echo "<input type=\"hidden\" name=\"removeVisitOfficeID\" value=\"" . $visitLine['ID_gabinetu'] . "\">";
                 echo "<input type=\"hidden\" name=\"removeVisitDate\" value=\"" . $visitLine['data'] . "\">";
                 echo "<input type=\"hidden\" name=\"removeVisitTime\" value=\"" . $visitLine['godzina'] . "\">";
-                echo "<input type=\"submit\" value=\"Usuñ\" ";
+                echo "<input type=\"submit\" value=\"UsuÅ„\" ";
                 echo($visitLine['data'] == date_format(date_modify(new DateTime(), '+1 day'), 'Y-m-d'));
-                // Zablokowanie mo¿liwo¶ci usuniêcia wizyty je¿eli do wizyty zosta³o mniej ni¿ 24h
+                // Zablokowanie moÅ¼liwoÅ›ci usuniÄ™cia wizyty jeÅ¼eli do wizyty zostaÅ‚o mniej niÅ¼ 24h
                 date_modify($visitDate, '-1 day');
                 if ((date_create() > $visitDate) && (date_create($visitLine['data'] . " " . $visitLine['godzina']) < $visitDate)) {
                     echo "disabled";
@@ -263,23 +263,23 @@ function viewMyVisit($patientLogin)
         }
         echo "</table>";
     } else {
-        echo "Nie posiadasz ¿adnych wizyt";
+        echo "Nie posiadasz Å¼adnych wizyt";
     }
     echo "</fieldset><br>";
 }
 
-// Funkcja removeMyVisit - funkcja odpowiedzialna za kwerendê usuniêcia wizyty z bazy danych
+// Funkcja removeMyVisit - funkcja odpowiedzialna za kwerendÄ™ usuniÄ™cia wizyty z bazy danych
 function removeMyVisit($patientLogin, $officeID, $date, $time)
 {
     $removeVisitInfoQuery = "SELECT id_nazwiska FROM nazwiska WHERE email='" . $patientLogin . "'";
-    $removeVisitInfoResult = mysql_query($removeVisitInfoQuery) or die('B³±d zapytania od ID nazwiska lekarza');
+    $removeVisitInfoResult = mysql_query($removeVisitInfoQuery) or die('BÅ‚Ä…d zapytania od ID nazwiska lekarza');
     $removeVisitInfoLine = mysql_fetch_assoc($removeVisitInfoResult);
     $removeVisitQuery = "DELETE FROM wizyty WHERE ";
     $removeVisitQuery .= "ID_nazwiska_P='" . $removeVisitInfoLine['id_nazwiska'] . "' AND ";
     $removeVisitQuery .= "ID_gabinetu='" . $officeID . "' AND ";
     $removeVisitQuery .= "data='" . $date . "' AND ";
     $removeVisitQuery .= "godzina='" . $time . "'";
-    mysql_query($removeVisitQuery) or die('B³±d zapytania usuniêcia rezerwacji');
+    mysql_query($removeVisitQuery) or die('BÅ‚Ä…d zapytania usuniÄ™cia rezerwacji');
 }
 function array_orderby()
 {

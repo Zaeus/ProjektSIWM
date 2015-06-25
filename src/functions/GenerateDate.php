@@ -1,5 +1,5 @@
 <?
-// Funkcja generuj±ca pola wyboru OPTION selektrora SELECT
+// Funkcja generujÄ…ca pola wyboru OPTION selektrora SELECT
 function generateDate($start, $stop){
     if ($start <= $stop) {
         $dataFormula = "";

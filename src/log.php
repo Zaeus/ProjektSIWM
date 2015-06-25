@@ -13,55 +13,55 @@ include("includes/logQuery.php");
 include("functions/LoginPowerFunctions.php");
 ?>
 <?
-    // Pobranie danych dla emaila uøytego w logowaniu oraz zapisanie pobranego zakodowanego has≥a oraz uprawnieÒ z bazy danych
+    // Pobranie danych dla emaila u≈ºytego w logowaniu oraz zapisanie pobranego zakodowanego has≈Ça oraz uprawnie≈Ñ z bazy danych
 	$kwerenda = "SELECT email, haslo, nazwisko, uprawnienia FROM nazwiska WHERE email = \"" . $_SESSION['login'] . "\"";
-	$logowanie = mysql_query($kwerenda)	or die('B≥±d logowania');
+	$logowanie = mysql_query($kwerenda)	or die('B≈ÇƒÖd logowania');
 	if($logowanie){
 		$wiersz = mysql_fetch_assoc($logowanie);
 		$hasloSql = $wiersz['haslo'];
 		$_SESSION['uprawnienia'] = $wiersz['uprawnienia'];
 	}
 	if(isLoggedPatient($hasloSql, $_SESSION['login'], $_SESSION['haslo'])){
-		echo "<fieldset><legend>Witaj, jeste∂ zalogowany jako:<b> " . $_SESSION['login'] . "</b></legend>";
+		echo "<fieldset><legend>Witaj, jeste≈õ zalogowany jako:<b> " . $_SESSION['login'] . "</b></legend>";
         echo "<fieldset><legend><b>Opcje:</b></legend>";
 		?>
 		<form action="index.php" method="POST">
-			<input type="submit" value="Wyloguj siÍ" />
+			<input type="submit" value="Wyloguj siƒô" />
 		</form><br>
         <form action="editMyAccount.php" method="POST">
             <input type="submit" value="Edytuj swoje konto" />
         </form></fieldset>
         <?
-		echo "<br><fieldset><legend><b>Posiadasz dostÍp do opcji pacjenta: </b></legend>";
+		echo "<br><fieldset><legend><b>Posiadasz dostƒôp do opcji pacjenta: </b></legend>";
 		?>		
 		<form action="signUpForDoc.php" method="POST">
-			<input type="submit" value="Zapisz siÍ na wizytÍ" /> Przejdº do strony z zapisami<br> do gabinetu lekarza oraz wszystkimi twoimi wizytami
+			<input type="submit" value="Zapisz siƒô na wizytƒô" /> Przejd≈∫ do strony z zapisami<br> do gabinetu lekarza oraz wszystkimi twoimi wizytami
 		</form></fieldset>
 		<?
 		if(isLoggedDoctor($hasloSql, $_SESSION['login'], $_SESSION['haslo'], $_SESSION['uprawnienia'])) {
-			echo "<br><fieldset><legend><b>Posiadasz dostÍp do opcji lekarza: </b></legend>";
+			echo "<br><fieldset><legend><b>Posiadasz dostƒôp do opcji lekarza: </b></legend>";
 			?>			
 			<form action="docOffices.php" method="POST">
-				<input type="submit" value="Gabinety" name="initGabinet" /> Przejdº do strony rezerwacji oraz modyfikacji Twoich gabinetÛw
+				<input type="submit" value="Gabinety" name="initGabinet" /> Przejd≈∫ do strony rezerwacji oraz modyfikacji Twoich gabinet√≥w
 			</form>
 			<form action="docMyVisits.php" method="POST">
-				<input type="submit" value="Zapisy" /> Przejdº do strony przegl±dania i edytowania zapisÛw do Twoich gabinetÛw
+				<input type="submit" value="Zapisy" /> Przejd≈∫ do strony przeglƒÖdania i edytowania zapis√≥w do Twoich gabinet√≥w
 			</form></fieldset>
 			<?
 			if(isLoggedAdmin($hasloSql, $_SESSION['login'], $_SESSION['haslo'], $_SESSION['uprawnienia'])) {
-				echo "<br><fieldset><legend><b>Posiadasz dostÍp do opcji administratora: </b></legend>";
+				echo "<br><fieldset><legend><b>Posiadasz dostƒôp do opcji administratora: </b></legend>";
 				?>
 				<form action="adminEditResources.php" method="POST">
-					<input type="submit" value="Budynki i gabinety" /> Przejdº do strony edytowania, dodawania i usuwania wszystkich budynkÛw i gabinetÛw
+					<input type="submit" value="Budynki i gabinety" /> Przejd≈∫ do strony edytowania, dodawania i usuwania wszystkich budynk√≥w i gabinet√≥w
 				</form>
 				<form action="adminEditUsers.php" method="POST">
-					<input type="submit" value="Uøytkownicy" /> Przejdº do strony edytowania i modyfikowania wszystkich uøytkownikÛw
+					<input type="submit" value="U≈ºytkownicy" /> Przejd≈∫ do strony edytowania i modyfikowania wszystkich u≈ºytkownik√≥w
 				</form>
 				<form action="generateReport.php" method="POST">
-                    <input type="submit" value="Raport" /> Przejdº do strony raportu z uøycia gabinetÛw
+                    <input type="submit" value="Raport" /> Przejd≈∫ do strony raportu z u≈ºycia gabinet√≥w
                 </form>
                 <form action="adminAllResources.php" method="POST">
-                    <input type="submit" value="Zasoby bazy danych" /> Przejdº do strony przegl±dania wszystkich zasobÛw w bazie danych
+                    <input type="submit" value="Zasoby bazy danych" /> Przejd≈∫ do strony przeglƒÖdania wszystkich zasob√≥w w bazie danych
                 </form></fieldset>
 				<?
 			}
@@ -69,12 +69,12 @@ include("functions/LoginPowerFunctions.php");
 		}
 	}
 	else{
-		// Wyczyszczenie sesji jeøeli jest niepoprawne logowanie
+		// Wyczyszczenie sesji je≈ºeli jest niepoprawne logowanie
 		$_SESSION = array();
 		session_unset();
 		session_destroy();
 		?>
-        <fieldset><legend><b>Nie jeste∂ zalogowany. Zaloguj siÍ:</b></legend><br>
+        <fieldset><legend><b>Nie jeste≈õ zalogowany. Zaloguj siƒô:</b></legend><br>
         <form action="log.php" method="POST">
 		e-mail: <input type="text" name="email" /><br />
 		haslo: <input type="password" name="haslo" /><br />

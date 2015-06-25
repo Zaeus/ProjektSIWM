@@ -23,7 +23,7 @@
                 $kwerenda_dodania_bud .= "'" . $_POST['dodany_numer'] . "'" . ",";
                 $kwerenda_dodania_bud .= "'" . $_POST['dodany_kod_pocztowy'] . "'";
                 $kwerenda_dodania_bud .= ")";
-                mysql_query($kwerenda_dodania_bud) or die('B³±d zapytania dodania');
+                mysql_query($kwerenda_dodania_bud) or die('BÅ‚ad zapytania dodania');
                 echo "<i>Dodano budynek: " . $_POST['dodane_miasto'] . " " . $_POST['dodana_ulica'] . " " . $_POST['dodany_numer'] . "</i>";
             } elseif (isset($_POST['gab_id_budynku']) && isset($_POST['specjalizacja_gabinetu']) && isset($_POST['data_kontraktu_od']) && (isset($_POST['data_kontraktu_do1']) || isset($_POST['data_kontraktu_do2']))) {
                 $kwerenda_dodania_gab = "INSERT INTO gabinety (ID_budynku,specjalnosc,kontrakt_od,kontrakt_do) VALUES ";
@@ -37,7 +37,7 @@
                     $kwerenda_dodania_gab .= "'" . $_POST['data_kontraktu_do2'] . "'";
                 }
                 $kwerenda_dodania_gab .= ")";
-                mysql_query($kwerenda_dodania_gab) or die('B³±d zapytania dodania');
+                mysql_query($kwerenda_dodania_gab) or die('BÅ‚Ä…d zapytania dodania');
                 echo "<i>Dodano gabinet o specjalizacji: " . $_POST['specjalizacja_gabinetu'] . " w budynku o ID: " . $_POST['gab_id_budynku'] . "</i>";
             } elseif (isset($_POST['nowe_Miasto']) || isset($_POST['nowa_Ulica']) || isset($_POST['nowy_Numer']) || isset($_POST['nowy_Kod_pocztowy'])) {
                 $kwerenda_edycji_bud = "UPDATE budynki SET Miasto='" . $_POST['nowe_Miasto'] . "', ";
@@ -45,19 +45,19 @@
                 $kwerenda_edycji_bud .= "Numer='" . $_POST['nowy_Numer'] . "', ";
                 $kwerenda_edycji_bud .= "Kod_pocztowy='" . $_POST['nowy_Kod_pocztowy'] . "' ";
                 $kwerenda_edycji_bud .= "WHERE ID_budynku='" . $_POST['nowe_ID_budynku'] . "'";
-                mysql_query($kwerenda_edycji_bud) or die('B³±d zapytania edycji');
-                echo "<i>Edytowano rekord budynku o ID: " . $_POST['nowe_ID_budynku'] . " w mie¶cie: " . $_POST['nowe_Miasto'] . "</i>";
+                mysql_query($kwerenda_edycji_bud) or die('BÅ‚Ä…d zapytania edycji');
+                echo "<i>Edytowano rekord budynku o ID: " . $_POST['nowe_ID_budynku'] . " w mieÅ›cie: " . $_POST['nowe_Miasto'] . "</i>";
             } elseif (isset($_POST['nowy_kontrakt_od']) || isset($_POST['nowy_kontrakt_do']) || isset($_POST['nowa_specjalnosc'])) {
                 $kwerenda_edycji_gab = "UPDATE gabinety SET ID_gabinetu='" . $_POST['nowe_ID_gabinetu'] . "', ";
                 $kwerenda_edycji_gab .= "kontrakt_od='" . $_POST['nowy_kontrakt_od'] . "', ";
                 $kwerenda_edycji_gab .= "kontrakt_do='" . $_POST['nowy_kontrakt_do'] . "', ";
                 $kwerenda_edycji_gab .= "specjalnosc='" . $_POST['nowa_specjalnosc'] . "' ";
                 $kwerenda_edycji_gab .= "WHERE ID_gabinetu='" . $_POST['nowe_ID_gabinetu'] . "'";
-                mysql_query($kwerenda_edycji_gab) or die('B³±d zapytania edycji');
-                echo "<i>Edytowano rekord gabinetu o ID: " . $_POST['nowe_ID_gabinetu'] . " o specjalno¶ci: " . $_POST['nowa_specjalnosc'] . "</i>";
+                mysql_query($kwerenda_edycji_gab) or die('BÅ‚ad zapytania edycji');
+                echo "<i>Edytowano rekord gabinetu o ID: " . $_POST['nowe_ID_gabinetu'] . " o specjalnoÅ›ci: " . $_POST['nowa_specjalnosc'] . "</i>";
             } elseif (isset($_POST['usun_bud'])) {
                 $everyOfficesQuery = "SELECT ID_gabinetu FROM gabinety WHERE ID_budynku = '" . $_POST['usun_bud'] . "'";
-                $everyOfficesResult = mysql_query($everyOfficesQuery) or die('B³±d zapytania o gabinety w budynku o podanym ID');
+                $everyOfficesResult = mysql_query($everyOfficesQuery) or die('BÅ‚ad zapytania o gabinety w budynku o podanym ID');
                 if($everyOfficesResult) {
                     $iterator = 0;
                     while ($everyOfficesLine = mysql_fetch_assoc($everyOfficesResult)) {
@@ -77,7 +77,7 @@
                 $buildingRemovalQuery = "DELETE FROM budynki WHERE ID_budynku='" . $_POST['usun_bud'] . "'";
                 mysql_query($buildingRemovalQuery);
                 unset($_POST['usun_bud']);
-                echo "Usuniêcie budynku o ID: " . $_POST['usun_bud'];
+                echo "UsuniÄ™cie budynku o ID: " . $_POST['usun_bud'];
             } elseif (isset($_POST['usun_gab'])) {
                 $everyVisitInOfficeRemovalQuery = "DELETE FROM wizyty WHERE ID_gabinetu='" . $_POST['usun_gab'] . "'";
                 mysql_query($everyVisitInOfficeRemovalQuery);
@@ -85,7 +85,7 @@
                 mysql_query($everyReservationInOfficeRemovalQuery);
                 $officeRemovalQuery = "DELETE FROM gabinety WHERE ID_gabinetu='" . $_POST['usun_gab'] . "'";
                 mysql_query($officeRemovalQuery);
-                echo "Usuniêcie gabinetu o ID " . $_POST['usun_gab'];
+                echo "UsuniÄ™cie gabinetu o ID " . $_POST['usun_gab'];
             }
 
             echo "<br><br>";
@@ -100,7 +100,7 @@
             echo $forma_dodania_bud;
 
             $kwerenda_dodania_gab = "SELECT ID_budynku FROM budynki WHERE 1";
-            $wynik_dodania_gab = mysql_query($kwerenda_dodania_gab) or die('B³±d zapytania');
+            $wynik_dodania_gab = mysql_query($kwerenda_dodania_gab) or die('BÅ‚Ä…d zapytania');
 
             $forma_dodania_gab = "<fieldset><legend>Dodaj gabinet:</legend><form action = \"adminEditResources.php\" method=\"POST\">";
             $forma_dodania_gab .= "Budynek: <select name=\"gab_id_budynku\">";
@@ -113,9 +113,9 @@
             echo $forma_dodania_gab;
             specialization(NULL, $specialization);
             $forma_dodania_gab = "<br>";
-            $forma_dodania_gab .= "Kontrakt od: <input type=\"date\" name=\"data_kontraktu_od\" placeholder=\"Data rozpoczêcia kontraktu\" value=\"" . date_format(new DateTime(), 'Y-m-d') . "\"><br>";
-            $forma_dodania_gab .= "Kontrakt do: <input type=\"date\" name=\"data_kontraktu_do1\" placeholder=\"Data zakoñczenia kontraktu\" value=\"" . date_format(date_modify(new DateTime(), '+7 day'), 'Y-m-d') . "\"><br>";
-            $forma_dodania_gab .= " Lub przez: <input type=\"radio\" name=\"data_kontraktu_do2\" value=\"" . date_format(date_modify(new DateTime(), '+183 day'), 'Y-m-d') . "\">Pó³ roku";
+            $forma_dodania_gab .= "Kontrakt od: <input type=\"date\" name=\"data_kontraktu_od\" placeholder=\"Data rozpoczÄ™cia kontraktu\" value=\"" . date_format(new DateTime(), 'Y-m-d') . "\"><br>";
+            $forma_dodania_gab .= "Kontrakt do: <input type=\"date\" name=\"data_kontraktu_do1\" placeholder=\"Data zakoÅ„czenia kontraktu\" value=\"" . date_format(date_modify(new DateTime(), '+7 day'), 'Y-m-d') . "\"><br>";
+            $forma_dodania_gab .= " Lub przez: <input type=\"radio\" name=\"data_kontraktu_do2\" value=\"" . date_format(date_modify(new DateTime(), '+183 day'), 'Y-m-d') . "\">PÃ³Å‚ roku";
             $forma_dodania_gab .= " lub: <input type=\"radio\" name=\"data_kontraktu_do2\" value=\"" . date_format(date_modify(new DateTime(), '+365 day'), 'Y-m-d') . "\">Rok<br>";
             $forma_dodania_gab .= "<input type=\"submit\" value=\"Dodaj rekord\" >";
             $forma_dodania_gab .= "<input type=\"reset\" value=\"Resetuj dane\" />";
@@ -123,17 +123,17 @@
             echo $forma_dodania_gab;
 
             $kwerenda_bud = "SELECT ID_budynku, Miasto, Ulica, Numer, Kod_pocztowy FROM budynki WHERE 1";
-            $wynik_bud = mysql_query($kwerenda_bud) or die('B³±d zapytania');
+            $wynik_bud = mysql_query($kwerenda_bud) or die('BÅ‚Ä…d zapytania');
             $kwerenda_gab = "SELECT ID_gabinetu, ID_budynku, specjalnosc, kontrakt_od, kontrakt_do FROM gabinety WHERE 1";
-            $wynik_gab = mysql_query($kwerenda_gab) or die('B³±d zapytania');
+            $wynik_gab = mysql_query($kwerenda_gab) or die('BÅ‚ad zapytania');
             ?>
             <fieldset>
-                <legend>Istniej±ce gabinety i budynki:</legend>
+                <legend>IstniejÄ…ce gabinety i budynki:</legend>
                 <div class="CSSTableGenerator" >
                 <table align="center" cellpadding="5" border="1">
                     <tr>
                         <td style="text-align: center">Budynek o ID_Budynku:</td>
-                        <td style="text-align: center">Dane budynków znajduj±cych siê w bazie danych:</td>
+                        <td style="text-align: center">Dane budynkÃ³w znajdujÄ…cych siÄ™ w bazie danych:</td>
                     </tr>
                     <?
                     if ($wynik_bud) {
@@ -153,7 +153,7 @@
                                 echo $form_bud;
 
                                 $form_bud_usun = "<td><form action=\"adminEditResources.php\" method=\"POST\">";
-                                $form_bud_usun .= "<button name=\"usun_bud\" type=\"submit\" value=\"" . $wiersz_bud['ID_budynku'] . "\">Usuñ rekord</button>";
+                                $form_bud_usun .= "<button name=\"usun_bud\" type=\"submit\" value=\"" . $wiersz_bud['ID_budynku'] . "\">UsuÅ„ rekord</button>";
                                 $form_bud_usun .= "</form></td>";
                                 echo $form_bud_usun;
                                 ?>
@@ -165,7 +165,7 @@
                     ?>
                     <tr>
                         <td style="text-align: center">Gabinet o ID_Gabinetu:</td>
-                        <td style="text-align: center">Dane gabinetów znajduj±cych siê w bazie danych:</td>
+                        <td style="text-align: center">Dane gabinetÃ³w znajdujÄ…cych siÄ™ w bazie danych:</td>
                     </tr>
                     <?
                     if ($wynik_gab) {
@@ -175,7 +175,6 @@
                             $form_gab .= "<input type=\"hidden\" name=\"nowe_ID_gabinetu\" value=\"" . $wiersz_gab['ID_gabinetu'] . "\">";
                             $form_gab .= "Budynek: <input type=\"text\" name=\"nowe_ID_budynku\" value=\"" . $wiersz_gab['ID_budynku'] . "\" disabled>";
                             echo $form_gab;
-                            // TODO lista rozwijana specjalno¶ci gabinetu z warto¶ci± domy¶ln± ustawion± na pobrany z bazy
                             specialization($wiersz_gab['specjalnosc'], $specialization);
                             $form_gab = "";
                             $form_gab .= " Kotrakt gabinetu od<input type=\"date\" name=\"nowy_kontrakt_od\" value=\"" . $wiersz_gab['kontrakt_od'] . "\">";
@@ -185,7 +184,7 @@
                             echo $form_gab;
 
                             $form_gab_usun = "<td><form action=\"adminEditResources.php\" method=\"POST\">";
-                            $form_gab_usun .= "<button name=\"usun_gab\" type=\"submit\" value=\"" . $wiersz_gab['ID_gabinetu'] . "\">Usuñ rekord</button>";
+                            $form_gab_usun .= "<button name=\"usun_gab\" type=\"submit\" value=\"" . $wiersz_gab['ID_gabinetu'] . "\">UsuÅ„ rekord</button>";
                             $form_gab_usun .= "</form></td>";
                             echo $form_gab_usun;
                             ?>

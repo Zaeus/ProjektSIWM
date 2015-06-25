@@ -16,7 +16,7 @@ include("functions/DocVisitsFunctions.php");
         allMyVisitsTable($_SESSION['login']);
 	}
 	else{
-		echo "Brak uprawnieÒ do tre∂ci.<br>";
+		echo "Brak uprawnie≈Ñ do tre≈õci.<br>";
 	}
 ?>
 <?

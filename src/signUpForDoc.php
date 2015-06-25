@@ -32,14 +32,14 @@ if(isLoggedPatient($hasloSql, $_SESSION['login'], $_SESSION['haslo'])){
         regVisit($_POST['godzinaRezerwacji'], $_POST['finalRegDate'], $_POST['officeID'], $_POST['docID'], $_SESSION['login']);
     }
     if(isset($_POST['removeVisitOfficeID'], $_POST['removeVisitDate'], $_POST['removeVisitTime'])){
-        // Usuniêcie rezerwacji z systemu
+        // UsuniÄ™cie rezerwacji z systemu
         removeMyVisit($_SESSION['login'], $_POST['removeVisitOfficeID'], $_POST['removeVisitDate'], $_POST['removeVisitTime']);
     }
     echo "</fieldset>";
     viewMyVisit($_SESSION['login']);
 }
 else{
-    echo "Brak uprawnieñ do tre¶ci.<br>";
+    echo "Brak uprawnieÅ„ do treÅ›ci.<br>";
 }
 ?>
 <?

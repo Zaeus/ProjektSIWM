@@ -17,7 +17,7 @@ if(isLoggedAdmin($hasloSql, $_SESSION['login'], $_SESSION['haslo'], $_SESSION['u
     drawAllResourcesTable("zajetosc");
 }
 else{
-    echo "Brak uprawnieÒ do tre∂ci.<br>";
+    echo "Brak uprawnie≈Ñ do tre≈õci.<br>";
 }
 ?>
 <?

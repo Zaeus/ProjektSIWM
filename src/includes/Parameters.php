@@ -1,10 +1,10 @@
 <?php
 
-//Godzina otwarcia gabinetów
+//Godzina otwarcia gabinetÃ³w
 define('OPENING_TIME','7:00');
 $officeParameters['openingTime'] = date_create(OPENING_TIME);
 
-//Godzina zamkniêcia gabinetów
+//Godzina zamkniÄ™cia gabinetÃ³w
 define('CLOSING_TIME','21:00');
 $officeParameters['closingTime'] = date_create(CLOSING_TIME);
 
@@ -12,11 +12,11 @@ $officeParameters['closingTime'] = date_create(CLOSING_TIME);
 define('VISIT_DURATION', '20 minutes');
 $officeParameters['visitDuration'] = VISIT_DURATION;
 
-//Czas przerwy miêdzy dzier¿awami
+//Czas przerwy miÄ™dzy dzierÅ¼awami
 define('OFFICE_BREAK', '20 minutes');
 $officeParameters['officeBreak'] = OFFICE_BREAK;
 
-//Minimalny czas zajêcia gabinetu
+//Minimalny czas zajÄ™cia gabinetu
 define('MIN_WORK_DURATION', '2 hours');
 $officeParameters['minDurationOfWork'] = MIN_WORK_DURATION;
 
@@ -24,18 +24,18 @@ $officeParameters['minDurationOfWork'] = MIN_WORK_DURATION;
 define('MAX_WORK_DURATION', '8 hours');
 $officeParameters['maxDurationOfWork'] = MAX_WORK_DURATION;
 
-//Ile lat w przód wy¶wietlanie
+//Ile lat w przÃ³d wyÅ›wietlanie
 define('MAX_DATE', '2 year');
 $officeParameters['maxDate'] = MAX_DATE;
 
-//Ile dni przed wizyt± mo¿na sie rejestrowaæ
+//Ile dni przed wizytÄ… moÅ¼na sie rejestrowaÄ‡
 define('DAYS_BEFORE_VISIT_MIN', '1 day');
 $officeParameters['daysBeforeVisitMin']= DAYS_BEFORE_VISIT_MIN;
 
 define('DAYS_BEFORE_VISIT_MAX', '8 weeks');
 $officeParameters['daysBeforeVisitMax']= DAYS_BEFORE_VISIT_MAX;
 
-//Dostêpne specjalizacje lekarzy
+//DostÄ™pne specjalizacje lekarzy
 define('USG', 'USG');
 define('GINEKOLOGIA', 'Ginekologia');
 define('INTERNA', 'Interna');

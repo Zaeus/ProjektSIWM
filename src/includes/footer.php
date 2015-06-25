@@ -2,16 +2,16 @@
 <hr />
 <div id="Stopka">
     <form action="index.php" method="post">
-        <input type="submit" value="Powr髏 do strony g丑wnej" />
+        <input type="submit" value="Powr贸t do strony g艂贸wnej" />
     </form>
     <form action="log.php" method="post">
-        <input type="submit" value="Powr髏 do strony logowania" />
+        <input type="submit" value="Powr贸t do strony logowania" />
     </form>
 </div>
 <h5>
-    Projekt bazy danych pacjent體 by: <br>
+    Projekt bazy danych pacjent贸ww by: <br>
     Wojciech Buczek wbuczek@student.agh.edu.pl <br>
-    Jan Bia砶owski jbialkow@student.agh.edu.pl <br>
+    Jan Bia艂kowski jbialkow@student.agh.edu.pl <br>
     @AGH EAIIB
 </h5>
 </body>

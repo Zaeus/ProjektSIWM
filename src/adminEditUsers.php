@@ -27,8 +27,8 @@
                     $editQuery .= "'" . $_POST['nowa_specjalizacja'] . "' ";
                 }
                 $editQuery .= "WHERE id_nazwiska='" . $_POST['id_nazwiska'] . "'";
-                mysql_query($editQuery) or die('B³±d zapytania edycji');
-                echo "<i>Edytowano rekord u¿ytkownika: " . $_POST['nowe_nazwisko'] . " " . $_POST['nowe_imie'] . "</i>";
+                mysql_query($editQuery) or die('BÅ‚Ä…d zapytania edycji');
+                echo "<i>Edytowano rekord uÅ¼ytkownika: " . $_POST['nowe_nazwisko'] . " " . $_POST['nowe_imie'] . "</i>";
             }
             elseif(isset($_POST['dodane_nazwisko']) && isset($_POST['dodane_imie']) && isset($_POST['dodane_haslo']) && isset($_POST['dodany_email']) && isset($_POST['dodane_uprawnienia'])){
                 $addQuery = "INSERT INTO nazwiska (email,haslo,nazwisko,imie,uprawnienia,specjalizacja) VALUES ";
@@ -48,23 +48,23 @@
                     $addQuery .= "'" . $_POST['dodana_specjalizacja'] . "'";
                 }
                 $addQuery .= ")";
-                mysql_query($addQuery) or die('B³±d zapytania dodania');
-                echo "<i>Dodano u¿ytkownika: " . $_POST['dodane_nazwisko'] . " " . $_POST['dodane_imie'] . "</i>";
+                mysql_query($addQuery) or die('BÅ‚Ä…d zapytania dodania');
+                echo "<i>Dodano uÅ¼ytkownika: " . $_POST['dodane_nazwisko'] . " " . $_POST['dodane_imie'] . "</i>";
             }
             elseif(isset($_POST['usun']) && ($_POST['usun'] != 1) && ($_POST['usun'] != 17)){
                 $removeQuery = "DELETE FROM nazwiska WHERE id_nazwiska=" . $_POST['usun'] . ";";
-                mysql_query($removeQuery) or die('B³±d zapytania usuniêcia');
-                echo "<i>Usuniêto u¿ytkownika o ID_Nazwiska: " . $_POST['usun'] . "</i>";
+                mysql_query($removeQuery) or die('BÅ‚Ä…d zapytania usuniÄ™cia');
+                echo "<i>UsuniÄ™to uÅ¼ytkownika o ID_Nazwiska: " . $_POST['usun'] . "</i>";
             }
 
             echo "<br><br>";
-            $addForm = "<br><fieldset><legend>Dodaj u¿ytkownika o podanych parametrach:</legend><form action = \"adminEditUsers.php\" method=\"POST\"> ";
+            $addForm = "<br><fieldset><legend>Dodaj uÅ¼ytkownika o podanych parametrach:</legend><form action = \"adminEditUsers.php\" method=\"POST\"> ";
             $addForm .= "<input type=\"text\" name=\"dodane_nazwisko\" placeholder=\"Nazwisko\"><br>";
-            $addForm .= "<input type=\"text\" name=\"dodane_imie\" placeholder=\"Imiê\"><br>";
-            $addForm .= "<input type=\"password\" name=\"dodane_haslo\" placeholder=\"Has³o\"><br>";
+            $addForm .= "<input type=\"text\" name=\"dodane_imie\" placeholder=\"ImiÄ™\"><br>";
+            $addForm .= "<input type=\"password\" name=\"dodane_haslo\" placeholder=\"HasÅ‚o\"><br>";
             $addForm .= "<input type=\"email\" name=\"dodany_email\" placeholder=\"Email\"><br>";
             echo $addForm;
-            echo "<fieldset><legend>Specjalizacja (pamiêtaj ¿e pacjent/admin nie posiadaj± specjalizacji!):</legend>";
+            echo "<fieldset><legend>Specjalizacja (pamiÄ™taj Å¼e pacjent/admin nie posiadajÄ… specjalizacji!):</legend>";
             specialization(NULL, $specialization,'dodana_specjalizacja','');
             $addForm = "</fieldset><br>";
             $addForm .= "<fieldset><legend>Status:</legend><input type=\"radio\" name=\"dodane_uprawnienia\" id=\"dodane_uprawnienia\" value=\"admin\"/><label for=\"admin\">Administrator</label><br>";
@@ -75,7 +75,7 @@
             $addForm .= "</form><br>";
             echo $addForm;
             $query = "SELECT id_nazwiska, email, haslo, imie, nazwisko, specjalizacja, uprawnienia FROM nazwiska WHERE 1";
-            $result = mysql_query($query) or die('B³±d zapytania');
+            $result = mysql_query($query) or die('BÅ‚Ä…d zapytania');
 
             if($result){
                 ?>
@@ -83,7 +83,7 @@
                 <table align="center" cellpadding="5" border="1">
                     <tr>
                         <td style="text-align: center;">Rekord o ID_Nazwiska:</td>
-                        <td style="text-align: center;">Dane u¿ytkowników znajduj±cych siê w bazie danych:</td>
+                        <td style="text-align: center;">Dane uÅ¼ytkownikÃ³w znajdujÄ…cych siÄ™ w bazie danych:</td>
                     </tr>
                 <?
                 while($line = mysql_fetch_assoc($result)){
@@ -105,7 +105,7 @@
                     echo $editForm;
 
                     $removeForm = "<td><form action=\"adminEditUsers.php\" method=\"POST\">";
-                    $removeForm .= "<button name=\"usun\" type=\"submit\" value=\"" . $line['id_nazwiska'] . "\">Usuñ rekord</button>";
+                    $removeForm .= "<button name=\"usun\" type=\"submit\" value=\"" . $line['id_nazwiska'] . "\">UsuÅ„ rekord</button>";
                     $removeForm .= "</form></td>";
                     echo $removeForm;
                     ?>
@@ -119,11 +119,11 @@
             }
 		}
 		else {
-			echo "Nie posiadasz uprawnieñ admina";
+			echo "Nie posiadasz uprawnieÅ„ admina";
 		}
 	}
 	else {
-		echo "Brak uprawnieñ do tre¶ci.<br>";
+		echo "Brak uprawnieÅ„ do treÅ›ci.<br>";
 	}
 ?>
 <?

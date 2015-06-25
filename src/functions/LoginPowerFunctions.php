@@ -1,5 +1,5 @@
 <?php
-// Funkcja isLoggedAdmin - okre∂la czy osoba zalogowana posiada uprawnienia administratorskie
+// Funkcja isLoggedAdmin - okre≈õla czy osoba zalogowana posiada uprawnienia administratorskie
 function isLoggedAdmin($hasloSql, $userLogin, $userPassword, $userPower)
 {
     if (isset($userLogin) && ($userPassword == $hasloSql)) {
@@ -10,12 +10,12 @@ function isLoggedAdmin($hasloSql, $userLogin, $userPassword, $userPower)
         }
     }
     else{
-        echo "Brak uprawnieÒ do tre∂ci.<br>";
+        echo "Brak uprawnie≈Ñ do tre≈õci.<br>";
         return false;
     }
 }
 
-// Funkcja isLoggedAdmin - okre∂la czy osoba zalogowana posiada uprawnienia doktora
+// Funkcja isLoggedAdmin - okre≈õla czy osoba zalogowana posiada uprawnienia doktora
 function isLoggedDoctor($hasloSql, $userLogin, $userPassword, $userPower){
     if (isset($userLogin) && ($userPassword == $hasloSql)) {
         if ($userPower == "lekarz" || $userPower == "admin") {
@@ -25,18 +25,18 @@ function isLoggedDoctor($hasloSql, $userLogin, $userPassword, $userPower){
         }
     }
     else{
-        echo "Brak uprawnieÒ do tre∂ci.<br>";
+        echo "Brak uprawnie≈Ñ do tre≈õci.<br>";
         return false;
     }
 }
 
-// Funkcja isLoggedAdmin - okre∂la czy osoba zalogowana posiada uprawnienia pacjenta
+// Funkcja isLoggedAdmin - okre≈õla czy osoba zalogowana posiada uprawnienia pacjenta
 function isLoggedPatient($hasloSql, $userLogin, $userPassword){
     if (isset($userLogin) && ($userPassword == $hasloSql)) {
         return true;
     }
     else{
-        echo "Brak uprawnieÒ do tre∂ci.<br>";
+        echo "Brak uprawnie≈Ñ do tre≈õci.<br>";
         return false;
     }
 }

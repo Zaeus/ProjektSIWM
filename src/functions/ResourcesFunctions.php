@@ -1,10 +1,10 @@
 <?php
-// Funkcja drawAllResourcesTable najpierw pobiera wszystki nazwy kolumn z tabeli o podanej nazwie, a nastêpnie w
-// oparciu o nie jest budowana kwerenda pobieraj±ca wszystki dane z tej¿e tabeli
+// Funkcja drawAllResourcesTable najpierw pobiera wszystki nazwy kolumn z tabeli o podanej nazwie, a nastÄ™pnie w
+// oparciu o nie jest budowana kwerenda pobierajÄ…ca wszystki dane z tej tabeli
 function drawAllResourcesTable($tableName)
 {
     $columnNameQuery = "SELECT COLUMN_NAME FROM information_schema.columns WHERE table_name = '" . $tableName . "' ORDER BY ordinal_position";
-    $columnNameResult = mysql_query($columnNameQuery) or die('B³±d zapytania o nazwy kolumn');
+    $columnNameResult = mysql_query($columnNameQuery) or die('BÅ‚Ä…d zapytania o nazwy kolumn');
     $columnCount = mysql_num_rows($columnNameResult);
     $allResourcesQuery = "SELECT ";
     $iterator = 0;
@@ -23,7 +23,7 @@ function drawAllResourcesTable($tableName)
     }
     echo "</tr>";
     $allResourcesQuery .= " WHERE 1";
-    $allResourcesResult = mysql_query($allResourcesQuery) or die('B³±d zapytania o zawarto¶æ tabeli');
+    $allResourcesResult = mysql_query($allResourcesQuery) or die('BÅ‚ad zapytania o zawartoÅ›Ä‡ tabeli');
     while($allResourcesLine = mysql_fetch_assoc($allResourcesResult)) {
         echo "<tr>";
         foreach($allResourcesLine as $key => $value){
@@ -34,7 +34,7 @@ function drawAllResourcesTable($tableName)
     echo "</table></fieldset><br>";
 }
 
-function specialization($specjalizacja, $tabelaSpecjalizacje, $selectName='nowa_specjalnosc', $selectText = 'Specjalno¶æ gabinetu:', $uprawnienia ='lekarz' ){
+function specialization($specjalizacja, $tabelaSpecjalizacje, $selectName='nowa_specjalnosc', $selectText = 'Specjalnoï¿½ï¿½ gabinetu:', $uprawnienia ='lekarz' ){
     $form_gab = " $selectText <select name=\"$selectName\" style=\"width: 200px\"";
     if($uprawnienia=='lekarz') {
         $form_gab.=">";
