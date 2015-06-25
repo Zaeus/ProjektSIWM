@@ -138,7 +138,7 @@ function reservationTable($day, $fromTime, $toTime, $sinceDate, $toDate, $docEma
             $checkForReservationResult = mysql_query($checkForReservationQuery);
             $numberOfLine = mysql_num_rows($checkForReservationResult);
             // Informacja o specjalnosci gabinetu
-            $officeInfoQuery = "SELECT specjalnosc FROM zajetosc INNER JOIN gabinety ON zajetosc.ID_gabinetu = gabinety.ID_gabinetu WHERE  zajetosc.ID_gabinetu='" . $val . "'";
+            $officeInfoQuery = "SELECT specjalnosc FROM gabinety WHERE ID_gabinetu='" . $val . "'";
             $officeInfoResult = mysql_query($officeInfoQuery) or die('Błąd zapytania');
             $officeInfo = mysql_fetch_assoc($officeInfoResult);
             // Sprawdzenie zgodności specjalności lekarza - w przypadku admina ('NULL') wypisujemy wszystkie dostępne dla danej daty
@@ -263,7 +263,7 @@ function reservationQuery($docEmail, $officeID, $day, $sinceDate, $toDate, $from
     echo "<br>Wpisanie danych rezerwacj dla gabinetu o ID: " . $officeID . " do bazy danych w godzinach: <br>" . $fromTime . "-" . $toTime . "<br> od-do: <br>" . $sinceDate . "-" . $toDate . "<br>";
     $diff = strtotime($toDate, 0) - strtotime($sinceDate, 0);
     $weeks =  floor($diff / 604800);
-    $hours = $_POST['pozostalo_kontraktu'] - ($weeks * ($toTime - $fromTime));
+    $hours = $infoLine['pozostalo_kontraktu'] - (($weeks + 1) * ($toTime - $fromTime));
     $contractUpdateQuery = "UPDATE nazwiska SET pozostalo_kontraktu='" . $hours . "' WHERE email='"  . $docEmail . "'";
     mysql_query($contractUpdateQuery) or die('Błąd zapytania uaktualnienia pozostałego czasu kontraktu');
 }

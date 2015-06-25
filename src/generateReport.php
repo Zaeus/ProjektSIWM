@@ -18,7 +18,7 @@ if (isLoggedAdmin($hasloSql, $_SESSION['login'], $_SESSION['haslo'], $_SESSION['
     echo $reportForm;
     if(isset($_POST['lowDate']) && isset($_POST['highDate']) && ($_POST['lowDate'] <= $_POST['highDate'])){
         echo "<br><fieldset><legend>Raport z zajętości gabinetów pomiędzy " . $_POST['lowDate'] . " a " . $_POST['highDate'] . "</legend>";
-        echo "<table align=\"center\" cellpadding=\"5\" border=\"1\">";
+        echo "<div class=\"CSSTableGenerator\"><table align=\"center\" cellpadding=\"5\" border=\"1\">";
         echo "<tr>";
         echo "<td>Dane lekarza</td>";
         echo "<td>Dzień tygodnia</td>";
@@ -44,7 +44,7 @@ if (isLoggedAdmin($hasloSql, $_SESSION['login'], $_SESSION['haslo'], $_SESSION['
             echo "<td>" . $reportLine['ID_gabinetu'] . "</td>";
             echo "</tr>";
         }
-        echo "</table>";
+        echo "</table></div>";
         echo "</fieldset>";
     }
 }

@@ -111,7 +111,7 @@
             }
             $forma_dodania_gab .= "</select><br>";
             echo $forma_dodania_gab;
-            specialization(NULL, $specialization);
+            specialization(NULL, $specialization,'specjalizacja_gabinetu');
             $forma_dodania_gab = "<br>";
             $forma_dodania_gab .= "Kontrakt od: <input type=\"date\" name=\"data_kontraktu_od\" placeholder=\"Data rozpoczęcia kontraktu\" value=\"" . date_format(new DateTime(), 'Y-m-d') . "\"><br>";
             $forma_dodania_gab .= "Kontrakt do: <input type=\"date\" name=\"data_kontraktu_do1\" placeholder=\"Data zakończenia kontraktu\" value=\"" . date_format(date_modify(new DateTime(), '+7 day'), 'Y-m-d') . "\"><br>";
