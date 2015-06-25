@@ -14,7 +14,7 @@ if (isLoggedAdmin($hasloSql, $_SESSION['login'], $_SESSION['haslo'], $_SESSION['
         mysql_query($contractQuery) or die('Błąd zapytania nowej wartości kontraktu');
     }
     echo "<br><fieldset><legend>Tabela lekarzy znajdujących się w bazie danych</legend>";
-    echo "<table align=\"center\" cellpadding=\"5\" border=\"1\">";
+    echo "<div class=\"CSSTableGenerator\"><table align=\"center\" cellpadding=\"5\" border=\"1\">";
     echo "<tr>";
     echo "<td>Imię</td>";
     echo "<td>Nazwisko</td>";
@@ -43,7 +43,7 @@ if (isLoggedAdmin($hasloSql, $_SESSION['login'], $_SESSION['haslo'], $_SESSION['
         echo "</td>";
         echo "</tr>";
     }
-    echo "</table></fieldset>";
+    echo "</table></div></fieldset>";
 }
 ?>
 <?

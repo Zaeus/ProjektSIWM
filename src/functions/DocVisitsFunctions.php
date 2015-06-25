@@ -16,7 +16,7 @@ function allMyVisitsTable($userLogin)
         }
         sort($allDocOffices);
         $allDocOffices = array_unique($allDocOffices);
-        echo "<table align=\"center\" cellpadding=\"5\" border=\"1\">";
+        echo "<div class=\"CSSTableGenerator\"><table align=\"center\" cellpadding=\"5\" border=\"1\">";
         echo "<td>Pacjent</td>";
         echo "<td>Gabinet</td>";
         echo "<td>Miasto</td>";
@@ -65,7 +65,7 @@ function allMyVisitsTable($userLogin)
                 }
             }
         }
-        echo "</table>";
+        echo "</table></div>";
     } else {
         echo "Nie posiadasz żadnych gabinetów";
     }
