@@ -41,7 +41,7 @@ define('GINEKOLOGIA', 'Ginekologia');
 define('INTERNA', 'Interna');
 define('CHIRURGIA', 'Chirurgia');
 
-$specialization[]= USG;
+$specialization[] = USG;
 $specialization[] = GINEKOLOGIA;
 $specialization[] = INTERNA;
 $specialization[] = CHIRURGIA;
