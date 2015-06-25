@@ -31,8 +31,17 @@ if (isLoggedAdmin($hasloSql, $_SESSION['login'], $_SESSION['haslo'], $_SESSION['
         $reportQuery = "SELECT * FROM zajetosc WHERE od_dnia >= '" . $_POST['lowDate'] . "' AND do_dnia <= '" . $_POST['highDate'] . "'";
         $reportResult = mysql_query($reportQuery) or die('Błąd zapytania o dane do raportu');
         while($reportLine = mysql_fetch_assoc($reportResult)){
+            $reportInfoQuery = "SELECT nazwisko, imie FROM nazwiska WHERE id_nazwiska = '" . $reportLine['ID_nazwiska_Lek'] . "'";
+            $reportInfoResult = mysql_query($reportInfoQuery);
+            $reportInfoLine = mysql_fetch_assoc($reportInfoResult);
             echo "<tr>";
-
+            echo "<td> dr " . $reportInfoLine['imie'] . " " . $reportInfoLine['nazwisko'] . "</td>";
+            echo "<td>" . $reportLine['dzien_tyg'] . "</td>";
+            echo "<td>" . $reportLine['od_dnia'] . "</td>";
+            echo "<td>" . $reportLine['do_dnia'] . "</td>";
+            echo "<td>" . $reportLine['od_godziny'] . "</td>";
+            echo "<td>" . $reportLine['do_godziny'] . "</td>";
+            echo "<td>" . $reportLine['ID_gabinetu'] . "</td>";
             echo "</tr>";
         }
         echo "</table>";
