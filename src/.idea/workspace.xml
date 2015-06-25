@@ -25,15 +25,40 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="generateReport.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="generateReport.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/generateReport.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7614782" vertical-offset="0" max-vertical-offset="1020">
-              <caret line="40" column="59" selection-start-line="40" selection-start-column="59" selection-end-line="40" selection-end-column="59" />
+            <state vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="1020">
+              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="97" />
               <folding>
                 <marker date="1435256880312" expanded="true" signature="1446:1557" placeholder="SELECT * FRO..zajetosc..." />
                 <marker date="1435256880312" expanded="true" signature="1749:1845" placeholder="SELECT * FRO..zajetosc..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="log.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/log.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.73348266" vertical-offset="450" max-vertical-offset="1785">
+              <caret line="65" column="82" selection-start-line="65" selection-start-column="82" selection-end-line="65" selection-end-column="82" />
+              <folding>
+                <element signature="n#style#0;n#form#7;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#form#8;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#form#9;n#!!top" expanded="true" />
+                <marker date="1435258546344" expanded="true" signature="529:630" placeholder="SELECT email..nazwiska..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="contract.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/contract.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-7.1923075" vertical-offset="0" max-vertical-offset="391">
+              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -43,7 +68,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/functions/reservationQuery.php" />
         <option value="$PROJECT_DIR$/functions/dateButtons.php" />
         <option value="$PROJECT_DIR$/functions/isLoggedPatient.php" />
         <option value="$PROJECT_DIR$/functions/isLoggedAdmin.php" />
@@ -86,7 +110,6 @@
         <option value="$PROJECT_DIR$/includes/Parameters.php" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/adminEditResources.php" />
-        <option value="$PROJECT_DIR$/log.php" />
         <option value="$PROJECT_DIR$/functions/SignUpForDocFunctions.php" />
         <option value="$PROJECT_DIR$/docOffices.php" />
         <option value="$PROJECT_DIR$/style.css" />
@@ -94,6 +117,8 @@
         <option value="$PROJECT_DIR$/functions/index.php" />
         <option value="$PROJECT_DIR$/images/index.php" />
         <option value="$PROJECT_DIR$/generateReport.php" />
+        <option value="$PROJECT_DIR$/contract.php" />
+        <option value="$PROJECT_DIR$/log.php" />
       </list>
     </option>
   </component>
@@ -511,22 +536,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/log.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-27.461538" vertical-offset="306" max-vertical-offset="1598">
-          <caret line="60" column="103" selection-start-line="60" selection-start-column="103" selection-end-line="60" selection-end-column="103" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="646">
-          <caret line="0" column="1" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/signUpForDoc.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-17.653847" vertical-offset="0" max-vertical-offset="901">
@@ -639,13 +648,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/contract.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.1923075" vertical-offset="0" max-vertical-offset="391">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="646">
+          <caret line="0" column="1" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/generateReport.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7614782" vertical-offset="0" max-vertical-offset="1020">
-          <caret line="40" column="59" selection-start-line="40" selection-start-column="59" selection-end-line="40" selection-end-column="59" />
+        <state vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="1020">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="97" />
           <folding>
             <marker date="1435256880312" expanded="true" signature="1446:1557" placeholder="SELECT * FRO..zajetosc..." />
             <marker date="1435256880312" expanded="true" signature="1749:1845" placeholder="SELECT * FRO..zajetosc..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/log.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.73348266" vertical-offset="450" max-vertical-offset="1785">
+          <caret line="65" column="82" selection-start-line="65" selection-start-column="82" selection-end-line="65" selection-end-column="82" />
+          <folding>
+            <element signature="n#style#0;n#form#7;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#form#8;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#form#9;n#!!top" expanded="true" />
+            <marker date="1435258546344" expanded="true" signature="529:630" placeholder="SELECT email..nazwiska..." />
           </folding>
         </state>
       </provider>

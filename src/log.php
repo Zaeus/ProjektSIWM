@@ -62,6 +62,14 @@ if(isLoggedPatient($hasloSql, $_SESSION['login'], $_SESSION['haslo'])){
 				<label for="użytkownicy">Przejdź do strony edytowania i modyfikowania wszystkich użytkowników</label>
 					<input type="submit" value="Użytkownicy" name="użytkownicy" />
 				</form><br>
+				<form style="text-align: left" action="generateReport.php" method="POST">
+				<label for="raport">Przejdź do strony raportów zajętości gabinetów</label>
+					<input type="submit" value="Raport" name="raport" />
+				</form><br>
+				<form style="text-align: left" action="contract.php" method="POST">
+				<label for="kontrakt">Przejdź do strony kontraktów z lekarzami</label>
+					<input type="submit" value="Kontrakty z lekarzami" name="kontrakt" />
+				</form><br>
                 <form style="text-align: left" action="adminAllResources.php" method="POST">
                 <label for="zasoby">Przejdź do strony przeglądania wszystkich zasobów w bazie danych</label>
                     <input type="submit" value="Zasoby bazy danych" name="zasoby" />
