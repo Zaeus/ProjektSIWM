@@ -55,15 +55,37 @@
                 $kwerenda_edycji_gab .= "WHERE ID_gabinetu='" . $_POST['nowe_ID_gabinetu'] . "'";
                 mysql_query($kwerenda_edycji_gab) or die('B³±d zapytania edycji');
                 echo "<i>Edytowano rekord gabinetu o ID: " . $_POST['nowe_ID_gabinetu'] . " o specjalno¶ci: " . $_POST['nowa_specjalnosc'] . "</i>";
-            } elseif (isset($_POST['usun_bud']) && ($_POST['usun_bud'] != 1)) {
-                // TODO kwerenda usuniêcia budynków
-                // TODO ostrze¿enie przed usuwaniem - zbyt powi±zane dane spowoduj± usuniêcie du¿ej czê¶ci danych
-                // TODO usuniêcie bydunków powinno wywo³aæ kaskadowe usuniêcie wszystkich gabinetów w nim zawartych, oraz wszystkich wizyt i zajêæ gabinetów
-                echo "Usuniêcie budynku";
-            } elseif (isset($_POST['usun_gab']) && ($_POST['usun_gab'] != 1)) {
-                // TODO kwerenda usuniêcia gabinetów
-                // TODO usuniêcie gabinetu powinno usun±æ wszystkie klepniête w nim wizyty i zajêæ gabinetów przez lekarzy
-                echo "Usuniêcie gabinetów";
+            } elseif (isset($_POST['usun_bud'])) {
+                $everyOfficesQuery = "SELECT ID_gabinetu FROM gabinety WHERE ID_budynku = '" . $_POST['usun_bud'] . "'";
+                $everyOfficesResult = mysql_query($everyOfficesQuery) or die('B³±d zapytania o gabinety w budynku o podanym ID');
+                if($everyOfficesResult) {
+                    $iterator = 0;
+                    while ($everyOfficesLine = mysql_fetch_assoc($everyOfficesResult)) {
+                        $everyOffices[$iterator] = $everyOfficesLine['ID_gabinetu'];
+                        $iterator++;
+                    }
+                }
+                sort($everyOffices);
+                foreach($everyOffices as $key => $value){
+                    $everyVisitInOfficeRemovalQuery = "DELETE FROM wizyty WHERE ID_gabinetu='" . $value . "'";
+                    mysql_query($everyVisitInOfficeRemovalQuery);
+                    $everyReservationInOfficeRemovalQuery = "DELETE FROM zajetosc WHERE ID_gabinetu='" . $value . "'";
+                    mysql_query($everyReservationInOfficeRemovalQuery);
+                    $everyOfficeInBuildingRemovalQuery = "DELETE FROM gabinety WHERE ID_gabinetu='" . $value . "'";
+                    mysql_query($everyOfficeInBuildingRemovalQuery);
+                }
+                $buildingRemovalQuery = "DELETE FROM budynki WHERE ID_budynku='" . $_POST['usun_bud'] . "'";
+                mysql_query($buildingRemovalQuery);
+                unset($_POST['usun_bud']);
+                echo "Usuniêcie budynku o ID: " . $_POST['usun_bud'];
+            } elseif (isset($_POST['usun_gab'])) {
+                $everyVisitInOfficeRemovalQuery = "DELETE FROM wizyty WHERE ID_gabinetu='" . $_POST['usun_gab'] . "'";
+                mysql_query($everyVisitInOfficeRemovalQuery);
+                $everyReservationInOfficeRemovalQuery = "DELETE FROM zajetosc WHERE ID_gabinetu='" . $_POST['usun_gab'] . "'";
+                mysql_query($everyReservationInOfficeRemovalQuery);
+                $officeRemovalQuery = "DELETE FROM gabinety WHERE ID_gabinetu='" . $_POST['usun_gab'] . "'";
+                mysql_query($officeRemovalQuery);
+                echo "Usuniêcie gabinetu o ID " . $_POST['usun_gab'];
             }
 
             echo "<br><br>";

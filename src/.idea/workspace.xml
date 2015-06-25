@@ -25,74 +25,65 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="SignUpForDocFunctions.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/functions/SignUpForDocFunctions.php">
+      <file leaf-file-name="log.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/log.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="3714" max-vertical-offset="5219">
-              <caret line="256" column="33" selection-start-line="250" selection-start-column="16" selection-end-line="256" selection-end-column="33" />
+            <state vertical-scroll-proportion="-18.961538" vertical-offset="51" max-vertical-offset="1547">
+              <caret line="32" column="26" selection-start-line="32" selection-start-column="26" selection-end-line="32" selection-end-column="26" />
               <folding>
-                <marker date="1435228650215" expanded="true" signature="313:494" placeholder="SELECT zajet..gabinety..." />
-                <marker date="1435228650215" expanded="true" signature="1619:1717" placeholder="SELECT imie,..nazwiska..." />
-                <marker date="1435228650215" expanded="true" signature="3559:3740" placeholder="SELECT zajet..gabinety..." />
-                <marker date="1435228650215" expanded="true" signature="4809:4907" placeholder="SELECT imie,..nazwiska..." />
-                <marker date="1435228650215" expanded="true" signature="5504:5641" placeholder="SELECT godzi..wizyty..." />
-                <marker date="1435228650215" expanded="true" signature="9713:9781" placeholder="SELECT id_na..nazwiska..." />
-                <marker date="1435228650215" expanded="true" signature="10048:10131" placeholder="INSERT INTO ..." />
-                <marker date="1435228650215" expanded="true" signature="11082:11150" placeholder="SELECT id_na..nazwiska..." />
-                <marker date="1435228650215" expanded="true" signature="11332:11414" placeholder="SELECT * FRO..wizyty..." />
-                <marker date="1435228650215" expanded="true" signature="12186:12279" placeholder="SELECT imie,..nazwiska..." />
-                <marker date="1435228650215" expanded="true" signature="12482:12602" placeholder="SELECT budyn..gabinety..." />
-                <marker date="1435228650215" expanded="true" signature="14862:14930" placeholder="SELECT id_na..nazwiska..." />
-                <marker date="1435228650215" expanded="true" signature="15141:15165" placeholder="DELETE FROM ..." />
+                <marker date="1435247677446" expanded="true" signature="537:638" placeholder="SELECT email..nazwiska..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="docMyVisits.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/docMyVisits.php">
+      <file leaf-file-name="adminEditResources.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/adminEditResources.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DocVisitsFunctions.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/functions/DocVisitsFunctions.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-34.0" vertical-offset="102" max-vertical-offset="1615">
-              <caret line="58" column="41" selection-start-line="58" selection-start-column="41" selection-end-line="58" selection-end-column="41" />
+            <state vertical-scroll-proportion="0.74886364" vertical-offset="820" max-vertical-offset="3536">
+              <caret line="87" column="46" selection-start-line="87" selection-start-column="46" selection-end-line="87" selection-end-column="46" />
               <folding>
-                <marker date="1435229901435" expanded="true" signature="375:543" placeholder="SELECT zajet..nazwiska..." />
-                <marker date="1435229901435" expanded="true" signature="1408:1503" placeholder="SELECT * FRO..wizyty..." />
-                <marker date="1435229901435" expanded="true" signature="1808:1906" placeholder="SELECT budyn..gabinety..." />
-                <marker date="1435229901435" expanded="true" signature="2253:2344" placeholder="SELECT nazwi..nazwiska..." />
-                <marker date="1435229901435" expanded="true" signature="4754:4818" placeholder="SELECT id_na..nazwiska..." />
-                <marker date="1435229901435" expanded="true" signature="5029:5053" placeholder="DELETE FROM ..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Parameters.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/includes/Parameters.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-25.5" vertical-offset="0" max-vertical-offset="901">
-              <caret line="39" column="37" selection-start-line="39" selection-start-column="37" selection-end-line="39" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/index.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9347079" vertical-offset="0" max-vertical-offset="646">
-              <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-              <folding>
-                <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
+                <marker date="1435250661868" expanded="true" signature="731:791" placeholder="INSERT INTO ..." />
+                <marker date="1435250661868" expanded="true" signature="1706:1782" placeholder="INSERT INTO ..." />
+                <marker date="1435250661868" expanded="true" signature="2851:2909" placeholder="UPDATE budyn..." />
+                <marker date="1435250661868" expanded="true" signature="3661:3730" placeholder="UPDATE gabin..." />
+                <marker date="1435250661868" expanded="true" signature="4434:4514" placeholder="SELECT ID_ga..gabinety..." />
+                <marker date="1435250661868" expanded="true" signature="5125:5162" placeholder="DELETE FROM ..." />
+                <marker date="1435250661868" expanded="true" signature="5125:5163" placeholder="DELETE FROM ..." />
+                <marker date="1435250661868" expanded="true" signature="5125:5178" placeholder="DELETE FROM ..." />
+                <marker date="1435250661868" expanded="true" signature="5308:5363" placeholder="DELETE FROM ..." />
+                <marker date="1435250661868" expanded="true" signature="5496:5551" placeholder="DELETE FROM ..." />
+                <marker date="1435250661868" expanded="true" signature="5682:5747" placeholder="DELETE FROM ..." />
+                <marker date="1435250661868" expanded="true" signature="6017:6082" placeholder="DELETE FROM ..." />
+                <marker date="1435250661868" expanded="true" signature="6204:6271" placeholder="DELETE FROM ..." />
+                <marker date="1435250661868" expanded="true" signature="6381:6448" placeholder="DELETE FROM ..." />
+                <marker date="1435250661868" expanded="true" signature="6658:7084" placeholder="..." />
+                <marker date="1435250661868" expanded="true" signature="6747:7084" placeholder="..." />
+                <marker date="1435250661868" expanded="true" signature="7559:7597" placeholder="SELECT ID_bu..budynki..." />
+                <marker date="1435250661868" expanded="true" signature="7738:8116" placeholder="..." />
+                <marker date="1435250661868" expanded="true" signature="7827:8116" placeholder="..." />
+                <marker date="1435250661868" expanded="true" signature="7906:8116" placeholder="..." />
+                <marker date="1435250661868" expanded="true" signature="9494:9568" placeholder="SELECT ID_bu..budynki..." />
+                <marker date="1435250661868" expanded="true" signature="9678:9769" placeholder="SELECT ID_ga..gabinety..." />
+                <marker date="1435250661868" expanded="true" signature="9886:10553" placeholder="..." />
+                <marker date="1435250661868" expanded="true" signature="10016:10553" placeholder="..." />
+                <marker date="1435250661868" expanded="true" signature="10041:10256" placeholder="..." />
+                <marker date="1435250661868" expanded="true" signature="10078:10096" placeholder="..." />
+                <marker date="1435250661868" expanded="true" signature="10160:10178" placeholder="..." />
+                <marker date="1435250661868" expanded="true" signature="10459:10553" placeholder="..." />
+                <marker date="1435250661868" expanded="true" signature="10636:10653" placeholder="..." />
+                <marker date="1435250661868" expanded="true" signature="10655:10835" placeholder="..." />
+                <marker date="1435250661868" expanded="true" signature="10713:10835" placeholder="..." />
+                <marker date="1435250661868" expanded="true" signature="11716:11892" placeholder="..." />
+                <marker date="1435250661868" expanded="true" signature="11772:11892" placeholder="..." />
+                <marker date="1435250661868" expanded="true" signature="12246:12463" placeholder="..." />
+                <marker date="1435250661868" expanded="true" signature="12283:12301" placeholder="..." />
+                <marker date="1435250661868" expanded="true" signature="12366:12384" placeholder="..." />
+                <marker date="1435250661868" expanded="true" signature="12737:12754" placeholder="..." />
+                <marker date="1435250661868" expanded="true" signature="12756:12933" placeholder="..." />
+                <marker date="1435250661868" expanded="true" signature="12814:12933" placeholder="..." />
+                <marker date="1435250661868" expanded="true" signature="13952:14124" placeholder="..." />
+                <marker date="1435250661868" expanded="true" signature="14008:14124" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -134,7 +125,6 @@
         <option value="$PROJECT_DIR$/includes/header.php" />
         <option value="$PROJECT_DIR$/includes/footer.php" />
         <option value="$PROJECT_DIR$/editMyVisits.php" />
-        <option value="$PROJECT_DIR$/adminEditResources.php" />
         <option value="$PROJECT_DIR$/includes/index.php" />
         <option value="$PROJECT_DIR$/functions/index.php" />
         <option value="$PROJECT_DIR$/images/index.php" />
@@ -146,7 +136,6 @@
         <option value="$PROJECT_DIR$/docMyVisits.php" />
         <option value="$PROJECT_DIR$/editMyAccount.php" />
         <option value="$PROJECT_DIR$/reg.php" />
-        <option value="$PROJECT_DIR$/log.php" />
         <option value="$PROJECT_DIR$/docOffices.php" />
         <option value="$PROJECT_DIR$/functions/GenerateDate.php" />
         <option value="$PROJECT_DIR$/signUpForDoc.php" />
@@ -154,6 +143,8 @@
         <option value="$PROJECT_DIR$/functions/DocVisitsFunctions.php" />
         <option value="$PROJECT_DIR$/includes/Parameters.php" />
         <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/log.php" />
+        <option value="$PROJECT_DIR$/adminEditResources.php" />
       </list>
     </option>
   </component>
@@ -365,10 +356,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1932" height="1056" extended-state="1" />
+    <frame x="-8" y="-8" width="1932" height="1056" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3284055" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3284055" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3284055" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -419,19 +410,19 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="3714" max-vertical-offset="5219">
           <caret line="256" column="33" selection-start-line="250" selection-start-column="16" selection-end-line="256" selection-end-column="33" />
           <folding>
-            <marker date="1435228650215" expanded="true" signature="313:494" placeholder="SELECT zajet..gabinety..." />
-            <marker date="1435228650215" expanded="true" signature="1619:1717" placeholder="SELECT imie,..nazwiska..." />
-            <marker date="1435228650215" expanded="true" signature="3559:3740" placeholder="SELECT zajet..gabinety..." />
-            <marker date="1435228650215" expanded="true" signature="4809:4907" placeholder="SELECT imie,..nazwiska..." />
-            <marker date="1435228650215" expanded="true" signature="5504:5641" placeholder="SELECT godzi..wizyty..." />
-            <marker date="1435228650215" expanded="true" signature="9713:9781" placeholder="SELECT id_na..nazwiska..." />
-            <marker date="1435228650215" expanded="true" signature="10048:10131" placeholder="INSERT INTO ..." />
-            <marker date="1435228650215" expanded="true" signature="11082:11150" placeholder="SELECT id_na..nazwiska..." />
-            <marker date="1435228650215" expanded="true" signature="11332:11414" placeholder="SELECT * FRO..wizyty..." />
-            <marker date="1435228650215" expanded="true" signature="12186:12279" placeholder="SELECT imie,..nazwiska..." />
-            <marker date="1435228650215" expanded="true" signature="12482:12602" placeholder="SELECT budyn..gabinety..." />
-            <marker date="1435228650215" expanded="true" signature="14862:14930" placeholder="SELECT id_na..nazwiska..." />
-            <marker date="1435228650215" expanded="true" signature="15141:15165" placeholder="DELETE FROM ..." />
+            <marker date="1435228650215" expanded="true" signature="-1:-1" placeholder="SELECT zajet..gabinety..." />
+            <marker date="1435228650215" expanded="true" signature="-1:-1" placeholder="SELECT imie,..nazwiska..." />
+            <marker date="1435228650215" expanded="true" signature="-1:-1" placeholder="SELECT zajet..gabinety..." />
+            <marker date="1435228650215" expanded="true" signature="-1:-1" placeholder="SELECT imie,..nazwiska..." />
+            <marker date="1435228650215" expanded="true" signature="-1:-1" placeholder="SELECT godzi..wizyty..." />
+            <marker date="1435228650215" expanded="true" signature="-1:-1" placeholder="SELECT id_na..nazwiska..." />
+            <marker date="1435228650215" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1435228650215" expanded="true" signature="-1:-1" placeholder="SELECT id_na..nazwiska..." />
+            <marker date="1435228650215" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..wizyty..." />
+            <marker date="1435228650215" expanded="true" signature="-1:-1" placeholder="SELECT imie,..nazwiska..." />
+            <marker date="1435228650215" expanded="true" signature="-1:-1" placeholder="SELECT budyn..gabinety..." />
+            <marker date="1435228650215" expanded="true" signature="-1:-1" placeholder="SELECT id_na..nazwiska..." />
+            <marker date="1435228650215" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
           </folding>
         </state>
       </provider>
@@ -449,12 +440,12 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1615">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1435229901435" expanded="true" signature="375:543" placeholder="SELECT zajet..nazwiska..." />
-            <marker date="1435229901435" expanded="true" signature="1408:1503" placeholder="SELECT * FRO..wizyty..." />
-            <marker date="1435229901435" expanded="true" signature="1808:1906" placeholder="SELECT budyn..gabinety..." />
-            <marker date="1435229901435" expanded="true" signature="2253:2344" placeholder="SELECT nazwi..nazwiska..." />
-            <marker date="1435229901435" expanded="true" signature="4754:4818" placeholder="SELECT id_na..nazwiska..." />
-            <marker date="1435229901435" expanded="true" signature="5029:5053" placeholder="DELETE FROM ..." />
+            <marker date="1435229901435" expanded="true" signature="-1:-1" placeholder="SELECT zajet..nazwiska..." />
+            <marker date="1435229901435" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..wizyty..." />
+            <marker date="1435229901435" expanded="true" signature="-1:-1" placeholder="SELECT budyn..gabinety..." />
+            <marker date="1435229901435" expanded="true" signature="-1:-1" placeholder="SELECT nazwi..nazwiska..." />
+            <marker date="1435229901435" expanded="true" signature="-1:-1" placeholder="SELECT id_na..nazwiska..." />
+            <marker date="1435229901435" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
           </folding>
         </state>
       </provider>
@@ -464,19 +455,19 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5219">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1435228650215" expanded="true" signature="313:494" placeholder="SELECT zajet..gabinety..." />
-            <marker date="1435228650215" expanded="true" signature="1619:1717" placeholder="SELECT imie,..nazwiska..." />
-            <marker date="1435228650215" expanded="true" signature="3559:3740" placeholder="SELECT zajet..gabinety..." />
-            <marker date="1435228650215" expanded="true" signature="4809:4907" placeholder="SELECT imie,..nazwiska..." />
-            <marker date="1435228650215" expanded="true" signature="5504:5641" placeholder="SELECT godzi..wizyty..." />
-            <marker date="1435228650215" expanded="true" signature="9713:9781" placeholder="SELECT id_na..nazwiska..." />
-            <marker date="1435228650215" expanded="true" signature="10048:10131" placeholder="INSERT INTO ..." />
-            <marker date="1435228650215" expanded="true" signature="11082:11150" placeholder="SELECT id_na..nazwiska..." />
-            <marker date="1435228650215" expanded="true" signature="11332:11414" placeholder="SELECT * FRO..wizyty..." />
-            <marker date="1435228650215" expanded="true" signature="12186:12279" placeholder="SELECT imie,..nazwiska..." />
-            <marker date="1435228650215" expanded="true" signature="12482:12602" placeholder="SELECT budyn..gabinety..." />
-            <marker date="1435228650215" expanded="true" signature="14862:14930" placeholder="SELECT id_na..nazwiska..." />
-            <marker date="1435228650215" expanded="true" signature="15141:15165" placeholder="DELETE FROM ..." />
+            <marker date="1435228650215" expanded="true" signature="-1:-1" placeholder="SELECT zajet..gabinety..." />
+            <marker date="1435228650215" expanded="true" signature="-1:-1" placeholder="SELECT imie,..nazwiska..." />
+            <marker date="1435228650215" expanded="true" signature="-1:-1" placeholder="SELECT zajet..gabinety..." />
+            <marker date="1435228650215" expanded="true" signature="-1:-1" placeholder="SELECT imie,..nazwiska..." />
+            <marker date="1435228650215" expanded="true" signature="-1:-1" placeholder="SELECT godzi..wizyty..." />
+            <marker date="1435228650215" expanded="true" signature="-1:-1" placeholder="SELECT id_na..nazwiska..." />
+            <marker date="1435228650215" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1435228650215" expanded="true" signature="-1:-1" placeholder="SELECT id_na..nazwiska..." />
+            <marker date="1435228650215" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..wizyty..." />
+            <marker date="1435228650215" expanded="true" signature="-1:-1" placeholder="SELECT imie,..nazwiska..." />
+            <marker date="1435228650215" expanded="true" signature="-1:-1" placeholder="SELECT budyn..gabinety..." />
+            <marker date="1435228650215" expanded="true" signature="-1:-1" placeholder="SELECT id_na..nazwiska..." />
+            <marker date="1435228650215" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
           </folding>
         </state>
       </provider>
@@ -485,6 +476,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="442" max-vertical-offset="901">
           <caret line="26" column="134" selection-start-line="26" selection-start-column="134" selection-end-line="26" selection-end-column="134" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -499,6 +491,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="901">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -507,19 +500,19 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3927">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1435228650215" expanded="true" signature="313:494" placeholder="SELECT zajet..gabinety..." />
-            <marker date="1435228650215" expanded="true" signature="1619:1717" placeholder="SELECT imie,..nazwiska..." />
-            <marker date="1435228650215" expanded="true" signature="3559:3740" placeholder="SELECT zajet..gabinety..." />
-            <marker date="1435228650215" expanded="true" signature="4809:4907" placeholder="SELECT imie,..nazwiska..." />
-            <marker date="1435228650215" expanded="true" signature="5504:5641" placeholder="SELECT godzi..wizyty..." />
-            <marker date="1435228650215" expanded="true" signature="9713:9781" placeholder="SELECT id_na..nazwiska..." />
-            <marker date="1435228650215" expanded="true" signature="10048:10131" placeholder="INSERT INTO ..." />
-            <marker date="1435228650215" expanded="true" signature="11082:11150" placeholder="SELECT id_na..nazwiska..." />
-            <marker date="1435228650215" expanded="true" signature="11332:11414" placeholder="SELECT * FRO..wizyty..." />
-            <marker date="1435228650215" expanded="true" signature="12186:12279" placeholder="SELECT imie,..nazwiska..." />
-            <marker date="1435228650215" expanded="true" signature="12482:12602" placeholder="SELECT budyn..gabinety..." />
-            <marker date="1435228650215" expanded="true" signature="14862:14930" placeholder="SELECT id_na..nazwiska..." />
-            <marker date="1435228650215" expanded="true" signature="15141:15165" placeholder="DELETE FROM ..." />
+            <marker date="1435228650215" expanded="true" signature="-1:-1" placeholder="SELECT zajet..gabinety..." />
+            <marker date="1435228650215" expanded="true" signature="-1:-1" placeholder="SELECT imie,..nazwiska..." />
+            <marker date="1435228650215" expanded="true" signature="-1:-1" placeholder="SELECT zajet..gabinety..." />
+            <marker date="1435228650215" expanded="true" signature="-1:-1" placeholder="SELECT imie,..nazwiska..." />
+            <marker date="1435228650215" expanded="true" signature="-1:-1" placeholder="SELECT godzi..wizyty..." />
+            <marker date="1435228650215" expanded="true" signature="-1:-1" placeholder="SELECT id_na..nazwiska..." />
+            <marker date="1435228650215" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1435228650215" expanded="true" signature="-1:-1" placeholder="SELECT id_na..nazwiska..." />
+            <marker date="1435228650215" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..wizyty..." />
+            <marker date="1435228650215" expanded="true" signature="-1:-1" placeholder="SELECT imie,..nazwiska..." />
+            <marker date="1435228650215" expanded="true" signature="-1:-1" placeholder="SELECT budyn..gabinety..." />
+            <marker date="1435228650215" expanded="true" signature="-1:-1" placeholder="SELECT id_na..nazwiska..." />
+            <marker date="1435228650215" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
           </folding>
         </state>
       </provider>
@@ -608,31 +601,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/signUpForDoc.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="459" max-vertical-offset="901">
-          <caret line="27" column="50" selection-start-line="27" selection-start-column="50" selection-end-line="27" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/functions/SignUpForDocFunctions.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="3714" max-vertical-offset="5219">
           <caret line="256" column="33" selection-start-line="250" selection-start-column="16" selection-end-line="256" selection-end-column="33" />
           <folding>
-            <marker date="1435228650215" expanded="true" signature="313:494" placeholder="SELECT zajet..gabinety..." />
-            <marker date="1435228650215" expanded="true" signature="1619:1717" placeholder="SELECT imie,..nazwiska..." />
-            <marker date="1435228650215" expanded="true" signature="3559:3740" placeholder="SELECT zajet..gabinety..." />
-            <marker date="1435228650215" expanded="true" signature="4809:4907" placeholder="SELECT imie,..nazwiska..." />
-            <marker date="1435228650215" expanded="true" signature="5504:5641" placeholder="SELECT godzi..wizyty..." />
-            <marker date="1435228650215" expanded="true" signature="9713:9781" placeholder="SELECT id_na..nazwiska..." />
-            <marker date="1435228650215" expanded="true" signature="10048:10131" placeholder="INSERT INTO ..." />
-            <marker date="1435228650215" expanded="true" signature="11082:11150" placeholder="SELECT id_na..nazwiska..." />
-            <marker date="1435228650215" expanded="true" signature="11332:11414" placeholder="SELECT * FRO..wizyty..." />
-            <marker date="1435228650215" expanded="true" signature="12186:12279" placeholder="SELECT imie,..nazwiska..." />
-            <marker date="1435228650215" expanded="true" signature="12482:12602" placeholder="SELECT budyn..gabinety..." />
-            <marker date="1435228650215" expanded="true" signature="14862:14930" placeholder="SELECT id_na..nazwiska..." />
-            <marker date="1435228650215" expanded="true" signature="15141:15165" placeholder="DELETE FROM ..." />
+            <marker date="1435228650215" expanded="true" signature="-1:-1" placeholder="SELECT zajet..gabinety..." />
+            <marker date="1435228650215" expanded="true" signature="-1:-1" placeholder="SELECT imie,..nazwiska..." />
+            <marker date="1435228650215" expanded="true" signature="-1:-1" placeholder="SELECT zajet..gabinety..." />
+            <marker date="1435228650215" expanded="true" signature="-1:-1" placeholder="SELECT imie,..nazwiska..." />
+            <marker date="1435228650215" expanded="true" signature="-1:-1" placeholder="SELECT godzi..wizyty..." />
+            <marker date="1435228650215" expanded="true" signature="-1:-1" placeholder="SELECT id_na..nazwiska..." />
+            <marker date="1435228650215" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1435228650215" expanded="true" signature="-1:-1" placeholder="SELECT id_na..nazwiska..." />
+            <marker date="1435228650215" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..wizyty..." />
+            <marker date="1435228650215" expanded="true" signature="-1:-1" placeholder="SELECT imie,..nazwiska..." />
+            <marker date="1435228650215" expanded="true" signature="-1:-1" placeholder="SELECT budyn..gabinety..." />
+            <marker date="1435228650215" expanded="true" signature="-1:-1" placeholder="SELECT id_na..nazwiska..." />
+            <marker date="1435228650215" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
           </folding>
         </state>
       </provider>
@@ -650,12 +636,12 @@
         <state vertical-scroll-proportion="-34.0" vertical-offset="102" max-vertical-offset="1615">
           <caret line="58" column="41" selection-start-line="58" selection-start-column="41" selection-end-line="58" selection-end-column="41" />
           <folding>
-            <marker date="1435229901435" expanded="true" signature="375:543" placeholder="SELECT zajet..nazwiska..." />
-            <marker date="1435229901435" expanded="true" signature="1408:1503" placeholder="SELECT * FRO..wizyty..." />
-            <marker date="1435229901435" expanded="true" signature="1808:1906" placeholder="SELECT budyn..gabinety..." />
-            <marker date="1435229901435" expanded="true" signature="2253:2344" placeholder="SELECT nazwi..nazwiska..." />
-            <marker date="1435229901435" expanded="true" signature="4754:4818" placeholder="SELECT id_na..nazwiska..." />
-            <marker date="1435229901435" expanded="true" signature="5029:5053" placeholder="DELETE FROM ..." />
+            <marker date="1435229901435" expanded="true" signature="-1:-1" placeholder="SELECT zajet..nazwiska..." />
+            <marker date="1435229901435" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..wizyty..." />
+            <marker date="1435229901435" expanded="true" signature="-1:-1" placeholder="SELECT budyn..gabinety..." />
+            <marker date="1435229901435" expanded="true" signature="-1:-1" placeholder="SELECT nazwi..nazwiska..." />
+            <marker date="1435229901435" expanded="true" signature="-1:-1" placeholder="SELECT id_na..nazwiska..." />
+            <marker date="1435229901435" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
           </folding>
         </state>
       </provider>
@@ -670,10 +656,96 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9347079" vertical-offset="0" max-vertical-offset="646">
+        <state vertical-scroll-proportion="0.60918254" vertical-offset="0" max-vertical-offset="893">
           <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding>
             <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/log.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-18.961538" vertical-offset="51" max-vertical-offset="1547">
+          <caret line="32" column="26" selection-start-line="32" selection-start-column="26" selection-end-line="32" selection-end-column="26" />
+          <folding>
+            <marker date="1435247677446" expanded="true" signature="537:638" placeholder="SELECT email..nazwiska..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/signUpForDoc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.51399773" vertical-offset="0" max-vertical-offset="901">
+          <caret line="27" column="50" selection-start-line="27" selection-start-column="50" selection-end-line="27" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/functions/ResourcesFunctions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.05711086" vertical-offset="51" max-vertical-offset="1020">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1435243711491" expanded="true" signature="-1:-1" placeholder="SELECT COLUM..columns..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adminAllResources.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="919">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adminEditResources.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.74886364" vertical-offset="820" max-vertical-offset="3536">
+          <caret line="87" column="46" selection-start-line="87" selection-start-column="46" selection-end-line="87" selection-end-column="46" />
+          <folding>
+            <marker date="1435250661868" expanded="true" signature="731:791" placeholder="INSERT INTO ..." />
+            <marker date="1435250661868" expanded="true" signature="1706:1782" placeholder="INSERT INTO ..." />
+            <marker date="1435250661868" expanded="true" signature="2851:2909" placeholder="UPDATE budyn..." />
+            <marker date="1435250661868" expanded="true" signature="3661:3730" placeholder="UPDATE gabin..." />
+            <marker date="1435250661868" expanded="true" signature="4434:4514" placeholder="SELECT ID_ga..gabinety..." />
+            <marker date="1435250661868" expanded="true" signature="5125:5162" placeholder="DELETE FROM ..." />
+            <marker date="1435250661868" expanded="true" signature="5125:5163" placeholder="DELETE FROM ..." />
+            <marker date="1435250661868" expanded="true" signature="5125:5178" placeholder="DELETE FROM ..." />
+            <marker date="1435250661868" expanded="true" signature="5308:5363" placeholder="DELETE FROM ..." />
+            <marker date="1435250661868" expanded="true" signature="5496:5551" placeholder="DELETE FROM ..." />
+            <marker date="1435250661868" expanded="true" signature="5682:5747" placeholder="DELETE FROM ..." />
+            <marker date="1435250661868" expanded="true" signature="6017:6082" placeholder="DELETE FROM ..." />
+            <marker date="1435250661868" expanded="true" signature="6204:6271" placeholder="DELETE FROM ..." />
+            <marker date="1435250661868" expanded="true" signature="6381:6448" placeholder="DELETE FROM ..." />
+            <marker date="1435250661868" expanded="true" signature="6658:7084" placeholder="..." />
+            <marker date="1435250661868" expanded="true" signature="6747:7084" placeholder="..." />
+            <marker date="1435250661868" expanded="true" signature="7559:7597" placeholder="SELECT ID_bu..budynki..." />
+            <marker date="1435250661868" expanded="true" signature="7738:8116" placeholder="..." />
+            <marker date="1435250661868" expanded="true" signature="7827:8116" placeholder="..." />
+            <marker date="1435250661868" expanded="true" signature="7906:8116" placeholder="..." />
+            <marker date="1435250661868" expanded="true" signature="9494:9568" placeholder="SELECT ID_bu..budynki..." />
+            <marker date="1435250661868" expanded="true" signature="9678:9769" placeholder="SELECT ID_ga..gabinety..." />
+            <marker date="1435250661868" expanded="true" signature="9886:10553" placeholder="..." />
+            <marker date="1435250661868" expanded="true" signature="10016:10553" placeholder="..." />
+            <marker date="1435250661868" expanded="true" signature="10041:10256" placeholder="..." />
+            <marker date="1435250661868" expanded="true" signature="10078:10096" placeholder="..." />
+            <marker date="1435250661868" expanded="true" signature="10160:10178" placeholder="..." />
+            <marker date="1435250661868" expanded="true" signature="10459:10553" placeholder="..." />
+            <marker date="1435250661868" expanded="true" signature="10636:10653" placeholder="..." />
+            <marker date="1435250661868" expanded="true" signature="10655:10835" placeholder="..." />
+            <marker date="1435250661868" expanded="true" signature="10713:10835" placeholder="..." />
+            <marker date="1435250661868" expanded="true" signature="11716:11892" placeholder="..." />
+            <marker date="1435250661868" expanded="true" signature="11772:11892" placeholder="..." />
+            <marker date="1435250661868" expanded="true" signature="12246:12463" placeholder="..." />
+            <marker date="1435250661868" expanded="true" signature="12283:12301" placeholder="..." />
+            <marker date="1435250661868" expanded="true" signature="12366:12384" placeholder="..." />
+            <marker date="1435250661868" expanded="true" signature="12737:12754" placeholder="..." />
+            <marker date="1435250661868" expanded="true" signature="12756:12933" placeholder="..." />
+            <marker date="1435250661868" expanded="true" signature="12814:12933" placeholder="..." />
+            <marker date="1435250661868" expanded="true" signature="13952:14124" placeholder="..." />
+            <marker date="1435250661868" expanded="true" signature="14008:14124" placeholder="..." />
           </folding>
         </state>
       </provider>

@@ -1,4 +1,5 @@
 <?
+    // Utworzenie nowej sesji i zapisanie danych z logowania
 	session_start();
 	if(($_SESSION['login'] == "") || ($_SESSION['haslo'] == "")){
 		$_SESSION['login'] = $_POST['email'];
@@ -12,6 +13,7 @@ include("includes/logQuery.php");
 include("functions/LoginPowerFunctions.php");
 ?>
 <?
+    // Pobranie danych dla emaila u¿ytego w logowaniu oraz zapisanie pobranego zakodowanego has³a oraz uprawnieñ z bazy danych
 	$kwerenda = "SELECT email, haslo, nazwisko, uprawnienia FROM nazwiska WHERE email = \"" . $_SESSION['login'] . "\"";
 	$logowanie = mysql_query($kwerenda)	or die('B³±d logowania');
 	if($logowanie){
@@ -64,7 +66,7 @@ include("functions/LoginPowerFunctions.php");
 		}
 	}
 	else{
-		// Wyczyszczenie sesji je¿eli jest z³e logowanie
+		// Wyczyszczenie sesji je¿eli jest niepoprawne logowanie
 		$_SESSION = array();
 		session_unset();
 		session_destroy();
