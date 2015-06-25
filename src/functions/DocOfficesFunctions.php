@@ -93,12 +93,12 @@ function checkTime($day, $time, $date, $idGabinetu) {
                 $queryDoc = "SELECT nazwisko FROM nazwiska WHERE id_nazwiska='" . $line['ID_nazwiska_Lek'] . "'";
                 $docResult = mysql_query($queryDoc) or die('Błąd zapytania');
                 $docData = mysql_fetch_assoc($docResult);
-                $tabRecord = "<td width=\"100\" bgcolor=\"red\" style=\"text-align: center\">" . $docData['nazwisko'] . "</td>";
+                $tabRecord = "<td  bgcolor=\"red\" style=\"text-align: center\">" . $docData['nazwisko'] . "</td>";
             }
         }
     }
     if (!isset($tabRecord)) {
-        $tabRecord = "<td width=\"100\" bgcolor=\"green\" style=\"text-align: center\"></td>";
+        $tabRecord = "<td></td>";
     }
     echo $tabRecord;
 }
