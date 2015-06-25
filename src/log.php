@@ -57,6 +57,9 @@ include("functions/LoginPowerFunctions.php");
 				<form action="adminEditUsers.php" method="POST">
 					<input type="submit" value="U¿ytkownicy" /> Przejd¼ do strony edytowania i modyfikowania wszystkich u¿ytkowników
 				</form>
+				<form action="generateReport.php" method="POST">
+                    <input type="submit" value="Raport" /> Przejd¼ do strony raportu z u¿ycia gabinetów
+                </form>
                 <form action="adminAllResources.php" method="POST">
                     <input type="submit" value="Zasoby bazy danych" /> Przejd¼ do strony przegl±dania wszystkich zasobów w bazie danych
                 </form></fieldset>
