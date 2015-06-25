@@ -6,6 +6,8 @@ include("includes/header.php");
 include("includes/SQLConnection.php");
 include("includes/logQuery.php");
 include("functions/LoginPowerFunctions.php");
+include("functions/ResourcesFunctions.php");
+include("includes/Parameters.php")
 ?>
 <?
 if(isLoggedPatient($hasloSql, $_SESSION['login'], $_SESSION['haslo'])){
@@ -40,33 +42,8 @@ if(isLoggedPatient($hasloSql, $_SESSION['login'], $_SESSION['haslo'])){
     echo "Email użytkownika: <input type=\"email\" name=\"email\" value=\"" . $patientInfoLine['email'] . "\" ><br>";
     echo "Nowe hasło użytkownika: <input type=\"pass\" name=\"haslo1\" placeholder=\"Nowe Hasło\"\" ><br>";
     echo "Powtórz hasło: <input type=\"pass\" name=\"haslo2\" placeholder=\"Powtórz Hasło\"\"><br>";
-    echo "Specjalizacja użytkownika <select name=\"specjalizacja\"";
-    if(($patientInfoLine['uprawnienia'] == "pacjent") || ($patientInfoLine['uprawnienia'] == "admin")){
-        echo " disabled";
-    }
-    echo ">";
-    if($patientInfoLine['specjalizacja'] == "USG"){
-        echo "<option value=\"USG\" selected=\"selected\">USG</option>";
-        echo "<option value=\"Interna\" >Interna</option>";
-        echo "<option value=\"Ginekolog\" >Ginekologia</option>";
-    }
-    elseif($patientInfoLine['specjalizacja'] == "Interna"){
-        echo "<option value=\"USG\" >USG</option>";
-        echo "<option value=\"Interna\" selected=\"selected\">Interna</option>";
-        echo "<option value=\"Ginekolog\" >Ginekologia</option>";
-    }
-    elseif($patientInfoLine['specjalizacja'] == "Ginekolog"){
-        echo "<option value=\"USG\" >USG</option>";
-        echo "<option value=\"Interna\" >Interna</option>";
-        echo "<option value=\"Ginekolog\" selected=\"selected\">Ginekologia</option>";
-    }
-    else{
-        echo "<option value=\"NULL\" ></option>";
-        echo "<option value=\"USG\" >USG</option>";
-        echo "<option value=\"Interna\" >Interna</option>";
-        echo "<option value=\"Ginekolog\" >Ginekologia</option>";
-    }
-    echo "</select><br>";
+    specialization($patientInfoLine['specjalizacja'], $specialization, 'specjalizacja','Specjalizacja użytkownika', $patientInfoLine['uprawnienia']);
+    echo "<br>";
     echo "<input type=\"submit\" value=\"Edytuj\" ></form>";
     echo "</fieldset>";
 }

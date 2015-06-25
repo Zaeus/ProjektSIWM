@@ -8,16 +8,13 @@ include("includes/logQuery.php");
 include("functions/SignUpForDocFunctions.php");
 include("functions/LoginPowerFunctions.php");
 include("includes/Parameters.php");
+include("functions/ResourcesFunctions.php");
 ?>
 <?
 if(isLoggedPatient($hasloSql, $_SESSION['login'], $_SESSION['haslo'])){
     echo "<fieldset><legend><b>Specjalizacja gabinetu:</b></legend>";
     echo "<form action = \"signUpForDoc.php\" method=\"POST\"> ";
-    echo "<select name=\"specjalizacjaGabinetu\">";
-    echo "<option value=\"USG\" >USG</option>";
-    echo "<option value=\"Interna\" >Interna</option>";
-    echo "<option value=\"Ginekologia\" >Ginekologia</option>";
-    echo "</select>";
+    specialization(NULL,$specialization, 'specjalizacjaGabinetu','');
     echo "<input type=\"submit\" value=\"Wybierz\" >";
     echo "</form></td>";
     if(isset($_POST['specjalizacjaGabinetu'])) {
