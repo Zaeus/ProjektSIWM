@@ -9,6 +9,7 @@ function drawTable($date, $idGabinetu){
     if(isset($idGabinetu)){
         ?>
         <br>
+        <div class="CSSTableGenerator" >
         <table align="center" cellpadding="5" border="1">
             <tr bgcolor>
                 <td style="text-align: center;">Godzina</td>
@@ -70,7 +71,7 @@ function drawTable($date, $idGabinetu){
                 $time = date_modify($time, '+'.VISIT_DURATION);
             }
             ?>
-        </table>
+        </table></div>
     <?
     }
 }
@@ -111,7 +112,7 @@ function reservationTable($day, $fromTime, $toTime, $sinceDate, $toDate, $docEma
     $reservationQuery = "SELECT ID_gabinetu FROM gabinety";
     $reservationResult = mysql_query($reservationQuery) or die('Błąd zapytania');
     if($reservationResult) {
-        echo "<br><fieldset><legend>Wolne gabinety:</legend><table align=\"center\" cellpadding=\"5\" border=\"1\">";
+        echo "<br><fieldset><legend>Wolne gabinety:</legend><div class=\"CSSTableGenerator\" ><table align=\"center\" cellpadding=\"5\" border=\"1\">";
         echo "<tr>";
         echo "<td>ID Gabinetu</td>";
         echo "<td>Dzień tygodnia</td>";
@@ -295,7 +296,7 @@ function viewMyReservationTable($docEmail){
     $checkReservationResult = mysql_query($checkReservationQuery) or die('Błąd zapytania o posiadane najmy');
     $numberOfRecords = mysql_num_rows($checkReservationResult);
     if($numberOfRecords > 0) {
-        echo "<table align=\"center\" cellpadding=\"5\" border=\"1\">";
+        echo "<div class=\"CSSTableGenerator\" ><table align=\"center\" cellpadding=\"5\" border=\"1\">";
         echo "<tr>";
         echo "<td>ID Gabinetu</td>";
         echo "<td>Dzień tygodnia</td>";
@@ -323,7 +324,7 @@ function viewMyReservationTable($docEmail){
             echo "<button name=\"usun_najm\" type=\"submit\" \">Usuń</button>";
             echo "</form></td>";
         }
-        echo "</table>";
+        echo "</table></div>";
     }
     else {
         echo "Nie posiadasz żadnych najmowanych gabinetów";
@@ -462,7 +463,7 @@ function submitButton ($value){
 function viewOffice(){
     $docOfficeViewQuery = "SELECT ID_gabinetu FROM zajetosc";
     $viewOfficeResult = mysql_query($docOfficeViewQuery) or die('Błąd zapytania');
-    $docOfficeViewFrom = "<br><fieldset><legend>Przejrzyj zajętość gabinet:</legend><form action = \"docOffices.php\" method=\"POST\">";
+    $docOfficeViewFrom = "<br><fieldset><legend>Przejrzyj zajętość gabinetów:</legend><form action = \"docOffices.php\" method=\"POST\">";
     $docOfficeViewFrom .= "Gabinet: <select name=\"ID_przegladany_gabinet\">";
     if($viewOfficeResult) {
         $iterator = 0;
@@ -491,7 +492,7 @@ function viewOffice(){
 function daysSelection(){
 
     echo "</select><br>";
-    echo "<table align=\"center\" cellpadding=\"5\" border=\"1\">";
+    echo "<div class=\"CSSTableGenerator\" ><table align=\"center\" cellpadding=\"5\" border=\"1\">";
     echo "<tr>";
     echo "<td>Dzień tygodnia: </td>";
     echo "<td><input type=\"radio\" name=\"Dzien\" value=\"Pon\">Poniedziałek</td>";
@@ -499,7 +500,7 @@ function daysSelection(){
     echo "<td><input type=\"radio\" name=\"Dzien\" value=\"Sro\">Środa</td>";
     echo "<td><input type=\"radio\" name=\"Dzien\" value=\"Czw\">Czwartek</td>";
     echo "<td><input type=\"radio\" name=\"Dzien\" value=\"Pia\">Piątek<br></td>";
-    echo "</tr></table><input type=\"submit\" value=\"Dalej\" /><br><br></form></fieldset>";
+    echo "</tr></table></div><input type=\"submit\" value=\"Dalej\" /><br><br></form></fieldset>";
 }
 
 ?>

@@ -11,6 +11,7 @@ function signUpForDoc($officeSpecialization)
     $officeSpecQuery .= "WHERE gabinety.specjalnosc='" . $officeSpecialization . "'";
     $officeSpecResult = mysql_query($officeSpecQuery) or die('Błąd zapytania o gabinety o podanej specjalizacji');
     $howMuchLines = mysql_num_rows($officeSpecResult);
+    echo "<div class=\"CSSTableGenerator\" >";
     if($howMuchLines > 0) {
         echo "<table align=\"center\" cellpadding=\"5\" border=\"1\">";
         echo "<tr>";
@@ -46,7 +47,7 @@ function signUpForDoc($officeSpecialization)
                 echo "</tr>";
                 }
             }
-        echo "</table>";
+        echo "</table> </div>";
     } else {
         echo "Brak gabinetów o podanej specjalizacji";
     }
@@ -63,6 +64,7 @@ function signUpForDoc2($officeSpecialization, $regDate, $officeID, $fromTime, $s
     $officeSpecQuery .= "AND zajetosc.od_godziny='" . $fromTime . "' ";
     $officeSpecQuery .= "AND zajetosc.od_dnia='" . $sinceDate . "'";
     $officeSpecResult = mysql_query($officeSpecQuery) or die('Błąd zapytania o gabinety o podanej specjalizacji');
+    echo "<div class=\"CSSTableGenerator\" >";
     echo "<table align=\"center\" cellpadding=\"5\" border=\"1\">";
     echo "<tr>";
     echo "<td>Dane lekarza</td>";
@@ -126,7 +128,7 @@ function signUpForDoc2($officeSpecialization, $regDate, $officeID, $fromTime, $s
             unset($temp, $temp2, $start, $stop, $occupiedHours);
         }
     }
-    echo "</table>";
+    echo "</table> </div>";
     echo "</fieldset>";
 }
 
@@ -217,6 +219,7 @@ function viewMyVisit($patientLogin)
         $i++;
     }
     $sortedResult = array_orderby($result, 'data', SORT_DESC, 'godzina', SORT_DESC);
+    echo "<div class=\"CSSTableGenerator\" >";
     if($myVisitLineNumber > 0){
         echo "<table align=\"center\" cellpadding=\"5\" border=\"1\">";
         echo "<td>Gabinet</td>";
@@ -261,7 +264,7 @@ function viewMyVisit($patientLogin)
             echo "</td>";
             echo "</tr>";
         }
-        echo "</table>";
+        echo "</table> </div>";
     } else {
         echo "Nie posiadasz żadnych wizyt";
     }

@@ -9,7 +9,7 @@ function drawAllResourcesTable($tableName)
     $allResourcesQuery = "SELECT ";
     $iterator = 0;
     echo "<fieldset><legend>Tabela: " . $tableName . "</legend>";
-    echo "<table align=\"center\" cellpadding=\"5\" border=\"1\">";
+    echo "<div class=\"CSSTableGenerator\" ><table align=\"center\" cellpadding=\"5\" border=\"1\">";
     echo "<tr>";
     while($columnNameLine = mysql_fetch_assoc($columnNameResult)) {
         if($iterator < $columnCount-1) {
@@ -31,7 +31,7 @@ function drawAllResourcesTable($tableName)
         }
         echo "</tr>";
     }
-    echo "</table></fieldset><br>";
+    echo "</table></div></fieldset><br>";
 }
 
 function specialization($specjalizacja, $tabelaSpecjalizacje, $selectName='nowa_specjalnosc', $selectText = 'Specjalność gabinetu:', $uprawnienia ='lekarz' ){
