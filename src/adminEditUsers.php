@@ -79,6 +79,7 @@
 
             if($result){
                 ?>
+                <div class="CSSTableGenerator" >
                 <table align="center" cellpadding="5" border="1">
                     <tr>
                         <td style="text-align: center;">Rekord o ID_Nazwiska:</td>
@@ -113,6 +114,7 @@
                 }
                 ?>
                 </table>
+                </div>
                 <?
             }
 		}

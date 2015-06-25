@@ -25,41 +25,47 @@ include("functions/LoginPowerFunctions.php");
 		echo "<fieldset><legend>Witaj, jeste¶ zalogowany jako:<b> " . $_SESSION['login'] . "</b></legend>";
         echo "<fieldset><legend><b>Opcje:</b></legend>";
 		?>
-		<form action="index.php" method="POST">
-			<input type="submit" value="Wyloguj siê" />
+		<form  action="index.php" method="POST">
+			<input  type="submit" value="Wyloguj siê" />
 		</form><br>
-        <form action="editMyAccount.php" method="POST">
+        <form  action="editMyAccount.php" method="POST">
             <input type="submit" value="Edytuj swoje konto" />
         </form></fieldset>
         <?
 		echo "<br><fieldset><legend><b>Posiadasz dostêp do opcji pacjenta: </b></legend>";
 		?>		
-		<form action="signUpForDoc.php" method="POST">
-			<input type="submit" value="Zapisz siê na wizytê" /> Przejd¼ do strony z zapisami<br> do gabinetu lekarza oraz wszystkimi twoimi wizytami
+		<form style="text-align: left" action="signUpForDoc.php" method="POST">
+		<label for="wizyta">Przejd¼ do strony z zapisami do gabinetu lekarza oraz wszystkimi twoimi wizytami</label>
+			<input type="submit" value="Zapisz siê na wizytê" name="wizyta" />
 		</form></fieldset>
 		<?
 		if(isLoggedDoctor($hasloSql, $_SESSION['login'], $_SESSION['haslo'], $_SESSION['uprawnienia'])) {
 			echo "<br><fieldset><legend><b>Posiadasz dostêp do opcji lekarza: </b></legend>";
-			?>			
-			<form action="docOffices.php" method="POST">
-				<input type="submit" value="Gabinety" name="initGabinet" /> Przejd¼ do strony rezerwacji oraz modyfikacji Twoich gabinetów
-			</form>
-			<form action="docMyVisits.php" method="POST">
-				<input type="submit" value="Zapisy" /> Przejd¼ do strony przegl±dania i edytowania zapisów do Twoich gabinetów
-			</form></fieldset>
+			?><br>
+			<form style="text-align: left" action="docOffices.php" method="POST">
+			<label for="initGabinet">Przejd¼ do strony rezerwacji oraz modyfikacji Twoich gabinetów</label>
+				<input type="submit" value="Gabinety" name="initGabinet" />
+			</form><br>
+			<form style="text-align: left" action="docMyVisits.php" method="POST">
+			<label for="Zapisy">Przejd¼ do strony przegl±dania i edytowania zapisów do Twoich gabinetów</label>
+				<input type="submit" value="Zapisy" name="Zapisy" />
+			</form><br></fieldset>
 			<?
 			if(isLoggedAdmin($hasloSql, $_SESSION['login'], $_SESSION['haslo'], $_SESSION['uprawnienia'])) {
 				echo "<br><fieldset><legend><b>Posiadasz dostêp do opcji administratora: </b></legend>";
-				?>
-				<form action="adminEditResources.php" method="POST">
-					<input type="submit" value="Budynki i gabinety" /> Przejd¼ do strony edytowania, dodawania i usuwania wszystkich budynków i gabinetów
-				</form>
-				<form action="adminEditUsers.php" method="POST">
-					<input type="submit" value="U¿ytkownicy" /> Przejd¼ do strony edytowania i modyfikowania wszystkich u¿ytkowników
-				</form>
-                <form action="adminAllResources.php" method="POST">
-                    <input type="submit" value="Zasoby bazy danych" /> Przejd¼ do strony przegl±dania wszystkich zasobów w bazie danych
-                </form></fieldset>
+				?><br>
+				<form style="text-align: left" action="adminEditResources.php" method="POST">
+				<label for="budynki">Przejd¼ do strony edytowania, dodawania i usuwania wszystkich budynków i gabinetów</label>
+					<input type="submit" value="Budynki i gabinety" name="budynki" />
+				</form><br>
+				<form style="text-align: left" action="adminEditUsers.php" method="POST">
+				<label for="u¿ytkownicy">Przejd¼ do strony edytowania i modyfikowania wszystkich u¿ytkowników</label>
+					<input type="submit" value="U¿ytkownicy" name="u¿ytkownicy" />
+				</form><br>
+                <form style="text-align: left" action="adminAllResources.php" method="POST">
+                <label for="zasoby">Przejd¼ do strony przegl±dania wszystkich zasobów w bazie danych</label>
+                    <input type="submit" value="Zasoby bazy danych" name="zasoby" />
+                </form><br></fieldset>
 				<?
 			}
             echo "</fieldset>";
