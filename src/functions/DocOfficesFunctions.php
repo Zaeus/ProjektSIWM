@@ -246,7 +246,7 @@ function reservationTable($day, $fromTime, $toTime, $sinceDate, $toDate, $docEma
 // Funkcja reservationQuery - odpowiada za wstawienie nowej rezerwacji gabinetu
 function reservationQuery($docEmail, $officeID, $day, $sinceDate, $toDate, $fromTime, $toTime)
 {
-    $emailInfoQuery = "SELECT id_nazwiska FROM nazwiska WHERE email='" . $docEmail . "'";
+    $emailInfoQuery = "SELECT id_nazwiska, pozostalo_kontraktu FROM nazwiska WHERE email='" . $docEmail . "'";
     $infoResult = mysql_query($emailInfoQuery) or die('Błąd zapytania o ID nazwiska lekarza');
     $infoLine = mysql_fetch_assoc($infoResult);
     $reservationQuery = "INSERT INTO zajetosc (ID_nazwiska_Lek,ID_gabinetu,dzien_tyg,od_dnia,do_dnia,od_godziny,do_godziny) VALUES ";
@@ -261,6 +261,11 @@ function reservationQuery($docEmail, $officeID, $day, $sinceDate, $toDate, $from
     $reservationQuery .= ")";
     mysql_query($reservationQuery) or die('Błąd zapytania nowej rezerwacji gabinetu');
     echo "<br>Wpisanie danych rezerwacj dla gabinetu o ID: " . $officeID . " do bazy danych w godzinach: <br>" . $fromTime . "-" . $toTime . "<br> od-do: <br>" . $sinceDate . "-" . $toDate . "<br>";
+    $diff = strtotime($toDate, 0) - strtotime($sinceDate, 0);
+    $weeks =  floor($diff / 604800);
+    $hours = $_POST['pozostalo_kontraktu'] - ($weeks * ($toTime - $fromTime));
+    $contractUpdateQuery = "UPDATE nazwiska SET pozostalo_kontraktu='" . $hours . "' WHERE email='"  . $docEmail . "'";
+    mysql_query($contractUpdateQuery) or die('Błąd zapytania uaktualnienia pozostałego czasu kontraktu');
 }
 
 // Funkcja reservationRemoveQuery - odpowiada za usunięcie rezerwacji gabinetu
