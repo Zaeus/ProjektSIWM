@@ -45,3 +45,12 @@ $specialization[] = USG;
 $specialization[] = GINEKOLOGIA;
 $specialization[] = INTERNA;
 $specialization[] = CHIRURGIA;
+
+//funkcjie
+define('ADMINISTRATOR', 'admin');
+define('LEKARZ', 'lekarz');
+define('PACJENT','pacjent');
+
+$status[] = ADMINISTRATOR;
+$status[] = LEKARZ;
+$status[] = PACJENT;

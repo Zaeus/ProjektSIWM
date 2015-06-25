@@ -64,13 +64,10 @@
             $addForm .= "<input type=\"password\" name=\"dodane_haslo\" placeholder=\"Hasło\"><br>";
             $addForm .= "<input type=\"email\" name=\"dodany_email\" placeholder=\"Email\"><br>";
             echo $addForm;
-            echo "<fieldset><legend>Specjalizacja (pamiętaj że pacjent/admin nie posiadają specjalizacji!):</legend>";
             specialization(NULL, $specialization,'dodana_specjalizacja','');
-            $addForm = "</fieldset><br>";
-            $addForm .= "<fieldset><legend>Status:</legend><input type=\"radio\" name=\"dodane_uprawnienia\" id=\"dodane_uprawnienia\" value=\"admin\"/><label for=\"admin\">Administrator</label><br>";
-            $addForm .= "<input type=\"radio\" name=\"dodane_uprawnienia\" id=\"dodane_uprawnienia\" value=\"lekarz\"/><label for=\"lekarz\">Lekarz</label><br>";
-            $addForm .= "<input type=\"radio\" name=\"dodane_uprawnienia\" id=\"dodane_uprawnienia\" value=\"pacjent\"/><label for=\"pacjent\">Pacjent</label></fieldset><br>";
-            $addForm .= "<input type=\"submit\" value=\"Dodaj rekord\" >";
+            echo "<br>";
+            specialization(NULL, $status, 'dodane_uprawnienia', '');
+            $addForm = "<br><input type=\"submit\" value=\"Dodaj rekord\" >";
             $addForm .= "<input type=\"reset\" value=\"Resetuj dane\" /></fieldset>";
             $addForm .= "</form><br>";
             echo $addForm;
@@ -84,6 +81,7 @@
                     <tr>
                         <td style="text-align: center;">Rekord o ID_Nazwiska:</td>
                         <td style="text-align: center;">Dane użytkowników znajdujących się w bazie danych:</td>
+                        <td></td>
                     </tr>
                 <?
                 while($line = mysql_fetch_assoc($result)){

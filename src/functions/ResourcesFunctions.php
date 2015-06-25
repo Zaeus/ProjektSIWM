@@ -35,7 +35,7 @@ function drawAllResourcesTable($tableName)
 }
 
 function specialization($specjalizacja, $tabelaSpecjalizacje, $selectName='nowa_specjalnosc', $selectText = 'Specjalność gabinetu:', $uprawnienia ='lekarz' ){
-    $form_gab = " $selectText <select name=\"$selectName\" style=\"width: 200px\"";
+    $form_gab = " $selectText <select name=\"$selectName\"";
     if($uprawnienia=='lekarz') {
         $form_gab.=">";
         foreach ($tabelaSpecjalizacje as $spec => $value) {

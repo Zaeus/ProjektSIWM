@@ -88,7 +88,7 @@
                 echo "Usunięcie gabinetu o ID " . $_POST['usun_gab'];
             }
 
-            echo "<br><br>";
+            echo "<br>";
             $forma_dodania_bud = "<fieldset><legend>Dodaj budynek:</legend><form action = \"adminEditResources.php\" method=\"POST\">";
             $forma_dodania_bud .= "<input type=\"text\" name=\"dodane_miasto\" placeholder=\"Miasto\"><br>";
             $forma_dodania_bud .= "<input type=\"text\" name=\"dodana_ulica\" placeholder=\"Ulica\"><br>";
@@ -115,9 +115,9 @@
             $forma_dodania_gab = "<br>";
             $forma_dodania_gab .= "Kontrakt od: <input type=\"date\" name=\"data_kontraktu_od\" placeholder=\"Data rozpoczęcia kontraktu\" value=\"" . date_format(new DateTime(), 'Y-m-d') . "\"><br>";
             $forma_dodania_gab .= "Kontrakt do: <input type=\"date\" name=\"data_kontraktu_do1\" placeholder=\"Data zakończenia kontraktu\" value=\"" . date_format(date_modify(new DateTime(), '+7 day'), 'Y-m-d') . "\"><br>";
-            $forma_dodania_gab .= " Lub przez: <input type=\"radio\" name=\"data_kontraktu_do2\" value=\"" . date_format(date_modify(new DateTime(), '+183 day'), 'Y-m-d') . "\">Pół roku";
-            $forma_dodania_gab .= " lub: <input type=\"radio\" name=\"data_kontraktu_do2\" value=\"" . date_format(date_modify(new DateTime(), '+365 day'), 'Y-m-d') . "\">Rok<br>";
-            $forma_dodania_gab .= "<input type=\"submit\" value=\"Dodaj rekord\" >";
+            $forma_dodania_gab .= "Pół roku <input type=\"radio\" name=\"data_kontraktu_do2\" value=\"" . date_format(date_modify(new DateTime(), '+183 day'), 'Y-m-d') . "\">";
+            $forma_dodania_gab .= "Rok <input type=\"radio\" name=\"data_kontraktu_do2\" value=\"" . date_format(date_modify(new DateTime(), '+365 day'), 'Y-m-d') . "\">";
+            $forma_dodania_gab .= "<br><input type=\"submit\" value=\"Dodaj rekord\" >";
             $forma_dodania_gab .= "<input type=\"reset\" value=\"Resetuj dane\" />";
             $forma_dodania_gab .= "</form></fieldset><br>";
             echo $forma_dodania_gab;
@@ -134,6 +134,7 @@
                     <tr>
                         <td style="text-align: center">Budynek o ID_Budynku:</td>
                         <td style="text-align: center">Dane budynków znajdujących się w bazie danych:</td>
+                        <td></td>
                     </tr>
                     <?
                     if ($wynik_bud) {
@@ -163,9 +164,14 @@
 
                     }
                     ?>
+                </table>
+                </div>
+                <div class="CSSTableGenerator" >
+                    <table align="center" cellpadding="5" border="1">
                     <tr>
                         <td style="text-align: center">Gabinet o ID_Gabinetu:</td>
                         <td style="text-align: center">Dane gabinetów znajdujących się w bazie danych:</td>
+                        <td></td>
                     </tr>
                     <?
                     if ($wynik_gab) {
@@ -194,7 +200,7 @@
                     }
                     ?>
                 </table>
-                    </div>
+                </div>
             </fieldset>
         <?
         }
