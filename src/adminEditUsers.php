@@ -6,6 +6,8 @@
     include("includes/SQLConnection.php");
     include("includes/logQuery.php");
     include("functions/LoginPowerFunctions.php");
+    include("includes/Parameters.php");
+    include("functions/ResourcesFunctions.php");
 ?>
 <?
 	if(isLoggedPatient($hasloSql, $_SESSION['login'], $_SESSION['haslo'])){
@@ -61,9 +63,10 @@
             $addForm .= "<input type=\"text\" name=\"dodane_imie\" placeholder=\"Imiê\"><br>";
             $addForm .= "<input type=\"password\" name=\"dodane_haslo\" placeholder=\"Has³o\"><br>";
             $addForm .= "<input type=\"email\" name=\"dodany_email\" placeholder=\"Email\"><br>";
-            $addForm .= "<fieldset><legend>Specjalizacja (pamiêtaj ¿e pacjent/admin nie posiadaj± specjalizacji!):</legend><input type=\"radio\" name=\"dodana_specjalizacja\" id=\"dodana_specjalizacja\" value=\"Interna\"/><label for=\"Internista\">Internista</label><br>";
-            $addForm .= "<input type=\"radio\" name=\"dodana_specjalizacja\" id=\"dodana_specjalizacja\" value=\"Ginekologia\"/><label for=\"Ginekologia\">Ginekologia</label><br>";
-            $addForm .= "<input type=\"radio\" name=\"dodana_specjalizacja\" id=\"dodana_specjalizacja\" value=\"USG\"/><label for=\"USG\">USG</label></fieldset><br>";
+            echo $addForm;
+            echo "<fieldset><legend>Specjalizacja (pamiêtaj ¿e pacjent/admin nie posiadaj± specjalizacji!):</legend>";
+            specialization(NULL, $specialization,'dodana_specjalizacja','');
+            $addForm = "</fieldset><br>";
             $addForm .= "<fieldset><legend>Status:</legend><input type=\"radio\" name=\"dodane_uprawnienia\" id=\"dodane_uprawnienia\" value=\"admin\"/><label for=\"admin\">Administrator</label><br>";
             $addForm .= "<input type=\"radio\" name=\"dodane_uprawnienia\" id=\"dodane_uprawnienia\" value=\"lekarz\"/><label for=\"lekarz\">Lekarz</label><br>";
             $addForm .= "<input type=\"radio\" name=\"dodane_uprawnienia\" id=\"dodane_uprawnienia\" value=\"pacjent\"/><label for=\"pacjent\">Pacjent</label></fieldset><br>";
@@ -71,7 +74,6 @@
             $addForm .= "<input type=\"reset\" value=\"Resetuj dane\" /></fieldset>";
             $addForm .= "</form><br>";
             echo $addForm;
-
             $query = "SELECT id_nazwiska, email, haslo, imie, nazwisko, specjalizacja, uprawnienia FROM nazwiska WHERE 1";
             $result = mysql_query($query) or die('B³±d zapytania');
 
@@ -94,34 +96,9 @@
                     $editForm .= "<input type=\"text\" name=\"nowe_imie\" value=\"" . $line['imie'] . "\">";
                     $editForm .= "<input type=\"text\" name=\"nowe_haslo\" value=\"" . $line['haslo'] . "\" disabled>";
                     $editForm .= "<input type=\"email\" name=\"nowy_email\" value=\"" . $line['email'] . "\">";
-                    $editForm .= "<select name=\"nowa_specjalizacja\"";
-                    if(($line['uprawnienia'] == "pacjent") || ($line['uprawnienia'] == "admin")){
-                        $editForm .= " disabled";
-                    }
-                    $editForm .= ">";
-                    if($line['specjalizacja'] == "USG"){
-                        $editForm .= "<option value=\"USG\" selected=\"selected\">USG</option>";
-                        $editForm .= "<option value=\"Interna\" >Interna</option>";
-                        $editForm .= "<option value=\"Ginekologia\" >Ginekologia</option>";
-                    }
-                    elseif($line['specjalizacja'] == "Interna"){
-                        $editForm .= "<option value=\"USG\" >USG</option>";
-                        $editForm .= "<option value=\"Interna\" selected=\"selected\">Interna</option>";
-                        $editForm .= "<option value=\"Ginekologia\" >Ginekologia</option>";
-                    }
-                    elseif($line['specjalizacja'] == "Ginekologia"){
-                        $editForm .= "<option value=\"USG\" >USG</option>";
-                        $editForm .= "<option value=\"Interna\" >Interna</option>";
-                        $editForm .= "<option value=\"Ginekologia\" selected=\"selected\">Ginekologia</option>";
-                    }
-                    else{
-                        $editForm .= "<option value=\"NULL\" ></option>";
-                        $editForm .= "<option value=\"USG\" >USG</option>";
-                        $editForm .= "<option value=\"Interna\" >Interna</option>";
-                        $editForm .= "<option value=\"Ginekologia\" >Ginekologia</option>";
-                    }
-                    $editForm .= "</select>";
-                    $editForm .= "<input type=\"text\" name=\"uprawnienia\" value=\"" . $line['uprawnienia'] . " \"disabled>";
+                    echo $editForm;
+                    specialization($line['specjalizacja'],$specialization,'nowa_specjalizacja','',$line['uprawnienia']);
+                    $editForm = "<input type=\"text\" name=\"uprawnienia\" value=\"" . $line['uprawnienia'] . " \"disabled>";
                     $editForm .= "<input type=\"submit\" value=\"Edytuj rekord\" >";
                     $editForm .= "</form></td>";
                     echo $editForm;

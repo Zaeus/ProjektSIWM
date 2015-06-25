@@ -33,4 +33,22 @@ function drawAllResourcesTable($tableName)
     }
     echo "</table></fieldset><br>";
 }
+
+function specialization($specjalizacja, $tabelaSpecjalizacje, $selectName='nowa_specjalnosc', $selectText = 'Specjalno¶æ gabinetu:', $uprawnienia ='lekarz' ){
+    $form_gab = " $selectText <select name=\"$selectName\" style=\"width: 200px\"";
+    if($uprawnienia=='lekarz') {
+        $form_gab.=">";
+        foreach ($tabelaSpecjalizacje as $spec => $value) {
+            if ($specjalizacja == $value) {
+                $form_gab .= "<option value=\"$value\" selected=\"selected\">$value</option>";
+            } else {
+                $form_gab .= "<option value=\"$value\" >$value</option>";
+            }
+        }
+    }else{
+        $form_gab .= "disabled>";
+    }
+    $form_gab .= "</select>";
+    echo $form_gab;
+}
 ?>

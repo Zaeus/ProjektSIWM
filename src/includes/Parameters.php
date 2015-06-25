@@ -30,7 +30,18 @@ $officeParameters['maxDate'] = MAX_DATE;
 
 //Ile dni przed wizyt± mo¿na sie rejestrowaæ
 define('DAYS_BEFORE_VISIT_MIN', '1 day');
-$officeParameters['daysBeforeVisitMin']=DAYS_BEFORE_VISIT_MIN;
+$officeParameters['daysBeforeVisitMin']= DAYS_BEFORE_VISIT_MIN;
 
 define('DAYS_BEFORE_VISIT_MAX', '8 weeks');
-$officeParameters['daysBeforeVisitMax']=DAYS_BEFORE_VISIT_MAX;
+$officeParameters['daysBeforeVisitMax']= DAYS_BEFORE_VISIT_MAX;
+
+//Dostêpne specjalizacje lekarzy
+define('USG', 'USG');
+define('GINEKOLOGIA', 'Ginekologia');
+define('INTERNA', 'Interna');
+define('CHIRURGIA', 'Chirurgia');
+
+$specialization[]= USG;
+$specialization[] = GINEKOLOGIA;
+$specialization[] = INTERNA;
+$specialization[] = CHIRURGIA;
