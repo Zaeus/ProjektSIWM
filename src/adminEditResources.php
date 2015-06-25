@@ -129,6 +129,7 @@
             ?>
             <fieldset>
                 <legend>Istniej±ce gabinety i budynki:</legend>
+                <div class="CSSTableGenerator" >
                 <table align="center" cellpadding="5" border="1">
                     <tr>
                         <td style="text-align: center">Budynek o ID_Budynku:</td>
@@ -194,6 +195,7 @@
                     }
                     ?>
                 </table>
+                    </div>
             </fieldset>
         <?
         }
