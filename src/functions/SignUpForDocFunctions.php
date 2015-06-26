@@ -75,7 +75,7 @@ function signUpForDoc2($officeSpecialization, $regDate, $officeID, $fromTime, $s
     echo "</tr>";
     while($officeSpecLine = mysql_fetch_assoc($officeSpecResult)) {
         $today = new DateTime();
-        if(($officeSpecLine['od_dnia'] <= date_format($today, 'Y-m-d')) && (date_format($today, 'Y-m-d') <= $officeSpecLine['do_dnia'])) {
+        if((date_format($today, 'Y-m-d') <= $officeSpecLine['do_dnia'])) {
             echo "<tr>";
             $docNameQuery = "SELECT imie, nazwisko FROM nazwiska WHERE id_nazwiska='" . $officeSpecLine['ID_nazwiska_Lek'] . "'";
             $docNameResult = mysql_query($docNameQuery) or die('Błąd zapytania o nazwisko lekarza');
@@ -251,10 +251,9 @@ function viewMyVisit($patientLogin)
                 echo "<input type=\"hidden\" name=\"removeVisitDate\" value=\"" . $visitLine['data'] . "\">";
                 echo "<input type=\"hidden\" name=\"removeVisitTime\" value=\"" . $visitLine['godzina'] . "\">";
                 echo "<input type=\"submit\" value=\"Usuń\" ";
-                echo($visitLine['data'] == date_format(date_modify(new DateTime(), '+1 day'), 'Y-m-d'));
                 // Zablokowanie możliwości usunięcia wizyty jeżeli do wizyty zostało mniej niż 24h
                 date_modify($visitDate, '-1 day');
-                if ((date_create() > $visitDate) && (date_create($visitLine['data'] . " " . $visitLine['godzina']) < $visitDate)) {
+                if ((date_create() > $visitDate) && (date_create($visitLine['data'] . " " . $visitLine['godzina']) >= date_create())) {
                     echo "disabled";
                 }
                 echo " ></form>";

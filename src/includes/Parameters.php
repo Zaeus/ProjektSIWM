@@ -25,7 +25,7 @@ define('MAX_WORK_DURATION', '8 hours');
 $officeParameters['maxDurationOfWork'] = MAX_WORK_DURATION;
 
 //Ile lat w przód wyświetlanie
-define('MAX_DATE', '2 year');
+define('MAX_DATE', '12 weeks');
 $officeParameters['maxDate'] = MAX_DATE;
 
 //Ile dni przed wizytą można sie rejestrować

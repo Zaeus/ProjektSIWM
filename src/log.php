@@ -76,8 +76,9 @@ if(isLoggedPatient($hasloSql, $_SESSION['login'], $_SESSION['haslo'])){
                 </form><br></fieldset>
 				<?
         }
-        echo "</fieldset>";
+
     }
+    echo "</fieldset>";
 }
 else{
     // Wyczyszczenie sesji jeżeli jest niepoprawne logowanie

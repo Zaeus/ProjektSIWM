@@ -10,7 +10,7 @@
     include("includes/header.php");
 ?>
     <h2>Witaj w projektowej bazie danych SIWM - Zdrowexerex.</h2><br>
-	Mooesz się zalogować lub zarejestrować:<br><br>
+	Możesz się zalogować lub zarejestrować:<br><br>
 <?	
 	$forma = "<form action = \"log.php\" method=\"POST\"> ";
 	$forma .= "<input type=\"submit\" value=\"Loguj\" >";

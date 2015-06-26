@@ -53,7 +53,7 @@ function allMyVisitsTable($userLogin)
                         echo($visitLine['data'] == date_format(date_modify(new DateTime(), '+1 day'), 'Y-m-d'));
                         // Zablokowanie możliwości usunięcia wizyty jeżeli do wizyty zostało mniej niż 24h
                         date_modify($visitDate, '-1 day');
-                        if ((date_create() > $visitDate) && (date_create($visitLine['data'] . " " . $visitLine['godzina']) < $visitDate)) {
+                        if ((date_create() > $visitDate) && (date_create($visitLine['data'] . " " . $visitLine['godzina']) >= date_create())) {
                             echo "disabled";
                         }
                         echo " ></form>";
